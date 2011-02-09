@@ -17,6 +17,6 @@ function relink() {
 cd ~
 relink .bash_profile ~/.dotfiles/bash_profile
 relink .bashrc ~/.dotfiles/bashrc
-# relink .gitconfig ~/.dotfiles/git-config
-# relink .gitignore ~/.dotfiles/git-ignore-global
+relink .gitconfig ~/.dotfiles/git-config
+relink .gitignore ~/.dotfiles/git-ignore-global
 relink bin ~/.dotfiles/bin
