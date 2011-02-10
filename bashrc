@@ -56,6 +56,7 @@ alias cls='clear'
 alias edit='mate'
 alias vi='vim'
 alias sizes='du -h -d1'
+alias reload='. ~/.bash_profile'
 
 # show/hide hidden files in Finder
 alias shd='defaults write com.apple.Finder AppleShowAllFiles YES'
