@@ -15,7 +15,7 @@ shopt -s histappend
 
 ## PATH
 # Put /usr/local/{sbin,bin} first
-export PATH=/usr/local/bin:/usr/local/shit/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
 
 # Add local bin to PATH
 if [ -d ~/bin ] ; then
