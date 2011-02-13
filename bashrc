@@ -3,7 +3,6 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-
 export EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
 
@@ -57,6 +56,8 @@ alias edit='mate'
 alias vi='vim'
 alias sizes='du -h -d1'
 alias reload='. ~/.bash_profile'
+alias weather='python3 ~/bin/pyweather.py 58102'
+alias gmail='python3 ~/bin/gmail-unread.py'
 
 # show/hide hidden files in Finder
 alias shd='defaults write com.apple.Finder AppleShowAllFiles YES'
