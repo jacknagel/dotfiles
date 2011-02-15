@@ -24,10 +24,13 @@ fi
 ## Tab completions
 set completion-ignore-case On
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
-
+for comp in \
+    /usr/local/etc/bash_completion \
+    /usr/local/etc/bash_completion.d/git-completion.bash \
+	/usr/local/Library/Contributions/brew_bash_completion.sh
+do
+    [[ -e $comp ]] && source $comp
+done
 
 ## Custom prompt
 if [ "$PS1" ]; then
