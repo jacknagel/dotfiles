@@ -1,11 +1,15 @@
 [user]
 	name = Jack Nagel
 	email = jacknagel@gmail.com
+	
 [core]
 	autocrlf = input
 	safecrlf = true
 	editor = mate -w
 	excludesfile = ~/.gitignore
+	
+[help]
+#	autocorrect = 1
 
 [alias]
 	co = checkout
@@ -14,6 +18,8 @@
 	br = branch
 	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
 	lg = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	logp = log --pretty=format:\"%h - %an: %s\"
+	loge = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%an]' --abbrev-commit
 	# type = cat-file -t
 	# dump = cat-file -p
 	unstage = reset HEAD
