@@ -59,7 +59,7 @@ alias edit='mate'
 alias vi='vim'
 alias sizes='du -h -d1'
 alias reload='. ~/.bash_profile'
-alias weather='python3 ~/bin/weather 58102'
+alias weather='python3 ~/bin/pyweather 58102'
 alias gmail='python3 ~/dev/py/pygmail/gmail-unread.py'
 
 # show/hide hidden files in Finder
