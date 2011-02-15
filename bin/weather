@@ -1,3 +1,5 @@
+#!/usr/local/bin/python3
+
 """ Print the current weather for the passed place.
 Original by limitedmage.
 
@@ -56,7 +58,7 @@ def getWeather(place):
 
     # Compose the weather string.
     # Current conditions in City, ST: Condition, degF, with Wind: NW at 1 mph
-    weather = "Current conditions in %s: %s, %d °F with %s wind %s" % (city, condition, temperature, wind[1], wind[2])
+    weather = "Current conditions in %s: %s, %d° F with %s wind %s" % (city, condition, temperature, wind[1], wind[2])
 
     return weather
 
