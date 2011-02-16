@@ -16,9 +16,10 @@ shopt -s histappend
 # Put /usr/local/{sbin,bin} first
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-# bin folders from ~ and Homebrew-built installations
+# bin folders from ~, shit, and Homebrew-built installations
 for another_bin in \
-    $HOME/bin
+    $HOME/bin \
+    /usr/local/shit/bin
 do
     [[ -e $another_bin ]] && export PATH=$another_bin:$PATH
 done
