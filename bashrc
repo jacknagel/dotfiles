@@ -18,8 +18,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # bin folders from ~ and Homebrew-built installations
 for another_bin in \
-    $HOME/bin \
-    `brew --prefix`/bin
+    $HOME/bin
 do
     [[ -e $another_bin ]] && export PATH=$another_bin:$PATH
 done
