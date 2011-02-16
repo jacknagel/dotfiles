@@ -14,11 +14,36 @@ shopt -s histappend
 
 ## PATH
 # Put /usr/local/{sbin,bin} first
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-# Add local bin to PATH
-if [ -d ~/bin ] ; then
-    PATH=~/bin:"${PATH}"
+# bin folders from ~ and Homebrew-built installations
+for another_bin in \
+    $HOME/bin \
+    `brew --prefix`/bin
+do
+    [[ -e $another_bin ]] && export PATH=$another_bin:$PATH
+done
+
+if [[ -n `which brew` ]]; then
+  # Find a Homebrew-built Python
+  python_bin=$(brew --cellar python)/*/bin
+  python_bin=`echo $python_bin`
+  [[ -e $python_bin ]] && export PATH=$PATH:$python_bin
+
+  # Find a Homebrew-built Python 3
+  python3_bin=$(brew --cellar python3)/*/bin
+  python3_bin=`echo $python3_bin`
+  [[ -e $python3_bin ]] && export PATH=$PATH:$python3_bin
+
+  # Find a Homebrew-built Ruby
+  ruby_bin=$(brew --cellar ruby)/*/bin
+  ruby_bin=`echo $ruby_bin`
+  [[ -e $ruby_bin ]] && export PATH=$PATH:$ruby_bin
+  
+  # Add MySQL bin (usually /usr/local/mysql/bin)
+  mysql_bin=/usr/local/mysql/bin
+  mysql_bin=`echo $mysql_bin`
+  [[ -e $mysql_bin ]] && export PATH=$PATH:$mysql_bin
 fi
 
 ## Tab completions
