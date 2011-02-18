@@ -11,6 +11,10 @@ export GIT_EDITOR='mate -wl1'
 export HISTCONTROL=ignoreboth
 shopt -s histappend
 
+## New options for bash 4
+shopt -s autocd
+shopt -s globstar
+shopt -s checkjobs
 
 ## PATH
 # Put /usr/local/{sbin,bin} first
@@ -21,7 +25,7 @@ for another_bin in \
     $HOME/bin \
     /usr/local/shit/bin
 do
-    [[ -e $another_bin ]] && export PATH=$another_bin:$PATH
+    [[ -e $another_bin ]] && export PATH=$PATH:$another_bin
 done
 
 if [[ -n `which brew` ]]; then
