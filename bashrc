@@ -8,16 +8,19 @@ export GIT_EDITOR='mate -wl1'
 
 
 ## History control
-export HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 
-## New options for bash 4
+## Experimenting with some new options from Bash 4
 shopt -s autocd
 shopt -s globstar
 shopt -s checkjobs
+shopt -s cdspell
+shopt -s dirspell
+shopt -s dotglob
 
 ## PATH
-# Put /usr/local/{sbin,bin} first
+# Put /usr/local/{bin,sbin} first
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # bin folders from ~, shit, and Homebrew-built installations
@@ -91,13 +94,13 @@ alias reload='. ~/.bash_profile'
 alias weather='python3 ~/bin/pyweather 58102'
 alias gmail='python3 ~/dev/py/pygmail/gmail-unread.py'
 
-# show/hide hidden files in Finder
-alias shd='defaults write com.apple.Finder AppleShowAllFiles YES'
-alias hhd='defaults write com.apple.Finder AppleShowAllFiles NO'
+# show/hide hidden files in Finder (depracated)
+alias shf='defaults write com.apple.Finder AppleShowAllFiles YES'
+alias hhf='defaults write com.apple.Finder AppleShowAllFiles NO'
 
 
 ## Functions
 # Open a manpage in Preview, which can be saved to PDF
-function pman {
+function pdfman {
    man -t "${1}" | open -f -a /Applications/Preview.app
 }
