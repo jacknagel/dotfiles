@@ -19,6 +19,9 @@ shopt -s cdspell
 shopt -s dirspell
 shopt -s dotglob
 
+## Automatically adapt $LINES and $COLUMNS after every command
+shopt -s checkwinsize 
+
 ## PATH
 # Put /usr/local/{bin,sbin} first
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH

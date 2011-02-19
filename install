@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+CONFIG_PATH=~/.dotfiles
 
 function relink() {
   if [[ -h "$1" ]]; then
@@ -15,10 +17,10 @@ function relink() {
 }
 
 cd ~
-relink .bash_profile ~/.dotfiles/bash_profile
-relink .bashrc ~/.dotfiles/bashrc
-relink .bash_aliases ~/.dotfiles/bash_aliases
-relink .inputrc ~/.dotifles/inputrc
-relink .gitconfig ~/.dotfiles/git-config
-relink .gitignore ~/.dotfiles/git-ignore-global
-relink bin ~/.dotfiles/bin
+relink .bash_profile ${CONFIG_PATH}/bash_profile
+relink .bashrc ${CONFIG_PATH}/bashrc
+relink .bash_aliases ${CONFIG_PATH}/bash_aliases
+relink .gitconfig ${CONFIG_PATH}/git-config
+relink .gitignore ${CONFIG_PATH}/git-ignore-global
+relink .inputrc ${CONFIG_PATH}/inputrc
+relink bin ${CONFIG_PATH}/bin
