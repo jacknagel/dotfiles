@@ -110,14 +110,3 @@ alias hhf='defaults write com.apple.Finder AppleShowAllFiles NO'
 pdfman() {
    man -t "${1}" | open -f -a /Applications/Preview.app
 }
-
-# Push SSH public key to a remote box
-push_ssh_key() {
-    local _host
-    test -f ~/.ssh/id_rsa.pub || ssh-keygen -t rsa
-    for _host in "$@";
-    do
-        echo $_host
-        ssh $_host 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub
-    done
-}
