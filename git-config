@@ -5,7 +5,7 @@
 [core]
 	autocrlf = input
 	safecrlf = true
-	editor = mate -w
+	editor = mate -wl1
 	excludesfile = ~/.gitignore
 	
 [help]
