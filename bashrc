@@ -6,19 +6,22 @@
 export EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
 
+## File suffixes to ignore during tab completion
+# This still needs to be configured
+#export FIGNORE=
 
 ## History control
 export HISTCONTROL=ignoreboth:erasedups
-shopt -s histappend
 
-## Experimenting with some bash options
+## Bash shell options
 shopt -s autocd
-shopt -s globstar
-shopt -s checkjobs
 shopt -s cdspell
+shopt -s checkjobs
 shopt -s dirspell
 shopt -s dotglob
 shopt -s extglob
+shopt -s globstar
+shopt -s histappend
 shopt -s no_empty_cmd_completion
 
 ## Automatically adapt $LINES and $COLUMNS after every command
@@ -96,13 +99,25 @@ alias reload='. ~/.bash_profile'
 alias weather='python3 ~/bin/pyweather 58102'
 alias gmail='python3 ~/dev/py/pygmail/gmail-unread.py'
 
-# show/hide hidden files in Finder (depracated)
+# show/hide hidden files in Finder
+# I don't really need these, but they might be useful at some point
 alias shf='defaults write com.apple.Finder AppleShowAllFiles YES'
 alias hhf='defaults write com.apple.Finder AppleShowAllFiles NO'
 
 
 ## Functions
 # Open a manpage in Preview, which can be saved to PDF
-function pdfman {
+pdfman() {
    man -t "${1}" | open -f -a /Applications/Preview.app
+}
+
+# Push SSH public key to a remote box
+push_ssh_key() {
+    local _host
+    test -f ~/.ssh/id_rsa.pub || ssh-keygen -t rsa
+    for _host in "$@";
+    do
+        echo $_host
+        ssh $_host 'cat >> ~/.ssh/authorized_keys' < ~/.ssh/id_rsa.pub
+    done
 }

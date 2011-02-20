@@ -15,7 +15,7 @@ if [ -f ~/.bash_local ]; then
   . ~/.bash_local
 fi
 
-## Source rvm
+## Source rvm (Ruby Version Manager)
 if [ -f ~/.rvm/scripts/rvm ]; then
   . ~/.rvm/scripts/rvm
 fi
