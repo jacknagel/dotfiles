@@ -11,13 +11,15 @@ export GIT_EDITOR='mate -wl1'
 export HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 
-## Experimenting with some new options from Bash 4
+## Experimenting with some bash options
 shopt -s autocd
 shopt -s globstar
 shopt -s checkjobs
 shopt -s cdspell
 shopt -s dirspell
 shopt -s dotglob
+shopt -s extglob
+shopt -s no_empty_cmd_completion
 
 ## Automatically adapt $LINES and $COLUMNS after every command
 shopt -s checkwinsize 
