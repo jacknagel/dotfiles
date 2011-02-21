@@ -1,6 +1,7 @@
 [user]
 	name = Jack Nagel
 	email = jacknagel@gmail.com
+	signingkey = 408CAC63
 	
 [core]
 	autocrlf = input

@@ -25,3 +25,4 @@ relink .gitignore ${CONFIG_PATH}/git-ignore-global
 relink .inputrc ${CONFIG_PATH}/inputrc
 relink .vimrc ${CONFIG_PATH}/vimrc
 relink bin ${CONFIG_PATH}/bin
+relink .vim ${CONFIG_PATH}/vim
