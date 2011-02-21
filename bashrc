@@ -17,6 +17,7 @@ export HISTCONTROL=ignoreboth:erasedups
 shopt -s autocd
 shopt -s cdspell
 shopt -s checkjobs
+shopt -s cmdhist
 shopt -s dirspell
 shopt -s dotglob
 shopt -s extglob
