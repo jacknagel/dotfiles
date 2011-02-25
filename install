@@ -3,7 +3,7 @@
 CONFIG_PATH=~/.dotfiles
 
 function relink() {
-	if [[ -h "$1" ]]; then
+    if [[ -h "$1" ]]; then
         echo "Relinking $1"
         # Symbolic link? Then recreate.
         rm "$1"
