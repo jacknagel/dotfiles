@@ -35,41 +35,40 @@ do
 done
 
 if [[ -n `which brew` ]]; then
-  # Find a Homebrew-built Python
-  python_bin=$(brew --cellar python)/*/bin
-  python_bin=`echo $python_bin`
-  [[ -e $python_bin ]] && export PATH=$PATH:$python_bin
+    # Find a Homebrew-built Python
+    python_bin=$(brew --cellar python)/*/bin
+    python_bin=`echo $python_bin`
+    [[ -e $python_bin ]] && export PATH=$PATH:$python_bin
 
-  # Find a Homebrew-built Python 3
-  python3_bin=$(brew --cellar python3)/*/bin
-  python3_bin=`echo $python3_bin`
-  [[ -e $python3_bin ]] && export PATH=$PATH:$python3_bin
+    # Find a Homebrew-built Python 3
+    python3_bin=$(brew --cellar python3)/*/bin
+    python3_bin=`echo $python3_bin`
+    [[ -e $python3_bin ]] && export PATH=$PATH:$python3_bin
 
-  # Find a Homebrew-built Ruby
-  ruby_bin=$(brew --cellar ruby)/*/bin
-  ruby_bin=`echo $ruby_bin`
-  [[ -e $ruby_bin ]] && export PATH=$PATH:$ruby_bin
-  
-  # Add MySQL bin (usually /usr/local/mysql/bin)
-  mysql_bin=/usr/local/mysql/bin
-  mysql_bin=`echo $mysql_bin`
-  [[ -e $mysql_bin ]] && export PATH=$PATH:$mysql_bin
+    # Find a Homebrew-built Ruby
+    ruby_bin=$(brew --cellar ruby)/*/bin
+    ruby_bin=`echo $ruby_bin`
+    [[ -e $ruby_bin ]] && export PATH=$PATH:$ruby_bin
+
+    # Add MySQL bin (usually /usr/local/mysql/bin)
+    mysql_bin=/usr/local/mysql/bin
+    mysql_bin=`echo $mysql_bin`
+    [[ -e $mysql_bin ]] && export PATH=$PATH:$mysql_bin
 fi
 
 for comp in \
     /usr/local/etc/bash_completion \
     /usr/local/etc/bash_completion.d/git-completion.bash \
-	/usr/local/Library/Contributions/brew_bash_completion.sh
+    /usr/local/Library/Contributions/brew_bash_completion.sh
 do
     [[ -e $comp ]] && source $comp
 done
 
 ## Custom prompt
 if [ "$PS1" ]; then
-
-	PS1='\u:\w\[\e[1m\]$\[\e[m\] '
-	# PS1='\u@\$ '
-	# PS1='\u@\h:\W\$ '
+    PS1='\u:\w\[\e[1m\]$\[\e[m\] '
+    # PS1='\u@\$ '
+    # PS1='\u@\h:\W\$ '
 fi
 
 ## Colors and ls
@@ -103,5 +102,5 @@ alias hhf='defaults write com.apple.Finder AppleShowAllFiles NO'
 ## Functions
 # Open a manpage in Preview, which can be saved to PDF
 pdfman() {
-   man -t "${1}" | open -f -a /Applications/Preview.app
+    man -t "${1}" | open -f -a /Applications/Preview.app
 }
