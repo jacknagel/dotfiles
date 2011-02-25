@@ -1,0 +1,40 @@
+[user]
+    name = Jack Nagel
+    email = jacknagel@gmail.com
+    signingkey = 408CAC63
+	
+[core]
+    autocrlf = input
+    safecrlf = true
+    editor = mate -wl1
+    excludesfile = ~/.gitignore
+	
+[help]
+    #	autocorrect = 1
+
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    lg = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    logp = log --pretty=format:\"%h - %an: %s\"
+    loge = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%an]' --abbrev-commit
+    # type = cat-file -t
+    # dump = cat-file -p
+    unstage = reset HEAD
+    ls = ls-files
+
+    # experimental log format
+    # lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%an]' --abbrev-commit
+
+[color]
+    # ui = auto
+
+[github]
+    user = jacknagel
+    token = security 2>&1 >/dev/null find-generic-password -gs github.token | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
+
+[push]
+    default = tracking
