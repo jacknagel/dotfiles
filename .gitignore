@@ -1,2 +1,4 @@
 *.rvk
 .passwords.gpg
+vim/tmp/*
+vim/backup/*
