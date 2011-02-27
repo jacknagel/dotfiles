@@ -18,8 +18,6 @@ shopt -s dotglob extglob globstar
 shopt -s cmdhist histappend
 shopt -s no_empty_cmd_completion
 shopt -s checkjobs
-
-## Automatically adapt $LINES and $COLUMNS after every command
 shopt -s checkwinsize 
 
 ## PATH
@@ -83,7 +81,6 @@ alias l="ls"
 alias lla="ls -l -a"
 alias fl='ls -lFrta | less'
 
-
 ## Aliases
 alias cls='clear'
 alias edit='mate'
@@ -97,7 +94,6 @@ alias gmail='python3 ~/dev/py/pygmail/gmail-unread.py'
 # I don't really need these, but they might be useful at some point
 alias shf='defaults write com.apple.Finder AppleShowAllFiles YES'
 alias hhf='defaults write com.apple.Finder AppleShowAllFiles NO'
-
 
 ## Functions
 # Open a manpage in Preview, which can be saved to PDF
