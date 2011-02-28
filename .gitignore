@@ -2,3 +2,4 @@
 .passwords.gpg
 vim/tmp/*
 vim/backup/*
+vim/.viminfo
