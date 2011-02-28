@@ -1,0 +1,16 @@
+Rewrite install script
+
+Clean up .bashrc so that it looks my own
+    add alias to get ip address
+
+Do something to ensure private data isn't committed, ever
+
+Install ack (?)
+
+Move ~/.ssh to ~/.dotfiles/ssh (?)
+
+README
+    rewrite in Markdown
+    add attribution for things I borrowed
+        adamv, etc
+    document .inputrc
