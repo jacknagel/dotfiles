@@ -16,4 +16,4 @@ inputrc                 symlinked to ~/.inputrc
 install                 bash script that symlinks my dotfiles into ~/
 smartmontools/          configuration for the smartmontools package
 vim/                    symlinked to ~/.vim
-vimrc/                  symlinked to ~/.vimrc
+vimrc                   symlinked to ~/.vimrc
