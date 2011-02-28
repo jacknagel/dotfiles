@@ -14,6 +14,7 @@ set history=1000                        " remember 1000 lines of history
 set clipboard+=unnamed                  " yanks go on the clipboard
 set autoread                            " reload files (no local changes)
 set tabpagemax=20                       " open 20 tabs max
+set viminfo=%,'50,n~/.vim/.viminfo      " save buffer list and move .viminfo
 
 
 "
