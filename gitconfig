@@ -18,17 +18,13 @@
     st = status
     br = branch
     hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
-    lg = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%an]' --abbrev-commit
     logp = log --pretty=format:\"%h - %an: %s\"
-    loge = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%an]' --abbrev-commit
     # type = cat-file -t
     # dump = cat-file -p
     unstage = reset HEAD
     ls = ls-files
-
-    # experimental log format
-    # lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%an]' --abbrev-commit
-
+    
 [color]
     # ui = auto
 
