@@ -1,18 +1,26 @@
-### ~/.bashrc
+#
+# ~/.bashrc
+#
+
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
 export EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
+#export LSCOLORS=hxfxcxdxbxegedabagHxHx
+export FIGNORE="~:.pyc:.swp:.swa:" # file suffixes to ignore during tab completion
 
-## File suffixes to ignore during tab completion
-export FIGNORE="~:.pyc:.swp:.swa:"
 
-## History control
+#
+# History control
+#
 export HISTCONTROL=ignoreboth:erasedups
 
-## Bash shell options
+
+#
+# Bash shell options
+#
 shopt -s autocd cdspell dirspell
 shopt -s dotglob extglob globstar
 shopt -s cmdhist histappend
@@ -20,8 +28,10 @@ shopt -s no_empty_cmd_completion
 shopt -s checkjobs
 shopt -s checkwinsize 
 
-## PATH
-# Put /usr/local/{bin,sbin} first
+
+#
+# PATH
+#
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # bin folders from ~, shit, and Homebrew-built installations
@@ -62,41 +72,51 @@ do
     [[ -e $comp ]] && source $comp
 done
 
-## Custom prompt
+
+#
+# Prompt
+#
 if [ "$PS1" ]; then
     PS1='\u:\w\[\e[1m\]$\[\e[m\] '
     # PS1='\u@\$ '
     # PS1='\u@\h:\W\$ '
 fi
 
-## Colors and ls
-export LSCOLORS=hxfxcxdxbxegedabagHxHx
 
-## List aliases
+#
+# Pager
+#
+export PAGER="less -iSw"
+export MANPAGER="less -iSw"
+
+
+#
+# Ack
+#
+ACK_PAGER="$PAGER"
+ACK_PAGER_COLOR="$PAGER"
+
+
+#
+# Aliases
+#
 # -G = enable colors
-# alias ls="ls -G"
-alias ll='ls -l -h'
-alias la="ls -a"
-alias l="ls"
-alias lla="ls -l -a"
-alias fl='ls -lFrta | less'
-
-## Aliases
-alias cls='clear'
+# alias ls='ls -G'
+alias fl='ls -lFrtah | less'
 alias edit='mate'
 alias vi='vim'
 alias sizes='du -h -d1'
-alias reload='. ~/.bash_profile'
 alias weather='python3 ~/bin/pyweather 58102'
 alias gmail='python3 ~/dev/py/pygmail/gmail-unread.py'
 
 # show/hide hidden files in Finder
-# I don't really need these, but they might be useful at some point
 alias shf='defaults write com.apple.Finder AppleShowAllFiles YES'
 alias hhf='defaults write com.apple.Finder AppleShowAllFiles NO'
 
-## Functions
-# Open a manpage in Preview, which can be saved to PDF
+
+#
+# Functions
+#
 pdfman() {
     man -t "${1}" | open -f -a /Applications/Preview.app
 }
