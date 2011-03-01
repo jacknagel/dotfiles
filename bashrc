@@ -8,7 +8,13 @@
 
 export EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
-#export LSCOLORS=hxfxcxdxbxegedabagHxHx
+
+export LS_OPTIONS='--color=auto'
+export CLICOLOR=1
+export LSCOLORS=ExDxcxdxBxegedabagHxHx
+
+export GREP_OPTIONS='--color=auto'
+
 export FIGNORE="~:.pyc:.swp:.swa:" # file suffixes to ignore during tab completion
 
 
@@ -77,7 +83,8 @@ done
 # Prompt
 #
 if [ "$PS1" ]; then
-    PS1='\u:\w\[\e[1m\]$\[\e[m\] '
+    PS1='\[\033[01;30m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\e[1m\]$\[\e[m\] '
+    #PS1='\u:\w\[\e[1m\]$\[\e[m\] '
     # PS1='\u@\$ '
     # PS1='\u@\h:\W\$ '
 fi
@@ -100,8 +107,6 @@ ACK_PAGER_COLOR="$PAGER"
 #
 # Aliases
 #
-# -G = enable colors
-# alias ls='ls -G'
 alias fl='ls -lFrtah | less'
 alias edit='mate'
 alias vi='vim'
