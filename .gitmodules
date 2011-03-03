@@ -1,0 +1,6 @@
+[submodule "vim/bundle/gist"]
+	path = vim/bundle/gist
+	url = https://github.com/vim-scripts/Gist.vim.git
+[submodule "vim/bundle/gnupg"]
+	path = vim/bundle/gnupg
+	url = https://github.com/vim-scripts/gnupg
