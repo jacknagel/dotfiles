@@ -2,5 +2,6 @@
 .passwords.gpg
 vim/tmp/*
 vim/backup/*
+vim/undo/*
 vim/.viminfo
 ssh/*
