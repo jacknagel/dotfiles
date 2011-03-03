@@ -4,6 +4,10 @@
 " vim has a. lot. of. options., but this is a good starting point
 "
 
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+filetype plugin indent on
 
 "
 " General
@@ -15,6 +19,8 @@ set clipboard+=unnamed                  " yanks go on the clipboard
 set autoread                            " reload files (no local changes)
 set tabpagemax=20                       " open 20 tabs max
 set viminfo=%,'50,n~/.vim/.viminfo      " save buffer list and move .viminfo
+set undodir=$HOME/.vim/undodir          " undo file directory
+set undofile                            " keep undo files
 
 
 "
@@ -24,7 +30,7 @@ set nobackup                            " do not keep backup files after close
 set writebackup                         " keep backup files while working
 set backupdir=$HOME/.vim/backups        " store backups in ~/.vim/backups
 set backupcopy=yes                      " preserve file attributes
-set directory=~/.vim/tmp                " swap file directory
+set directory=$HOME/.vim/tmp            " swap file directory
 
 
 "
