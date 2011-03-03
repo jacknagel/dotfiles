@@ -13,5 +13,7 @@
 		<string>--saveauto=on</string>
 		<string>/dev/disk0</string>
 	</array>
+	<key>StartInterval</key>
+	<integer>3600</integer>
 </dict>
 </plist>
