@@ -13,3 +13,6 @@ smartd.conf
 Configuration file for smartd.conf. The current scan is:
 
 /dev/disk0s2 -a -S on -s (S/../.././02|L/../../6/03) -m jacknagel@gmail.com
+
+DON'T FORGET: iStat Pro (widget) and iStat Menus query for temperature and disable SMART when finished. Don't use them!
+
