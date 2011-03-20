@@ -42,8 +42,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # bin folders from ~, shit, and Homebrew-built installations
 for another_bin in \
-    $HOME/bin \
-    /usr/local/shit/bin
+    $HOME/bin
 do
     [[ -e $another_bin ]] && export PATH=$PATH:$another_bin
 done
