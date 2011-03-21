@@ -16,7 +16,7 @@ if [[ -d "$BACKUP_PATH" ]]; then
     mv "temp.tar.bz2" "${BACKUP_PATH}/passwords/passwords_$(date +%m-%d-%y).tar.bz2"
 
     tar -cvjf "temp.tar.bz2" ssh/ &&
-    mv "temp.tar.bz2" "${BACKUP_PATH/ssh/ssh_$(date +%m-%d-%y).tar.bz2"
+    mv "temp.tar.bz2" "${BACKUP_PATH}/ssh/ssh_$(date +%m-%d-%y).tar.bz2"
     popd
 else 
     echo -e "\nBackup volume ${BACKUP_PATH}/ is missing!"
