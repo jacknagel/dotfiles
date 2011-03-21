@@ -4,19 +4,19 @@ BACKUP_PATH=/Volumes/GPG\ Backup
 
 if [[ -d "$BACKUP_PATH" ]]; then
     pushd ~/
-    tar -cvzf "temp.tar.gz" .gnupg/ &&
-    mv "temp.tar.gz" "${BACKUP_PATH}/gnupg/gnupg_$(date +%m-%d-%y).tar.gz"
+    tar -cvjf "temp.tar.bz2" .gnupg/ &&
+    mv "temp.tar.bz2" "${BACKUP_PATH}/gnupg/gnupg_$(date +%m-%d-%y).tar.bz2"
     popd
     
     pushd ~/.dotfiles
-    tar -cvzf "temp.tar.gz" gpg/ &&
-    mv "temp.tar.gz" "${BACKUP_PATH}/gpg/gpg_$(date +%m-%d-%y).tar.gz"
+    tar -cvjf "temp.tar.bz2" gpg/ &&
+    mv "temp.tar.bz2" "${BACKUP_PATH}/gpg/gpg_$(date +%m-%d-%y).tar.bz2"
 
-    tar -cvzf "temp.tar.gz" .passwords.gpg && 
-    mv "temp.tar.gz" "${BACKUP_PATH}/passwords/passwords_$(date +%m-%d-%y).tar.gz"
+    tar -cvjf "temp.tar.bz2" .passwords.gpg && 
+    mv "temp.tar.bz2" "${BACKUP_PATH}/passwords/passwords_$(date +%m-%d-%y).tar.bz2"
 
-    tar -cvzf "temp.tar.gz" ssh/ &&
-    mv "temp.tar.gz" "${BACKUP_PATH}/ssh/ssh_$(date +%m-%d-%y).tar.gz"
+    tar -cvjf "temp.tar.bz2" ssh/ &&
+    mv "temp.tar.bz2" "${BACKUP_PATH/ssh/ssh_$(date +%m-%d-%y).tar.bz2"
     popd
 else 
     echo -e "\nBackup volume ${BACKUP_PATH}/ is missing!"
