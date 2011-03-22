@@ -47,8 +47,8 @@ def getWeather(place):
     # Parse the XML.
 
     tree = etree.parse(xml)
-    cityElement = (tree.find("//forecast_information"))
-    weatherElement = (tree.find("//current_conditions"))
+    cityElement = (tree.find(".//forecast_information"))
+    weatherElement = (tree.find(".//current_conditions"))
 
     # Retrieve the condition and temperature.
     city = cityElement.find("city").attrib["data"]
