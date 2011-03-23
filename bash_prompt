@@ -34,10 +34,6 @@ bakcyn="\[\e[46m\]"   # Cyan
 bakwht="\[\e[47m\]"   # White
 txtrst="\[\e[0m\]"    # Text Reset
 
-UP_ARROW="↑"
-DOWN_ARROW="↓"
-UD_ARROW="↕"
-FF_ARROW="→"
 MIDDOT="•"
 
 function parse_git_branch {
