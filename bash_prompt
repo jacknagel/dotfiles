@@ -41,11 +41,7 @@ FF_ARROW="→"
 MIDDOT="•"
 
 function parse_git_branch {
-    branch_pattern="^# On branch ([^${IFS}]*)"
-    remote_pattern_ahead="# Your branch is ahead of"
-    remote_pattern_behind="# Your branch is behind"
-    remote_pattern_ff="# Your branch (.*) can be fast-forwarded."
-    diverge_pattern="# Your branch and (.*) have diverged"
+    branch_pattern="# On branch "
 
     git_status="$(git status 2> /dev/null)"
     
@@ -60,12 +56,12 @@ function parse_git_branch {
                 sha=`cat "${sha_file}"`
             }
           
-            echo "${bldblk}:${txtrst}${bldblk}[${txtred}rebase in progress:${bldpur}${sha}${bldblk}]${txtrst}"
+            echo "${bldblk}:${txtrst}${bldblk}[${txtred}rebasing:${bldpur}${sha}${bldblk}]${txtrst}"
         }
         return
     fi
 
-    branch=${BASH_REMATCH[1]}
+    branch="$(__git_ps1 %s)"
 
     # Dirty?
     if [[ ! ${git_status} =~ "working directory clean" ]]; then
@@ -82,18 +78,7 @@ function parse_git_branch {
         }
     fi
 
-    # Are we ahead of, behind, or diverged from the remote?
-    if [[ ${git_status} =~ ${remote_pattern_ahead} ]]; then
-        remote="${bldylw}${UP_ARROW}"
-    elif [[ ${git_status} =~ ${remote_pattern_ff} ]]; then
-        remote_ff="${bldwht}${FF_ARROW}"
-    elif [[ ${git_status} =~ ${remote_pattern_behind} ]]; then
-        remote="${bldylw}${DOWN_ARROW}"
-    elif [[ ${git_status} =~ ${diverge_pattern} ]]; then
-        remote="${bldylw}${UD_ARROW}"
-    fi
-
-    echo "${bldblk}:${txtrst}${remote}${remote_ff}${bldblk}[${txtgrn}${branch}${txtrst}${git_is_dirty}${bldblk}]${txtrst}"
+    echo "${bldblk}:[${txtgrn}${branch}${txtrst}${git_is_dirty}${bldblk}]${txtrst}"
 }
 
 function setWindowTitle {
