@@ -80,13 +80,14 @@ done
 
 #
 # Prompt
-#
-if [ "$PS1" ]; then
-    PS1='\[\033[01;30m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\e[1m\]$\[\e[m\] '
-    #PS1='\u:\w\[\e[1m\]$\[\e[m\] '
-    # PS1='\u@\$ '
-    # PS1='\u@\h:\W\$ '
-fi
+# deprecated; now contained in bash_profile
+
+# if [ "$PS1" ]; then
+#     # PS1='\[\033[01;30m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\e[1m\]$\[\e[m\] '
+#     # PS1='\u:\w\[\e[1m\]$\[\e[m\] '
+#     # PS1='\u@\$ '
+#     # PS1='\u@\h:\W\$ '
+# fi
 
 
 #
@@ -107,7 +108,7 @@ ACK_PAGER_COLOR="$PAGER"
 # Aliases
 #
 alias fl='ls -lFrtah | less'
-alias edit='mate'
+alias edit='vim'
 alias vi='vim'
 alias sizes='du -h -d1'
 alias weather='python3 ~/bin/pyweather 58102'

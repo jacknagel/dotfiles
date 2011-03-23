@@ -19,6 +19,7 @@ function relink() {
 cd ~
 relink .bash_profile ${CONFIG_PATH}/bash_profile
 relink .bashrc ${CONFIG_PATH}/bashrc
+relink .bash_prompt ${CONFIG_PATH}/bash_prompt
 relink .bash_aliases ${CONFIG_PATH}/bash_aliases
 relink .gitconfig ${CONFIG_PATH}/gitconfig
 relink .gitignore ${CONFIG_PATH}/gitignore

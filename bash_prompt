@@ -1,0 +1,126 @@
+txtblk="\[\e[0;30m\]" # Black - Regular
+txtred="\[\e[0;31m\]" # Red
+txtgrn="\[\e[0;32m\]" # Green
+txtylw="\[\e[0;33m\]" # Yellow
+txtblu="\[\e[0;34m\]" # Blue
+txtpur="\[\e[0;35m\]" # Purple
+txtcyn="\[\e[0;36m\]" # Cyan
+txtwht="\[\e[0;37m\]" # White
+bldblk="\[\e[1;30m\]" # Black - Bold
+bldred="\[\e[1;31m\]" # Red
+bldgrn="\[\e[1;32m\]" # Green
+bldylw="\[\e[1;33m\]" # Yellow
+bldblu="\[\e[1;34m\]" # Blue
+bldpur="\[\e[1;35m\]" # Purple
+bldcyn="\[\e[1;36m\]" # Cyan
+bldwht="\[\e[1;37m\]" # White
+unkblk="\[\e[4;30m\]" # Black - Underline
+undred="\[\e[4;31m\]" # Red
+undgrn="\[\e[4;32m\]" # Green
+undylw="\[\e[4;33m\]" # Yellow
+undblu="\[\e[4;34m\]" # Blue
+undpur="\[\e[4;35m\]" # Purple
+undcyn="\[\e[4;36m\]" # Cyan
+undwht="\[\e[4;37m\]" # White
+bakblk="\[\e[40m\]"   # Black - Background
+bakred="\[\e[41m\]"   # Red
+badgrn="\[\e[42m\]"   # Green
+bakylw="\[\e[43m\]"   # Yellow
+bakblu="\[\e[44m\]"   # Blue
+bakpur="\[\e[45m\]"   # Purple
+bakcyn="\[\e[46m\]"   # Cyan
+bakwht="\[\e[47m\]"   # White
+txtrst="\[\e[0m\]"    # Text Reset
+
+LIGHTNING_BOLT="⚡"
+      UP_ARROW="↑"
+    DOWN_ARROW="↓"
+      UD_ARROW="↕"
+      FF_ARROW="→"
+       RECYCLE="♺"
+        MIDDOT="•"
+     PLUSMINUS="±"
+
+
+function parse_git_branch {
+  branch_pattern="^# On branch ([^${IFS}]*)"
+  remote_pattern_ahead="# Your branch is ahead of"
+  remote_pattern_behind="# Your branch is behind"
+  remote_pattern_ff="# Your branch (.*) can be fast-forwarded."
+  diverge_pattern="# Your branch and (.*) have diverged"
+
+  git_status="$(git status 2> /dev/null)"
+  if [[ ! ${git_status} =~ ${branch_pattern} ]]; then
+    # Rebasing?
+    toplevel=$(git rev-parse --show-toplevel 2> /dev/null)
+    [[ -z "$toplevel" ]] && return
+
+    [[ -d "$toplevel/.git/rebase-merge" || -d "$toplevel/.git/rebase-apply" ]] && {
+      sha_file="$toplevel/.git/rebase-merge/stopped-sha"
+      [[ -e "$sha_file" ]] && {
+        sha=`cat "${sha_file}"`
+      }
+      echo "${bldblk}:${txtrst}${bldblk}[${txtred}rebase in progress:${bldpur}${sha}${bldblk}]${txtrst}"
+    }
+    return
+  fi
+
+  branch=${BASH_REMATCH[1]}
+
+  # Dirty?
+  if [[ ! ${git_status} =~ "working directory clean" ]]; then
+    [[ ${git_status} =~ "modified:" ]] && {
+      git_is_dirty="${bldgrn}{$MIDDOT}"
+    }
+
+    [[ ${git_status} =~ "Untracked files" ]] && {
+      git_is_dirty="${git_is_dirty}${bldred}${MIDDOT}"
+    }
+    
+    if [[ ${git_status} =~ "deleted:" ]] && [[ ${git_status} =~ "new file:" ]]; then
+        git_is_dirty="${git_is_dirty}${bldylw}${PLUSMINUS}"
+    elif [[ ${git_status} =~ "new file:" ]]; thengit
+          git_is_dirty="${git_is_dirty}${bldgrn}+"
+    elif [[ ${git_status} =~ "deleted:" ]]; then
+          git_is_dirty="${git_is_dirty}${bldred}-"
+    fi
+
+    [[ ${git_status} =~ "renamed:" ]] && {
+      git_is_dirty="${git_is_dirty}${bldylw}→"
+    }
+  fi
+
+  # Are we ahead of, behind, or diverged from the remote?
+  if [[ ${git_status} =~ ${remote_pattern_ahead} ]]; then
+    remote="${bldylw}${UP_ARROW}"
+  elif [[ ${git_status} =~ ${remote_pattern_ff} ]]; then
+    remote_ff="${bldwht}${FF_ARROW}"
+  elif [[ ${git_status} =~ ${remote_pattern_behind} ]]; then
+    remote="${bldylw}${DOWN_ARROW}"
+  elif [[ ${git_status} =~ ${diverge_pattern} ]]; then
+    remote="${bldylw}${UD_ARROW}"
+  fi
+
+  echo "${bldblk}:${txtrst}${remote}${remote_ff}${bldblk}[${txtgrn}${branch}${txtrst}${git_is_dirty}${bldblk}]${txtrst}"
+}
+
+function setWindowTitle {
+  case $TERM in
+    *xterm*|ansi)
+      echo -n -e "\033]0;$*\007"
+      ;;
+  esac
+}
+
+prompt_prefix="${bldblk}\u:${bldblu}\w"
+prompt_suffix="${txtrst}${bldblk}\$${txtrst} "
+function set_prompt {
+
+  git_prompt="$(parse_git_branch)"
+
+  export PS1="${prompt_prefix}${git_prompt}${prompt_suffix}"
+
+  setWindowTitle "${this_host}${PWD/$HOME/~}"
+}
+
+export PROMPT_COMMAND=set_prompt
