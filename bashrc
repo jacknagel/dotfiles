@@ -117,8 +117,8 @@ alias ip='ipconfig getifaddr en0'
 alias ifip='ifconfig | grep inet'
 
 # show/hide hidden files in Finder
-alias shf='defaults write com.apple.Finder AppleShowAllFiles YES'
-alias hhf='defaults write com.apple.Finder AppleShowAllFiles NO'
+alias shf='defaults write com.apple.Finder AppleShowAllFiles YES | killall Finder'
+alias hhf='defaults write com.apple.Finder AppleShowAllFiles NO | killall Finder'
 
 
 #
