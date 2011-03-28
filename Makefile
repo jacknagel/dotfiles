@@ -1,5 +1,5 @@
 #
-# Makefile
+# Makefile for dotfiles
 #
 
 install: link-bash link-git link-vim link-ssh link-bin
