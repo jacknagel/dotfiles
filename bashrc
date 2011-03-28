@@ -9,9 +9,9 @@
 export EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
 
-export LS_OPTIONS='--color=auto'
 export CLICOLOR=1
-export LSCOLORS=ExDxcxdxBxegedabagHxHx
+export CLICOLOR_FORCE=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
 
 export GREP_OPTIONS='--color=auto'
 
@@ -107,7 +107,7 @@ ACK_PAGER_COLOR="$PAGER"
 #
 # Aliases
 #
-alias fl='ls -lFrtah | less'
+alias fl='ls -lFrtah | less -R'
 alias edit='vim'
 alias vi='vim'
 alias sizes='du -h -d1'

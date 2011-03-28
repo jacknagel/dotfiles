@@ -8,3 +8,5 @@
 set completion-ignore-case on
 set bell-style none
 set show-all-if-ambiguous on
+set mark-directories on
+set mark-symlinked-directories on
