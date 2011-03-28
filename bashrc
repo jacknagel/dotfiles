@@ -10,7 +10,7 @@ export EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
 
 export CLICOLOR=1
-export CLICOLOR_FORCE=1
+# export CLICOLOR_FORCE=1 # don't use this -- it breaks a lot of stuff
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
 export GREP_OPTIONS='--color=auto'
