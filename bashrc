@@ -115,6 +115,7 @@ alias weather='python3 ~/bin/pyweather 58102'
 alias gmail='python3 ~/dev/py/pygmail/gmail-unread.py'
 alias ip='ipconfig getifaddr en0'
 alias ifip='ifconfig | grep inet'
+alias killws="perl -pe \'s/[\t ]+$//g\'"
 
 # show/hide hidden files in Finder
 alias shf='defaults write com.apple.Finder AppleShowAllFiles YES | killall Finder'
