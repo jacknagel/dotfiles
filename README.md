@@ -1,17 +1,19 @@
 dotfiles
 ========
-The configuration files and other stuff that goes in my home directory
+Configuration files and scripts for OS X
 
-I keep the working tree for my home directory in ~/.dotfiles and symlink stuff into ~/. Most of these files contain things that I gleaned from other people's dotfile repos, so thanks to everyone whose dotfiles provided me with something useful. I have tried to give credit for things that are nontrivial (e.g., showing Git information in the Bash prompt).
+I keep this repo in ~/.dotfiles and symlink the necessary files into ~/. I've tried to give credit for the nontrivial things that I have borrowed from other people's dotfile repos. Feel free to borrow anything you find useful.
 
 Contents
 --------
     Makefile                installs dotfiles to ~/
+    README.md               this file
     bash_aliases            bash aliases; symlinked to ~/.bash_aliases
     bash_profile            bash profile; symlinked to ~/.bash_profile
     bash_prompt             bash prompt factored out of bashrc; symlinked to ~/.bash_prompt
     bashrc                  bash configuration; symlinked to ~/.bashrc
     bin/                    collection of lightweight utilities; symlinked to ~/bin
+    brew-packages           a (mostly) current list of Homebrew packages so that I can stand up a new system quickly
     gitconfig               global git configuration; symlinked to ~/.gitconfig
     gitignore               global git excludesfile; symlinked to ~/.gitignore
     gpg/                    copies of my GPG public key
@@ -19,6 +21,7 @@ Contents
     smartmontools/          configuration for the smartmontools package
     vim/                    vim directory; symlinked to ~/.vim
     vimrc                   vim configuration; symlinked to ~/.vimrc
+
 
 Credit
 ------
