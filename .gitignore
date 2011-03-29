@@ -5,3 +5,4 @@ vim/backup/*
 vim/undo/*
 vim/.viminfo
 ssh/*
+gnupg/*
