@@ -4,7 +4,7 @@ Configuration files for the smartmontools package
 
 com.jfnagel.smartctl.plist
 --------------------------
-This runs `/usr/local/sbin/smartctl --smart=on --saveauto=on` at startup to ensure that SMART operations are enabled at startup. 
+This runs `/usr/local/sbin/smartctl --smart=on --saveauto=on` at startup to ensure that SMART operations are enabled.
 
 ### Installation:
     $ cp com.jfnagel.smartctl.plist /Library/LaunchDaemons/
@@ -28,4 +28,6 @@ Configuration file for smartd. The current scan is:
 
 Caveats
 -------
+OS X doesn't seem to allow enabling `Automatic Offline` testing, so I haven't bothered with it here.
+
 If you have iStat Pro (widget) or iStat Menus installed, make sure that you disable the features that query the disk, specifically the disk temperature display, because they will disable SMART operations when they finish. This causes smartd to report failures that aren't really failures.
