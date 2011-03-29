@@ -1,5 +1,5 @@
-smartmontools/
-==============
+dotfiles/smartmontools
+======================
 Configuration files for the smartmontools package
 
 com.jfnagel.smartctl.plist
