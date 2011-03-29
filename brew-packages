@@ -7,10 +7,12 @@ brew-gem
 brew-pip
 bwm-ng
 ccache
+cmake
 curl
 ddclient
 distribute
 dos2unix
+erlang
 gd
 gdbm
 gettext
