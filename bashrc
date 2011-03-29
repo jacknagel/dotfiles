@@ -59,7 +59,7 @@ if [[ -n `which brew` ]]; then
 
     [[ -e /usr/local/share/python ]] && export PATH=/usr/local/share/python:$PATH
 
-    # Homebrew Python 3
+    # Homebrew Python3
     python3_bin=$(brew --cellar python3)/*/bin
     python3_bin=`echo $python3_bin`
     [[ -e $python3_bin ]] && export PATH=$PATH:$python3_bin

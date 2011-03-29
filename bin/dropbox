@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if [[ x"$1" = x ]]; then
-    cp -R . ~/Dropbox/${PWD##*/}
-else    
-    cp -R "$@" ~/Dropbox/
-fi
