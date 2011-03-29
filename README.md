@@ -13,7 +13,7 @@ Contents
     bash_prompt             bash prompt factored out of bashrc; symlinked to ~/.bash_prompt
     bashrc                  bash configuration; symlinked to ~/.bashrc
     bin/                    collection of lightweight utilities; symlinked to ~/bin
-    brew-packages           a (mostly) current list of Homebrew packages so that I can stand up a new system quickly
+    brew-packages           a (mostly) up-to-date list of installed Homebrew packages (for standing up new systems)
     gitconfig               global git configuration; symlinked to ~/.gitconfig
     gitignore               global git excludesfile; symlinked to ~/.gitignore
     gpg/                    copies of my GPG public key
