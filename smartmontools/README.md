@@ -7,9 +7,9 @@ com.jfnagel.smartctl.plist
 This runs `/usr/local/sbin/smartctl --smart=on --saveauto=on` at startup to ensure that SMART operations are enabled.
 
 ### Installation:
-    $ cp com.jfnagel.smartctl.plist /Library/LaunchDaemons/
-    $ sudo chown root:wheel /Library/LaunchDaemons/com.jfnagel.smartd.plist
-    $ sudo launchctl load -w /Library/LaunchDaemons/com.jfnagel.smartd.plist
+    $ cp com.jfnagel.smartctl.plist /Library/LaunchAgents/
+    $ sudo chown root:wheel /Library/LaunchAgents/com.jfnagel.smartctl.plist
+    $ sudo launchctl load -w /Library/LaunchAgents/com.jfnagel.smartctl.plist
 
 com.jfnagel.smartd.plist
 ------------------------
