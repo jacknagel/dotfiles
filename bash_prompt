@@ -1,5 +1,8 @@
-# main functionality from http://github.com/adamv/dotfiles
+#
+# ~/.bash_prompt
+#
 
+# colors
 txtblk="\[\e[0;30m\]" # Black - Regular
 txtred="\[\e[0;31m\]" # Red
 txtgrn="\[\e[0;32m\]" # Green
@@ -36,6 +39,7 @@ txtrst="\[\e[0m\]"    # Text Reset
 
 MIDDOT="•"
 
+# parse_git_branch from http://github.com/adamv/dotfiles with some modifications
 function parse_git_branch {
     branch_pattern="# On branch "
 
@@ -96,3 +100,12 @@ function set_prompt {
 }
 
 export PROMPT_COMMAND=set_prompt
+
+
+# Old prompts for posterity
+# if [ "$PS1" ]; then
+#     # PS1='\[\033[01;30m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\e[1m\]$\[\e[m\] '
+#     # PS1='\u:\w\[\e[1m\]$\[\e[m\] '
+#     # PS1='\u@\$ '
+#     # PS1='\u@\h:\W\$ '
+# fi

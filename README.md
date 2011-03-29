@@ -21,8 +21,3 @@ Contents
     smartmontools/          configuration for the smartmontools package
     vim/                    vim directory; symlinked to ~/.vim
     vimrc                   vim configuration; symlinked to ~/.vimrc
-
-
-Credit
-------
-

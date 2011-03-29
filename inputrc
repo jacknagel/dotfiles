@@ -2,9 +2,7 @@
 # ~/.inputrc
 #
 
-#
 # Tab completions
-#
 set completion-ignore-case on
 set bell-style none
 set show-all-if-ambiguous on

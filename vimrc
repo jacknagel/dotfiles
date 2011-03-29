@@ -4,6 +4,9 @@
 " vim has a. lot. of. options., but this is a good starting point
 "
 
+"
+" magic to load plugins using pathogen
+"
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -58,7 +61,7 @@ set smartcase                           " except when specifying capital letters
 " Colors & Theme
 "
 syntax on                               " enable syntax highliting
-" set list listchars=trail:.,tab:>.     " make tabs visible but not ugly
+" set list listchars=trail:.,tab:>.     " make tabs visible but not ugly; off normally
 
 
 "

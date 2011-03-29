@@ -6,16 +6,18 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+
+#
+# some environment variables
+#
 export EDITOR='mate -w'
 export GIT_EDITOR='mate -wl1'
-
-export CLICOLOR=1
 # export CLICOLOR_FORCE=1 # don't use this -- it breaks a lot of stuff
+export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-
 export GREP_OPTIONS='--color=auto'
-
 export FIGNORE="~:.pyc:.swp:.swa:" # file suffixes to ignore during tab completion
+export COPYFILE_DISABLE=true # no ._ files in archives
 
 
 #
@@ -40,35 +42,40 @@ shopt -s checkwinsize
 #
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-# bin folders from ~, shit, and Homebrew-built installations
-for another_bin in \
+# add home directory 
+for dir in \
     $HOME/bin
 do
-    [[ -e $another_bin ]] && export PATH=$PATH:$another_bin
+    [[ -e $dir ]] && export PATH=$PATH:$dir
 done
 
+# Add Homebrew-installed bins to $PATH
+# see https://github.com/mxcl/homebrew/wiki/Homebrew-and-Python
 if [[ -n `which brew` ]]; then
-    # Find a Homebrew-built Python
+    # Homebrew Python
     python_bin=$(brew --cellar python)/*/bin
     python_bin=`echo $python_bin`
     [[ -e $python_bin ]] && export PATH=$PATH:$python_bin
 
-    # Find a Homebrew-built Python 3
+    [[ -e /usr/local/share/python ]] && export PATH=/usr/local/share/python:$PATH
+
+    # Homebrew Python 3
     python3_bin=$(brew --cellar python3)/*/bin
     python3_bin=`echo $python3_bin`
     [[ -e $python3_bin ]] && export PATH=$PATH:$python3_bin
 
-    # Find a Homebrew-built Ruby
+    # Homebrew Ruby
     ruby_bin=$(brew --cellar ruby)/*/bin
     ruby_bin=`echo $ruby_bin`
     [[ -e $ruby_bin ]] && export PATH=$PATH:$ruby_bin
 
-    # Add MySQL bin (usually /usr/local/mysql/bin)
-    mysql_bin=/usr/local/mysql/bin
+    # Homebrew MySQL
+    mysql_bin=$(brew --cellar mysql)/*/bin
     mysql_bin=`echo $mysql_bin`
     [[ -e $mysql_bin ]] && export PATH=$PATH:$mysql_bin
 fi
 
+# Bash completion
 for comp in \
     /usr/local/etc/bash_completion \
     /usr/local/etc/bash_completion.d/git-completion.bash \
@@ -79,29 +86,10 @@ done
 
 
 #
-# Prompt
-# deprecated; now contained in bash_profile
-
-# if [ "$PS1" ]; then
-#     # PS1='\[\033[01;30m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\e[1m\]$\[\e[m\] '
-#     # PS1='\u:\w\[\e[1m\]$\[\e[m\] '
-#     # PS1='\u@\$ '
-#     # PS1='\u@\h:\W\$ '
-# fi
-
-
-#
 # Pager
 #
 export PAGER="less -iSw"
 export MANPAGER="less -iSw"
-
-
-#
-# Ack
-#
-ACK_PAGER="$PAGER"
-ACK_PAGER_COLOR="$PAGER"
 
 
 #
@@ -120,11 +108,3 @@ alias killws="perl -pe \'s/[\t ]+$//g\'"
 # show/hide hidden files in Finder
 alias shf='defaults write com.apple.Finder AppleShowAllFiles YES | killall Finder'
 alias hhf='defaults write com.apple.Finder AppleShowAllFiles NO | killall Finder'
-
-
-#
-# Functions
-#
-pdfman() {
-    man -t "${1}" | open -f -a /Applications/Preview.app
-}
