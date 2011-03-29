@@ -3,12 +3,10 @@
 BACKUP_PATH=/Volumes/GPG\ Backup
 
 if [[ -d "$BACKUP_PATH" ]]; then
-    pushd ~/
+    pushd ~/.dotfiles
     tar -cvjf "temp.tar.bz2" .gnupg/ &&
     mv "temp.tar.bz2" "${BACKUP_PATH}/gnupg/gnupg_$(date +%m-%d-%y).tar.bz2"
-    popd
-    
-    pushd ~/.dotfiles
+
     tar -cvjf "temp.tar.bz2" gpg/ &&
     mv "temp.tar.bz2" "${BACKUP_PATH}/gpg/gpg_$(date +%m-%d-%y).tar.bz2"
 
