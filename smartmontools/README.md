@@ -7,22 +7,18 @@ com.jfnagel.smartctl.plist
 This runs `/usr/local/bin/smartctl --smart=on --saveauto=on` at startup to ensure that SMART operations are enabled at startup. 
 
 ### Installation:
-`cp com.jfnagel.smartctl.plist /Library/LaunchDaemons/`
-
-`sudo chown root:wheel /Library/LaunchDaemons/com.jfnagel.smartd.plist`
-
-`sudo launchctl load -w /Library/LaunchDaemons/com.jfnagel.smartd.plist`
+    cp com.jfnagel.smartctl.plist /Library/LaunchDaemons/
+    sudo chown root:wheel /Library/LaunchDaemons/com.jfnagel.smartd.plist
+    sudo launchctl load -w /Library/LaunchDaemons/com.jfnagel.smartd.plist
 
 com.jfnagel.smartd.plist
 ------------------------
 This runs `/usr/local/bin/smartd -n` at startup. The `-n` flag is required to prevent smartd from forking and killing it's parent process, which launchd doesn't like (it will just continually respawn smartd).
 
 ### Installation:
-`cp com.jfnagel.smartctl.plist /Library/LaunchDaemons/`
-
-`sudo chown root:wheel /Library/LaunchDaemons/com.jfnagel.smartd.plist`
-
-`sudo launchctl load -w /Library/LaunchDaemons/com.jfnagel.smartd.plist`
+    cp com.jfnagel.smartctl.plist /Library/LaunchDaemons/
+    sudo chown root:wheel /Library/LaunchDaemons/com.jfnagel.smartd.plist
+    sudo launchctl load -w /Library/LaunchDaemons/com.jfnagel.smartd.plist
 
 smartd.conf
 -----------
