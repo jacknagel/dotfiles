@@ -5,6 +5,7 @@
 # if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+source ~/.bash_prompt
 
 # set en_US locale w/ utf-8 encodings
 LANG="en_US.UTF-8"

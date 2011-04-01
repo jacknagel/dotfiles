@@ -7,11 +7,6 @@ if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
 
-# Source bash_prompt
-if [ -f ~/.bash_prompt ]; then
-    . ~/.bash_prompt
-fi
-
 # Source .bash_aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
