@@ -28,7 +28,6 @@ export PATH MANPATH
 
 # editor/pager
 EDITOR="mate -w"
-GIT_EDITOR="mate-wl1"
 PAGER="less -iRSw"
 MANPAGER="less -iRSw"
 LESSHISTFILE="-"

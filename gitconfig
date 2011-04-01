@@ -6,7 +6,7 @@
 [core]
     autocrlf = input
     safecrlf = true
-    editor = mate -wl1
+    editor = vim
     excludesfile = ~/.gitignore
 	
 [help]

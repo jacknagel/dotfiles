@@ -76,3 +76,9 @@ set shiftwidth=4                        "
 set tabstop=4                           "
 set expandtab                           "
 set smarttab                            "
+
+
+"
+" Filetypes
+"
+autocmd Filetype gitcommit set textwidth=68 spell
