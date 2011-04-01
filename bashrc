@@ -25,6 +25,7 @@ MANPATH="/usr/share/man:/usr/local/share/man"
 
 export PATH MANPATH
 
+CDPATH=".:$HOME"
 
 # editor/pager
 EDITOR="mate -w"
