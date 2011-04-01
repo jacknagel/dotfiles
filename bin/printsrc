@@ -1,0 +1,67 @@
+#!/bin/sh
+# usage: printsrc [-l lang] [-o output file] FILE
+# Requires pdflatex and the Listings and Courier packages for LaTeX
+#
+# For a list of supported languages and other options for 
+# the LaTeX listings class, see: 
+# ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
+
+if [[ $1 == "" ]]; then
+    echo "usage: printsrc [-l lang] [-o output file] FILE"
+    exit
+fi
+
+while getopts "l:o:" opt; do
+    case $opt in
+        l ) OUTLANG=$OPTARG;;
+        o ) OUTFILE=$OPTARG;;
+        ? ) echo "usage: printsrc [-l lang] [-o output file] FILE"
+            exit 2;;
+    esac
+done
+
+shift $(($OPTIND-1))
+ 
+SRCFILE=$1
+
+if [[ -n $OUTFILE ]]; then
+    JOBNAME=${OUTFILE%%.*}
+else
+    JOBNAME=${SRCFILE%%.*}
+fi
+
+pdflatex -jobname=${JOBNAME} >/dev/null << EOF
+\documentclass[10pt]{article} % article class; 10pt font
+\usepackage{listings} % source code listing package
+\usepackage{courier} % courier font package
+
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{-0.25in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{9.5in}
+\setlength{\textwidth}{7in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+
+\pagestyle{empty}
+
+\lstset{
+    basicstyle=\footnotesize\ttfamily,
+    language=${OUTLANG},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    breaklines=true,
+    tabsize=2,
+    numbers=left,
+    numbersep=15pt,
+    numberstyle=\footnotesize\ttfamily,
+    title=\footnotesize\ttfamily\lstname,
+}
+
+\begin{document}
+    \lstinputlisting{${SRCFILE}}
+\end{document}
+EOF
+
+rm ${JOBNAME}.log ${JOBNAME}.aux
