@@ -2,7 +2,7 @@
 # ~/.bash_aliases
 #
 
-# silence cdspell corrections
+# silence cdspell corrections and $CDPATH echo
 function cd () {
     builtin cd "$@" > /dev/null
 }
