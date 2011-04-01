@@ -2,7 +2,6 @@
 # ~/.bashrc
 #
 
-
 # if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -18,7 +17,7 @@ export LANG LC_CTYPE LC_ALL
 PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
-if [ -d "$HOME/bin"]; then
+if [ -d "$HOME/bin" ]; then
     PATH="$HOME/.bin:$PATH"
 fi
 
