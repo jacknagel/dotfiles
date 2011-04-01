@@ -62,7 +62,7 @@ set smartcase                           " except when specifying capital letters
 "
 syntax on                               " enable syntax highliting
 " set list listchars=trail:.,tab:>.     " make tabs visible but not ugly; off normally
-
+highlight LineNr ctermfg=grey
 
 "
 " Text Formatting
