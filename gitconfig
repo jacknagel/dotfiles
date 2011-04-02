@@ -4,8 +4,8 @@
     signingkey = 408CAC63
 	
 [core]
-    autocrlf = input
-    safecrlf = true
+    # autocrlf = input
+    # safecrlf = true
     editor = vim
     excludesfile = ~/.gitignore
 	
@@ -13,16 +13,29 @@
     autocorrect = 1
 
 [alias]
-    hist = log --pretty=format:'%Cred%h%Creset |%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%an]' --graph --abbrev-commit
-    lg = log --pretty=format:'%Cred%h%Creset |%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset [%an]' --graph --abbrev-commit
+    co = checkout
+    ci = commit
+    br = branch
+    st = status
     last = cat-file commit HEAD
     ls = ls-files
     type = cat-file -t
     dump = cat-file -p
     unstage = reset HEAD
+    hist = log --graph --pretty=format:'%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset' --abbrev-commit
+    logp = log -p
+	lol = log --graph --decorate --oneline
+	lola = log --graph --decorate --oneline --all
     
 [color]
     ui = auto
+    
+[color "diff"]
+    whitespace = yellow reverse
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
 
 [github]
     user = jacknagel
