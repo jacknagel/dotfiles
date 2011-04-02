@@ -87,8 +87,6 @@ function set_prompt {
     git_prompt="$(parse_git_branch)"
 
     export PS1="${prompt_prefix}${git_prompt}${prompt_suffix}"
-
-    setWindowTitle "${this_host}${PWD/$HOME/~}"
 }
 
 export PROMPT_COMMAND=set_prompt
