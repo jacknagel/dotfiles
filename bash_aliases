@@ -4,7 +4,7 @@
 
 # silence cdspell corrections and $CDPATH echo
 function cd () {
-    builtin cd "$@" > /dev/null
+    builtin cd "$@" &>/dev/null
 }
 
 alias fl='ls -lFrtah | less -R'

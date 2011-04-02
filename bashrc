@@ -5,6 +5,7 @@
 # if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+# fancy prompt
 source ~/.bash_prompt
 
 # set en_US locale w/ utf-8 encodings
@@ -19,7 +20,7 @@ PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/.bin:$PATH"
+    PATH="$HOME/bin:$PATH"
 fi
 
 MANPATH="/usr/share/man:/usr/local/share/man"
