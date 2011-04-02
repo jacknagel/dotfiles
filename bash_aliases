@@ -4,7 +4,7 @@
 
 # silence cdspell corrections and $CDPATH echo
 function cd () {
-    builtin cd "$@" &>/dev/null
+    builtin cd "$@" 1> /dev/null
 }
 
 alias fl='ls -lFrtah | less -R'
@@ -15,6 +15,7 @@ alias weather='python3 ~/bin/pyweather 58102'
 alias ip='ipconfig getifaddr en0'
 alias ifip='ifconfig | grep inet'
 alias killws="perl -pe \'s/[\t ]+$//g\'"
+alias su='su -l' # -l: discard current environment
 
 # show/hide hidden files in Finder
 alias shf='defaults write com.apple.Finder AppleShowAllFiles YES | killall Finder'
