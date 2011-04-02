@@ -20,7 +20,6 @@
     type = cat-file -t
     dump = cat-file -p
     unstage = reset HEAD
-    lgn = "!f() { git log --graph --pretty=format:'%Cred%H%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --date=relative $@ | git name-rev --stdin --name-only ; } ; f"
     
 [color]
     ui = auto
