@@ -81,14 +81,6 @@ function parse_git_branch {
     echo "${bldblk}:[${txtgrn}${branch}${txtrst}${git_is_dirty}${bldblk}]${txtrst}"
 }
 
-function setWindowTitle {
-    case $TERM in
-        *xterm*|ansi)
-        echo -n -e "\033]0;$*\007"
-        ;;
-    esac
-}
-
 function set_prompt {
     prompt_prefix="${bldblk}\u:${bldblu}\w"
     prompt_suffix="${txtrst}${bldblk}\$${txtrst} "
