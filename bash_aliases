@@ -6,7 +6,8 @@
 function cd () {
     builtin cd "$@" 1> /dev/null
 }
-
+alias ..='cd ..'
+alias ...='cd ../../'
 alias fl='ls -lFrtah | less -R'
 alias edit='vim'
 alias vi='vim'
