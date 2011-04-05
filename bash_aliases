@@ -2,10 +2,11 @@
 # ~/.bash_aliases
 #
 
-# silence cdspell corrections and $CDPATH echo
+# silence cdspell, autocd, and $CDPATH echo
 function cd () {
     builtin cd "$@" 1> /dev/null
 }
+
 alias ..='cd ..'
 alias ...='cd ../../'
 alias fl='ls -lFrtah | less -R'
