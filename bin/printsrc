@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # usage: printsrc [-l lang] [-o output file] FILE
 # Requires pdflatex and the Listings and Courier packages for LaTeX
 #
