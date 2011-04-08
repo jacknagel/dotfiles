@@ -45,7 +45,7 @@ CLICOLOR=1
 # CLICOLOR_FORCE=1 # this breaks things when using pipes
 LSCOLORS=ExFxCxDxBxegedabagacad
 GREP_OPTIONS='--color=auto'
-GREP_COLOR='1;31'
+GREP_COLOR='1;32'
 export CLICOLOR LSCOLORS GREP_OPTIONS GREP_COLOR
 
 
