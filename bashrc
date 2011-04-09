@@ -6,10 +6,6 @@
 [ -z "$PS1" ] && return
 
 
-# fancy prompt
-source ~/.bash_prompt
-
-
 # set en_US locale w/ utf-8 encodings
 LANG="en_US.UTF-8"
 LC_CTYPE="en_US.UTF-8"
@@ -50,7 +46,7 @@ export CLICOLOR LSCOLORS GREP_OPTIONS GREP_COLOR
 
 
 # files
-FIGNORE="~:.pyc:.swp:.swa:" # suffixes to ignore during tab completion
+FIGNORE="~:.pyc:.swp:.swa:.git" # things to ignore during tab completion
 COPYFILE_DISABLE=true #no ._ files in archives
 export FIGNORE COPYFILE_DISABLE
 
@@ -60,6 +56,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILESIZE=10000
 HISTCONTROL=ignoreboth:erasedups
+# HISTIGNORE="ls:cd:cd ..:..*: *"
 
 
 # Bash shell options
@@ -84,7 +81,16 @@ done
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM=auto,verbose
+GIT_PS1_SHOWUPSTREAM=auto # "auto verbose"
 
 export GIT_PS1_SHOWDIRTYSTATE GIT_PS1_SHOWSTASHSTATE
 export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
+
+# PS1 with git status
+GIT_BRANCH='$(__git_ps1 "\[\e[1;30m\]:[\[\e[0;32m\]%s\[\e[1;30m\]]")'
+PROMPT_PRE="\[\e[1;30m\]\u:\[\e[1;34m\]\w"
+PROMPT_SUF="\[\e[0m\]\[\e[1;30m\]\$\[\e[0m\] "
+PROMPT_GIT="${GIT_BRANCH}"
+PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_SUF}"
+
+export PS1
