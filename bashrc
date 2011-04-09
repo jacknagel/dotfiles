@@ -53,10 +53,9 @@ export FIGNORE COPYFILE_DISABLE
 
 # history control
 HISTSIZE=10000
-SAVEHIST=10000
 HISTFILESIZE=10000
 HISTCONTROL=ignoreboth:erasedups
-# HISTIGNORE="ls:cd:cd ..:..*: *"
+HISTIGNORE="ls:ls -la:cd:cd ..:..*: *"
 
 
 # Bash shell options
