@@ -10,7 +10,6 @@ Contents
     README.md               this file
     bash_aliases            bash aliases; symlinked to ~/.bash_aliases
     bash_profile            bash profile; symlinked to ~/.bash_profile
-    bash_prompt             bash prompt factored out of bashrc; symlinked to ~/.bash_prompt
     bashrc                  bash configuration; symlinked to ~/.bashrc
     bin/                    collection of lightweight utilities; symlinked to ~/bin
     brew-packages           a (mostly) up-to-date list of installed Homebrew packages (for standing up new systems)

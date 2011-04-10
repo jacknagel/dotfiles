@@ -76,6 +76,13 @@ do
     [[ -e $comp ]] && source $comp
 done
 
+
+# Homebrew options
+HOMEBREW_AUTOCORRECT=1
+
+export HOMEBREW_AUTOCORRECT
+
+
 # __git_ps1 configuration
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
@@ -84,6 +91,7 @@ GIT_PS1_SHOWUPSTREAM=auto # "auto verbose"
 
 export GIT_PS1_SHOWDIRTYSTATE GIT_PS1_SHOWSTASHSTATE
 export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
+
 
 # PS1 with git status
 GIT_BRANCH='$(__git_ps1 "\[\e[1;30m\]:[\[\e[0;32m\]%s\[\e[1;30m\]]")'
