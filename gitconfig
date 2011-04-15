@@ -2,36 +2,39 @@
     name = Jack Nagel
     email = jacknagel@gmail.com
     signingkey = 408CAC63
-	
+
 [core]
     # autocrlf = input
     # safecrlf = true
     editor = vim
     excludesfile = ~/.gitignore
-	
+
 [help]
     autocorrect = 1
 
 [alias]
-    co = checkout
-    ci = commit
     br = branch
-    st = status -sb
-    ss = status --short
-    last = cat-file commit HEAD
+    ci = commit
+    co = checkout
     ls = ls-files
-    type = cat-file -t
-    dump = cat-file -p
+    sb = show-branch
+    ss = status --short
+    st = status -sb
+    amend   = commit --amend
+    hist    = log --graph --pretty=format:'%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset' --abbrev-commit
+    last    = cat-file commit HEAD
+    logp    = log -p
+	lol     = log --graph --decorate --oneline
+	lola    = log --graph --decorate --oneline --all
+	lols    = log --oneline --graph --decorate --simplify-by-decoration --branches --remotes
     unstage = reset HEAD
-    hist = log --graph --pretty=format:'%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset' --abbrev-commit
-    logp = log -p
-	lol = log --graph --decorate --oneline
-	lola = log --graph --decorate --oneline --all
-	lols = log --oneline --graph --decorate --simplify-by-decoration --branches --remotes
-    
+    top     = rev-parse HEAD
+    wip     = commit -am 'wip'
+
 [color]
     ui = auto
-    
+    diff = auto
+
 # [color "diff"]
 #     whitespace = yellow reverse
 #     meta = yellow bold
@@ -45,17 +48,17 @@
 
 [push]
     default = tracking
-    
+
 [url "git@github.com:"]
     pushInsteadOf = github:
     pushInsteadOf = git://github.com/
-    
+
 [url "git://github.com/"]
     insteadOf = github:
 
 [url "git@gist.github.com:"]
     pushInsteadOf = gist:
     pushInsteadOf = git://gist.github.com/
-    
+
 [url "git://gist.github.com/"]
     insteadof = gist:
