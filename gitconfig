@@ -32,12 +32,12 @@
 [color]
     ui = auto
     
-[color "diff"]
-    whitespace = yellow reverse
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+# [color "diff"]
+#     whitespace = yellow reverse
+#     meta = yellow bold
+#     frag = magenta bold
+#     old = red bold
+#     new = green bold
 
 [github]
     user = jacknagel
