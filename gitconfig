@@ -16,7 +16,8 @@
     co = checkout
     ci = commit
     br = branch
-    st = status
+    st = status -sb
+    ss = status --short
     last = cat-file commit HEAD
     ls = ls-files
     type = cat-file -t
@@ -26,6 +27,7 @@
     logp = log -p
 	lol = log --graph --decorate --oneline
 	lola = log --graph --decorate --oneline --all
+	lols = log --oneline --graph --decorate --simplify-by-decoration --branches --remotes
     
 [color]
     ui = auto
