@@ -6,3 +6,5 @@ vim/undo/*
 vim/.viminfo
 ssh/*
 gnupg/*
+bin/pw
+bin/pyweather
