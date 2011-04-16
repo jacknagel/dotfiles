@@ -21,7 +21,7 @@ if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
-MANPATH="/usr/local/share/man:/usr/share/man"
+MANPATH="/usr/share/man:/usr/local/share/man"
 
 CDPATH=".:$HOME"
 
