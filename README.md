@@ -18,5 +18,6 @@ Contents
     gpg/                    copies of my GPG public key
     inputrc                 readline configuration; symlinked to ~/.inputrc
     smartmontools/          configuration for the smartmontools package
+    scripts/                collection of utility scripts that don't belong anywhere else
     vim/                    vim directory; symlinked to ~/.vim
     vimrc                   vim configuration; symlinked to ~/.vimrc
