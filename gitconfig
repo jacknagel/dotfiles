@@ -26,7 +26,7 @@
     logp    = log -p
 	lol     = log --graph --decorate --oneline
 	lola    = log --graph --decorate --oneline --all
-	lols    = log --oneline --graph --decorate --simplify-by-decoration --branches --remotes
+	lols    = log --graph --decorate --oneline --simplify-by-decoration --branches --remotes
     unstage = reset HEAD
     top     = rev-parse HEAD
     wip     = commit -am 'wip'
