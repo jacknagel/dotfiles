@@ -16,6 +16,7 @@ export LANG LC_CTYPE LC_ALL
 # path
 PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+PATH="$PATH:/usr/local/texlive/2010basic/bin/universal-darwin"
 
 if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
