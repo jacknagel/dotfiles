@@ -32,7 +32,7 @@ export PATH MANPATH
 # editor/pager
 EDITOR="mate -w"
 PAGER="less -FiRSwX"
-MANPAGER="less -FiRSwX"
+MANPAGER="$PAGER"
 LESSHISTFILE="-"
 export EDITOR PAGER MANPAGER LESSHISTFILE
 
