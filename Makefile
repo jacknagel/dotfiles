@@ -12,8 +12,9 @@ GIT_FILES=gitconfig gitignore
 GPG_FILES=gnupg
 VIM_FILES=vim vimrc
 SSH_FILES=ssh
+TARSNAP_FILES=tarsnaprc
 
-install: link-bash link-bin link-git link-gpg link-vim link-ssh
+install: link-bash link-bin link-git link-gpg link-vim link-ssh link-tarsnap
 
 link-bash:
 	@for file in $(BASH_FILES); do \
@@ -52,6 +53,13 @@ link-vim:
 
 link-ssh:
 	@for file in $(SSH_FILES); do \
+	if test -L ~/.$${file} || ! test -f ~/.$${file}; \
+	then rm -f ~/.$${file}; ln -sn `pwd`/$${file} ~/.$${file}; \
+	else print ".$${file} $(warning)"; fi \
+	done;
+
+link-tarsnap:
+	@for file in $(TARSNAP_FILES); do \
 	if test -L ~/.$${file} || ! test -f ~/.$${file}; \
 	then rm -f ~/.$${file}; ln -sn `pwd`/$${file} ~/.$${file}; \
 	else print ".$${file} $(warning)"; fi \
