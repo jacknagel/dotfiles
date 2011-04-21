@@ -1,5 +1,5 @@
 # Tarsnap cache directory
-cachedir /usr/local/tarsnap-cache
+cachedir ~/Library/Caches/tarsnap
 
 # Tarsnap key file
 keyfile ~/.dotfiles/tarsnap/tarsnap.key
