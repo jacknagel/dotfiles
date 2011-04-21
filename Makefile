@@ -2,8 +2,7 @@
 # Makefile for dotfiles
 #
 
-# If regular files exist in places were symlinks are being created,
-# a warning is produced and the symlink is skipped.
+# Filename conflicts are resolved in favor of existing real files.
 
 warning=is a regular file; skipped.
 BASH_FILES=bash_profile bashrc bash_aliases inputrc
