@@ -16,6 +16,7 @@
     br = branch
     ci = commit
     co = checkout
+    dc = diff --cached
     ls = ls-files -s --abbrev
     sb = show-branch
     ss = status --short
