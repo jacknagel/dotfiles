@@ -1,1 +1,9 @@
-add-mode "wrap"
+bind-to-key	newline-and-indent	^J
+set		$fillcol		78
+
+36	store-macro
+	!if &gre &sin $cfname "COMMIT_EDITMSG" 0
+		add-mode "wrap"
+		set $fillcol 68
+	!endif
+!endm
