@@ -1,9 +1,27 @@
 bind-to-key	newline-and-indent	^J
 set		$fillcol		78
+set		$scroll			FALSE
+set		$overlap		2
 
 36	store-macro
 	!if &gre &sin $cfname "COMMIT_EDITMSG" 0
 		add-mode "wrap"
 		set $fillcol 68
 	!endif
+	!if &gre &sin $cfname ".pl" 0
+		add-mode "cmode"
+		4 handle-tab
+	!endif
+	!if &gre &sin $cfname ".py" 0
+		4 handle-tab
+	!endif
+	!if &gre &sin $cfname ".rb" 0
+		4 handle-tab
+	!endif
+	!if &gre &sin $cfname ".sh" 0
+		4 handle-tab
+	!endif
+	!if &gre &sin $cfname ".txt" 0
+		add-mode "wrap"
+	!endif	
 !endm
