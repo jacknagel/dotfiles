@@ -41,7 +41,7 @@ set directory=$HOME/.vim/tmp            " swap file directory
 "
 set ruler                               " show cursor position all the time
 set number                              " show line numbers
-set columns=80                          "
+set columns=78                          "
 set backspace=2                         " make backspace work like it should
 set nostartofline                       " stop
 set timeoutlen=200                      " time to wait after hitting ESC (in ms)
@@ -60,7 +60,7 @@ set smartcase                           " except when specifying capital letters
 "
 " Colors & Theme
 "
-syntax on                               " enable syntax highliting
+syntax on                               " enable syntax highlighting
 " set list listchars=trail:.,tab:>.     " make tabs visible but not ugly; off normally
 highlight LineNr ctermfg=grey
 
