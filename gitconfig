@@ -4,8 +4,6 @@
     signingkey = 408CAC63
 
 [core]
-    # autocrlf = input
-    # safecrlf = true
     editor = em
     excludesfile = ~/.gitignore
 
