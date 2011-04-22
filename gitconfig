@@ -22,6 +22,7 @@
     ss = status --short
     st = status -sb
     amend   = commit --amend
+    cur     = !git rev-parse HEAD | cut -c 1-7 | pbcopy
     hist    = log --graph --pretty=format:'%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset' --abbrev-commit
     last    = cat-file commit HEAD
     logp    = log -p
