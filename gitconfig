@@ -24,9 +24,9 @@
     hist    = log --graph --pretty=format:'%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset' --abbrev-commit
     last    = cat-file commit HEAD
     logp    = log -p
-	lol     = log --graph --decorate --oneline
-	lola    = log --graph --decorate --oneline --all
-	lols    = log --graph --decorate --oneline --simplify-by-decoration --branches --remotes
+    lol     = log --graph --decorate --oneline
+    lola    = log --graph --decorate --oneline --all
+    lols    = log --graph --decorate --oneline --simplify-by-decoration --branches --remotes
     unstage = reset HEAD
     top     = rev-parse HEAD
     wip     = commit -am 'wip'
