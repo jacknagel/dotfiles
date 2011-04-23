@@ -1,9 +1,14 @@
+; 
+; ~/.emrc
+;
+
 bind-to-key	newline-and-indent	^J
+
 set		$fillcol		78
 set		$scroll			FALSE
 set		$overlap		2
 
-36	store-macro
+36 store-macro
 	!if &gre &sin $cfname "COMMIT_EDITMSG" 0
 		add-mode "wrap"
 		set $fillcol 68
@@ -24,4 +29,7 @@ set		$overlap		2
 	!if &gre &sin $cfname ".txt" 0
 		add-mode "wrap"
 	!endif	
+	!if &gre &sin $cfname "README" 0
+	    add-mode "wrap"
+	!endif
 !endm
