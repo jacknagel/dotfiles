@@ -6,6 +6,7 @@
 [core]
     editor = em
     excludesfile = ~/.gitignore
+    pager = less -+$LESS -iRSw
 
 [help]
     autocorrect = 1
