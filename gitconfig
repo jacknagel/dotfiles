@@ -37,13 +37,6 @@
     ui = auto
     diff = auto
 
-# [color "diff"]
-#     whitespace = yellow reverse
-#     meta = yellow bold
-#     frag = magenta bold
-#     old = red bold
-#     new = green bold
-
 [github]
     user = jacknagel
     token = !security 2>&1 >/dev/null find-generic-password -gs github.token | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
