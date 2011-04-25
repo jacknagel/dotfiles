@@ -1,14 +1,18 @@
-; 
 ; ~/.emrc
-;
 
-bind-to-key	newline-and-indent	^J
+; the command bound to M-FNR will execute for every new buffer
+bind-to-key     execute-macro-1         M-FNR
 
-set		$fillcol		78
-set		$scroll			FALSE
-set		$overlap		2
+; custom key bindings
+bind-to-key     newline-and-indent      ^J
 
-36 store-macro
+; settings
+set     $fillcol        78
+set     $scroll         FALSE
+set     $overlap        2
+
+; macros
+1  store-macro
 	!if &gre &sin $cfname "COMMIT_EDITMSG" 0
 		add-mode "wrap"
 		set $fillcol 68
@@ -26,10 +30,25 @@ set		$overlap		2
 	!if &gre &sin $cfname ".sh" 0
 		4 handle-tab
 	!endif
+	!if &gre &sin $cfname ".tex" 0
+		add-mode "wrap"
+	!endif
 	!if &gre &sin $cfname ".txt" 0
 		add-mode "wrap"
-	!endif	
+	!endif
 	!if &gre &sin $cfname "README" 0
 	    add-mode "wrap"
 	!endif
+	set %rctmp &sin $cfname "."
+	!if &equ %rctmp 0
+		!return
+	!endif
+	set %rctmp &mid $cfname &add %rctmp 1 5
+	!if &or &seq %rctmp "c" &seq %rctmp "h"
+		add-mode "cmode"
+	!endif
+!endm
+
+2   store-macro
+    filter-buffer "sed 's/[ \t]*$//'"
 !endm
