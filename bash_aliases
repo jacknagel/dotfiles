@@ -10,7 +10,7 @@ function cd () {
 alias ..='cd ..'
 alias ...='cd ../../'
 alias fl='ls -lFrtah | less -R'
-alias edit='vim'
+alias edit='em'
 alias vi='vim'
 alias sizes='du -h -d1'
 alias weather='python3 ~/bin/pyweather 58102'
