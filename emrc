@@ -17,6 +17,9 @@ set     $overlap        2
 		add-mode "wrap"
 		set $fillcol 68
 	!endif
+	!if &gre &sin $cfname "gitconfig" 0
+		4 handle-tab
+	!endif
 	!if &gre &sin $cfname ".pl" 0
 		add-mode "cmode"
 		4 handle-tab
