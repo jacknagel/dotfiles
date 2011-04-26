@@ -7,22 +7,29 @@
     editor = em
     excludesfile = ~/.gitignore
     pager = less -+$LESS -iRSw
+    
+[pager]
+    diff = less -+$LESS -FR
 
 [help]
     autocorrect = 1
+
+[pretty]
+    hist = "%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset"
 
 [alias]
     br = branch
     ci = commit
     co = checkout
     dc = diff --cached
+    di = diff
     ls = ls-files -s --abbrev
     sb = show-branch
     ss = status --short
     st = status -sb
     amend   = commit --amend
     cur     = !git rev-parse HEAD | cut -c 1-7 | pbcopy
-    hist    = log --graph --pretty=format:'%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset' --abbrev-commit
+    hist    = log --graph --pretty=hist --abbrev-commit
     last    = cat-file commit HEAD
     logp    = log -p
     lol     = log --graph --decorate --oneline
@@ -35,7 +42,6 @@
 
 [color]
     ui = auto
-    diff = auto
 
 [github]
     user = jacknagel
