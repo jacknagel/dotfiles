@@ -7,9 +7,6 @@
     editor = em
     excludesfile = ~/.gitignore
     pager = less -+$LESS -iRSw
-    
-[pager]
-    diff = less -+$LESS -FR
 
 [help]
     autocorrect = 1
