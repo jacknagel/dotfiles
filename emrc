@@ -6,6 +6,8 @@ bind-to-key     execute-macro-1         M-FNR
 ; custom key bindings
 bind-to-key     newline-and-indent      ^J
 ;bind-to-key     execute-macro-2         ^T
+;bind-to-key     execute-macro-3
+;bind-to-key     execute-macro-4
 
 ; settings
 set     $fillcol        78
@@ -55,4 +57,42 @@ set     $overlap        2
 
 2   store-macro
     filter-buffer "sed 's/[ \t]*$//'"
+!endm
+
+3   store-macro
+    write-message "[Indenting region]"
+    set %endline $curline
+    set %endpos $cwline
+    exchange-point-and-mark
+    set-mark
+
+    !while &gre %endline $curline
+        beginning-of-line
+        handle-tab
+        next-line
+    !endwhile
+
+    beginning-of-line
+    set $cwline %endpos
+    write-message "[Region indented]"
+!endm
+
+4   store-macro
+    write-message "[Undenting region]"
+    set %endline $curline
+    set %endpos $cwline
+    exchange-point-and-mark
+    set-mark
+
+    !while &gre %endline $curline
+        beginning-of-line
+        !if &gre $lwidth 0
+            delete-next-character
+        !endif
+        next-line
+    !endwhile
+
+    beginning-of-line
+    set $cwline %endpos
+    write-message "[Region undented]"
 !endm
