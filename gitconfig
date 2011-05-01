@@ -11,15 +11,13 @@
 [help]
     autocorrect = 1
 
-[pretty]
-    hist = "%C(yellow)%h%Creset%Cred%d%Creset %s %Cgreen(%cr)%Creset %Cblue(%an)%Creset"
-
 [alias]
     br = branch
     ci = commit
     co = checkout
     dc = diff --cached
     di = diff
+    ff = merge --ff-only
     ls = ls-files -s --abbrev
     sb = show-branch
     ss = status --short
@@ -39,6 +37,9 @@
 
 [color]
     ui = auto
+    
+[pretty]
+    hist = "%C(yellow)%h%Creset%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"
 
 [github]
     user = jacknagel
