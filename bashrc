@@ -24,8 +24,6 @@ fi
 
 MANPATH="/usr/share/man:/usr/local/share/man"
 
-CDPATH=".:$HOME"
-
 export PATH MANPATH
 
 

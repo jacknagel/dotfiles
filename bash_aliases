@@ -18,6 +18,7 @@ alias ip='ipconfig getifaddr en0'
 alias ifip='ifconfig | grep inet'
 alias killws="perl -pe \'s/[\t ]+$//g\'"
 alias su='su -l' # -l: discard current environment
+alias indent='gindent'
 
 # show/hide hidden files in Finder
 alias shf='defaults write com.apple.Finder AppleShowAllFiles YES | killall Finder'
