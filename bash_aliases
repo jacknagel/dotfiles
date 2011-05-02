@@ -11,6 +11,7 @@ alias ..='cd ..'
 alias ...='cd ../../'
 alias fl='ls -lFrtah | less -R'
 alias edit='em'
+alias uemacs='em'
 alias vi='vim'
 alias sizes='du -h -d1'
 alias weather='python3 ~/bin/pyweather 58102'
@@ -21,5 +22,5 @@ alias su='su -l' # -l: discard current environment
 alias indent='gindent'
 
 # show/hide hidden files in Finder
-alias shf='defaults write com.apple.Finder AppleShowAllFiles YES | killall Finder'
-alias hhf='defaults write com.apple.Finder AppleShowAllFiles NO | killall Finder'
+alias showhf='defaults write com.apple.Finder AppleShowAllFiles YES | killall Finder'
+alias hidehf='defaults write com.apple.Finder AppleShowAllFiles NO | killall Finder'
