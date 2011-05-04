@@ -2,6 +2,7 @@
 cachedir ~/Library/Caches/tarsnap
 
 # Tarsnap key file
+# this is excluded from the .dotfiles git repository
 keyfile ~/.dotfiles/tarsnap/tarsnap.key
 
 # Don't archive files which have the nodump flag set
@@ -10,5 +11,11 @@ nodump
 # Print statistics when creating or deleting archives
 print-stats
 
+# Use SI prefixes to make numbers printed by --print-stats
+humanize-numbers
+
 # Create a checkpoint once per GB of uploaded data.
 checkpoint-bytes 1G
+
+# Excludes
+exclude .git
