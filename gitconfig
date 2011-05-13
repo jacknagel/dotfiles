@@ -42,13 +42,22 @@
 [pretty]
     hist = "%C(yellow)%h%Creset%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"
 
-[github]
-    user = jacknagel
-    token = !security 2>&1 >/dev/null find-generic-password -gs github.token | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
+[diff "tar"]
+    textconv = tar -tvf
+
+[diff "tgz"]
+    textconv = tar -ztvf
+
+[diff "tbz"]
+    textconv = tar -jtvf
 
 [push]
     default = tracking
 
+[github]
+    user = jacknagel
+    token = !security 2>&1 >/dev/null find-generic-password -gs github.token | ruby -e 'print $1 if STDIN.gets =~ /^password: \\\"(.*)\\\"$/'
+        
 [url "git@github.com:"]
     pushInsteadOf = github:
     pushInsteadOf = git://github.com/
