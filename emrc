@@ -18,9 +18,15 @@ set     $overlap        2
 1  store-macro
     !if &gre &sin $cfname "COMMIT_EDITMSG" 0
         add-mode "wrap"
-        set $fillcol 68
+        set $fillcol 72
     !endif
     !if &gre &sin $cfname "gitconfig" 0
+        4 handle-tab
+    !endif
+    !if &gre &sin $cfname ".gitmodules" 0
+        4 handle-tab
+    !endif
+    !if &gre &sin $cfname "git-rebase-todo" 0
         4 handle-tab
     !endif
     !if &gre &sin $cfname ".pl" 0
