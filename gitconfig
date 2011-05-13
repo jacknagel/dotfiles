@@ -13,6 +13,7 @@
 
 [alias]
     br = branch
+    bv = branch --verbose
     ci = commit
     co = checkout
     dc = diff --cached
