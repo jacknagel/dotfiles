@@ -6,6 +6,7 @@
 [core]
     editor = em
     excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
     pager = less -+$LESS -iRSw
 
 [help]
