@@ -6,8 +6,8 @@
 DIR = 		bin
 DOT_DIR = 	gnupg ssh vim
 DOT_FILE = 	bash_profile bashrc bash_aliases inputrc \
-		gitconfig gitignore emrc vimrc tarsnaprc \
-		gdbinit
+		gitconfig gitignore gitattributes emrc vimrc \
+		tarsnaprc gdbinit
 
 all: install
 
