@@ -65,7 +65,7 @@ link-uemacs:
 	then rm -f ~/.$${file}; ln -sn `pwd`/$${file} ~/.$${file}; \
 	else print ".$${file} $(warning)"; fi \
 	done;
-	
+
 link-vim:
 	@for file in $(VIM_FILES); do \
 	if test -L ~/.$${file} || ! test -f ~/.$${file}; \
