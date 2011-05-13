@@ -1,74 +1,40 @@
 #
 # Makefile for dotfiles
+# method inspired by https://github.com/pix/dotfiles 
 #
 
-# Filename conflicts are resolved in favor of existing real files.
+DIR = 		bin
+DOT_DIR = 	gnupg ssh vim
+DOT_FILE = 	bash_profile bashrc bash_aliases inputrc \
+		gitconfig gitignore emrc vimrc tarsnaprc \
+		gdbinit
 
-warning=is a regular file; skipped.
-BASH_FILES=bash_profile bashrc bash_aliases inputrc
-BIN_FILES=bin
-GIT_FILES=gitconfig gitignore
-GPG_FILES=gnupg
-SSH_FILES=ssh
-TARSNAP_FILES=tarsnaprc
-UEMACS_FILES=emrc
-VIM_FILES=vim vimrc
+all: install
 
-install: link-bash link-bin link-git link-gpg link-ssh link-tarsnap \
-	 link-uemacs link-vim
+install: $(HOME)/.history $(foreach f, $(DIR), install-dir-$(f)) \
+	 $(foreach f, $(DOT_DIR), install-dotdir-$(f)) \
+	 $(foreach f, $(DOT_FILE), install-file-$(f))
 
-link-bash:
-	@for file in $(BASH_FILES); do \
-	if test -L ~/.$${file} || ! test -f ~/.$${file}; \
-	then rm -f ~/.$${file}; ln -sn `pwd`/$${file} ~/.$${file}; \
-	else echo "~/.$${file} $(warning)"; fi \
-	done;
+$(HOME)/.history:
+	@echo " [mkdir] Creating ~/.history"
+	@mkdir $(HOME)/.history 2>/dev/null
 
-link-bin:
-	@for file in $(BIN_FILES); do \
-	if test -L ~/$${file} || ! test -f ~/$${file}; \
-	then rm -f ~/$${file}; ln -sn `pwd`/$${file} ~/$${file}; \
-	else print ".$${file} $(warning)"; fi \
-	done;
+install-dir-%: %
+	@echo " [ln]    Linking $< to ~/$<"
+	@ln -snf $(CURDIR)/$< $(HOME)/$<
 
-link-git:
-	@for file in $(GIT_FILES); do \
-	if test -L ~/.$${file} || ! test -f ~/.$${file}; \
-	then rm -f ~/.$${file}; ln -sn `pwd`/$${file} ~/.$${file}; \
-	else echo "~/.$${file} $(warning)"; fi \
-	done;
+install-dotdir-%: %
+	@echo " [ln]    Linking $< to ~/.$<"
+	@ln -snf $(CURDIR)/$< $(HOME)/.$<
 
-link-gpg:
-	@for file in $(GPG_FILES); do \
-	if test -L ~/.$${file} || ! test -f ~/.$${file}; \
-	then rm -f ~/.$${file}; ln -sn `pwd`/$${file} ~/.$${file}; \
-	else print ".$${file} $(warning)"; fi \
-	done;
+install-file-%: %
+	@echo " [ln]    Linking $< to ~/.$<"
+	@ln -sf $(CURDIR)/$< $(HOME)/.$<
 
-link-ssh:
-	@for file in $(SSH_FILES); do \
-	if test -L ~/.$${file} || ! test -f ~/.$${file}; \
-	then rm -f ~/.$${file}; ln -sn `pwd`/$${file} ~/.$${file}; \
-	else print ".$${file} $(warning)"; fi \
-	done;
+clean: $(foreach f, $(DIR), clean-$(f)) \
+       $(foreach f, $(DOT_DIR), clean-.$(f)) \
+       $(foreach f, $(DOT_FILE), clean-.$(f))
 
-link-tarsnap:
-	@for file in $(TARSNAP_FILES); do \
-	if test -L ~/.$${file} || ! test -f ~/.$${file}; \
-	then rm -f ~/.$${file}; ln -sn `pwd`/$${file} ~/.$${file}; \
-	else print ".$${file} $(warning)"; fi \
-	done;
-
-link-uemacs:
-	@for file in $(UEMACS_FILES); do \
-	if test -L ~/.$${file} || ! test -f ~/.$${file}; \
-	then rm -f ~/.$${file}; ln -sn `pwd`/$${file} ~/.$${file}; \
-	else print ".$${file} $(warning)"; fi \
-	done;
-	
-link-vim:
-	@for file in $(VIM_FILES); do \
-	if test -L ~/.$${file} || ! test -f ~/.$${file}; \
-	then rm -f ~/.$${file}; ln -sn `pwd`/$${file} ~/.$${file}; \
-	else print ".$${file} $(warning)"; fi \
-	done;
+clean-%:
+	@echo " [clean] Removing link ~/$*"
+	@sh -c "if [ -h ~/$* ]; then rm ~/$*; fi"

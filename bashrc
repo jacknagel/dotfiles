@@ -1,12 +1,10 @@
-#
-# ~/.bashrc
-#
+# ~/.bashrc: bash(1) configuration
 
 # if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
 
-# set en_US locale w/ utf-8 encodings
+# set en_US locale with utf-8 encodings
 LANG="en_US.UTF-8"
 LC_CTYPE="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
@@ -18,7 +16,7 @@ PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$PATH:/usr/texbin"
 
-if [ -d "$HOME/bin" ]; then
+if [[ -d "$HOME/bin" ]]; then
     PATH="$HOME/bin:$PATH"
 fi
 
@@ -51,13 +49,18 @@ export FIGNORE COPYFILE_DISABLE
 
 
 # history control
-HISTSIZE=10000
-HISTFILESIZE=10000
+if [[ ! -d ~/.history ]]; then
+    mkdir ~/.history
+fi
+
+HISTSIZE=100000
+HISTFILESIZE=100000
+HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="ls:ls -la:cd:cd ..:..*: *"
 
 
-# Bash shell options
+# bash shell options
 shopt -s autocd cdspell dirspell
 shopt -s dotglob extglob globstar
 shopt -s cmdhist histappend
@@ -66,7 +69,7 @@ shopt -s checkjobs
 shopt -s checkwinsize
 
 
-# Bash completion
+# bash completion
 for comp in \
     /usr/local/etc/bash_completion \
     /usr/local/etc/bash_completion.d/git-completion.bash \
@@ -74,12 +77,6 @@ for comp in \
 do
     [[ -e $comp ]] && source $comp
 done
-
-
-# Homebrew options
-HOMEBREW_AUTOCORRECT=1
-
-export HOMEBREW_AUTOCORRECT
 
 
 # __git_ps1 configuration

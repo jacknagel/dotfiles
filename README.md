@@ -16,8 +16,9 @@ Contents
     bash_aliases            bash aliases; symlinked to ~/.bash_aliases
     bash_profile            bash profile; symlinked to ~/.bash_profile
     bashrc                  bash configuration; symlinked to ~/.bashrc
-    brew-packages           a (mostly) up-to-date list of installed Homebrew packages (for standing up new systems)
+    brew-packages           a (mostly) up-to-date list of installed Homebrew packages
     emrc                    uemacs configuration; symlinked to ~/.emrc
+    gdbinit                 gdb startup file; symlnked to ~/.gdbinit
     gitconfig               global git configuration; symlinked to ~/.gitconfig
     gitignore               global git excludesfile; symlinked to ~/.gitignore
     inputrc                 readline configuration; symlinked to ~/.inputrc

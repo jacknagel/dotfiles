@@ -9,3 +9,4 @@ gnupg/*
 bin/pw
 bin/pyweather
 tarsnap/*
+*.tmproj
