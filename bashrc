@@ -1,6 +1,4 @@
-#
-# ~/.bashrc
-#
+# ~/.bashrc: bash(1) configuration
 
 # if not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -53,6 +51,7 @@ export FIGNORE COPYFILE_DISABLE
 # history control
 HISTSIZE=10000
 HISTFILESIZE=10000
+HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE="ls:ls -la:cd:cd ..:..*: *"
 
