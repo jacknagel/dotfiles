@@ -57,7 +57,7 @@ HISTSIZE=100000
 HISTFILESIZE=100000
 HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="ls:ls -la:cd:cd ..:..*: *"
+HISTIGNORE="ls:ls -la:ls -a:cd:cd ..:..*: *"
 
 
 # bash shell options
