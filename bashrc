@@ -26,7 +26,7 @@ export PATH MANPATH
 
 
 # editor/pager
-EDITOR="mate -w"
+EDITOR="em"
 PAGER="less -FiRSwX"
 MANPAGER="less -iRSw"
 LESSHISTFILE="-"
