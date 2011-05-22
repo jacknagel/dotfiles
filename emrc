@@ -29,6 +29,9 @@ set     $overlap        2
     !if &gre &sin $cfname "git-rebase-todo" 0
         4 handle-tab
     !endif
+    !if &gre &sin $cfname "mailmsg" 0
+        add-mode "wrap"
+    !endif
     !if &gre &sin $cfname ".pl" 0
         add-mode "cmode"
         4 handle-tab
