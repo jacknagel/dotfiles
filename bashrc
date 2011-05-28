@@ -26,11 +26,12 @@ export PATH MANPATH
 
 
 # editor/pager
+LESS="FiRSwX"
 EDITOR="em"
-PAGER="less -FiRSwX"
-MANPAGER="less -iRSw"
+PAGER="less"
+MANPAGER="less -+$LESS -iRSw"
 LESSHISTFILE="-"
-export EDITOR PAGER MANPAGER LESSHISTFILE
+export LESS EDITOR PAGER MANPAGER LESSHISTFILE
 
 
 # colors
