@@ -13,6 +13,7 @@
     autocorrect = 1
 
 [alias]
+    au = add -u
     br = branch
     bv = branch --verbose
     ci = commit
@@ -22,6 +23,7 @@
     ff = merge --ff-only
     ls = ls-files -s --abbrev
     sb = show-branch
+    so = commit --signoff
     ss = status --short
     st = status -sb
     amend   = commit --amend
