@@ -21,6 +21,8 @@
     dc = diff --cached
     di = diff
     ff = merge --ff-only
+    lg = log --graph --decorate --oneline
+    lp = log -p
     ls = ls-files -s --abbrev
     sb = show-branch
     so = commit --signoff
