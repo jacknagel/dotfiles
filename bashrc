@@ -97,3 +97,8 @@ PROMPT_SUF="\[\e[0m\]\[\e[1;30m\]\$\[\e[0m\] "
 PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_SUF}"
 
 export PS1
+
+# silly fix to make gpg2 & pinentry behave sanely when
+# exec()'d from a program's child process
+GPG_TTY=`tty`
+export GPG_TTY
