@@ -21,7 +21,6 @@ if [[ -d "$HOME/bin" ]]; then
 fi
 
 MANPATH="/usr/share/man:/usr/local/share/man"
-
 export PATH MANPATH
 
 
@@ -36,8 +35,7 @@ export LESS EDITOR PAGER MANPAGER LESSHISTFILE
 
 # colors
 CLICOLOR=1
-# CLICOLOR_FORCE=1 # this breaks things when using pipes
-LSCOLORS=ExFxCxDxBxegedabagacad
+LSCOLORS=ExGxFxdxCxDaDahbadacec
 GREP_OPTIONS='--color=auto'
 GREP_COLOR='1;32'
 export CLICOLOR LSCOLORS GREP_OPTIONS GREP_COLOR
@@ -91,14 +89,14 @@ export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
 
 
 # PS1 with git status
-PROMPT_GIT='$(__git_ps1 "\[\e[1;30m\]:[\[\e[0;32m\]%s\[\e[1;30m\]]")'
-PROMPT_PRE="\[\e[1;30m\]\u:\[\e[1;34m\]\w"
-PROMPT_SUF="\[\e[0m\]\[\e[1;30m\]\$\[\e[0m\] "
+PROMPT_GIT='$(__git_ps1 "\e[0m\]/\[\e[1;30m\]\[\e[0;32m\]%s\[\e[1;30m\]")'
+PROMPT_PRE="\[\e[1;30m\][\[\e[0m\]\u \[\e[1;34m\]\W"
+PROMPT_SUF="\[\e[0m\]\[\e[1;30m\]]\$\[\e[0m\] "
 PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_SUF}"
-
 export PS1
 
-# silly fix to make gpg2 & pinentry behave sanely when
-# exec()'d from a program's child process
+
+# silly fix to make gpg2/pinentry behave sanely
+# when invoked by other programs
 GPG_TTY=`tty`
 export GPG_TTY
