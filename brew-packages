@@ -1,5 +1,6 @@
 ack
 agrep
+asciidoc
 autogen
 awk
 base64
@@ -8,10 +9,14 @@ bash-completion
 bdw-gc
 bwm-ng
 ccache
+cflow
+clisp
+cloc
 cmake
 curl
 deja-gnu
 dos2unix
+eventlog
 faac
 faad2
 ffmpeg
@@ -21,7 +26,6 @@ gd
 gdb
 gdbm
 gettext
-ghc
 gist
 git
 glib
@@ -29,13 +33,12 @@ gmp
 gnu-indent
 gnu-prolog
 gnupg
-gnuplot
-gpg-agent
+gnupg2
 grep
 guile
-haskell-platform
 htop
 iftop
+intltool
 ircii
 jasper
 jpeg
@@ -52,6 +55,7 @@ libksba
 libmpc
 libogg
 librsync
+libsigsegv
 libtiff
 libunistring
 libvorbis
@@ -66,6 +70,7 @@ md5deep
 md5sha1sum
 mpfr
 openssl
+ossp-uuid
 pango
 paperkey
 pcre
@@ -78,10 +83,11 @@ python
 python3
 readline
 rsync
-scala
 scheme48
 sl
 smartmontools
+sparse
+splint
 ssh-copy-id
 tarsnap
 tcl
