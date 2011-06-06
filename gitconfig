@@ -21,6 +21,7 @@
     dc = diff --cached
     di = diff
     ff = merge --ff-only
+    fp = format-patch
     lg = log --graph --decorate --oneline
     lp = log -p
     ls = ls-files -s --abbrev
