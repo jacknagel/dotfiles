@@ -13,27 +13,29 @@
     autocorrect = 1
 
 [alias]
-    au = add -u
+    au = add --update
     br = branch
     bv = branch --verbose
     ci = commit
     co = checkout
+    cv = commit --verbose
+    cs = commit --signoff
     dc = diff --cached
     di = diff
     ff = merge --ff-only
     fp = format-patch
     lg = log --graph --decorate --oneline
-    lp = log -p
-    ls = ls-files -s --abbrev
+    lp = log --patch
+    ls = ls-files --stage --abbrev
     sb = show-branch
     so = commit --signoff
     ss = status --short
-    st = status -sb
+    st = status --short --branch
     amend   = commit --amend
     cur     = !git rev-parse HEAD | cut -c 1-7 | pbcopy
     hist    = log --graph --pretty=hist --abbrev-commit
     last    = cat-file commit HEAD
-    logp    = log -p
+    logp    = log --patch
     lol     = log --graph --decorate --oneline
     lola    = log --graph --decorate --oneline --all
     lols    = log --graph --decorate --oneline --simplify-by-decoration --branches --remotes
@@ -44,7 +46,7 @@
 
 [color]
     ui = auto
-    
+
 [pretty]
     hist = "%C(yellow)%h%Creset%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"
 
@@ -66,7 +68,7 @@
 
 [gist]
     browse = 1
-        
+
 [url "git@github.com:"]
     pushInsteadOf = github:
     pushInsteadOf = git://github.com/
