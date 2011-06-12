@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# update (or clone) public/private gists to ~/projects/gists
+# update (or clone) public/private gists to ~/src/gists
 
 import json
 from io import StringIO
@@ -18,10 +18,10 @@ gists_json = StringIO(content.decode())
 gists = json.load(gists_json)
 
 for gist in gists:
-    retval = os.system("test -d ~/projects/gists/gist-" + gist['id'][:8])
+    retval = os.system("test -d ~/src/gists/gist-" + gist['id'][:8])
     if retval:
-        cmd = "cd ~/projects/gists && git clone git@gist.github.com:" + gist['id'] +".git gist-" + gist['id'][:8]
+        cmd = "cd ~/src/gists && git clone git@gist.github.com:" + gist['id'] +".git gist-" + gist['id'][:8]
         os.system(cmd)
     else:
-        cmd = "cd ~/projects/gists/gist-" + gist['id'][:8] + " && git pull"
+        cmd = "cd ~/src/gists/gist-" + gist['id'][:8] + " && git pull"
         os.system(cmd)
