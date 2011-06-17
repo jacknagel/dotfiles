@@ -20,6 +20,10 @@ set     $overlap        2
         add-mode "wrap"
         set $fillcol 72
     !endif
+    !if &gre &sin $cfname "TAG_EDITMSG" 0
+        add-mode "wrap"
+        set $fillcol 72
+    !endif
     !if &gre &sin $cfname "gitconfig" 0
         4 handle-tab
     !endif
