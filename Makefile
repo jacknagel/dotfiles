@@ -16,19 +16,19 @@ install: $(HOME)/.history $(foreach f, $(DIR), install-dir-$(f)) \
 	 $(foreach f, $(DOT_FILE), install-file-$(f))
 
 $(HOME)/.history:
-	@echo " [mkdir] Creating ~/.history"
+	@echo "  MKDIR Creating ~/.history"
 	@mkdir $(HOME)/.history 2>/dev/null
 
 install-dir-%: %
-	@echo " [ln]    Linking $< to ~/$<"
+	@echo "  LN $< to ~/$<"
 	@ln -snf $(CURDIR)/$< $(HOME)/$<
 
 install-dotdir-%: %
-	@echo " [ln]    Linking $< to ~/.$<"
+	@echo "  LN $< to ~/.$<"
 	@ln -snf $(CURDIR)/$< $(HOME)/.$<
 
 install-file-%: %
-	@echo " [ln]    Linking $< to ~/.$<"
+	@echo "  LN $< to ~/.$<"
 	@ln -sf $(CURDIR)/$< $(HOME)/.$<
 
 clean: $(foreach f, $(DIR), clean-$(f)) \
@@ -36,5 +36,5 @@ clean: $(foreach f, $(DIR), clean-$(f)) \
        $(foreach f, $(DOT_FILE), clean-.$(f))
 
 clean-%:
-	@echo " [clean] Removing link ~/$*"
+	@echo "  CLEAN ~/$*"
 	@sh -c "if [ -h ~/$* ]; then rm ~/$*; fi"
