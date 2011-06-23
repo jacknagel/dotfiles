@@ -4,9 +4,9 @@
 
 [core]
     editor = em
+    pager = less -+$LESS -iRSw
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
-    pager = less -+$LESS -iRSw
 
 [help]
     autocorrect = 1
@@ -26,6 +26,7 @@
     lg = log --graph --decorate --oneline
     lp = log --patch
     ls = ls-files --stage --abbrev
+    pr = pull --rebase
     sb = show-branch
     so = commit --signoff
     ss = status --short
