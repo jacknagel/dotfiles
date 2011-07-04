@@ -1,0 +1,17 @@
+[retriever]
+type = SimpleIMAPSSLRetriever
+server = mail.messagingengine.com
+username =
+password =
+
+[destination]
+type = Mboxrd
+path = /var/mail/jacknagel
+
+[options]
+delete = false
+message_log_syslog = true
+read_all = false
+verbose = 0
+delivered_to = false
+received = false
