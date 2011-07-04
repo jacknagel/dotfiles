@@ -8,8 +8,9 @@ Contents
 --------
     bin/                    collection of lightweight utilities; symlinked to ~/bin
     gpg/                    copies of my GPG public key
+    getmail/                getmail configuration
     scripts/                collection of utility scripts that don't belong anywhere else
-    smartmontools/          configuration for the smartmontools package
+    smartmontools/          smartmontools configuration
     vim/                    vim directory; symlinked to ~/.vim
     Makefile                installs dotfiles to ~/
     README.md               this file
@@ -22,5 +23,6 @@ Contents
     gitconfig               global git configuration; symlinked to ~/.gitconfig
     gitignore               global git excludesfile; symlinked to ~/.gitignore
     inputrc                 readline configuration; symlinked to ~/.inputrc
+    pinerc                  alpine configuration; symlinked to ~/.pinerc
     tarsnaprc               tarsnap configuration; symlinked to ~/.tarsnaprc
     vimrc                   vim configuration; symlinked to ~/.vimrc
