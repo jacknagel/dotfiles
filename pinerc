@@ -1,25 +1,31 @@
-# turn off destructive options so that we can send patches
-quell-flowed-text
-no-strip-whitespace-before-send
-
-# use ansi-16color
 color-style=force-ansi-16color
+feature-list=single-column-folder-list,
+	quell-flowed-text,
+	no-strip-whitespace-before-send
+user-domain=jfour.org
+folder-collections=Mail mail/[]
+default-fcc=sent.mbox
+postponed-folder=drafts.mbox
+default-saved-msg-folder=saved.mbox
+index-format=STATUS MSGNO DATE FROMORTO(30%) SIZE SUBJKEY(70%)
+
+# FastMail setup (disabled)
+# inbox-path = {mail.messagingengine.com/user=jacknagel@fastmail.net/ssl/novalidate-cert}INBOX
+# default-fcc = {mail.messagingengine.com/user=jacknagel@fastmail.net/ssl/novalidate-cert}INBOX.Sent Items
+# postponed-folder = {mail.messagingengine.com/user=jacknagel@fastmail.net/ssl/novalidate-cert}INBOX.Drafts
+# folder-collections = FastMail {mail.messagingengine.com/user=jacknagel@fastmail.net/ssl/novalidate-cert}INBOX.[]
+# default-saved-msg-folder = {mail.messagingengine.com/user=jacknagel@fastmail.net/ssl/novalidate-cert}INBOX.Trash
+
+
 
 # Over-rides your full name from Unix password file. Required for PC-Alpine.
-personal-name=
-
-# Sets domain part of From: and local addresses in outgoing mail.
-user-domain=
+personal-name=Jack Nagel
 
 # List of SMTP servers for sending mail. If blank: Unix Alpine uses sendmail.
 smtp-server=
 
 # NNTP server for posting news. Also sets news-collections for news reading.
 nntp-server=
-
-# Path of (local or remote) INBOX, e.g. ={mail.somewhere.edu}inbox
-# Normal Unix default is the local INBOX (usually /usr/spool/mail/$USER).
-inbox-path=
 
 # List of folder pairs; the first indicates a folder to archive, and the
 # second indicates the folder read messages in the first should
@@ -28,22 +34,11 @@ incoming-archive-folders=
 
 # List of folders, assumed to be in first folder collection,
 # offered for pruning each month.  For example: mumble
-pruned-folders=
-
-# Over-rides default path for sent-mail folder, e.g. =old-mail (using first
-# folder collection dir) or ={host2}sent-mail or ="" (to suppress saving).
-# Default: sent-mail (Unix) or SENTMAIL.MTX (PC) in default folder collection.
-default-fcc=
+pruned-folders=<
 
 # Over-rides default path for saved-msg folder, e.g. =saved-messages (using 1st
 # folder collection dir) or ={host2}saved-mail or ="" (to suppress saving).
 # Default: saved-messages (Unix) or SAVEMAIL.MTX (PC) in default collection.
-default-saved-msg-folder=
-
-# Over-rides default path for postponed messages folder, e.g. =pm (which uses
-# first folder collection dir) or ={host4}pm (using home dir on host4).
-# Default: postponed-msgs (Unix) or POSTPOND.MTX (PC) in default fldr coltn.
-postponed-folder=
 
 # If set, specifies where already-read messages will be moved upon quitting.
 read-message-folder=
@@ -60,11 +55,6 @@ literal-signature=
 
 # Over-rides default path for signature file. Default is ~/.signature
 signature-file=
-
-# List of features; see Alpine's Setup/options menu for the current set.
-# e.g. feature-list= select-without-confirm, signature-at-bottom
-# Default condition for all of the features is no-.
-feature-list=
 
 # Alpine executes these keys upon startup (e.g. to view msg 13: i,j,1,3,CR,v)
 initial-keystroke-list=
@@ -223,11 +213,6 @@ opening-text-separator-chars=
 # which order.  See help text
 addressbook-formats=
 
-# This gives a format for displaying the index.  It is made
-# up of space-delimited tokens telling which fields are displayed and in
-# which order.  See help text
-index-format=
-
 # The number of lines of overlap when scrolling through message text
 viewer-overlap=
 
@@ -336,7 +321,6 @@ incoming-folders=
 # List of directories where saved-message folders may be. First one is
 # the default for Saves. Example: Main {host1}mail/[], Desktop mail\[]
 # Syntax: optnl-label {optnl-imap-hostname}optnl-directory-path[]
-folder-collections=
 
 # List, only needed if nntp-server not set, or news is on a different host
 # than used for NNTP posting. Examples: News *[] or News *{host3/nntp}[]
@@ -615,3 +599,7 @@ wp-state=
 
 # Web Alpine preferred width for message display in characters
 wp-columns=
+
+# Path of (local or remote) INBOX, e.g. ={mail.somewhere.edu}inbox
+# Normal Unix default is the local INBOX (usually /usr/spool/mail/$USER).
+inbox-path=
