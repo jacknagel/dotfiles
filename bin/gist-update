@@ -10,7 +10,7 @@ import getpass
 uname = input("GitHub Username: ")
 passwd = getpass.getpass("GitHub Password: ")
 
-args = ["/usr/bin/curl", "-u", uname + ":" + passwd, "https://api.github.com/users/" + uname + "/gists"]
+args = ["/usr/bin/curl", "-s", "-u", uname + ":" + passwd, "https://api.github.com/users/" + uname + "/gists"]
 with subprocess.Popen(args, stdout=subprocess.PIPE) as proc:
     content = proc.communicate()[0]
 
