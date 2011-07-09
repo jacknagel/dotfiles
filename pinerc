@@ -1,28 +1,39 @@
 color-style=force-ansi-16color
 feature-list=single-column-folder-list,
 	quell-flowed-text,
-	no-strip-whitespace-before-send
-user-domain=jfour.org
-folder-collections=Mail mail/[]
-default-fcc=sent.mbox
-postponed-folder=drafts.mbox
-default-saved-msg-folder=saved.mbox
-index-format=STATUS MSGNO DATE FROMORTO(30%) SIZE SUBJKEY(70%)
+	no-strip-whitespace-before-send,
+	quell-empty-directories,
+	enable-flag-cmd,
+	enable-bounce-cmd,
+	enable-goto-in-file-browser,
+	enable-mail-check-cue,
+	delete-skips-deleted,
+	prefer-plain-text
+	# enable-alternate-editor-cmd,
+	# enable-alternate-editor-implicitly
 
-# FastMail setup (disabled)
+personal-name=Jack Nagel
+user-domain=jfour.org
+index-format=STATUS MSGNO DATE FROMORTO(30%) SIZE SUBJKEY(70%)
+newmail-fifo-path = /tmp/alpine.fifo
+inbox-path = ~/mail/inbox
+default-fcc = ~/mail/sent
+postponed-folder = ~/mail/drafts
+default-saved-msg-folder = ~/mail/saved
+
+# Specifies the program invoked by ^_ in the Composer,
+# or the "enable-alternate-editor-implicitly" feature.
+editor=em
+
+# FastMail configuration (disabled)
+# smtp-server = mail.messagingengine.com/user=jacknagel@fastmail.net/ssl/novalidate-cert
 # inbox-path = {mail.messagingengine.com/user=jacknagel@fastmail.net/ssl/novalidate-cert}INBOX
 # default-fcc = {mail.messagingengine.com/user=jacknagel@fastmail.net/ssl/novalidate-cert}INBOX.Sent Items
 # postponed-folder = {mail.messagingengine.com/user=jacknagel@fastmail.net/ssl/novalidate-cert}INBOX.Drafts
 # folder-collections = FastMail {mail.messagingengine.com/user=jacknagel@fastmail.net/ssl/novalidate-cert}INBOX.[]
 # default-saved-msg-folder = {mail.messagingengine.com/user=jacknagel@fastmail.net/ssl/novalidate-cert}INBOX.Trash
 
-
-
 # Over-rides your full name from Unix password file. Required for PC-Alpine.
-personal-name=Jack Nagel
-
-# List of SMTP servers for sending mail. If blank: Unix Alpine uses sendmail.
-smtp-server=
 
 # NNTP server for posting news. Also sets news-collections for news reading.
 nntp-server=
@@ -35,10 +46,6 @@ incoming-archive-folders=
 # List of folders, assumed to be in first folder collection,
 # offered for pruning each month.  For example: mumble
 pruned-folders=<
-
-# Over-rides default path for saved-msg folder, e.g. =saved-messages (using 1st
-# folder collection dir) or ={host2}saved-mail or ="" (to suppress saving).
-# Default: saved-messages (Unix) or SAVEMAIL.MTX (PC) in default collection.
 
 # If set, specifies where already-read messages will be moved upon quitting.
 read-message-folder=
@@ -152,10 +159,6 @@ posting-character-set=
 # unlabeled incoming messages. It is ok to leave this unset but if you receive
 # unlabeled mail that is usually in some known character set, set that here.
 unknown-character-set=
-
-# Specifies the program invoked by ^_ in the Composer,
-# or the "enable-alternate-editor-implicitly" feature.
-editor=
 
 # Specifies the program invoked by ^T in the Composer.
 speller=
@@ -308,8 +311,6 @@ incoming-check-list=
 # Specifies the number of dead letter files to keep when canceling.
 dead-letter-files=
 
-# Sets the filename for the newmail fifo (named pipe). Unix only.
-newmail-fifo-path=
 
 # Sets the width for the NewMail screen.
 newmail-window-width=
@@ -600,6 +601,3 @@ wp-state=
 # Web Alpine preferred width for message display in characters
 wp-columns=
 
-# Path of (local or remote) INBOX, e.g. ={mail.somewhere.edu}inbox
-# Normal Unix default is the local INBOX (usually /usr/spool/mail/$USER).
-inbox-path=
