@@ -5,8 +5,9 @@ username =
 password =
 
 [destination]
-type = Mboxrd
-path = /var/mail/jacknagel
+type = MDA_external
+path = /usr/bin/procmail
+unixfrom = true
 
 [options]
 delete = false
