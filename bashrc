@@ -24,6 +24,17 @@ MANPATH="/usr/share/man:/usr/local/share/man"
 export PATH MANPATH
 
 
+# mail
+unset MAIL
+MAILCHECK=600
+MAILPATH="$HOME/mail/inbox:/tmp/alpine.info?You have mail in alpine"
+
+for mbox in ~/mail/f/[^.]*
+do
+	MAILPATH="$MAILPATH:$mbox"
+done
+
+
 # editor/pager
 LESS="FiRSwX"
 EDITOR="em"
@@ -56,7 +67,7 @@ HISTSIZE=100000
 HISTFILESIZE=100000
 HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="ls:ls -la:ls -a:cd:cd ..:..*: *"
+HISTIGNORE="ls:cd:cd ..:..*:[ ]*"
 
 
 # bash shell options
@@ -83,7 +94,6 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWUPSTREAM=auto # "auto verbose"
-
 export GIT_PS1_SHOWDIRTYSTATE GIT_PS1_SHOWSTASHSTATE
 export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
 
@@ -96,7 +106,6 @@ PS1="${PROMPT_PRE}${PROMPT_SUF}"
 export PS1
 
 
-# silly fix to make gpg2/pinentry behave sanely
-# when invoked by other programs
+# make gpg2/pinentry behave sanely
 GPG_TTY=`tty`
 export GPG_TTY
