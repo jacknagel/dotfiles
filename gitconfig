@@ -33,6 +33,7 @@
     st = status --short --branch
     amend   = commit --amend
     cur     = !git rev-parse HEAD | cut -c 1-7 | pbcopy
+    head    = rev-parse HEAD
     hist    = log --graph --pretty=hist --abbrev-commit
     last    = cat-file commit HEAD
     logp    = log --patch
@@ -41,7 +42,7 @@
     lols    = log --graph --decorate --oneline --simplify-by-decoration --branches --remotes
     msg     = commit --allow-empty -m
     unstage = reset HEAD
-    top     = rev-parse HEAD
+    top     = !git log --format=%an | sort | uniq -c | sort -r
     wip     = commit -am 'wip'
 
 [color]
@@ -68,17 +69,3 @@
 
 [gist]
     browse = 1
-
-[url "git@github.com:"]
-    pushInsteadOf = github:
-    pushInsteadOf = git://github.com/
-
-[url "git://github.com/"]
-    insteadOf = github:
-
-[url "git@gist.github.com:"]
-    pushInsteadOf = gist:
-    pushInsteadOf = git://gist.github.com/
-
-[url "git://gist.github.com/"]
-    insteadof = gist:
