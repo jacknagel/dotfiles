@@ -8,5 +8,6 @@ ssh/*
 gnupg/*
 bin/pw
 bin/pyweather
+bin/zpipe
 tarsnap/*
 *.tmproj
