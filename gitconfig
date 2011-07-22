@@ -41,7 +41,6 @@
     amend   = commit --amend
     cur     = !git rev-parse HEAD | cut -c 1-7 | pbcopy
     head    = rev-parse HEAD
-    hist    = log --graph --pretty=hist --abbrev-commit
     last    = cat-file commit HEAD
     logg    = log --walk-reflogs
     logp    = log --patch
@@ -55,9 +54,6 @@
 
 [color]
     ui = auto
-
-[pretty]
-    hist = "%C(yellow)%h%Creset%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset"
 
 [diff "tar"]
     textconv = tar -tvf
