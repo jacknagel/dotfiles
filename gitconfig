@@ -11,6 +11,12 @@
 [help]
     autocorrect = 1
 
+[sendemail]
+    smtpserver = smtp.gmail.com
+    smtpserverport = 587
+    smtpencryption = tls
+    smtpuser = jacknagel@gmail.com
+
 [alias]
     au = add --update
     ap = add --patch
