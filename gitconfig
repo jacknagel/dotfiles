@@ -43,6 +43,7 @@
     head    = rev-parse HEAD
     hist    = log --graph --pretty=hist --abbrev-commit
     last    = cat-file commit HEAD
+    logg    = log --walk-reflogs
     logp    = log --patch
     lol     = log --graph --decorate --oneline
     lola    = log --graph --decorate --oneline --all
