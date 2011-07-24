@@ -20,7 +20,7 @@ if [[ -d "$HOME/bin" ]]; then
     PATH="$HOME/bin:$PATH"
 fi
 
-MANPATH="/usr/share/man:/usr/local/share/man"
+MANPATH="/usr/local/share/man:/usr/share/man"
 export PATH MANPATH
 
 
