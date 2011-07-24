@@ -14,7 +14,7 @@ export LANG LC_CTYPE LC_ALL
 # path
 PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-PATH="$PATH:/usr/texbin"
+PATH="$PATH:/usr/local/texbin"
 
 if [[ -d "$HOME/bin" ]]; then
     PATH="$HOME/bin:$PATH"
