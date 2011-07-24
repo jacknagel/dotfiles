@@ -3,7 +3,7 @@
     email = jacknagel@gmail.com
 
 [core]
-    editor = em
+    editor = vim
     pager = less -+$LESS -iRSw
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
