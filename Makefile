@@ -20,15 +20,15 @@ $(HOME)/.history:
 	@mkdir $(HOME)/.history 2>/dev/null
 
 install-dir-%: %
-	@echo "  LN $< to ~/$<"
+	@echo "  LN  $< to ~/$<"
 	@ln -snf $(CURDIR)/$< $(HOME)/$<
 
 install-dotdir-%: %
-	@echo "  LN $< to ~/.$<"
+	@echo "  LN  $< to ~/.$<"
 	@ln -snf $(CURDIR)/$< $(HOME)/.$<
 
 install-file-%: %
-	@echo "  LN $< to ~/.$<"
+	@echo "  LN  $< to ~/.$<"
 	@ln -sf $(CURDIR)/$< $(HOME)/.$<
 
 clean: $(foreach f, $(DIR), clean-$(f)) \
@@ -36,5 +36,5 @@ clean: $(foreach f, $(DIR), clean-$(f)) \
        $(foreach f, $(DOT_FILE), clean-.$(f))
 
 clean-%:
-	@echo "  CLEAN ~/$*"
+	@echo "  CLEAN  ~/$*"
 	@sh -c "if [ -h ~/$* ]; then rm ~/$*; fi"
