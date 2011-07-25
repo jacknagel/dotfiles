@@ -37,7 +37,7 @@ done
 
 # editor/pager
 LESS="FiRSwX"
-EDITOR="em"
+EDITOR="vim"
 PAGER="less"
 MANPAGER="less -+$LESS -iRSw"
 LESSHISTFILE="-"
