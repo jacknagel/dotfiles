@@ -22,6 +22,7 @@ Contents
     gdbinit                 gdb startup file; symlnked to ~/.gdbinit
     gitconfig               global git configuration; symlinked to ~/.gitconfig
     gitignore               global git excludesfile; symlinked to ~/.gitignore
+    gvimrc                  MacVim-specific settings; symlinked to ~/.gvimrc
     inputrc                 readline configuration; symlinked to ~/.inputrc
     pinerc                  alpine configuration; symlinked to ~/.pinerc
     tarsnaprc               tarsnap configuration; symlinked to ~/.tarsnaprc
