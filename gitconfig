@@ -18,12 +18,13 @@
     smtpuser = jacknagel@gmail.com
 
 [alias]
-    au = add --update
     ap = add --patch
+    au = add --update
     br = branch
     bv = branch --verbose
     ci = commit
     co = checkout
+    cp = cherry-pick
     cv = commit --verbose
     cs = commit --signoff
     dc = diff --cached
