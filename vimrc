@@ -61,6 +61,7 @@ set smartcase                           " except when specifying capital letters
 "
 syntax on                               " enable syntax highlighting
 " set list listchars=trail:.,tab:>.     " make tabs visible but not ugly; off normally
+colorscheme delek
 highlight LineNr ctermfg=grey
 
 
