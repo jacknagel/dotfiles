@@ -71,4 +71,4 @@ set nowrap                              " do not wrap lines
 set autoindent                          " automatically indent new lines
 set copyindent                          " make autoindent use existing indent structure
 set preserveindent                      " preserve indent structure when reindenting
-set formatoptions=r			" insert comment leader automatically
+set formatoptions+=r			" insert comment leader automatically
