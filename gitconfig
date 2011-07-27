@@ -12,10 +12,19 @@
     ui = auto
 
 [sendemail]
+    identity = gmail
+
+[sendemail "gmail"]
     smtpserver = smtp.gmail.com
     smtpserverport = 587
     smtpencryption = tls
     smtpuser = jacknagel@gmail.com
+
+[sendemail "fastmail"]
+    smtpserver = mail.messagingengine.com
+    smtpserverport = 587
+    smtpencryption = tls
+    smtpuser = jacknagel@fastmail.net
 
 [alias]
     ap = add --patch
