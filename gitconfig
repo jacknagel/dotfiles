@@ -8,8 +8,8 @@
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
 
-[help]
-    autocorrect = 1
+[color]
+    ui = auto
 
 [sendemail]
     smtpserver = smtp.gmail.com
@@ -52,9 +52,6 @@
     unstage = reset HEAD
     top     = !git log --format=%an | sort | uniq -c | sort -r | less
     wip     = commit -am 'wip'
-
-[color]
-    ui = auto
 
 [diff "tar"]
     textconv = tar -tvf
