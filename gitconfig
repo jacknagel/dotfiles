@@ -11,6 +11,9 @@
 [color]
     ui = auto
 
+[help]
+    format = web
+
 [sendemail]
     identity = gmail
 
