@@ -10,7 +10,7 @@ function cd () {
 alias ..='cd ..'
 alias ...='cd ../../'
 alias fl='ls -lFrtah | less -R'
-alias edit='em'
+alias edit='vim'
 alias uemacs='em'
 alias vi='vim'
 alias sizes='du -h -d1'
