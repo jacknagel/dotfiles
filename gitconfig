@@ -23,11 +23,9 @@
     smtpencryption = tls
     smtpuser = jacknagel@gmail.com
 
-[sendemail "fastmail"]
-    smtpserver = mail.messagingengine.com
-    smtpserverport = 587
-    smtpencryption = tls
-    smtpuser = jacknagel@fastmail.net
+[sendemail "jfour"]
+    from = jacknagel@jfour.org
+    envelopesender = jacknagel@jfour.org
 
 [alias]
     ap = add --patch
