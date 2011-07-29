@@ -1,83 +1,83 @@
 [user]
-    name = Jack Nagel
-    email = jacknagel@gmail.com
+	name = Jack Nagel
+	email = jacknagel@gmail.com
 
 [core]
-    editor = vim
-    pager = less -+$LESS -iRSw
-    excludesfile = ~/.gitignore
-    attributesfile = ~/.gitattributes
+	editor = vim
+	pager = less -+$LESS -iRSw
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
 
 [color]
-    ui = auto
+	ui = auto
 
 [help]
-    format = web
+	format = web
 
 [sendemail]
-    identity = gmail
+	identity = gmail
 
 [sendemail "gmail"]
-    smtpserver = smtp.gmail.com
-    smtpserverport = 587
-    smtpencryption = tls
-    smtpuser = jacknagel@gmail.com
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpencryption = tls
+	smtpuser = jacknagel@gmail.com
 
 [sendemail "jfour"]
-    from = jacknagel@jfour.org
-    envelopesender = jacknagel@jfour.org
+	from = jacknagel@jfour.org
+	envelopesender = jacknagel@jfour.org
 
 [alias]
-    ap = add --patch
-    au = add --update
-    br = branch
-    bv = branch --verbose
-    ci = commit
-    co = checkout
-    cp = cherry-pick
-    cv = commit --verbose
-    cs = commit --signoff
-    dc = diff --cached
-    di = diff
-    ff = merge --ff-only
-    fp = format-patch
-    lg = log --graph --decorate --oneline
-    lp = log --patch
-    ls = ls-files --stage --abbrev
-    pr = pull --rebase
-    sb = show-branch
-    so = commit --signoff
-    ss = status --short
-    st = status --short --branch
-    amend   = commit --amend
-    cur     = !git rev-parse HEAD | cut -c 1-7 | pbcopy
-    head    = rev-parse HEAD
-    last    = cat-file commit HEAD
-    logg    = log --walk-reflogs
-    logp    = log --patch
-    lol     = log --graph --decorate --oneline
-    lola    = log --graph --decorate --oneline --all
-    lols    = log --graph --decorate --oneline --simplify-by-decoration --branches --remotes
-    msg     = commit --allow-empty -m
-    unstage = reset HEAD
-    top     = !git log --format=%an | sort | uniq -c | sort -r | less
-    wip     = commit -am 'wip'
+	ap = add --patch
+	au = add --update
+	br = branch
+	bv = branch --verbose
+	ci = commit
+	co = checkout
+	cp = cherry-pick
+	cv = commit --verbose
+	cs = commit --signoff
+	dc = diff --cached
+	di = diff
+	ff = merge --ff-only
+	fp = format-patch
+	lg = log --graph --decorate --oneline
+	lp = log --patch
+	ls = ls-files --stage --abbrev
+	pr = pull --rebase
+	sb = show-branch
+	so = commit --signoff
+	ss = status --short
+	st = status --short --branch
+	amend   = commit --amend
+	cur	= !git rev-parse HEAD | cut -c 1-7 | pbcopy
+	head	= rev-parse HEAD
+	last	= cat-file commit HEAD
+	logg	= log --walk-reflogs
+	logp	= log --patch
+	lol	= log --graph --decorate --oneline
+	lola	= log --graph --decorate --oneline --all
+	lols	= log --graph --decorate --oneline --simplify-by-decoration --branches --remotes
+	msg	= commit --allow-empty -m
+	unstage	= reset HEAD
+	top	= !git log --format=%an | sort | uniq -c | sort -r | less
+	wip	= commit -am 'wip'
 
 [diff "tar"]
-    textconv = tar -tvf
+	textconv = tar -tvf
 
 [diff "tgz"]
-    textconv = tar -ztvf
+	textconv = tar -ztvf
 
 [diff "tbz"]
-    textconv = tar -jtvf
+	textconv = tar -jtvf
 
 [push]
-    default = tracking
+	default = tracking
 
 [github]
-    user = jacknagel
-    token = !security 2>&1 > /dev/null find-generic-password -gs github.token | perl -ne '/^password: \\\"(.*)\\\"$/ and print $1'
+	user = jacknagel
+	token = !security 2>&1 > /dev/null find-generic-password -gs github.token | perl -ne '/^password: \\\"(.*)\\\"$/ and print $1'
 
 [gist]
-    browse = 1
+	browse = 1
