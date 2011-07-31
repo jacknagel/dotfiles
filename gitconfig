@@ -46,6 +46,7 @@
 	ls = ls-files --stage --abbrev
 	pr = pull --rebase
 	sb = show-branch
+	se = send-email
 	so = commit --signoff
 	ss = status --short
 	st = status --short --branch
