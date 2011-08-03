@@ -75,7 +75,7 @@
 	textconv = tar -jtvf
 
 [push]
-	default = tracking
+	default = upstream
 
 [github]
 	user = jacknagel
