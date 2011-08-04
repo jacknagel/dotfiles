@@ -93,16 +93,17 @@ done
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM=auto # "auto verbose"
+GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWDIRTYSTATE GIT_PS1_SHOWSTASHSTATE
 export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
 
 
 # PS1 with git status
-PROMPT_GIT='$(__git_ps1 "\[\e[1;30m\]:\[\e[0;32m\]%s\[\e[1;30m\]")'
+# PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+PROMPT_GIT='$(__git_ps1 " \[\e[1;32m\](%s)")'
 PROMPT_PRE="\[\e[1;30m\][\u@\h \[\e[1;34m\]\W"
 PROMPT_SUF="\[\e[1;30m\]]\$\[\e[0m\] "
-PS1="${PROMPT_PRE}${PROMPT_SUF}"
+PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_SUF}"
 export PS1
 
 
