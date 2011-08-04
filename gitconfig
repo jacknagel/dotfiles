@@ -44,7 +44,7 @@
 	fp = format-patch
 	lg = log --graph --decorate --oneline
 	lp = log --patch
-	ls = ls-files --stage --abbrev
+	ls = ls-files --cached --abbrev
 	pr = pull --rebase
 	rh = reset HEAD
 	rp = reset --patch HEAD
