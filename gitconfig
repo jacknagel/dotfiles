@@ -47,6 +47,7 @@
 	ls = ls-files --stage --abbrev
 	pr = pull --rebase
 	rh = reset HEAD
+	rp = reset --patch HEAD
 	sb = show-branch
 	se = send-email
 	so = commit --signoff
