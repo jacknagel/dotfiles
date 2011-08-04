@@ -82,7 +82,6 @@ shopt -s checkwinsize
 # bash completion
 for comp in \
     /usr/local/etc/bash_completion \
-    /usr/local/etc/bash_completion.d/git-completion.bash \
     /usr/local/Library/Contributions/brew_bash_completion.sh
 do
     [[ -e $comp ]] && source $comp
