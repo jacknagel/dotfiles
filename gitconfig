@@ -33,6 +33,7 @@
 	br = branch
 	bv = branch --verbose
 	ca = commit --amend
+	cf = cat-file
 	ci = commit
 	co = checkout
 	cp = cherry-pick
