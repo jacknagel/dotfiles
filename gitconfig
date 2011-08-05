@@ -37,8 +37,9 @@
 	ci = commit
 	co = checkout
 	cp = cherry-pick
-	cv = commit --verbose
 	cs = commit --signoff
+	cv = commit --verbose
+	cw = commit -am "Work-in-progress"
 	dc = diff --cached
 	di = diff
 	ff = merge --ff-only
@@ -48,6 +49,7 @@
 	ls = ls-files --cached --abbrev
 	pr = pull --rebase
 	rh = reset HEAD
+	rl = reflog
 	rp = reset --patch HEAD
 	sb = show-branch
 	se = send-email
@@ -64,7 +66,6 @@
 	lols	= log --graph --decorate --oneline --simplify-by-decoration --branches --remotes
 	msg	= commit --allow-empty -m
 	top	= !git log --format=%an | sort | uniq -c | sort -r | less
-	wip	= commit -am 'wip'
 
 [diff "tar"]
 	textconv = tar -tvf
