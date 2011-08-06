@@ -44,6 +44,7 @@
 	di = diff
 	ff = merge --ff-only
 	fp = format-patch
+	fx = commit --fixup
 	lg = log --graph --decorate --oneline
 	lp = log --patch
 	ls = ls-files --cached --abbrev
@@ -54,6 +55,7 @@
 	sb = show-branch
 	se = send-email
 	so = commit --signoff
+	sq = commit --squash
 	st = status --short --branch
 	amend	= commit --amend
 	cur	= !git rev-parse HEAD | cut -c 1-7 | pbcopy
