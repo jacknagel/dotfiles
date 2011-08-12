@@ -5,7 +5,8 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-while getopts ":Ogpw" opt; do
+while getopts ":Ogpw" opt
+do
 	case $opt in
 		O) opts="-O3 ";;
 		g) opts="${opts}-ggdb ";;
@@ -16,6 +17,6 @@ done
 
 shift $((OPTIND-1))
 src=`basename $1 .c`
-
-echo  "  CC  ${opts% } -o ${src} ${src}.c"
-/usr/bin/cc ${opts} -o ${src} ${src}.c
+shift
+echo  "  CC  ${opts% } -o ${src} ${src}.c $@"
+/usr/local/bin/gcc-4.6 ${opts} -o ${src} ${src}.c $@
