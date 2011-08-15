@@ -7,6 +7,7 @@ function cd () {
 
 alias ..='cd ..'
 alias ...='cd ../../'
+alias cd..='cd ..'
 alias fl='ls -lFrtah | less -R'
 alias edit='vim'
 alias uemacs='em'
@@ -17,7 +18,6 @@ alias ip='ipconfig getifaddr en0'
 alias ifip='ifconfig | grep inet'
 alias killws="perl -pe \'s/[\t ]+$//g\'"
 alias su='su -l' # -l: discard current environment
-alias indent='gindent'
 alias pine='alpine'
 alias gpg='gpg2'
 
