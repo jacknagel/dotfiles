@@ -1,3 +1,5 @@
+# ~/.gitconfig: git(1) configuration
+
 [user]
 	name = Jack Nagel
 	email = jacknagel@gmail.com

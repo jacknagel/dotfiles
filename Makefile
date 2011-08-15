@@ -1,7 +1,4 @@
-#
-# Makefile for dotfiles
-# method inspired by https://github.com/pix/dotfiles 
-#
+# Makefile for dotfiles (cf. https://github.com/pix/dotfiles)
 
 DIR = 		bin
 DOT_DIR = 	gnupg ssh vim

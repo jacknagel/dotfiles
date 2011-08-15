@@ -1,8 +1,6 @@
-#
 # ~/.bash_aliases
-#
 
-# silence cdspell and $CDPATH echo
+# silence cdspell echo
 function cd () {
     builtin cd "$@" 1> /dev/null
 }
