@@ -36,7 +36,7 @@ done
 
 
 # editor/pager
-LESS="FiRSwX"
+LESS="FiqRSwX"
 EDITOR="vim"
 PAGER="less"
 MANPAGER="less -+$LESS -iRSw"

@@ -6,7 +6,7 @@
 
 [core]
 	editor = vim
-	pager = less -+$LESS -iRSw
+	pager = less -+$LESS -iRSwq
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 
