@@ -20,7 +20,3 @@ alias killws="perl -pe \'s/[\t ]+$//g\'"
 alias su='su -l' # -l: discard current environment
 alias pine='alpine'
 alias gpg='gpg2'
-
-# show/hide hidden files in Finder
-alias showhf='defaults write com.apple.Finder AppleShowAllFiles YES | killall Finder'
-alias hidehf='defaults write com.apple.Finder AppleShowAllFiles NO | killall Finder'
