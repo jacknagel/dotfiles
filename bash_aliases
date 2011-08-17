@@ -2,7 +2,11 @@
 
 # silence cdspell echo
 function cd () {
-    builtin cd "$@" 1> /dev/null
+	builtin cd "$@" 1> /dev/null
+}
+
+function pidof () {
+	ps -acxo 'pid,command' | grep -w "$1" | awk '{ print $1 }'
 }
 
 alias ..='cd ..'
