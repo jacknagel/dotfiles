@@ -1,0 +1,7 @@
+#!/usr/bin/env bash -e
+# apply a GitHub pull request patch file to a new branch
+
+[ -z "$1" ] && echo "No URL supplied" && exit 1
+
+git checkout -b --no-track $(echo $1 | grep -Eo "[0-9]+") upstream/master
+curl -# "$1.patch" | git am -s
