@@ -50,7 +50,7 @@
 	lg = log --graph --decorate --oneline
 	lp = log --patch
 	ls = ls-files --cached --abbrev
-	pr = pull --rebase
+	pr = !sh -c 'pr $1' -
 	rh = reset HEAD
 	rl = reflog
 	rp = reset --patch HEAD
