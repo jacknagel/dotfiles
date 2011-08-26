@@ -1,0 +1,4 @@
+#!/usr/bin/env bash -e
+# remove (merged) pull request branches created by `git-pr`
+
+git branch --merged master | grep -Eo "pr/[0-9]+" | xargs git branch -d

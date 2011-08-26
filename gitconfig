@@ -50,7 +50,7 @@
 	lg = log --graph --decorate --oneline
 	lp = log --patch
 	ls = ls-files --cached --abbrev
-	pr = !sh -c 'pr $1' -
+	pr = !sh -c 'git-pr $1' -
 	rh = reset HEAD
 	rl = reflog
 	rp = reset --patch HEAD
@@ -69,6 +69,7 @@
 	lola	= log --graph --decorate --oneline --all
 	lols	= log --graph --decorate --oneline --simplify-by-decoration --branches --remotes
 	msg	= commit --allow-empty -m
+	prm	= !sh -c 'git-prm' 
 	top     = shortlog -ns # !git log --format=%aN | sort | uniq -c | sort -r | less
 
 [diff "tar"]
