@@ -33,7 +33,7 @@
 	ap = add --patch
 	au = add --update
 	br = branch
-	bv = branch --verbose
+	bv = branch --verbose --verbose
 	ca = commit --amend
 	cf = cat-file
 	ci = commit
