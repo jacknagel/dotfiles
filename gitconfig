@@ -56,7 +56,6 @@
 	rp = reset --patch HEAD
 	sb = show-branch
 	se = send-email
-	so = commit --signoff
 	sq = commit --squash
 	st = status --short --branch
 	amend	= commit --amend
@@ -70,7 +69,7 @@
 	lols	= log --graph --decorate --oneline --simplify-by-decoration --branches --remotes
 	msg	= commit --allow-empty -m
 	prm	= !sh -c 'git-prm' 
-	top     = shortlog -ns # !git log --format=%aN | sort | uniq -c | sort -r | less
+	top	= shortlog -ns # !git log --format=%aN | sort | uniq -c | sort -r | less
 
 [diff "tar"]
 	textconv = tar -tvf
