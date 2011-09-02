@@ -80,12 +80,9 @@ shopt -s checkwinsize
 
 
 # bash completion
-for comp in \
-    /usr/local/etc/bash_completion \
-    /usr/local/Library/Contributions/brew_bash_completion.sh
-do
-    [[ -e $comp ]] && source $comp
-done
+if [[ -e /usr/local/share/bash-completion/bash_completion ]]; then
+	source /usr/local/share/bash-completion/bash_completion
+fi
 
 
 # __git_ps1 configuration
