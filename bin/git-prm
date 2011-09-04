@@ -1,4 +1,17 @@
 #!/usr/bin/env bash -e
-# remove (merged) pull request branches created by `git-pr`
+# git-prm: remove pull request branches created by `git-pr`
+# This script will prune local branches that have been:
+#	- merged into master
+#	- fast-forwarded onto master
+#	- cherry-picked onto master
 
-git branch --merged master | grep -Eo "pr/[0-9]+" | xargs git branch -d
+git checkout master &> /dev/null
+
+for branch in $(git branch | grep -Eo "pr/[0-9]+"); do
+	cur=$(git cherry master $branch)
+	if [[ $cur =~ \+ ]]; then
+		continue
+	elif [[ $cur =~ ^-* ]]; then
+		git branch -D $branch
+	fi
+done
