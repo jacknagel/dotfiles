@@ -1,5 +1,5 @@
 #!/usr/bin/env bash -e
-# apply a GitHub pull request patch file to a new branch
+# git-pr: apply a GitHub pull request patch file to a new branch
 
 [ -z "$1" ] && echo "No URL supplied" && exit 1
 
