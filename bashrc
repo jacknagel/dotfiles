@@ -47,14 +47,14 @@ export LESS EDITOR PAGER MANPAGER LESSHISTFILE
 # colors
 CLICOLOR=1
 LSCOLORS=ExGxFxdxCxDaDahbadacec
-GREP_OPTIONS='--color=auto'
-GREP_COLOR='1;32'
+GREP_OPTIONS="--color=auto"
+GREP_COLOR="1;32"
 export CLICOLOR LSCOLORS GREP_OPTIONS GREP_COLOR
 
 
 # files
 FIGNORE="~:.pyc:.swp:.swa:.git" # things to ignore during tab completion
-COPYFILE_DISABLE=true #no ._ files in archives
+COPYFILE_DISABLE=true #no ._ (OS X resource fork) files in archives
 export FIGNORE COPYFILE_DISABLE
 
 
@@ -103,6 +103,4 @@ PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_SUF}"
 export PS1
 
 
-# make gpg2/pinentry behave sanely
-GPG_TTY=`tty`
-export GPG_TTY
+export GPG_TTY=$(tty) # make gpg/pinentry behave sanely
