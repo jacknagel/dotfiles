@@ -18,10 +18,10 @@ gists_json = StringIO(content.decode())
 gists = json.load(gists_json)
 
 for gist in gists:
-    retval = os.system("test -d ~/src/gists/gist-" + gist['id'][:8])
+    retval = os.system("test -d ~/src/gists/gist-" + gist['id'][:20])
     if retval:
-        cmd = "cd ~/src/gists && git clone git@gist.github.com:" + gist['id'] +".git gist-" + gist['id'][:8]
+        cmd = "cd ~/src/gists && git clone git@gist.github.com:" + gist['id'] +".git gist-" + gist['id'][:20]
         os.system(cmd)
     else:
-        cmd = "cd ~/src/gists/gist-" + gist['id'][:8] + " && git pull"
+        cmd = "cd ~/src/gists/gist-" + gist['id'][:20] + " && git pull"
         os.system(cmd)
