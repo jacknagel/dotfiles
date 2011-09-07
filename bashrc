@@ -96,9 +96,9 @@ export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
 
 # PS1 with git status
 # PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-PROMPT_GIT='$(__git_ps1 " \[\e[1;32m\](%s)")'
-PROMPT_PRE="\[\e[1;30m\][\u@\h \[\e[1;34m\]\W"
-PROMPT_SUF="\[\e[1;30m\]]\$\[\e[0m\] "
+PROMPT_GIT='$(__git_ps1 " \[\033[1;32m\](%s)")'
+PROMPT_PRE="\[\033[1;30m\][\u@\h \[\033[1;34m\]\W"
+PROMPT_SUF="\[\033[1;30m\]]\$\[\033[0m\] "
 PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_SUF}"
 export PS1
 
