@@ -35,3 +35,5 @@ clean: $(foreach f, $(DIR), clean-$(f)) \
 clean-%:
 	@echo "  CLEAN  ~/$*"
 	@sh -c "if [ -h ~/$* ]; then rm ~/$*; fi"
+
+.PHONY : clean
