@@ -1,13 +1,8 @@
-*.rvk
-.passwords.gpg
 vim/tmp/*
 vim/backup/*
 vim/undo/*
 vim/.viminfo
-ssh/*
-gnupg/*
 bin/pw
 bin/pyweather
 bin/psrc
-tarsnap/*
 *.tmproj
