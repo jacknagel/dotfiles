@@ -1,9 +1,9 @@
 # Tarsnap cache directory
-cachedir ~/Library/Caches/tarsnap
+cachedir ~/Library/Caches/Tarsnap
 
 # Tarsnap key file
 # this is excluded from the .dotfiles git repository
-keyfile ~/.dotfiles/tarsnap/tarsnap.key
+keyfile ~/etc/creds/tarsnap/tarsnap.key
 
 # Don't archive files which have the nodump flag set
 nodump
