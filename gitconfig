@@ -73,12 +73,15 @@
 
 [diff "tar"]
 	textconv = tar -tvf
+	cachetextconv = true
 
 [diff "tgz"]
 	textconv = tar -ztvf
+	cachetextconv = true
 
 [diff "tbz"]
 	textconv = tar -jtvf
+	cachetextconv = true
 
 [push]
 	default = upstream
