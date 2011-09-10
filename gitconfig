@@ -83,6 +83,9 @@
 	textconv = tar -jtvf
 	cachetextconv = true
 
+[diff "gpg"]
+	textconv = gpg2 -qd --no-tty
+
 [push]
 	default = upstream
 
