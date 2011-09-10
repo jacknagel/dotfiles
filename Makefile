@@ -1,7 +1,7 @@
 # Makefile for dotfiles (cf. https://github.com/pix/dotfiles)
 
 DIR = 		bin
-DOT_DIR = 	gnupg ssh vim
+DOT_DIR = 	vim
 DOT_FILE = 	bash_profile bashrc bash_aliases inputrc \
 		gitconfig gitignore gitattributes emrc vimrc gvimrc \
 		tarsnaprc gdbinit pinerc procmailrc
