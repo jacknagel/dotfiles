@@ -8,7 +8,6 @@ Contents
 --------
     bin/                    collection of lightweight utilities; symlinked to ~/bin
     gpg/                    copies of my GPG public key
-    getmail/                getmail configuration
     scripts/                collection of utility scripts that don't belong anywhere else
     smartmontools/          smartmontools configuration
     vim/                    vim directory; symlinked to ~/.vim
