@@ -4,4 +4,4 @@
 [ -z "$1" ] && echo "No URL supplied" && exit 1
 
 git checkout -b pr/$(echo $1 | grep -Eo "[0-9]+") upstream/master --no-track
-curl -# "$1.patch" | git am -s
+curl -# "$(echo $1 | grep -Eo ".+[0-9]+").patch" | git am -s
