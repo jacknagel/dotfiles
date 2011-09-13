@@ -19,4 +19,4 @@ shift $((OPTIND-1))
 src=`basename $1 .c`
 shift
 echo  "  CC  ${opts% } -o ${src} ${src}.c $@"
-/usr/local/bin/gcc-4.6 ${opts} -o ${src} ${src}.c $@
+/usr/bin/cc ${opts} -o ${src} ${src}.c $@
