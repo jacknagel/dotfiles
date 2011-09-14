@@ -5,13 +5,20 @@
 #	- fast-forwarded onto master
 #	- cherry-picked onto master
 
-git checkout master &> /dev/null
+git checkout master &> /dev/null # sanity check
 
 for branch in $(git branch | grep -Eo "pr/[0-9]+"); do
-	cur=$(git cherry master $branch)
-	if [[ $cur =~ \+ ]]; then
+	revs=$(git cherry master $branch)
+	# If any commits in "git cherry master $branch" have the same 
+	# "patch ID", then the branch isn't fully merged, so we are either
+	# still working on it or will delete in manually.
+	if [[ $revs =~ \+ ]]; then
 		continue
-	elif [[ $cur =~ ^-* ]]; then
+	# Otherwise, if the branch tips point to the same commit or the
+	# patch IDs of nonmatching commits are the same, we can delete the
+	# branch. This regex check is probably unnecessary, but it helps
+	# make sense of the logic here.
+	elif [[ $revs =~ ^-* ]]; then
 		git branch -D $branch
 	fi
 done
