@@ -35,6 +35,7 @@
 	br = branch
 	bv = branch --verbose --verbose
 	ca = commit --amend
+	cb = checkout -b
 	cf = cat-file
 	ci = commit
 	co = checkout
