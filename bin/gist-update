@@ -2,14 +2,12 @@
 # update or clone public and private Gists to ~/src/gists
 
 read -p "Username: " uname
-read -s -p "Password: " passwd
-echo
 
 TMPLATE=$(basename $0)
 TMPFILE=$(mktemp /tmp/${TMPLATE}.XXXXXX)
 GISTDIR=${HOME}/src/gists
 
-curl -# -u ${uname}:${passwd} "https://api.github.com/users/${uname}/gists" -o ${TMPFILE}
+curl -# -u ${uname} "https://api.github.com/users/${uname}/gists" -o ${TMPFILE}
 
 for id in $(sed -En 's/^[ ]{4}"id": "([a-fA-F0-9]{6,40})",$/\1/p' < ${TMPFILE})
 do
