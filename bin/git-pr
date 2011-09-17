@@ -1,7 +1,8 @@
 #!/usr/bin/env bash -e
 # git-pr: apply a GitHub pull request patch file to a new branch
 
-if [[ -z "$1" ]]; then
+if [[ -z "$1" ]]
+then
 	git show-branch --list | grep -E --color=never "pr/[0-9]+"
 	exit 0
 fi

@@ -7,7 +7,8 @@
 
 git checkout master &> /dev/null # sanity check
 
-for branch in $(git branch | grep -Eo "pr/[0-9]+"); do
+for branch in $(git branch | grep -Eo "pr/[0-9]+")
+do
 	revs=$(git cherry master $branch)
 	# If any commits in "git cherry master $branch" have the same 
 	# "patch ID", then the branch isn't fully merged, so we are either
