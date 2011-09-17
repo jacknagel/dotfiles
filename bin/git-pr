@@ -7,4 +7,4 @@ if [[ -z "$1" ]]; then
 fi
 
 git checkout -b pr/$(echo $1 | grep -Eo "[0-9]+") upstream/master --no-track
-curl -# "$(echo $1 | grep -Eo ".+[0-9]+").patch" | git am -s
+curl -# "$(echo $1 | grep -Eo ".+[0-9]+").patch" | git am -s -3
