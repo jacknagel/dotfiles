@@ -7,5 +7,12 @@ then
 	exit 0
 fi
 
-git checkout -b pr/$(echo $1 | grep -Eo "[0-9]+") upstream/master --no-track
-curl -# "$(echo $1 | grep -Eo ".+[0-9]+").patch" | git am -s -3
+ID=$(echo $1 | grep -Eo "[0-9]+")
+URL=$(echo $1 | grep -Eo ".+[0-9]+")
+
+git checkout -b pr/${ID} upstream/master --no-track
+
+# sed requires an actual newline character, not an escaped one,
+# in order to insert a newline. So there's that.
+curl -# "${URL}.patch" | sed "s/^---$/Closes #${ID}.\\
+---/" | git am -s -3
