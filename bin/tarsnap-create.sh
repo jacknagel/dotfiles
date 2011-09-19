@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -e
 
 # create tarsnap backups
 # to interrupt tarsnap, use 'kill -3 PID'

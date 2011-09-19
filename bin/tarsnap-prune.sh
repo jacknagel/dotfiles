@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -e
 
 # prune tarsnap backups
 # backups have the form {MID}_backup_{DATE_STRING}_{POSIX_TIME}
@@ -12,7 +12,6 @@ SNAP_NUM=`tarsnap --list-archives | grep ${PREFIX} | wc -l | sed -e 's/ //g'`
 SNAP_MIN=15
 
 # delete snapshots older than 30 days if there are at least 15 snapshots
-
 
 for snap in `tarsnap --list-archives | sort`; do
     if [[ $SNAP_NUM -le $SNAP_MIN ]]; then
