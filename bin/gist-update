@@ -9,7 +9,7 @@ GISTDIR=${HOME}/src/gists
 
 curl -# -u ${uname} "https://api.github.com/users/${uname}/gists" -o ${TMPFILE}
 
-for id in $(sed -En 's/^[ ]{4}"id": "([a-fA-F0-9]{6,40})",$/\1/p' < ${TMPFILE})
+for id in $(sed -En 's/^[ ]{4}"id": "([a-fA-F0-9]{6,40})"$/\1/p' < ${TMPFILE})
 do
 	if [[ -d "${GISTDIR}/gist-${id}" ]]
 	then
