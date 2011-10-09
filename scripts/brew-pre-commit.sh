@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -e
+#!/bin/sh
 
 for filename in $(git diff-index --cached --name-only --diff-filter=AM HEAD)
 do
