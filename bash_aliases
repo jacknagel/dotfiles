@@ -16,5 +16,4 @@ alias su="su -l" # '-l' discards current environment
 alias sz="du -h -d1"
 alias edit="vim"
 alias pine="alpine"
-alias gpg="gpg2"
 alias ip="ipconfig getifaddr en0"
