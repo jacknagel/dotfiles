@@ -5,7 +5,7 @@
 #	- fast-forwarded onto master
 #	- cherry-picked onto master
 
-git checkout master &> /dev/null # sanity check
+git checkout master > /dev/null 2>&1 # sanity check
 
 for branch in $(git branch | grep -Eo "pr/[0-9]+")
 do
