@@ -77,6 +77,7 @@ shopt -s cmdhist histappend
 shopt -s no_empty_cmd_completion
 shopt -s checkjobs
 shopt -s checkwinsize
+shopt -s cdable_vars
 
 
 # bash completion
