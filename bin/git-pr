@@ -9,7 +9,7 @@ fi
 
 ID=$(echo $1 | grep -Eo "[0-9]+")
 
-if [[ "$1" == "$ID" ]]
+if [[ "$1" =~ "$ID" ]]
 then
 	URL=$(git config --get pr.url)/${ID}
 else
