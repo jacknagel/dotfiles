@@ -1,24 +1,25 @@
 #!/usr/bin/env bash -e
 # git-pr: apply a GitHub pull request patch file to a new branch
 
-if [[ -z "$1" ]]
+if [[ -z $1 ]]
 then
 	git show-branch --list | grep -E --color=never "pr/[0-9]+"
 	exit 0
 fi
 
-ID=$(echo $1 | grep -Eo "[0-9]+")
+GIT_PR_ID=$(echo $1 | grep -Eo "[0-9]+")
 
-if [[ "$1" =~ "$ID" ]]
+upstream=$(git config --get pr.upstream || echo "upstream/master")
+
+if [[ "$1" == "$GIT_PR_ID" ]]
 then
-	URL=$(git config --get pr.url)/${ID}
+	url=$(git config --get pr.url)/${GIT_PR_ID}
 else
-	URL=$(echo $1 | grep -Eo ".+[0-9]+")
+	url=$(echo $1 | grep -Eo ".+[0-9]+")
 fi
 
-git checkout -b pr/${ID} upstream/master --no-track
+export GIT_PR_ID
 
-# sed requires an actual newline character, not an escaped one,
-# in order to insert a newline. So there's that.
-curl -# "${URL}.patch" | sed "s/^---$/Closes #${ID}.\\
----/" | git am -s -3
+git checkout --detach ${upstream} 2> /dev/null
+curl -# "${url}.patch" | git am -s -3
+git checkout -b pr/${GIT_PR_ID}
