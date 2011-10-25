@@ -6,7 +6,12 @@ echo "\$BASH_SUBSHELL = $BASH_SUBSHELL"
 echo "\$SHLVL = 1"
 echo
 
-echo "Script execution (not a subshell):"
+echo "Subshell of parent shell:"
+echo "\$BASH_SUBSHELL = 1"
+echo "\$SHLVL = 1"
+echo
+
+echo "Script execution:"
 echo "\$\$ = $$"
 echo "\$BASHPID = $BASHPID"
 echo "\$BASH_SUBSHELL = $BASH_SUBSHELL"
