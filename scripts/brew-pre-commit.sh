@@ -1,8 +1,9 @@
 #!/bin/sh
 
-for filename in $(git diff-index --cached --name-only --diff-filter=AM HEAD)
+git diff-index --cached --name-only --diff-filter=AM HEAD | while read file
 do
-	if [[ $filename =~ "Library/Formula/" ]]; then
-		brew audit --strict ./$filename
+	if [[ $file =~ "Library/Formula/" ]]
+	then
+		brew audit --strict ./$file
 	fi
 done
