@@ -67,7 +67,7 @@ HISTSIZE=100000
 HISTFILESIZE=100000
 HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="ls:cd:cd ..:..*:[ ]*"
+HISTIGNORE="ls:cd:cd ..:..*:[bf]g:exit"
 
 
 # bash shell options
@@ -77,7 +77,6 @@ shopt -s cmdhist histappend
 shopt -s no_empty_cmd_completion
 shopt -s checkjobs
 shopt -s checkwinsize
-shopt -s cdable_vars
 
 
 # bash completion
