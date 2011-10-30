@@ -6,3 +6,6 @@
 *.tar.Z 	diff=tar
 *.doc		diff=word
 *.docx		diff=word
+*.ods		diff=odf
+*.odt		diff=odf
+*.odp		diff=odf

@@ -75,6 +75,9 @@
 [diff "gpg"]
 	textconv = gpg2 -qd --no-tty
 
+[diff "odf"]
+	textconv = odt2txt
+
 [diff "tar"]
 	textconv = tar -tvf
 	cachetextconv = true
