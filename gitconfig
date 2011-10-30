@@ -72,20 +72,16 @@
 	prm	= !sh -c 'git-prm' 
 	top	= shortlog -ns # !git log --format=%aN | sort | uniq -c | sort -r | less
 
+[diff "gpg"]
+	textconv = gpg2 -qd --no-tty
+
 [diff "tar"]
 	textconv = tar -tvf
 	cachetextconv = true
 
-[diff "tgz"]
-	textconv = tar -ztvf
+[diff "word"]
+	textconv = strings
 	cachetextconv = true
-
-[diff "tbz"]
-	textconv = tar -jtvf
-	cachetextconv = true
-
-[diff "gpg"]
-	textconv = gpg2 -qd --no-tty
 
 [push]
 	default = upstream

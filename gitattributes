@@ -1,5 +1,8 @@
-*.tar diff=tar
-*.tgz diff=tgz
-*.tar.gz diff=tgz
-*.tbz diff=tbz
-*.tar.bz2 diff=tbz
+*.tar		diff=tar
+*.tbz		diff=tar
+*.tar.bz2	diff=tar
+*.tgz		diff=tar
+*.tar.gz	diff=tar
+*.tar.Z 	diff=tar
+*.doc		diff=word
+*.docx		diff=word
