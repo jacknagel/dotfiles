@@ -5,8 +5,8 @@ TMPLATE=$(basename $0)
 TMPFILE=$(mktemp /tmp/${TMPLATE}.XXXXXX)
 GISTDIR=${HOME}/src/gists
 
-UNAME=$(awk '/machine github/ { print $4 }' ${HOME}/.netrc)
-TOKEN=$(awk '/machine github/ { print $6 }' ${HOME}/.netrc)
+UNAME=$(awk '/machine gist/ { print $4 }' ${HOME}/.netrc)
+TOKEN=$(awk '/machine gist/ { print $6 }' ${HOME}/.netrc)
 
 curl -# "https://api.github.com/users/${UNAME}/gists?access_token=${TOKEN}" -o ${TMPFILE}
 
