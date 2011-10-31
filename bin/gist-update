@@ -1,13 +1,14 @@
 #!/usr/bin/env bash -e
 # update or clone public and private Gists to ~/src/gists
 
-read -p "Username: " uname
-
 TMPLATE=$(basename $0)
 TMPFILE=$(mktemp /tmp/${TMPLATE}.XXXXXX)
 GISTDIR=${HOME}/src/gists
 
-curl -# -u ${uname} "https://api.github.com/users/${uname}/gists" -o ${TMPFILE}
+UNAME=$(awk '/machine github/ { print $4 }' ${HOME}/.netrc)
+TOKEN=$(awk '/machine github/ { print $6 }' ${HOME}/.netrc)
+
+curl -# "https://api.github.com/users/${UNAME}/gists?access_token=${TOKEN}" -o ${TMPFILE}
 
 for id in $(sed -En 's/^[ ]{4}"id": "([a-fA-F0-9]{6,40})"$/\1/p' < ${TMPFILE})
 do
