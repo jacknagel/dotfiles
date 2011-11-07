@@ -16,6 +16,15 @@
 [diff]
 	mnemonicprefix = true
 
+[push]
+	default = upstream
+
+[merge]
+	conflictstyle = diff3
+
+[rerere]
+	enabled = 1
+
 [help]
 	format = web
 
@@ -88,18 +97,9 @@
 	textconv = strings
 	cachetextconv = true
 
-[push]
-	default = upstream
-
-[merge]
-	conflictstyle = diff3
-
-[rerere]
-	enabled = 1
+[gist]
+	browse = 1
 
 [github]
 	user = jacknagel
 	token = !security 2>&1 > /dev/null find-generic-password -gs github.token | perl -ne '/^password: \\\"(.*)\\\"$/ and print $1'
-
-[gist]
-	browse = 1
