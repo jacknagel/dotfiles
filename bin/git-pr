@@ -1,25 +1,32 @@
-#!/usr/bin/env bash -e
-# git-pr: apply a GitHub pull request patch file to a new branch
+#!/bin/sh
+# Apply a GitHub pull request to a new branch.
+#
+# Set the GitHub project url:	git config pr.url <url>
+# Set the upstream remote:	git config pr.remote <remote>
+# Set the upstream branch:	git config pr.branch <branch>
+#
+# GIT_PR_ID is exported so that it can be utilized by hooks
+# that are invoked by the Git commands executed by the script.
 
-if [[ -z $1 ]]
+set -e
+
+if test -z "$1"
 then
-	git show-branch --list | grep -E --color=never "pr/[0-9]+"
+	git branch -v | grep -E --color=never "pr/[0-9]+"
 	exit 0
 fi
 
-GIT_PR_ID=$(echo $1 | grep -Eo "[0-9]+")
-
-upstream=$(git config --get pr.upstream || echo "upstream/master")
-
-if [[ "$1" == "$GIT_PR_ID" ]]
-then
-	url=$(git config --get pr.url)/${GIT_PR_ID}
-else
-	url=$(echo $1 | grep -Eo ".+[0-9]+")
-fi
-
+GIT_PR_ID=$(echo "$1" | grep -Eo "[0-9]+")
 export GIT_PR_ID
 
-git checkout --detach ${upstream} 2> /dev/null
-curl -# "${url}.patch" | git am -s -3
-git checkout -b pr/${GIT_PR_ID}
+remote=$(git config --get pr.remote)
+branch=$(git config --get pr.branch)
+
+if test "$1" = "$GIT_PR_ID"
+then url=$(git config --get pr.url)/pull/$GIT_PR_ID
+else url=$(echo "$1" | grep -Eo ".+[0-9]+")
+fi
+
+git checkout --detach "$remote/$branch" 2> /dev/null
+curl -# "$url.patch" | git am -s -3
+git checkout -b "pr/$GIT_PR_ID"

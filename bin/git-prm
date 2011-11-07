@@ -1,25 +1,22 @@
-#!/usr/bin/env bash -e
-# git-prm: remove pull request branches created by `git-pr`
-# This script will prune local branches that have been:
-#	- merged into master
-#	- fast-forwarded onto master
-#	- cherry-picked onto master
+#!/bin/sh
+# Delete branches created by git-pr.
+#
+# This script uses git-cherry to determine if the commits
+# on a branch have been merged into or cherry-picked onto
+# some upstream branch. If they have, the branch is deleted.
+#
+# Set the upstream remote:	git config pr.remote <remote>
+# Set the upstream branch:	git config pr.branch <branch>
 
-git checkout master > /dev/null 2>&1 # sanity check
+set -e
 
-for branch in $(git branch | grep -Eo "pr/[0-9]+")
+remote=$(git config --get pr.remote)
+branch=$(git config --get pr.branch)
+
+for pr in $(git branch | grep -Eo "pr/[0-9]+")
 do
-	revs=$(git cherry master $branch)
-	# If any commits in "git cherry master $branch" have the same 
-	# "patch ID", then the branch isn't fully merged, so we are either
-	# still working on it or will delete in manually.
-	if [[ $revs =~ \+ ]]; then
-		continue
-	# Otherwise, if the branch tips point to the same commit or the
-	# patch IDs of nonmatching commits are the same, we can delete the
-	# branch. This regex check is probably unnecessary, but it helps
-	# make sense of the logic here.
-	elif [[ $revs =~ ^-* ]]; then
-		git branch -D $branch
+	if git cherry "$remote/$branch" "$pr" | grep -q "^+"
+	then continue
+	else git branch -D "$pr"
 	fi
 done
