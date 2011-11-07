@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # Usage: license [fullname]
 # $ license 'full name' > LICENSE
 
