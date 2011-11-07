@@ -13,6 +13,9 @@
 [color]
 	ui = auto
 
+[diff]
+	mnemonicprefix = true
+
 [help]
 	format = web
 
