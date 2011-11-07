@@ -19,3 +19,5 @@ do
 	else git clone git@gist.github.com:${id}.git "${GISTDIR}/gist-${id}"
 	fi
 done
+
+unlink $TMPFILE
