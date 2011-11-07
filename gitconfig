@@ -42,7 +42,7 @@
 	cp = cherry-pick
 	cs = commit --signoff
 	cv = commit --verbose
-	cw = commit -am "Work-in-progress"
+	cw = commit -am "work-in-progress"
 	dc = diff --cached
 	di = diff
 	ff = merge --ff-only
@@ -51,14 +51,14 @@
 	lg = log --graph --decorate --oneline
 	lp = log --patch
 	ls = ls-files --cached --abbrev
-	pr = !sh -c 'git-pr $1' -
 	rh = reset HEAD
 	rl = reflog
 	rp = reset --patch HEAD
+	sa = status --short --branch
 	sb = show-branch
 	se = send-email
 	sq = commit --squash
-	st = status --short --branch
+	st = status --short --branch -uno
 	amend	= commit --amend
 	cur	= !git rev-parse HEAD | cut -c 1-7 | pbcopy
 	head	= rev-parse HEAD
@@ -69,7 +69,6 @@
 	lola	= log --graph --decorate --oneline --all
 	lols	= log --graph --decorate --oneline --simplify-by-decoration --branches --remotes
 	msg	= commit --allow-empty -m
-	prm	= !sh -c 'git-prm' 
 	top	= shortlog -ns # !git log --format=%aN | sort | uniq -c | sort -r | less
 
 [diff "gpg"]
