@@ -17,7 +17,7 @@ do
 	case $opt in
 	o) open=1;;
 	u) update=1;;
-	?) echo "barf" && exit;;
+	?) echo "Error: unknown option '-$OPTARG'" && exit;;
 	esac
 done
 shift $(($OPTIND - 1))
