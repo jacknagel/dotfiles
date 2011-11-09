@@ -1,6 +1,8 @@
 #!/bin/sh
 # Apply a GitHub pull request to a new branch.
+# Usage: git pr [-ou] <URLish>
 #
+# Setup
 # Set the GitHub project url:	git config pr.url <url>
 # Set the upstream remote:	git config pr.remote <remote>
 # Set the upstream branch:	git config pr.branch <branch>
@@ -9,6 +11,16 @@
 # that are invoked by the Git commands executed by the script.
 
 set -e
+
+while getopts ":uo" opt
+do
+	case $opt in
+	o) open=1;;
+	u) update=1;;
+	?) echo "barf" && exit;;
+	esac
+done
+shift $(($OPTIND - 1))
 
 if test -z "$1"
 then
@@ -27,6 +39,18 @@ then url=$(git config --get pr.url)/pull/$GIT_PR_ID
 else url=$(echo "$1" | grep -Eo ".+[0-9]+")
 fi
 
+if test -n "$open"
+then
+	open "$url"
+	exit 0
+fi
+
 git checkout --detach "$remote/$branch" 2> /dev/null
 curl -# "$url.patch" | git am -s -3
-git checkout -b "pr/$GIT_PR_ID"
+
+if test -n "$update"
+then git branch -f "pr/$GIT_PR_ID"
+else git branch "pr/$GIT_PR_ID"
+fi
+
+git checkout "pr/$GIT_PR_ID"
