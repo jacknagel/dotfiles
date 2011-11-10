@@ -3,8 +3,8 @@
 DIR = 		bin
 DOT_DIR = 	vim
 DOT_FILE = 	bash_profile bashrc bash_aliases inputrc \
-		gitconfig gitignore gitattributes emrc vimrc gvimrc \
-		tarsnaprc gdbinit pinerc procmailrc
+		gitconfig gitignore gitattributes emrc vimrc \
+		tarsnaprc gdbinit pinerc procmailrc valgrindrc
 
 all: install
 
