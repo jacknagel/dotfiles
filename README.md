@@ -27,4 +27,5 @@ Contents
     pinerc                  alpine configuration
     procmailrc              procmail configuration
     tarsnaprc               tarsnap configuration
+    valgrindrc              valgrind configuration
     vimrc                   vim configuration
