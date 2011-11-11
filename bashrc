@@ -97,12 +97,14 @@ export GIT_PS1_SHOWDIRTYSTATE GIT_PS1_SHOWSTASHSTATE
 export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
 
 
-# PS1 with git status
-# PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+# PS1
+# includes git status and Homebrew debug status
+# PS1='[\u@\h \W$(__git_ps1 " (%s)")$(__brew_ps1 " (%s)")]\$ '
 PROMPT_GIT='$(__git_ps1 " \[\033[1;32m\](%s)")'
+PROMPT_BRW='$(__brew_ps1 " \[\033[1;36m\](%s)")'
 PROMPT_PRE="\[\033[1;30m\][\u@\h \[\033[1;34m\]\W"
 PROMPT_SUF="\[\033[1;30m\]]\$\[\033[0m\] "
-PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_SUF}"
+PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_BRW}${PROMPT_SUF}"
 export PS1
 
 
