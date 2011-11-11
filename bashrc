@@ -16,8 +16,9 @@ PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$PATH:/usr/local/texbin"
 
-if [[ -d "$HOME/bin" ]]; then
-    PATH="$HOME/bin:$PATH"
+if [[ -d "$HOME/bin" ]]
+then
+	PATH="$HOME/bin:$PATH"
 fi
 
 MANPATH="/usr/local/share/man:/usr/share/man"
@@ -59,8 +60,9 @@ export FIGNORE COPYFILE_DISABLE
 
 
 # history control
-if [[ ! -d ~/.history ]]; then
-    mkdir ~/.history
+if [[ ! -d ~/.history ]]
+then
+	mkdir ~/.history
 fi
 
 HISTSIZE=100000
@@ -80,7 +82,8 @@ shopt -s checkwinsize
 
 
 # bash completion
-if [[ -e /usr/local/share/bash-completion/bash_completion ]]; then
+if [[ -e /usr/local/share/bash-completion/bash_completion ]]
+then
 	source /usr/local/share/bash-completion/bash_completion
 fi
 
