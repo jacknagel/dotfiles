@@ -3,3 +3,4 @@
 --memcheck:dsymutil=yes
 --memcheck:track-fds=yes
 --memcheck:track-origins=yes
+--memcheck:gen-suppressions=all
