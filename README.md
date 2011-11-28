@@ -18,9 +18,8 @@ Contents
     bash_aliases            bash aliases
     bash_profile            bash profile
     bashrc                  bash configuration
-    brew-packages           a (mostly) up-to-date list of installed Homebrew packages
     emrc                    uemacs configuration
-    gdbinit                 gdb startup file; symlnked to ~/.gdbinit
+    gdbinit                 gdb startup file
     gitconfig               global git configuration
     gitignore               global git excludesfile
     inputrc                 readline configuration
