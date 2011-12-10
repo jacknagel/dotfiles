@@ -57,6 +57,7 @@
 	cv = commit --verbose
 	cw = commit -am "work-in-progress"
 	dc = diff --cached
+	dh = diff HEAD~
 	di = diff
 	ff = merge --ff-only
 	fp = format-patch
