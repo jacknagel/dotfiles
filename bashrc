@@ -15,6 +15,7 @@ export LANG LC_CTYPE LC_ALL
 PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$PATH:/usr/local/texbin"
+PATH="/usr/local/share/python:$PATH"
 
 if [[ -d "$HOME/bin" ]]
 then
