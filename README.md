@@ -14,7 +14,6 @@ Contents
     smartmontools/          smartmontools configuration
     vim/                    vim directory
     Makefile                installs dotfiles to ~/
-    README.md               this file
     bash_aliases            bash aliases
     bash_profile            bash profile
     bashrc                  bash configuration
@@ -25,6 +24,7 @@ Contents
     inputrc                 readline configuration
     pinerc                  alpine configuration
     procmailrc              procmail configuration
+    sqliterc                sqlite configuration
     tarsnaprc               tarsnap configuration
     valgrindrc              valgrind configuration
     vimrc                   vim configuration

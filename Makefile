@@ -4,7 +4,8 @@ DIR = 		bin
 DOT_DIR = 	vim
 DOT_FILE = 	bash_profile bashrc bash_aliases inputrc \
 		gitconfig gitignore gitattributes emrc vimrc \
-		tarsnaprc gdbinit pinerc procmailrc valgrindrc
+		tarsnaprc gdbinit pinerc procmailrc valgrindrc \
+		sqliterc
 
 all: install
 
