@@ -1,3 +1,4 @@
 .headers on
 .mode column
 .nullvalue NULL
+.prompt "\033[1;30msqlite>\033[0m " "\033[1;30m   ...>\033[0m "
