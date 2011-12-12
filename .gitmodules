@@ -1,0 +1,9 @@
+[submodule "bundle/git"]
+	path = bundle/git
+	url = https://github.com/tpope/vim-git.git
+[submodule "bundle/fugitive"]
+	path = bundle/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/gnupg"]
+	path = bundle/gnupg
+	url = https://git.gitorious.org/vim-gnupg/vim-gnupg.git
