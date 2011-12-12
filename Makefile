@@ -1,7 +1,4 @@
-# Makefile for dotfiles (cf. https://github.com/pix/dotfiles)
-
 DIR = 		bin
-DOT_DIR = 	vim
 DOT_FILE = 	bash_profile bashrc bash_aliases inputrc \
 		gitconfig gitignore gitattributes emrc vimrc \
 		tarsnaprc gdbinit pinerc procmailrc valgrindrc \
@@ -20,10 +17,6 @@ $(HOME)/.history:
 install-dir-%: %
 	@echo "  LN  $< to ~/$<"
 	@ln -snf $(CURDIR)/$< $(HOME)/$<
-
-install-dotdir-%: %
-	@echo "  LN  $< to ~/.$<"
-	@ln -snf $(CURDIR)/$< $(HOME)/.$<
 
 install-file-%: %
 	@echo "  LN  $< to ~/.$<"
