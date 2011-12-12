@@ -1,8 +1,7 @@
 DIR = 		bin
 DOT_FILE = 	bash_profile bashrc bash_aliases inputrc \
-		gitconfig gitignore gitattributes emrc vimrc \
-		tarsnaprc gdbinit pinerc procmailrc valgrindrc \
-		sqliterc
+		gitconfig gitignore gitattributes emrc sqliterc \
+		tarsnaprc gdbinit pinerc procmailrc valgrindrc
 
 all: install
 
