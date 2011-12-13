@@ -1,11 +1,4 @@
-vim/tmp/*
-vim/backup/*
-vim/undo/*
-vim/.viminfo
 bin/pw
 bin/pyweather
 bin/psrc
-*.tmproj
-
-# in vim/bundle/git/.git/info/excludes:
-# doc/tags
+bin/mate
