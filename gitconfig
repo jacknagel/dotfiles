@@ -14,7 +14,6 @@
 	ui = auto
 
 [diff]
-	mnemonicprefix = true
 	renames = copies
 
 [push]
@@ -95,11 +94,9 @@
 
 [diff "tar"]
 	textconv = tar -tvf
-	cachetextconv = true
 
 [diff "word"]
 	textconv = strings
-	cachetextconv = true
 
 [gist]
 	browse = 1
