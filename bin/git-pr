@@ -45,7 +45,7 @@ then
 	exit 0
 fi
 
-git checkout --detach "$remote/$branch" 2> /dev/null
+git checkout -q --detach "$remote/$branch"
 curl -# "$url.patch" | git am -s -3
 
 if test -n "$update"
