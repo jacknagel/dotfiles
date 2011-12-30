@@ -7,7 +7,7 @@ dir=$(git rev-parse --show-toplevel 2>/dev/null)
 link () {
 	src="$dir/$1"
 
-	test "`readlink $2`" = "$src" || {
+	test "$(readlink $2)" = "$src" || {
 		ln -vshf "$src" "$2"
 	}
 }
