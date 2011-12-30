@@ -1,56 +1,27 @@
 #!/bin/sh
-# Apply a GitHub pull request to a new branch.
-# Usage: git pr [-ou] <URLish>
-#
-# Setup
-# Set the GitHub project url:	git config pr.url <url>
-# Set the upstream remote:	git config pr.remote <remote>
-# Set the upstream branch:	git config pr.branch <branch>
-#
-# GIT_PR_ID is exported so that it can be utilized by hooks
-# that are invoked by the Git commands executed by the script.
+# usage: git pr <urlish>
+
+# setup
+# git config gh.url <url>
+# git config gh.upstream <remote>
+# GITHUB_PR_ID is exported for use in hooks
 
 set -e
 
-while getopts ":uo" opt
-do
-	case $opt in
-	o) open=1;;
-	u) update=1;;
-	?) echo "Error: unknown option '-$OPTARG'" && exit 1;;
-	esac
-done
-shift $(($OPTIND - 1))
-
 if test -z "$1"
 then
-	git branch -v | grep -E --color=never "pr/[0-9]+"
+	git for-each-ref --format='  %(refname:short)%09%(subject)' refs/heads/gh
 	exit 0
 fi
 
-GIT_PR_ID=$(echo "$1" | grep -Eo "[0-9]+")
-export GIT_PR_ID
+export GITHUB_PR_ID=$(echo "$1" | egrep -o "[0-9]+")
 
-remote=$(git config --get pr.remote)
-branch=$(git config --get pr.branch)
+upstream=$(git config --get gh.upstream)
 
-if test "$1" = "$GIT_PR_ID"
-then url=$(git config --get pr.url)/pull/$GIT_PR_ID
+if test "$1" = "$GITHUB_PR_ID"
+then url=$(git config --get gh.url)/pull/$GITHUB_PR_ID
 else url=$(echo "$1" | grep -Eo ".+[0-9]+")
 fi
 
-if test -n "$open"
-then
-	open "$url"
-	exit 0
-fi
-
-git checkout -q --detach "$remote/$branch"
-curl -# "$url.patch" | git am -s -3
-
-if test -n "$update"
-then git branch -f "pr/$GIT_PR_ID"
-else git branch "pr/$GIT_PR_ID"
-fi
-
-git checkout "pr/$GIT_PR_ID"
+git checkout --no-track -b "gh/$GITHUB_PR_ID" "$upstream"
+curl -# "$url.patch" | git am -s -3 || git checkout -f master
