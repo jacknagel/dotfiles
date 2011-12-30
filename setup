@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -e
+
+dir=$(git rev-parse --show-toplevel 2>/dev/null)
+
+test "$1" != "-u" || {
+	git submodule update --init
+	exit 0
+}
+
+ln -vshf "$dir" "$HOME/.vim"
+ln -vshf "$dir/vimrc" "$HOME/.vimrc"
+
+mkdir -vp _backup _tmp _undo
