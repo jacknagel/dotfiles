@@ -1,23 +1,22 @@
 #!/bin/sh
-# update or clone public and private Gists to ~/src/gists
 
 set -e
 
-TMPLATE=$(basename $0)
-TMPFILE=$(mktemp /tmp/${TMPLATE}.XXXXXX)
-GISTDIR=${HOME}/src/gists
+tmp=$(mktemp /tmp/$(basename $0).XXXXXX)
+dir=$HOME/src/gists
+netrc=$HOME/.netrc
 
-UNAME=$(awk '/machine gist/ { print $4 }' ${HOME}/.netrc)
-TOKEN=$(awk '/machine gist/ { print $6 }' ${HOME}/.netrc)
+uname=$(awk '/machine gist/ { print $4 }' $netrc)
+token=$(awk '/machine gist/ { print $6 }' $netrc)
 
-curl -# "https://api.github.com/users/${UNAME}/gists?access_token=${TOKEN}" -o ${TMPFILE}
+curl -# "https://api.github.com/users/$uname/gists?access_token=$token" -o "$tmp"
 
-for id in $(sed -En 's/^[ ]{4}"id": "([a-fA-F0-9]{6,40})",$/\1/p' < ${TMPFILE})
+for id in $(sed -En 's/^[ ]{4}"id": "([a-fA-F0-9]{6,40})",$/\1/p' < "$tmp")
 do
-	if test -d "${GISTDIR}/gist-${id}"
-	then git --git-dir=${GISTDIR}/gist-${id}/.git pull
-	else git clone git@gist.github.com:${id}.git "${GISTDIR}/gist-${id}"
+	if test -d "$dir/gist-$id"
+	then git --git-dir=$dir/gist-$id/.git pull
+	else git clone git@gist.github.com:$id.git "$dir/gist-$id"
 	fi
 done
 
-unlink $TMPFILE
+unlink $tmp
