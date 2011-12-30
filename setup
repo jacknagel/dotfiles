@@ -1,0 +1,31 @@
+#!/bin/sh
+
+set -e
+
+dir=$(git rev-parse --show-toplevel 2>/dev/null)
+
+link () {
+	src="$dir/$1"
+
+	test "`readlink $2`" = "$src" || {
+		ln -vshf "$src" "$2"
+	}
+}
+
+test -d "$HOME/.history" || mkdir -vp "$HOME/.history"
+
+link gitconfig		"$HOME/.gitconfig"
+link gitignore		"$HOME/.gitignore"
+link gitattributes	"$HOME/.gitattributes"
+link bashrc			"$HOME/.bashrc"
+link bash_profile	"$HOME/.bash_profile"
+link bash_aliases	"$HOME/.bash_aliases"
+link inputrc		"$HOME/.inputrc"
+link tarsnaprc		"$HOME/.tarsnaprc"
+link sqliterc		"$HOME/.sqliterc"
+link gdbinit		"$HOME/.gdbinit"
+link valgrindrc		"$HOME/.valgrindrc"
+link procmailrc		"$HOME/.procmailrc"
+link pinerc			"$HOME/.pinerc"
+link emrc			"$HOME/.emrc"
+link bin			"$HOME/bin"
