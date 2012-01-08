@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.jfnagel.smartctl</string>
+	<string>homebrew.jfn.smartctl</string>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>ProgramArguments</key>
@@ -13,5 +13,7 @@
 		<string>--saveauto=on</string>
 		<string>/dev/disk0</string>
 	</array>
+	<key>LowPriorityIO</key>
+	<true/>
 </dict>
 </plist>

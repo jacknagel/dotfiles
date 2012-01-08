@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.jfnagel.smartd</string>
+	<string>homebrew.jfn.smartd</string>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>KeepAlive</key>
@@ -12,6 +12,12 @@
 	<array>
 		<string>/usr/local/sbin/smartd</string>
 		<string>-n</string>
+	</array>
+	<key>LowPriorityIO</key>
+	<true/>
+	<key>WatchPaths</key>
+	<array>
+		<string>/usr/local/etc/smartd.conf</string>
 	</array>
 </dict>
 </plist>
