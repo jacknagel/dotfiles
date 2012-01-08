@@ -1,8 +1,7 @@
-dotfiles/ddclient
-=================
+# dotfiles/ddclient
 Configuration files for the ddclient package
 
-### Installation
+## Installation
 
 ```
 cp ddclient.conf /usr/local/etc/ddclient/

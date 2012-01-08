@@ -1,8 +1,7 @@
-dotfiles/smartmontools
-======================
+# dotfiles/smartmontools
 Configuration files for the smartmontools package
 
-### Installation
+## Installation
 
 ```
 cp smartd.conf /usr/local/etc/
@@ -14,7 +13,6 @@ sudo chown root:wheel /Library/LaunchDaemons/homebrew.jfn.smartd.plist
 sudo launchctl load -w /Library/LaunchDaemons/homebrew.jfn.smartd.plist
 ```
 
-Notes
------
+## Notes
  - OS X doesn't seem to accept "Automatic Offline" testing
  - iStat {Pro, Menus} may sometimes disable SMART operations
