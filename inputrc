@@ -9,6 +9,10 @@ set mark-symlinked-directories on
 set visible-stats on
 set skip-completed-text on
 
+set keymap vi
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
 set keymap vi-insert
 Control-a: beginning-of-line
 Control-b: backward-char
@@ -19,6 +23,8 @@ Control-k: kill-line
 Control-n: next-history
 Control-p: previous-history
 Control-L: clear-screen
+"\e[A": history-search-backward
+"\e[B": history-search-forward
 
 set keymap emacs-ctlx
 v: vi-editing-mode
