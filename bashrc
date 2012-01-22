@@ -70,7 +70,7 @@ HISTSIZE=100000
 HISTFILESIZE=100000
 HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="ls:cd:cd ..:..*:[bf]g:exit"
+HISTIGNORE="ls:cd:cd ..:..*:[bf]g:exit:ssh*"
 
 
 # bash shell options
