@@ -4,7 +4,7 @@
 [ -z "$PS1" ] && return
 
 
-# set en_US locale with utf-8 encodings
+# locale
 LANG="en_US.UTF-8"
 LC_CTYPE="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
@@ -15,15 +15,12 @@ export LANG LC_CTYPE LC_ALL
 PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$PATH:/usr/local/texbin"
-PATH="/usr/local/share/python:$PATH"
-
-if [[ -d "$HOME/bin" ]]
-then
-	PATH="$HOME/bin:$PATH"
-fi
+PATH="$PATH:/usr/local/share/python"
+PATH="$HOME/bin:$PATH"
 
 MANPATH="/usr/local/share/man:/usr/share/man"
-export PATH MANPATH
+INFOPATH="/usr/local/share/info:/usr/share/info"
+export PATH MANPATH INFOPATH
 
 
 # mail
