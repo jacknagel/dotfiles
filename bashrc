@@ -107,3 +107,4 @@ export PS1
 
 
 export GPG_TTY=$(tty) # make gpg/pinentry behave sanely
+export HOMEBREW_KEEP_INFO=1
