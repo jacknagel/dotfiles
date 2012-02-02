@@ -11,7 +11,7 @@ token=$(awk '/machine gist/ { print $6 }' $netrc)
 
 curl -# "https://api.github.com/users/$uname/gists?access_token=$token" -o "$tmp"
 
-for id in $(sed -En 's/^[ ]{4}"id": "([a-fA-F0-9]{6,40})"$/\1/p' < "$tmp")
+for id in $(sed -En 's/^[ ]{4}"id": "([a-fA-F0-9]{6,40})",$/\1/p' < "$tmp")
 do
 	if test -d "$dir/gist-$id"
 	then git --git-dir=$dir/gist-$id/.git pull
@@ -19,4 +19,4 @@ do
 	fi
 done
 
-# unlink $tmp
+unlink $tmp
