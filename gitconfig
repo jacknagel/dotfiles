@@ -29,17 +29,10 @@
 	format = web
 
 [sendemail]
-	identity = gmail
-
-[sendemail "gmail"]
 	smtpserver = smtp.gmail.com
 	smtpserverport = 587
 	smtpencryption = tls
 	smtpuser = jacknagel@gmail.com
-
-[sendemail "jfour"]
-	from = jacknagel@jfour.org
-	envelopesender = jacknagel@jfour.org
 
 [alias]
 	ap = add --patch
