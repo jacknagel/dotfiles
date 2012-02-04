@@ -54,9 +54,9 @@
 	cp = cherry-pick
 	cs = commit --signoff
 	cv = commit --verbose
-	cw = commit -am "work-in-progress"
+	cw = commit -am "wip"
 	dc = diff --cached
-	dh = diff HEAD~
+	dh = diff HEAD
 	di = diff
 	ff = merge --ff-only
 	fp = format-patch
@@ -72,19 +72,11 @@
 	se = send-email
 	sq = commit --squash
 	st = status --short --branch -uno
-	amend	= commit --amend
-	head	= rev-parse HEAD
-	last	= show HEAD
-	lgn	= log --notes
-	loga	= log --graph --decorate --oneline --all
-	logg	= log --walk-reflogs
-	logp	= log --patch
 	rbc	= rebase --continue
-	rlp	= log --walk-reflogs --pretty=reflog
 	top	= shortlog -ns # !git log --format=%aN | sort | uniq -c | sort -r | less
 
-[pretty]
-	reflog = "format:%C(yellow)%gd%Creset: %C(red bold)%gs %C(green bold)%h%Creset %gn <%ge>"
+[log]
+	decorate = short
 
 [diff "gpg"]
 	textconv = gpg2 -qd --no-tty
