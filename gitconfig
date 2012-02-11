@@ -67,6 +67,8 @@
 	st = status --short --branch -uno
 	rbc	= rebase --continue
 	top	= shortlog -ns # !git log --format=%aN | sort | uniq -c | sort -r | less
+	egrep	= grep -E
+	fgrep   = grep -F
 
 [log]
 	decorate = short
