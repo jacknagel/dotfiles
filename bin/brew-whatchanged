@@ -1,2 +1,0 @@
-#!/bin/sh
-git --git-dir=$(brew --prefix)/.git shortlog --format="[%h] %B" origin/master@{1}..origin/master@{0}
