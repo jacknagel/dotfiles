@@ -105,6 +105,14 @@ PROMPT_SUF="\[\033[1;30m\]]\$\[\033[0m\] "
 PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_BRW}${PROMPT_SUF}"
 export PS1
 
+agentfile="$HOME/.gnupg/agent.env"
 
-export GPG_TTY=$(tty) # make gpg/pinentry behave sanely
+if test -f "$agentfile" && kill -0 $(grep -e "GPG_AGENT_INFO" "$agentfile" | cut -d: -f 2) 2>/dev/null
+then
+	eval "$(cat "$agentfile")"
+else
+	eval "$(gpg-agent --daemon --write-env-file="$agentfile")"
+fi
+
+export GPG_TTY=$(tty)
 export HOMEBREW_KEEP_INFO=1
