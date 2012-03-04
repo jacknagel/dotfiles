@@ -3,6 +3,7 @@
 # if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+unset MAILCHECK
 
 # locale
 LANG="en_US.UTF-8"
@@ -21,17 +22,6 @@ PATH="$HOME/bin:$PATH"
 MANPATH="/usr/local/share/man:/usr/share/man"
 INFOPATH="/usr/local/share/info:/usr/share/info"
 export PATH MANPATH INFOPATH
-
-
-# mail
-unset MAIL
-MAILCHECK=600
-MAILPATH="$HOME/mail/inbox:/tmp/alpine.info?You have mail in alpine"
-
-for mbox in ~/mail/f/[^.]*
-do
-	MAILPATH="$MAILPATH:$mbox"
-done
 
 
 # editor/pager
