@@ -104,5 +104,6 @@ else
 	eval "$(gpg-agent --daemon --write-env-file="$agentfile")"
 fi
 
+export GPG_AGENT_INFO
 export GPG_TTY=$(tty)
 export HOMEBREW_KEEP_INFO=1
