@@ -66,12 +66,13 @@ shopt -s checkjobs
 shopt -s checkwinsize
 
 
-# bash completion
-if [[ -e /usr/local/share/bash-completion/bash_completion ]]
-then
-	source /usr/local/share/bash-completion/bash_completion
-fi
-
+# tab completion
+for file in \
+	/usr/local/share/bash-completion/bash_completion \
+	$HOME/src/git/contrib/completion/git-completion.bash
+do
+	[[ -e $file ]] && . $file
+done
 
 # __git_ps1 configuration
 GIT_PS1_SHOWDIRTYSTATE=1
