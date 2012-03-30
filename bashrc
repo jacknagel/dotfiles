@@ -74,7 +74,10 @@ do
 	[[ -e $file ]] && . $file
 done
 
-# __git_ps1 configuration
+
+# PS1
+# includes git status and Homebrew debug status
+# PS1='[\u@\h \W$(__git_ps1 " (%s)")$(__brew_ps1 " (%s)")]\$ '
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -82,10 +85,6 @@ GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWDIRTYSTATE GIT_PS1_SHOWSTASHSTATE
 export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
 
-
-# PS1
-# includes git status and Homebrew debug status
-# PS1='[\u@\h \W$(__git_ps1 " (%s)")$(__brew_ps1 " (%s)")]\$ '
 PROMPT_GIT='$(__git_ps1 " \[\033[1;32m\](%s)")'
 PROMPT_BRW='$(__brew_ps1 " \[\033[1;36m\](%s)")'
 PROMPT_PRE="\[\033[1;30m\][\u@\h \[\033[1;34m\]\W"
@@ -93,6 +92,8 @@ PROMPT_SUF="\[\033[1;30m\]]\$\[\033[0m\] "
 PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_BRW}${PROMPT_SUF}"
 export PS1
 
+
+# gpg-agent
 agentfile="$HOME/.gnupg/agent.env"
 
 if test -f "$agentfile" && kill -0 $(grep -e "GPG_AGENT_INFO" "$agentfile" | cut -d: -f 2) 2>/dev/null
@@ -102,6 +103,6 @@ else
 	eval "$(gpg-agent --daemon --write-env-file="$agentfile")"
 fi
 
-export GPG_AGENT_INFO
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY GPG_AGENT_INFO
 export HOMEBREW_KEEP_INFO=1
