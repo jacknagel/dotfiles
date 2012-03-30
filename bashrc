@@ -48,10 +48,7 @@ export FIGNORE COPYFILE_DISABLE
 
 
 # history control
-if [[ ! -d ~/.history ]]
-then
-	mkdir ~/.history
-fi
+[[ -d $HOME/.history ]] || mkdir $HOME/.history
 
 HISTSIZE=100000
 HISTFILESIZE=1000000
