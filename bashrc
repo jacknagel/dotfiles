@@ -78,6 +78,12 @@ done
 # PS1
 # includes git status and Homebrew debug status
 # PS1='[\u@\h \W$(__git_ps1 " (%s)")$(__brew_ps1 " (%s)")]\$ '
+__brew_ps1 ()
+{
+	[[ -z $HOMEBREW_DEBUG_INSTALL ]] ||
+		printf "${1:- (%s)}" "$HOMEBREW_DEBUG_INSTALL|DEBUG"
+}
+
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
