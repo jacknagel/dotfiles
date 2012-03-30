@@ -9,6 +9,12 @@ pidof () {
 	ps -acxo 'pid,command' | grep -w "$1" | awk '{ print $1 }'
 }
 
+__brew_ps1 ()
+{
+	[[ -z $HOMEBREW_DEBUG_INSTALL ]] ||
+		printf "${1:- (%s)}" "$HOMEBREW_DEBUG_INSTALL|DEBUG"
+}
+
 alias ..="cd .."
 alias ...="cd ../.."
 alias cd..="cd .."
