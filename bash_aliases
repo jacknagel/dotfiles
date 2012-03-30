@@ -1,11 +1,11 @@
 # ~/.bash_aliases
 
 # silence cdspell echo
-function cd () {
+cd () {
 	builtin cd "$@" 1> /dev/null
 }
 
-function pidof () {
+pidof () {
 	ps -acxo 'pid,command' | grep -w "$1" | awk '{ print $1 }'
 }
 
