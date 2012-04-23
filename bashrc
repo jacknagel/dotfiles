@@ -54,7 +54,8 @@ HISTSIZE=100000
 HISTFILESIZE=100000
 HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE="ls:cd:cd ..:..*:[bf]g:exit:ssh*"
+HISTIGNORE=" *:ls:ls -l:cd:cd ..:..*:[bf]g:exit:ssh*"
+HISTIGNORE="$HISTIGNORE:git st*:git di:git lg:git ci*:git ap:git add*"
 
 
 # bash shell options
