@@ -4,6 +4,9 @@
 	name = Jack Nagel
 	email = jacknagel@gmail.com
 
+[include]
+	path = .gitcreds
+
 [core]
 	editor = vim
 	pager = less -+$LESS -iRSwq
