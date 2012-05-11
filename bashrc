@@ -58,7 +58,7 @@ HISTIGNORE=$(tr '\n' ':' < "$HOME/.history/histignore")
 
 
 # bash shell options
-shopt -s autocd cdspell dirspell
+shopt -s cdspell dirspell
 shopt -s dotglob extglob globstar
 shopt -s cmdhist histappend
 shopt -s no_empty_cmd_completion
