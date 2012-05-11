@@ -1,6 +1,0 @@
-# procmail(1) configuration
-
-MAILDIR=$HOME/mail
-DEFAULT=$MAILDIR/inbox
-LOGFILE=$MAILDIR/.procmail.log
-LOGABSTRACT=all

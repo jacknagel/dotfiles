@@ -20,7 +20,6 @@ from other people's dotfiles. Feel free to borrow anything you find useful.
     gitignore               global git excludes file
     inputrc                 readline configuration
     pinerc                  alpine configuration
-    procmailrc              procmail configuration
     setup                   script to install dotfiles
     sqliterc                sqlite configuration
     tarsnaprc               tarsnap configuration
