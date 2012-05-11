@@ -75,9 +75,13 @@ do
 done
 
 
-# PS1
-# includes git status and Homebrew debug status
-# PS1='[\u@\h \W$(__git_ps1 " (%s)")$(__brew_ps1 " (%s)")]\$ '
+# prompt
+BOLD="\[\033[1m\]"
+BLUE="\[\033[0;34m\]"
+CYAN="\[\033[0;36m\]"
+GREEN="\[\033[0;32m\]"
+RESET="\[\033[0m\]"
+
 __brew_ps1 ()
 {
 	[[ -z $HOMEBREW_DEBUG_INSTALL ]] ||
@@ -91,12 +95,12 @@ GIT_PS1_SHOWUPSTREAM="auto"
 export GIT_PS1_SHOWDIRTYSTATE GIT_PS1_SHOWSTASHSTATE
 export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
 
-PROMPT_GIT='$(__git_ps1 " \[\033[1;32m\](%s)")'
-PROMPT_BRW='$(__brew_ps1 " \[\033[1;36m\](%s)")'
-PROMPT_PRE="\[\033[1;30m\][\u@\h \[\033[1;34m\]\W"
-PROMPT_SUF="\[\033[1;30m\]]\$\[\033[0m\] "
+PROMPT_GIT='$(__git_ps1 " '${GREEN}'(%s)'${RESET}'")'
+PROMPT_BRW='$(__brew_ps1 " '${CYAN}'(%s)'${RESET}'")'
+PROMPT_PRE="${BOLD}[${RESET}\u@\h ${BLUE}\W${RESET}"
+PROMPT_SUF="${BOLD}]\$${RESET} "
 PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_BRW}${PROMPT_SUF}"
-export PS1
+PS2="${BOLD}..>${RESET} "
 
 
 # gpg-agent
