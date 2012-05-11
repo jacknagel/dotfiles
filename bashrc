@@ -50,8 +50,8 @@ export FIGNORE COPYFILE_DISABLE
 # history control
 [[ -d $HOME/.history ]] || mkdir $HOME/.history
 
-HISTSIZE=50000
-HISTFILESIZE=50000
+HISTSIZE=10000
+HISTFILESIZE=10000
 HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE=" *:ls:ls -l:cd:cd ..:..*:[bf]g:exit:ssh*"
