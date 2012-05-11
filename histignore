@@ -1,0 +1,19 @@
+ *
+..*
+[bf]g
+brew update
+cd
+cd ..
+exit
+git add -p
+git ap
+git b[rv]
+git c[aisv]
+git d[ci]
+git lg
+git s[at]
+git show
+git status
+ls
+ls -l
+ssh*

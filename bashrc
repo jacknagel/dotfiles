@@ -48,14 +48,13 @@ export FIGNORE COPYFILE_DISABLE
 
 
 # history control
-[[ -d $HOME/.history ]] || mkdir $HOME/.history
+[[ -d "$HOME/.history" ]] || mkdir "$HOME/.history"
 
 HISTSIZE=10000
 HISTFILESIZE=10000
 HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE=" *:ls:ls -l:cd:cd ..:..*:[bf]g:exit:ssh*"
-HISTIGNORE="$HISTIGNORE:git st*:git di:git lg:git ci*:git ap:git add*"
+HISTIGNORE=$(tr '\n' ':' < "$HOME/.history/histignore")
 
 
 # bash shell options
