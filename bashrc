@@ -3,6 +3,8 @@
 # if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases
+
 unset MAILCHECK
 
 # locale
@@ -82,12 +84,6 @@ CYAN="\[\033[0;36m\]"
 GREEN="\[\033[0;32m\]"
 RESET="\[\033[0m\]"
 
-__brew_ps1 ()
-{
-	[[ -z $HOMEBREW_DEBUG_INSTALL ]] ||
-		printf "${1:- (%s)}" "$HOMEBREW_DEBUG_INSTALL|DEBUG"
-}
-
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -103,16 +99,6 @@ PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_BRW}${PROMPT_SUF}"
 PS2="${BOLD}..>${RESET} "
 
 
-# gpg-agent
-agentfile="$HOME/.gnupg/agent.env"
-
-if test -f "$agentfile" && kill -0 $(grep -e "GPG_AGENT_INFO" "$agentfile" | cut -d: -f 2) 2>/dev/null
-then
-	eval "$(cat "$agentfile")"
-else
-	eval "$(gpg-agent --daemon --write-env-file="$agentfile")"
-fi
-
-GPG_TTY=$(tty)
-export GPG_TTY GPG_AGENT_INFO
+# miscellaneous setup
+setup_gpg_session
 export HOMEBREW_KEEP_INFO=1
