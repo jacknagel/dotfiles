@@ -1,0 +1,7 @@
+edit on
+bind -v
+bind "\t" rl_complete
+bind "^R" em-inc-search-prev
+bind "^S" em-inc-search-next
+bind "[A" ed-search-prev-history
+bind "[B" ed-search-next-history
