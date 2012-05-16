@@ -37,6 +37,11 @@
 	smtpencryption = tls
 	smtpuser = jacknagel@gmail.com
 
+[instaweb]
+	local = true
+	httpd = lighttpd -f
+	port = 8080
+
 [alias]
 	ap = add --patch
 	au = add --update
