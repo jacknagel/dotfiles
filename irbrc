@@ -16,6 +16,7 @@ require 'irb/completion'
 require 'pathname'
 require 'pp'
 require 'rubygems'
+require 'set'
 
 def time(times = 1)
   require 'benchmark'
