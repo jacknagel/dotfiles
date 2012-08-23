@@ -10,7 +10,10 @@ git ap
 git b[rv]
 git c[aisv]
 git d[ci]
+git fetch --prune
+git fetch -p
 git lg
+git reset --hard
 git s[at]
 git show
 git status
