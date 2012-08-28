@@ -81,6 +81,9 @@
 [log]
 	decorate = short
 
+[grep]
+	extendedregexp = true
+
 [diff "gpg"]
 	textconv = gpg2 -qd --no-tty
 
