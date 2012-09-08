@@ -12,11 +12,14 @@ IRB.conf[:PROMPT][:CUSTOM] = {
 
 IRB.conf[:PROMPT_MODE] = :CUSTOM
 
-require 'irb/completion'
-require 'pathname'
-require 'pp'
 require 'rubygems'
+require 'irb/completion'
+require 'fileutils'
+require 'pathname'
+require 'tmpdir'
+require 'date'
 require 'set'
+require 'pp'
 
 def time(times = 1)
   require 'benchmark'
