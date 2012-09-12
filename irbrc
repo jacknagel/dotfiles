@@ -21,6 +21,10 @@ require 'date'
 require 'set'
 require 'pp'
 
+module Kernel extend self
+  alias_method :r, :require
+end
+
 def time(times = 1)
   require 'benchmark'
   ret = nil
