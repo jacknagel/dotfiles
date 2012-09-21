@@ -2,7 +2,7 @@
 
 # silence cdspell echo
 cd () {
-	builtin cd "$@" 1> /dev/null
+	builtin cd "$@" >/dev/null
 }
 
 pidof () {
