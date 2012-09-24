@@ -49,10 +49,9 @@ set switchbuf=useopen                   " use existing windows when possible
 
 " Visual
 set background=dark
-syntax on                               " enable syntax highlighting
+colorscheme solarized
+syntax enable                           " enable syntax highlighting
 " set list listchars=trail:.,tab:>.     " make tabs visible but not ugly; off normally
-colorscheme delek
-highlight LineNr ctermfg=grey
 
 
 " Text Formatting
