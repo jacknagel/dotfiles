@@ -13,6 +13,9 @@
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 
+[web]
+	browser = open
+
 [color]
 	ui = auto
 
