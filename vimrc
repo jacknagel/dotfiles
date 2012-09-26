@@ -84,6 +84,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" command-t
+let g:CommandTMaxHeight=12
+let g:CommandTMinHeight=3
 
 " autocmds
 augroup vimrc
