@@ -4,6 +4,11 @@ set -e
 
 dir=$(git rev-parse --show-toplevel 2>/dev/null)
 
+test "$1" != "-u" || {
+	git submodule update --init
+	exit 0
+}
+
 link () {
 	local src="$dir/$1"
 
@@ -13,6 +18,8 @@ link () {
 }
 
 test -d "$HOME/.history" || mkdir -vp "$HOME/.history"
+
+mkdir -vp vim/_backup vim/_tmp vim/_undo
 
 link gitconfig		"$HOME/.gitconfig"
 link gitignore		"$HOME/.gitignore"
@@ -32,3 +39,5 @@ link pinerc		"$HOME/.pinerc"
 link gemrc		"$HOME/.gemrc"
 link bin		"$HOME/bin"
 link racketrc		"$HOME/.racketrc"
+link vim		"$HOME/.vim"
+link vimrc		"$HOME/vimrc"
