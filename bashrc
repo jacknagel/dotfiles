@@ -18,7 +18,7 @@ PATH="$PATH:/usr/local/texbin"
 PATH="/usr/local/opt/ruby/bin:/usr/local/share/python:$PATH"
 PATH="$HOME/bin:$PATH"
 
-MANPATH="/usr/local/share/man:/usr/share/man:/usr/X11/share/man"
+MANPATH="/usr/local/share/man:/usr/share/man"
 INFOPATH="/usr/local/share/info:/usr/share/info"
 export PATH MANPATH INFOPATH
 
