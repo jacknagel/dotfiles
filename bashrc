@@ -15,7 +15,7 @@ export LANG LC_CTYPE LC_ALL
 PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="$PATH:/usr/local/texbin"
-PATH="/usr/local/share/python:$PATH"
+PATH="/usr/local/opt/ruby/bin:/usr/local/share/python:$PATH"
 PATH="$HOME/bin:$PATH"
 
 MANPATH="/usr/local/share/man:/usr/share/man:/usr/X11/share/man"
