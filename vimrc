@@ -68,10 +68,14 @@ set statusline+=%-16(%3l,%02c%03V%)      " line#,col#-vcol#
 
 " mappings
 let mapleader=","
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
+map <left> <nop>
+map <right> <nop>
+map <up> <nop>
+map <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
 
 nnoremap <silent> <cr> :nohlsearch<cr>
 
