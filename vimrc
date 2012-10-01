@@ -58,6 +58,8 @@ set autoindent
 set expandtab
 set formatoptions+=r
 
+set listchars=tab:▸\ ,eol:$
+
 set statusline=
 set statusline+=%{fugitive#statusline()} " git branch
 set statusline+=\ %f                     " file path
@@ -85,6 +87,8 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 imap <c-c> <esc>
+
+nnoremap <leader>l :set list!<cr>
 
 function! MapCR()
   nnoremap <cr> :nohlsearch<cr>
