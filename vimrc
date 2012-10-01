@@ -1,4 +1,4 @@
-" ~/.vimrc: vim(1) configuration
+" vim:set ts=2 sts=2 sw=2 et:
 
 call pathogen#infect()
 filetype plugin indent on
