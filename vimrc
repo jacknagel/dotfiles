@@ -25,6 +25,10 @@ set background=dark
 colorscheme solarized
 syntax enable
 
+set winwidth=80
+set winheight=30
+set winminheight=5
+
 set ruler
 set number
 set numberwidth=3
