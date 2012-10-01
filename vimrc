@@ -3,74 +3,65 @@
 call pathogen#infect()
 filetype plugin indent on
 
-" General
-set nocompatible                        " vim, not vi (always first)
-set confirm                             " confirm some commands when ! is omitted
-set history=10000                       " remember 1000 lines of history
-set clipboard+=unnamed                  " yanks also go to the clipboard
-set autoread                            " reload files (no local changes)
-set tabpagemax=20                       " open 20 tabs max
-set viminfo=%,'50,n~/.vim/viminfo       " save buffer list and move .viminfo
-set undodir=$HOME/.vim/_undo,/tmp       " undo file directory
-set undofile                            " keep undo files
-set pastetoggle=<F2>                    " Press <F2> for paste mode
+set nocompatible
+set confirm
 
+set history=10000
 
-" Backups
-set nobackup                            " do not keep backup files after close
-set writebackup                         " keep backup files while working
-set backupdir=$HOME/.vim/_backup,/tmp   " store backups in ~/.vim/backups
-set backupcopy=yes                      " preserve file attributes
-set directory=$HOME/.vim/_tmp,/tmp      " swap file directory
+set viminfo=%,'50,n~/.vim/viminfo
+set undodir=$HOME/.vim/_undo,/tmp
+set undofile
 
+set nobackup
+set writebackup
+set backupdir=$HOME/.vim/_backup,/tmp
+set backupcopy=yes
+set directory=$HOME/.vim/_tmp,/tmp
 
-" UI
-set ruler                               " show cursor position all the time
-set number                              " show line numbers
-set numberwidth=3                       " line number width
-set scrolloff=3                         " number of context lines
-set backspace=2                         " make backspace work like it should
-set timeoutlen=200                      " time to wait after hitting ESC (in ms)
-set cmdheight=2                         " command line height
-set wildmenu                            " better tab completion
-set wildmode=list:longest,full          " better tab completion
-set visualbell                          " be quiet, but flashy
-set report=0                            " report all changes
-set laststatus=2                        " always show status line
-set showtabline=2                       " always show tab line
-set showmatch                           " show matching brackets/braces
-set mat=5                               " duration to show matches (in 1/10 s)
-set ignorecase                          " ignore case while searching...
-set smartcase                           " ...except when specifying capital letters
-set incsearch
-set hlsearch
-set switchbuf=useopen                   " use existing windows when possible
+set switchbuf=useopen
+set hidden
 
-
-" Visual
 set background=dark
 colorscheme solarized
-syntax enable                           " enable syntax highlighting
-" set list listchars=trail:.,tab:>.     " make tabs visible but not ugly; off normally
+syntax enable
 
+set ruler
+set number
+set numberwidth=3
+set scrolloff=3
+set backspace=2
+set cmdheight=2
+set showcmd
+set visualbell
+set report=0
+set laststatus=2
+set showtabline=2
+set cursorline
+set showmatch
 
-" Text Formatting
-set nowrap                              " do not wrap lines
-set autoindent                          " automatically indent new lines
-set copyindent                          " make autoindent use existing indent structure
-set preserveindent                      " preserve indent structure when reindenting
-set formatoptions+=r                    " insert comment leader automatically
+" ignore case while searching...
+set ignorecase
+" ...unless pattern contains capitals
+set smartcase
+set incsearch
+set hlsearch
 
+set wildmode=longest,full
+set wildmenu
+
+set autoindent
+set expandtab
+set formatoptions+=r
 
 set statusline=
-set statusline+=%{fugitive#statusline()} " git branch, TODO customize
+set statusline+=%{fugitive#statusline()} " git branch
 set statusline+=\ %f                     " file path
 set statusline+=\ %-4(%m%)               " modified flag
 set statusline+=%=                       " l-r separator
 set statusline+=%-16(%3l,%02c%03V%)      " line#,col#-vcol#
 
 
-" Mappings
+" mappings
 let mapleader=","
 map <Left> <Nop>
 map <Right> <Nop>
@@ -84,15 +75,36 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+imap <c-c> <esc>
+
+function! MapCR()
+  nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
+
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <s-tab> <c-n>
+
 " command-t
 let g:CommandTMaxHeight=12
 let g:CommandTMinHeight=3
 
-" autocmds
 augroup vimrc
   autocmd!
 
+  autocmd FileType c setlocal noet
+  autocmd FileType make setlocal noet
   autocmd FileType ruby setlocal ai sw=2 sts=2 et
+
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
   autocmd BufReadPost COMMIT_EDITMSG exe "normal! gg"
 augroup END
