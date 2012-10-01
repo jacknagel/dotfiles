@@ -117,6 +117,7 @@ augroup vimrc
   autocmd FileType make setlocal noet
   autocmd FileType ruby,cucumber,yaml,eruby setlocal ai sw=2 sts=2 et
 
+  autocmd BufWritePost *vimrc source $MYVIMRC
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
   autocmd BufReadPost COMMIT_EDITMSG exe "normal! gg"
 augroup END
