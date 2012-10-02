@@ -84,6 +84,10 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+cnoremap %% <c-r>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+
 imap <c-c> <esc>
 
 nnoremap <leader>l :set list!<cr>
