@@ -105,6 +105,7 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
+" convert camelCase to snake_case
 vnoremap <leader>case :s/\v\C([A-Z]?[a-z]+)([A-Z])/\L\1_\2/g<cr>
 
 " command-t
