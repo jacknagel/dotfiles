@@ -87,11 +87,7 @@ nnoremap <c-l> <c-w>l
 imap <c-c> <esc>
 
 nnoremap <leader>l :set list!<cr>
-
-function! MapCR()
-  nnoremap <cr> :nohlsearch<cr>
-endfunction
-call MapCR()
+nnoremap <silent> <cr> :nohlsearch<cr>
 
 function! InsertTabWrapper()
   let col = col('.') - 1
