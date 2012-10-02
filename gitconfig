@@ -9,7 +9,7 @@
 
 [core]
 	editor = vim
-	pager = less -+$LESS -iRSwq
+	pager = less
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 
