@@ -101,6 +101,8 @@ endfunction
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
+vnoremap <leader>case :s/\v\C([A-Z]?[a-z]+)([A-Z])/\L\1_\2/g<cr>
+
 " command-t
 let g:CommandTMaxHeight=12
 let g:CommandTMinHeight=3
