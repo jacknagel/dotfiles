@@ -87,7 +87,11 @@ nnoremap <c-l> <c-w>l
 imap <c-c> <esc>
 
 nnoremap <leader>l :set list!<cr>
-nnoremap <silent> <cr> :nohlsearch<cr>
+
+function! MapCR()
+  nnoremap <silent> <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
 
 function! InsertTabWrapper()
   let col = col('.') - 1
@@ -117,4 +121,7 @@ augroup vimrc
   autocmd BufWritePost *vimrc source $MYVIMRC
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
   autocmd BufReadPost COMMIT_EDITMSG exe "normal! gg"
+
+  autocmd CmdWinEnter * :unmap <cr>
+  autocmd CmdWinLeave * :call MapCR()
 augroup END
