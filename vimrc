@@ -108,6 +108,9 @@ inoremap <s-tab> <c-n>
 " convert camelCase to snake_case
 vnoremap <leader>case :s/\v\C([A-Z]?[a-z]+)([A-Z])/\L\1_\2/g<cr>
 
+" find merge conflict markers
+nnoremap <leader>cf /\v^[<=\|>]{7}\s.*$<cr>
+
 " command-t
 let g:CommandTMaxHeight=12
 let g:CommandTMinHeight=3
