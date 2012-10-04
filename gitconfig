@@ -13,6 +13,9 @@
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 
+[pager]
+        log = less -+$LESS -iRSq
+
 [web]
 	browser = open
 
