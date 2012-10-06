@@ -93,6 +93,10 @@
 [diff "gpg"]
 	textconv = gpg2 -qd --no-tty
 
+[diff "keyring"]
+        textconv = gpg2 -v
+        xfuncname = "^((pub|uid) .*)"
+
 [diff "odf"]
 	textconv = odt2txt
 
