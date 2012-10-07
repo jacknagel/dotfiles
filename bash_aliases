@@ -9,11 +9,6 @@ pidof () {
 	ps -acxo 'pid,command' | grep -w "$1" | awk '{ print $1 }'
 }
 
-__brew_ps1 () {
-	[[ -z $HOMEBREW_DEBUG_INSTALL ]] ||
-		printf "${1:- (%s)}" "$HOMEBREW_DEBUG_INSTALL|DEBUG"
-}
-
 setup_gpg_session () {
 	local file="$HOME/.gnupg/agent.env"
 	if [[ -f "$file" ]] && kill -0 "$(grep -e "GPG_AGENT_INFO" "$file" | cut -d: -f 2)" 2>/dev/null
