@@ -58,6 +58,6 @@ namespace :submodules do
 
   task :pull => :update do
   sh 'git', 'submodule', 'foreach', '-q',
-    'git pull -q --ff-only && git lg master@{1}.. || :'
+    'git pull -q --ff-only && git --no-pager lg master@{1}.. || :'
   end
 end
