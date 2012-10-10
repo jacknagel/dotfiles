@@ -60,7 +60,7 @@ set formatoptions+=r
 set listchars=tab:▸\ ,eol:$
 
 set statusline=
-set statusline+=%{fugitive#statusline()} " git branch
+set statusline+=\ %{FugitiveStatuslineWrapper()}
 set statusline+=\ %f                     " file path
 set statusline+=\ %-4(%m%)               " modified flag
 set statusline+=%=                       " l-r separator
@@ -108,6 +108,15 @@ function! InsertTabWrapper()
     return "\<c-p>"
   endif
 endfunction
+
+function! FugitiveStatuslineWrapper()
+ let head = fugitive#head(7)
+ if head != ''
+    return '('.head.')'
+  else
+    return ''
+  endif
+ endfunction
 
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
