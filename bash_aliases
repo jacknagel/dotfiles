@@ -5,6 +5,10 @@ cd () {
 	builtin cd "$@" >/dev/null
 }
 
+cdf () {
+	cd *$1*/
+}
+
 pidof () {
 	ps -acxo 'pid,command' | grep -w "$1" | awk '{ print $1 }'
 }
