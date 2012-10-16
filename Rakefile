@@ -42,8 +42,11 @@ namespace :vim do
   end
 
   task :command_t do
+    fail 'the active vim does not support Ruby' unless Vim.has_ruby?
+
     cd 'vim/bundle/command-t/ruby/command-t' do
-      sh '/usr/bin/ruby', 'extconf.rb'
+      sh Vim.ruby_path, 'extconf.rb'
+      sh 'ruby', 'extconf.rb'
       sh 'make', 'clean'
       sh 'make'
     end
@@ -59,5 +62,27 @@ namespace :submodules do
   task :pull => :update do
   sh 'git', 'submodule', 'foreach', '-q',
     'git pull -q --ff-only && git --no-pager lg master@{1}.. || :'
+  end
+end
+
+class Vim
+  def self.has_ruby?
+    vim(%{-e --noplugin --cmd 'if !has("ruby")|cquit|else|quit|endif'})
+    $?.success?
+  end
+
+  def self.ruby_path
+    scriptlet = %{
+      require "rbconfig"
+      config = RbConfig::CONFIG
+      print config.fetch("bindir") + "/" + config.fetch("ruby_install_name")
+    }
+    vim("-e --noplugin --cmd 'ruby #{scriptlet}' --cmd q")
+  end
+
+  private
+
+  def self.vim(*args)
+    `vim #{args.join(" ")} 2>&1 >/dev/null`.strip
   end
 end
