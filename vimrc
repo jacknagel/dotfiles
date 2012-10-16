@@ -9,8 +9,11 @@ set confirm
 set history=10000
 
 set viminfo=%,'50,n~/.vim/viminfo
-set undodir=$HOME/.vim/_undo,/tmp
-set undofile
+
+if has("persistent_undo")
+  set undodir=$HOME/.vim/_undo,/tmp
+  set undofile
+endif
 
 set nobackup
 set writebackup
