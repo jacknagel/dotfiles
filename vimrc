@@ -10,7 +10,7 @@ set confirm
 
 set history=10000
 
-set viminfo=%,'50,n~/.vim/viminfo
+set viminfo='50,n~/.vim/viminfo
 
 if has("persistent_undo")
   set undodir=$HOME/.vim/_undo,/tmp
