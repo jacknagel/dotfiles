@@ -59,6 +59,8 @@ set wildmenu
 
 set autoindent
 set expandtab
+
+set completeopt=menuone,longest,preview
 set formatoptions+=r
 
 set listchars=tab:▸\ ,eol:$
