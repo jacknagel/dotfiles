@@ -158,4 +158,6 @@ augroup vimrc
 
   autocmd CmdWinEnter * :unmap <cr>
   autocmd CmdWinLeave * :call MapCR()
+
+  autocmd VimResized * :wincmd =
 augroup END
