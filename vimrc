@@ -71,9 +71,10 @@ set formatoptions+=r
 set listchars=tab:▸\ ,eol:$
 
 set statusline=
+set statusline+=%<                       " truncation point
 set statusline+=\ %{FugitiveStatuslineWrapper()}
-set statusline+=\ %f                     " file path
-set statusline+=\ %-4(%m%)               " modified flag
+set statusline+=\ %f                     " relative path to file
+set statusline+=\ %m%r%y                 " modified, readonly, filetype
 set statusline+=%=                       " l-r separator
 set statusline+=%-16(%3l,%02c%03V%)      " line#,col#-vcol#
 
