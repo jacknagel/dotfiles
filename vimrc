@@ -160,4 +160,6 @@ augroup vimrc
   autocmd CmdWinLeave * :call MapCR()
 
   autocmd VimResized * :wincmd =
+
+  autocmd FilterWritePre * if &diff | set nonumber | endif
 augroup END
