@@ -145,7 +145,6 @@ nnoremap <leader>cf /\v^[<=\|>]{7}\s.*$<cr>
 " command-t
 let g:CommandTMaxHeight=12
 let g:CommandTMinHeight=3
-map <leader>T :CommandTFlush<cr>\|:CommandT %%<cr>
 
 augroup vimrc
   autocmd!
