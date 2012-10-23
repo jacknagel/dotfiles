@@ -59,6 +59,7 @@ set hlsearch
 set wildmode=longest,full
 set wildmenu
 
+set autoread
 set autoindent
 set expandtab
 
