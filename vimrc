@@ -158,7 +158,9 @@ augroup vimrc
 
   autocmd BufWritePost *vimrc source $MYVIMRC
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-  autocmd BufReadPost COMMIT_EDITMSG exe "normal! gg"
+  autocmd BufReadPost COMMIT_EDITMSG,TAG_EDITMSG exe "normal! gg"
+
+  autocmd BufNewFile,BufRead TAG_EDITMSG setlocal ft=gitcommit
 
   autocmd CmdWinEnter * :unmap <cr>
   autocmd CmdWinLeave * :call MapCR()
