@@ -103,6 +103,7 @@ map <leader>e :edit %%
 map <leader>v :view %%
 
 imap <c-c> <esc>
+imap <c-l> <space>=><space>
 
 nnoremap <leader>l :set list!<cr>
 
