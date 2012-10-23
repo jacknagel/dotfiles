@@ -46,6 +46,7 @@ set laststatus=2
 set showtabline=2
 set cursorline
 set showmatch
+set shortmess=aIoOtT
 
 " ignore case while searching...
 set ignorecase
