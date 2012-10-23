@@ -24,6 +24,10 @@
 
 [diff]
 	renames = copies
+	tool = vimdiff
+
+[difftool]
+	prompt=false
 
 [push]
 	default = upstream
