@@ -154,12 +154,14 @@ augroup vimrc
   autocmd FileType ruby,cucumber,yaml,eruby setlocal ai sw=2 sts=2 et
   autocmd FileType sh setlocal ai sw=4 sts=4 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
+  autocmd Filetype gitconfig setlocal noet
 
   autocmd BufWritePost *vimrc source $MYVIMRC
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
   autocmd BufReadPost COMMIT_EDITMSG,TAG_EDITMSG exe "normal! gg"
 
   autocmd BufNewFile,BufRead TAG_EDITMSG setlocal ft=gitcommit
+  autocmd BufNewFile,BufRead gitconfig setlocal ft=gitconfig
 
   autocmd CmdWinEnter * :unmap <cr>
   autocmd CmdWinLeave * :call MapCR()
