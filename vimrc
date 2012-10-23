@@ -28,6 +28,7 @@ set background=dark
 colorscheme solarized
 syntax enable
 
+set splitright
 set winwidth=80
 set winheight=30
 set winminheight=5
