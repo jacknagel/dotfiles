@@ -114,13 +114,13 @@ function! InsertTabWrapper()
 endfunction
 
 function! FugitiveStatuslineWrapper()
- let head = fugitive#head(7)
- if head != ''
+  let head = fugitive#head(7)
+  if head != ''
     return '('.head.')'
   else
     return ''
   endif
- endfunction
+endfunction
 
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
