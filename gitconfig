@@ -14,7 +14,7 @@
 	attributesfile = ~/.gitattributes
 
 [pager]
-        log = less -+$LESS -iRSq
+	log = less -+$LESS -iRSq
 
 [web]
 	browser = open
@@ -94,8 +94,8 @@
 	textconv = gpg2 -qd --no-tty
 
 [diff "keyring"]
-        textconv = gpg2 -v
-        xfuncname = "^((pub|uid) .*)"
+	textconv = gpg2 -v
+	xfuncname = "^((pub|uid) .*)"
 
 [diff "odf"]
 	textconv = odt2txt
