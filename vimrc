@@ -1,6 +1,8 @@
 " vim:set sts=2 sw=2 et:
 
+runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
+
 filetype plugin indent on
 
 set nocompatible

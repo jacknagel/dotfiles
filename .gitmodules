@@ -35,3 +35,6 @@
 [submodule "vim/bundle/rhubarb"]
 	path = vim/bundle/rhubarb
 	url = https://github.com/tpope/vim-rhubarb.git
+[submodule "vim/bundle/pathogen"]
+	path = vim/bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
