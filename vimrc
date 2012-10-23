@@ -72,6 +72,9 @@ set statusline+=\ %-4(%m%)               " modified flag
 set statusline+=%=                       " l-r separator
 set statusline+=%-16(%3l,%02c%03V%)      " line#,col#-vcol#
 
+set notimeout
+set ttimeout
+set ttimeoutlen=200
 
 " mappings
 let mapleader=","
