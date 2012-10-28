@@ -8,6 +8,8 @@ filetype plugin indent on
 set nocompatible
 set confirm
 
+set encoding=utf-8
+
 set history=10000
 
 set viminfo='50,n~/.vim/viminfo
