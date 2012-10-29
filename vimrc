@@ -117,12 +117,18 @@ function! MapCR()
 endfunction
 call MapCR()
 
-function! InsertTabWrapper()
+function! DwimTab()
+  if pumvisible()
+    return "\<c-n>"
+  endif
+
   let col = col('.') - 1
   if !col || getline('.')[col - 1] !~ '\k'
     return "\<tab>"
-  else
+  elseif &omnifunc == ''
     return "\<c-p>"
+  else
+    return "\<c-x>\<c-o>"
   endif
 endfunction
 
@@ -135,8 +141,7 @@ function! FugitiveStatuslineWrapper()
   endif
 endfunction
 
-inoremap <tab> <c-r>=InsertTabWrapper()<cr>
-inoremap <s-tab> <c-n>
+inoremap <silent> <tab> <c-r>=DwimTab()<cr>
 
 " convert camelCase to snake_case
 vnoremap <leader>case :s/\v\C([A-Z]?[a-z]+)([A-Z])/\L\1_\2/g<cr>
