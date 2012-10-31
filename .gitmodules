@@ -1,6 +1,7 @@
 [submodule "vim/bundle/git"]
 	path = vim/bundle/git
 	url = https://github.com/tpope/vim-git.git
+	ignore = dirty
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
