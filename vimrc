@@ -125,10 +125,11 @@ function! DwimTab()
   let col = col('.') - 1
   if !col || getline('.')[col - 1] !~ '\k'
     return "\<tab>"
-  elseif &omnifunc == ''
-    return "\<c-p>"
+  " elseif &omnifunc == ''
   else
-    return "\<c-x>\<c-o>"
+    return "\<c-n>"
+  " else
+  "   return "\<c-x>\<c-o>"
   endif
 endfunction
 
