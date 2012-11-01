@@ -84,7 +84,7 @@ set ttimeout
 set ttimeoutlen=50
 
 " mappings
-let mapleader=","
+let mapleader = ","
 
 map <left> <nop>
 map <right> <nop>
@@ -132,9 +132,9 @@ vnoremap <leader>case :s/\v\C([A-Z]?[a-z]+)([A-Z])/\L\1_\2/g<cr>
 " find merge conflict markers
 nnoremap <leader>cf /\v^[<=\|>]{7}\s.*$<cr>
 
-" command-t
-let g:CommandTMaxHeight=12
-let g:CommandTMinHeight=3
+" Command-T
+let g:CommandTMaxHeight = 12
+let g:CommandTMinHeight = 3
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
