@@ -136,8 +136,21 @@ nnoremap <leader>cf /\v^[<=\|>]{7}\s.*$<cr>
 let g:CommandTMaxHeight=12
 let g:CommandTMinHeight=3
 
+" SuperTab
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-p>"
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabLongestHighlight = 1
+
 augroup vimrc
   autocmd!
+
+  " SuperTab completion chaining
+  autocmd FileType *
+    \ if &omnifunc != '' |
+    \   call SuperTabChain(&omnifunc, "<c-p>") |
+    \   call SuperTabSetDefaultCompletionType("context") |
+    \ endif
 
   autocmd FileType c setlocal noet
   autocmd FileType make setlocal noet
