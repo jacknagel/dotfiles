@@ -103,6 +103,9 @@ nnoremap <c-l> <c-w>l
 " switch to previous file
 nnoremap <leader><leader> <c-^>
 
+" :bc to write and delete buffer
+cnoreabbrev bc w<bar>bd
+
 cnoremap %% <c-r>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
