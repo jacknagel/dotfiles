@@ -22,15 +22,9 @@ IRB.conf[:HISTORY_FILE] = if defined?(HOMEBREW_REPOSITORY)
                             File.expand_path('~/.history/irb')
                           end
 
-def time(times = 1)
+def time(count=1, &block)
   require 'benchmark'
-  ret = nil
-  Benchmark.bm do |x|
-    x.report do
-      times.times do
-        ret = yield
-      end
-    end
-  end
-  ret
+  Benchmark.bmbm do |x|
+    x.report { count.times(&block) }
+  end.first
 end
