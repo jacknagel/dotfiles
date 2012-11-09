@@ -1,5 +1,5 @@
 # vim:set ft=ruby:
-#
+
 require 'pry-editline'
 
 $LOAD_PATH.unshift(File.expand_path("."))
