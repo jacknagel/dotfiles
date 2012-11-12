@@ -2,9 +2,11 @@
 :verbose: true
 :update_sources: true
 :sources: 
-- http://rubygems.org
-- http://gems.github.com
-gem: --no-rdoc --no-ri --run-tests
+  - http://rubygems.org
+  - http://gems.github.com
 :bulk_threshold: 1000
 :backtrace: false
 :benchmark: false
+install: --no-rdoc --no-ri --run-tests
+update: --no-rdoc --no-ri --run-tests
+search: --remote
