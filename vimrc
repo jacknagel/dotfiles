@@ -152,14 +152,6 @@ let g:SuperTabLongestHighlight = 1
 
 augroup vimrc
   autocmd!
-
-  " SuperTab completion chaining
-  autocmd FileType *
-    \ if &omnifunc != '' |
-    \   call SuperTabChain(&omnifunc, "<c-p>") |
-    \   call SuperTabSetDefaultCompletionType("context") |
-    \ endif
-
   autocmd FileType c setlocal noet
   autocmd FileType make setlocal noet
   autocmd FileType ruby,cucumber,yaml,eruby setlocal ai sw=2 sts=2 et
@@ -168,16 +160,48 @@ augroup vimrc
   autocmd Filetype gitconfig setlocal noet
 
   autocmd BufWritePost *vimrc source $MYVIMRC
-  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-  autocmd BufReadPost COMMIT_EDITMSG,TAG_EDITMSG exe "normal! gg"
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+augroup END
 
+augroup git
+  autocmd!
+  autocmd BufReadPost COMMIT_EDITMSG,TAG_EDITMSG exe "normal! gg"
   autocmd BufNewFile,BufRead TAG_EDITMSG setlocal ft=gitcommit
   autocmd BufNewFile,BufRead gitconfig setlocal ft=gitconfig
+augroup END
 
+augroup supertab
+  autocmd!
+  autocmd FileType *
+    \ if &omnifunc != '' |
+    \   call SuperTabChain(&omnifunc, "<c-p>") |
+    \   call SuperTabSetDefaultCompletionType("context") |
+    \ endif
+augroup END
+
+augroup nocrmap
+  autocmd!
   autocmd CmdWinEnter * :unmap <cr>
   autocmd CmdWinLeave * :call MapCR()
+augroup END
 
+augroup winscale
+  autocmd!
   autocmd VimResized * :wincmd =
+augroup END
 
+augroup diff
+  autocmd!
   autocmd FilterWritePre * if &diff | set nonumber | endif
+augroup END
+
+augroup cursorline
+  autocmd!
+  autocmd BufEnter * set cursorline
+  autocmd BufLeave * set nocursorline
+  autocmd InsertEnter * set nocursorline
+  autocmd InsertLeave * set cursorline
 augroup END
