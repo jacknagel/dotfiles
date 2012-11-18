@@ -34,8 +34,13 @@ syntax enable
 
 set splitright
 set winwidth=80
-set winheight=30
+
+" wh must be >= wmh, but we cannot set wh >> wmh before setting wmh...
+set winheight=5
 set winminheight=5
+set winheight=999
+set helpheight=999
+set cmdwinheight=999
 
 set ruler
 set number
