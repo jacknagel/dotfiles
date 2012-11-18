@@ -169,7 +169,7 @@ augroup lastposjump
   autocmd!
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
+    \   execute "normal g`\"zvzz" |
     \ endif
 augroup END
 
