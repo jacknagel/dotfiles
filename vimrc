@@ -150,7 +150,7 @@ let g:SuperTabContextDefaultCompletionType = "<c-p>"
 let g:SuperTabLongestEnhanced = 1
 let g:SuperTabLongestHighlight = 1
 
-augroup vimrc
+augroup filetypes
   autocmd!
   autocmd FileType c setlocal noet
   autocmd FileType make setlocal noet
@@ -158,8 +158,15 @@ augroup vimrc
   autocmd FileType sh setlocal ai sw=4 sts=4 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
   autocmd Filetype gitconfig setlocal noet
+augroup END
 
+augroup vimrc
+  autocmd!
   autocmd BufWritePost *vimrc source $MYVIMRC
+augroup END
+
+augroup lastposjump
+  autocmd!
   autocmd BufReadPost *
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
