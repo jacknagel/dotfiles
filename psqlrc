@@ -1,0 +1,10 @@
+\pset null 'NULL'
+\set FETCH_COUNT 1000
+
+\set HISTFILE ~/.history/psql- :HOST - :DBNAME
+\set HISTSIZE 1000
+\set HISTCONTROL ignoredboth
+
+\set PROMPT1 '%m%/%R%# '
+\set PROMPT2 :PROMPT1
+\set PROMPT3 '>> '

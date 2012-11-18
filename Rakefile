@@ -18,7 +18,7 @@ namespace :dotfiles do
     home = ENV['HOME']
     relative_prefix = pwd.sub(home/'', '')
     files = FileList[%w{bash* git* vim vimrc irbrc gemrc pryrc
-      editrc inputrc history sqliterc gdbinit valgrindrc}].existing!
+      editrc inputrc history sqliterc psqlrc gdbinit valgrindrc}].existing!
 
     files.zip(files.pathmap(home/".%p")) do |src, dst|
       if File.symlink? dst and File.dirname(File.readlink(dst)) == relative_prefix
