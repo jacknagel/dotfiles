@@ -17,7 +17,7 @@ namespace :dotfiles do
   task :link do
     home = ENV['HOME']
     relative_prefix = pwd.sub(home/'', '')
-    files = FileList[%w{bash* git* vim vimrc irbrc gemrc pryrc
+    files = FileList[%w{bash* git* vim vimrc irbrc pryrc rdebugrc gemrc
       editrc inputrc history sqliterc psqlrc gdbinit valgrindrc}].existing!
 
     files.zip(files.pathmap(home/".%p")) do |src, dst|
