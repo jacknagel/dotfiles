@@ -1,5 +1,3 @@
-# ~/.bashrc: bash(1) configuration
-
 [ -z "$PS1" ] && return
 
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
