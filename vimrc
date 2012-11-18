@@ -157,7 +157,7 @@ augroup filetypes
   autocmd FileType ruby,cucumber,yaml,eruby setlocal ai sw=2 sts=2 et
   autocmd FileType sh setlocal ai sw=4 sts=4 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
-  autocmd Filetype gitconfig setlocal noet
+  autocmd FileType gitconfig setlocal noet
 augroup END
 
 augroup vimrc
