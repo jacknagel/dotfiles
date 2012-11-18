@@ -200,8 +200,6 @@ augroup END
 
 augroup cursorline
   autocmd!
-  autocmd BufEnter * set cursorline
-  autocmd BufLeave * set nocursorline
-  autocmd InsertEnter * set nocursorline
-  autocmd InsertLeave * set cursorline
+  autocmd WinLeave,InsertEnter * set nocursorline
+  autocmd WinEnter,InsertLeave * set cursorline
 augroup END
