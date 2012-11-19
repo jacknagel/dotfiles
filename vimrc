@@ -197,6 +197,11 @@ augroup hlsearch
   autocmd InsertLeave * set hlsearch
 augroup END
 
+augroup paste
+  autocmd!
+  autocmd InsertLeave * set nopaste
+augroup END
+
 augroup winscale
   autocmd!
   autocmd VimResized * wincmd =
