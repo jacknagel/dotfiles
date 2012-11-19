@@ -123,7 +123,6 @@ nnoremap <leader>l :set list!<cr>
 function! MapCR()
   nnoremap <silent> <cr> :nohlsearch<cr>
 endfunction
-call MapCR()
 
 function! FugitiveStatuslineWrapper()
   let head = fugitive#head(7)
@@ -189,10 +188,13 @@ augroup supertab
     \ endif
 augroup END
 
-augroup nocrmap
+augroup hlsearch
   autocmd!
-  autocmd CmdWinEnter * :unmap <cr>
+  autocmd VimEnter * :call MapCR()
+  autocmd CmdWinEnter * unmap <cr>
   autocmd CmdWinLeave * :call MapCR()
+  autocmd InsertEnter * set nohlsearch
+  autocmd InsertLeave * set hlsearch
 augroup END
 
 augroup winscale
