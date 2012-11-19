@@ -12,7 +12,7 @@ set encoding=utf-8
 
 set history=10000
 
-set viminfo='50,n~/.vim/viminfo
+set viminfo='50,h,n~/.vim/viminfo
 
 if has("persistent_undo")
   set undodir=$HOME/.vim/_undo,/tmp
