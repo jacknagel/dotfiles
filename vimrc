@@ -190,16 +190,16 @@ augroup END
 
 augroup hlsearch
   autocmd!
-  autocmd VimEnter * :call MapCR()
+  autocmd VimEnter * call MapCR()
   autocmd CmdWinEnter * unmap <cr>
-  autocmd CmdWinLeave * :call MapCR()
+  autocmd CmdWinLeave * call MapCR()
   autocmd InsertEnter * set nohlsearch
   autocmd InsertLeave * set hlsearch
 augroup END
 
 augroup winscale
   autocmd!
-  autocmd VimResized * :wincmd =
+  autocmd VimResized * wincmd =
 augroup END
 
 augroup diff
