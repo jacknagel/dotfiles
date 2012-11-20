@@ -1,11 +1,8 @@
 *.tar		diff=tar
-*.tbz		diff=tar
+*.t[bg]z	diff=tar
 *.tar.bz2	diff=tar
-*.tgz		diff=tar
 *.tar.gz	diff=tar
 *.tar.Z 	diff=tar
 *.doc		diff=word
 *.docx		diff=word
-*.ods		diff=odf
-*.odt		diff=odf
-*.odp		diff=odf
+*.od[pst]	diff=odf
