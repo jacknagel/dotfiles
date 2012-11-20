@@ -120,6 +120,9 @@ imap <c-l> <space>=><space>
 
 nnoremap <leader>l :set list!<cr>
 
+" find merge conflict markers
+nnoremap <leader>cf /\v^[<=\|>]{7}\s.*$<cr>
+
 function! MapCR()
   nnoremap <silent> <cr> :nohlsearch<cr>
 endfunction
@@ -132,12 +135,6 @@ function! FugitiveStatuslineWrapper()
     return ''
   endif
 endfunction
-
-" convert camelCase to snake_case
-vnoremap <leader>case :s/\v\C([A-Z]?[a-z]+)([A-Z])/\L\1_\2/g<cr>
-
-" find merge conflict markers
-nnoremap <leader>cf /\v^[<=\|>]{7}\s.*$<cr>
 
 " Command-T
 let g:CommandTMaxHeight = 12
