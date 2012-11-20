@@ -191,7 +191,7 @@ augroup END
 augroup hlsearch
   autocmd!
   autocmd VimEnter * call MapCR()
-  autocmd CmdWinEnter * unmap <cr>
+  autocmd CmdWinEnter * nunmap <cr>
   autocmd CmdWinLeave * call MapCR()
   autocmd InsertEnter * set nohlsearch
   autocmd InsertLeave * set hlsearch
