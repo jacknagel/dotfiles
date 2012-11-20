@@ -1,6 +1,7 @@
-/_tmp
 /_backup
+/_swap
 /_undo
+/view
 /viminfo
 tags
 .netrwhist

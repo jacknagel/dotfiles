@@ -23,7 +23,7 @@ set nobackup
 set writebackup
 set backupdir=$HOME/.vim/_backup,/tmp
 set backupcopy=yes
-set directory=$HOME/.vim/_tmp,/tmp
+set directory=$HOME/.vim/_swap,/tmp
 
 set switchbuf=useopen
 set hidden
