@@ -123,6 +123,10 @@ nnoremap <leader>l :set list!<cr>
 " find merge conflict markers
 nnoremap <leader>cf /\v^[<=\|>]{7}\s.*$<cr>
 
+" continuous indentation
+vnoremap > >gv
+vnoremap < <gv
+
 function! MapCR()
   nnoremap <silent> <cr> :nohlsearch<cr>
 endfunction
