@@ -56,6 +56,7 @@ set showtabline=2
 set cursorline
 set shortmess=aIoOtT
 set lazyredraw
+set virtualedit=block
 
 " ignore case while searching...
 set ignorecase
