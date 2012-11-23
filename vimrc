@@ -77,13 +77,13 @@ set formatoptions+=r
 
 set listchars=tab:▸\ ,eol:$
 
-set statusline=
-set statusline+=%<                       " truncation point
-set statusline+=\ %{FugitiveStatuslineWrapper()}
-set statusline+=\ %f                     " relative path to file
-set statusline+=\ %m%r%y                 " modified, readonly, filetype
-set statusline+=%=                       " l-r separator
-set statusline+=%-16(%3l,%02c%03V%)      " line#,col#-vcol#
+set statusline=[%n]                 " buffer number
+set statusline+=%<                  " truncation point
+set statusline+=\ %.99f             " relative path to file
+set statusline+=%{FugitiveStatuslineWrapper()}
+set statusline+=\ %h%w%m%r%y        " h, prev, mod, ro, ft
+set statusline+=%=                  " l-r separator
+set statusline+=%-14(%3l,%02c%03V%) " line#,col#-vcol#
 
 set notimeout
 set ttimeout
@@ -135,7 +135,7 @@ endfunction
 function! FugitiveStatuslineWrapper()
   let head = fugitive#head(7)
   if head != ''
-    return '('.head.')'
+    return ' ('.head.')'
   else
     return ''
   endif
