@@ -137,18 +137,27 @@ function! FugitiveStatuslineWrapper()
   endif
 endfunction
 
+function! DwimTab()
+  if pumvisible()
+    return "\<c-n>"
+  endif
+
+  let col = col(".") - 1
+  if !col || getline(".")[col - 1] !~ '\k'
+      return "\<tab>"
+  else
+      return "\<c-x>\<c-o>"
+  endif
+endfunction
+
+inoremap <expr> <tab> DwimTab()
+
 " Command-T
 let g:CommandTMaxHeight = 12
 let g:CommandTMinHeight = 3
 nnoremap <silent> <leader>b :CommandTBuffer<cr>
 nnoremap <silent> <leader>f :CommandT<cr>
 nnoremap <silent> <leader>F :CommandT %%<cr>
-
-" SuperTab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-p>"
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabLongestHighlight = 1
 
 augroup filetypes
   autocmd!
@@ -179,15 +188,6 @@ augroup git
   autocmd BufNewFile,BufRead TAG_EDITMSG setlocal ft=gitcommit
   autocmd BufNewFile,BufRead gitconfig setlocal ft=gitconfig
   autocmd FileType gitrebase nnoremap <buffer> <silent> S :Cycle<cr>
-augroup END
-
-augroup supertab
-  autocmd!
-  autocmd FileType *
-    \ if &omnifunc != '' |
-    \   call SuperTabChain(&omnifunc, "<c-p>") |
-    \   call SuperTabSetDefaultCompletionType("context") |
-    \ endif
 augroup END
 
 augroup hlsearch
