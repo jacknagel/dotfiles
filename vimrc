@@ -112,7 +112,7 @@ nnoremap <leader><leader> <c-^>
 " :bc to write and delete buffer
 cnoreabbrev bc w<bar>bd
 
-cnoremap %% <c-r>=expand('%:h').'/'<cr>
+cnoremap %% <c-r>=expand("%:h")."/"<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
@@ -134,10 +134,10 @@ endfunction
 
 function! FugitiveStatuslineWrapper()
   let head = fugitive#head(7)
-  if head != ''
-    return ' ('.head.')'
+  if head != ""
+    return " (".head.")"
   else
-    return ''
+    return ""
   endif
 endfunction
 
