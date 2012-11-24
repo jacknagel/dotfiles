@@ -169,6 +169,17 @@ augroup filetypes
   autocmd FileType gitconfig setlocal noet
 augroup END
 
+augroup completion
+  autocmd FileType *
+    \ if &omnifunc == "" |
+    \   setlocal omnifunc=syntaxcomplete#Complete |
+    \ endif
+  autocmd FileType *
+    \ if &completefunc == "" |
+    \   setlocal completefunc=syntaxcomplete#Complete |
+    \ endif
+augroup END
+
 augroup vimrc
   autocmd!
   autocmd BufWritePost *vimrc source $MYVIMRC
