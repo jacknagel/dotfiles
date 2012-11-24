@@ -90,6 +90,11 @@ set notimeout
 set ttimeout
 set ttimeoutlen=10
 
+" plugin settings
+let g:vitality_fix_cursor = 0
+let g:CommandTMaxHeight = 12
+let g:CommandTMinHeight = 3
+
 " mappings
 let mapleader = ","
 
@@ -110,6 +115,10 @@ nnoremap <c-l> <c-w>l
 " switch to previous file
 nnoremap <leader><leader> <c-^>
 
+nnoremap <silent> <leader>b :CommandTBuffer<cr>
+nnoremap <silent> <leader>f :CommandT<cr>
+nnoremap <silent> <leader>F :CommandT %%<cr>
+
 " :bc to write and delete buffer
 cnoreabbrev bc w<bar>bd
 
@@ -119,6 +128,7 @@ map <leader>v :view %%
 
 imap <c-c> <esc>
 imap <c-l> <space>=><space>
+inoremap <expr> <tab> DwimTab()
 
 nnoremap <leader>l :set list!<cr>
 
@@ -150,18 +160,6 @@ function! DwimTab()
       return "\<c-x>\<c-o>"
   endif
 endfunction
-
-inoremap <expr> <tab> DwimTab()
-
-" plugin settings
-let g:vitality_fix_cursor = 0
-
-" Command-T
-let g:CommandTMaxHeight = 12
-let g:CommandTMinHeight = 3
-nnoremap <silent> <leader>b :CommandTBuffer<cr>
-nnoremap <silent> <leader>f :CommandT<cr>
-nnoremap <silent> <leader>F :CommandT %%<cr>
 
 augroup filetypes
   autocmd!
