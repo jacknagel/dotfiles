@@ -250,3 +250,69 @@ augroup rails
    \ map <buffer> <leader>rh :CommandT app/helpers<cr>|
    \ map <buffer> <leader>rl :CommandT lib<cr>
 augroup END
+
+augroup tests
+  autocmd BufNewFile,BufRead *_spec.rb silent! compiler rspec
+  autocmd BufNewFile,BufRead *_test.rb silent! compiler rubyunit
+  autocmd BufNewFile,BufRead test_*.rb
+    \ silent! compiler rubyunit |
+    \ setlocal makeprg=/usr/bin/testrb
+  autocmd FileType cucumber silent! compiler cucumber
+  autocmd User Bundler
+    \ if &makeprg !~# '^bundle' |
+    \   setlocal makeprg^=bundle\ exec\  |
+    \ endif
+augroup END
+
+map <silent> <leader>T :call RunNearestTest()<cr>
+map <silent> <leader>t :call RunTestFile()<cr>
+map <silent> <leader>a :call RunTests()<cr>
+
+function! InTestFile()
+  if !exists("t:test_regexp")
+    let t:test_regexp = '\v(\.feature|_spec\.rb|_test\.rb|test_.+\.rb)$'
+  endif
+
+  if expand("%") =~# t:test_regexp
+    return 1
+  else
+    return 0
+  endif
+endfunction
+
+function! RunNearestTest()
+  if InTestFile()
+    call RunTestFile(":" . line("."))
+  endif
+endfunction
+
+function! RunTestFile(...)
+  if a:0 == 1
+    let suffix = a:1
+  else
+    let suffix = ""
+  endif
+
+  if InTestFile()
+    call RunTests(expand("%") . suffix)
+  endif
+endfunction
+
+function! RunTests(...)
+  if !InTestFile()
+    return
+  endif
+
+  silent write
+
+  let cmd = "!".&makeprg." "
+
+  if a:0 == 1
+    let cmd .= a:1
+  elseif a:0 == 2
+    let cmd .= a:1.":".a:2
+  endif
+
+  exec cmd
+  redraw!
+endfunction
