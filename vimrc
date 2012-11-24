@@ -75,8 +75,7 @@ set expandtab
 
 set completeopt=menuone,longest,preview
 set formatoptions+=r
-
-set listchars=tab:▸\ ,eol:$
+set listchars=tab:▸\ ,eol:¬
 
 set statusline=[%n]                 " buffer number
 set statusline+=%<                  " truncation point
