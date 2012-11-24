@@ -179,6 +179,7 @@ augroup git
   autocmd BufReadPost COMMIT_EDITMSG,TAG_EDITMSG exe "normal! gg"
   autocmd BufNewFile,BufRead TAG_EDITMSG setlocal ft=gitcommit
   autocmd BufNewFile,BufRead gitconfig setlocal ft=gitconfig
+  autocmd FileType gitrebase nnoremap <buffer> <silent> S :Cycle<cr>
 augroup END
 
 augroup supertab
