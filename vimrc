@@ -128,10 +128,6 @@ nnoremap <leader>cf /\v^[<=\|>]{7}\s.*$<cr>
 vnoremap > >gv
 vnoremap < <gv
 
-function! MapCR()
-  nnoremap <silent> <cr> :nohlsearch<cr>
-endfunction
-
 function! FugitiveStatuslineWrapper()
   let head = fugitive#head(7)
   if head != ""
@@ -193,11 +189,11 @@ augroup END
 
 augroup hlsearch
   autocmd!
-  autocmd VimEnter * call MapCR()
+  autocmd VimEnter * doautocmd User MapCR
   autocmd CmdWinEnter * nunmap <cr>
-  autocmd CmdWinLeave * call MapCR()
-  autocmd InsertEnter * set nohlsearch
-  autocmd InsertLeave * set hlsearch
+  autocmd CmdWinLeave * doautocmd User MapCR
+  autocmd InsertEnter,InsertLeave * set invhlsearch
+  autocmd User MapCR nnoremap <silent> <cr> :nohlsearch<cr>
 augroup END
 
 augroup paste
