@@ -140,6 +140,9 @@ endfunction
 " Command-T
 let g:CommandTMaxHeight = 12
 let g:CommandTMinHeight = 3
+nnoremap <silent> <leader>b :CommandTBuffer<cr>
+nnoremap <silent> <leader>f :CommandT<cr>
+nnoremap <silent> <leader>F :CommandT %%<cr>
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
