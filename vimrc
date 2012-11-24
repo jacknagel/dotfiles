@@ -87,7 +87,7 @@ set statusline+=%-14(%3l,%02c%03V%) " line#,col#-vcol#
 
 set notimeout
 set ttimeout
-set ttimeoutlen=50
+set ttimeoutlen=10
 
 " mappings
 let mapleader = ","
