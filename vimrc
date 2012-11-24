@@ -219,3 +219,16 @@ augroup cursorline
   autocmd WinLeave,InsertEnter * set nocursorline
   autocmd WinEnter,InsertLeave * set cursorline
 augroup END
+
+augroup rails
+  autocmd!
+  autocmd User Rails
+   \ map <buffer> <leader>ra :A<cr>|
+   \ map <buffer> <leader>rr :R<cr>|
+   \ map <buffer> <leader>rg :topleft :split Gemfile<cr>|
+   \ map <buffer> <leader>rm :CommandT app/models<cr>|
+   \ map <buffer> <leader>rv :CommandT app/views<cr>|
+   \ map <buffer> <leader>rc :CommandT app/controllers<cr>|
+   \ map <buffer> <leader>rh :CommandT app/helpers<cr>|
+   \ map <buffer> <leader>rl :CommandT lib<cr>
+augroup END
