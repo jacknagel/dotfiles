@@ -112,7 +112,7 @@ nnoremap <leader><leader> <c-^>
 " :bc to write and delete buffer
 cnoreabbrev bc w<bar>bd
 
-cnoremap %% <c-r>=expand("%:h")."/"<cr>
+cnoremap <expr> %% expand("%:h")."/"
 map <leader>e :edit %%
 map <leader>v :view %%
 
