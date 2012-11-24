@@ -68,6 +68,7 @@ set hlsearch
 set wildmode=longest,full
 set wildmenu
 
+set autowrite
 set autoread
 set autoindent
 set expandtab
@@ -152,6 +153,9 @@ endfunction
 
 inoremap <expr> <tab> DwimTab()
 
+" plugin settings
+let g:vitality_fix_cursor = 0
+
 " Command-T
 let g:CommandTMaxHeight = 12
 let g:CommandTMinHeight = 3
@@ -191,6 +195,11 @@ augroup lastposjump
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   execute "normal g`\"zvzz" |
     \ endif
+augroup END
+
+augroup focus
+  autocmd FocusLost * silent! wall
+  autocmd FocusGained * silent! call fugitive#reload_status()
 augroup END
 
 augroup git
