@@ -116,6 +116,10 @@ cnoremap <expr> %% expand("%:h")."/"
 nnoremap <leader>e :edit %%
 nnoremap <leader>v :view %%
 
+" quickfix navigation
+nnoremap ]q :cnext<cr>
+nnoremap [q :cprev<cr>
+
 imap <c-c> <esc>
 imap <c-l> <space>=><space>
 inoremap <expr> <tab> DwimTab()
