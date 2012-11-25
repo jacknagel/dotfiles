@@ -252,6 +252,7 @@ augroup rails
 augroup END
 
 augroup tests
+  autocmd!
   autocmd BufNewFile,BufRead *_spec.rb silent! compiler rspec
   autocmd BufNewFile,BufRead *_test.rb silent! compiler rubyunit
   autocmd BufNewFile,BufRead test_*.rb
