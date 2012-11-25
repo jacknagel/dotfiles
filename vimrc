@@ -113,8 +113,8 @@ nnoremap <silent> <leader>F :CommandT %%<cr>
 cnoreabbrev bc w<bar>bd
 
 cnoremap <expr> %% expand("%:h")."/"
-map <leader>e :edit %%
-map <leader>v :view %%
+nnoremap <leader>e :edit %%
+nnoremap <leader>v :view %%
 
 imap <c-c> <esc>
 imap <c-l> <space>=><space>
