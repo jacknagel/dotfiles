@@ -159,6 +159,7 @@ augroup filetypes
   autocmd FileType sh setlocal ai sw=4 sts=4 et
   autocmd FileType python setlocal ai sw=4 sts=4 et
   autocmd FileType gitconfig setlocal noet
+  autocmd FileType help nnoremap <silent> <buffer> q :q<cr>
 augroup END
 
 augroup completion
