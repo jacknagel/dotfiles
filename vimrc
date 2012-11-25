@@ -32,16 +32,6 @@ set background=dark
 colorscheme solarized
 syntax enable
 
-set splitright
-set winwidth=80
-
-" wh must be >= wmh, but we cannot set wh >> wmh before setting wmh...
-set winheight=5
-set winminheight=5
-set winheight=999
-set helpheight=999
-set cmdwinheight=999
-
 set ruler
 set number
 set numberwidth=3
@@ -222,8 +212,14 @@ augroup paste
   autocmd InsertLeave * set nopaste
 augroup END
 
-augroup winscale
+augroup windows
+  " Initially, &wmh == 1 and & wh == 1. Setting &wmh > &wh is disallowed,
+  " as is setting 'wmh' after setting 'wh' sufficiently large to prevent
+  " opening another window.
   autocmd!
+  autocmd VimEnter * set wh=5 wmh=5 wh=999 hh=999 cwh=999
+  autocmd VimEnter * set wiw=80
+  autocmd VimEnter * set splitright
   autocmd VimResized * wincmd =
 augroup END
 
