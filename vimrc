@@ -117,8 +117,8 @@ nnoremap <leader>e :edit %%
 nnoremap <leader>v :view %%
 
 " quickfix navigation
-nnoremap ]q :cnext<cr>
-nnoremap [q :cprev<cr>
+nnoremap <silent> ]q :<C-U>exe "cnext".v:count1<cr>
+nnoremap <silent> [q :<C-U>exe "cprev".v:count1<cr>
 
 imap <c-c> <esc>
 imap <c-l> <space>=><space>
