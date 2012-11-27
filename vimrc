@@ -112,16 +112,16 @@ nnoremap <silent> <leader>F :CommandT %%<cr>
 " :bc to write and delete buffer
 cnoreabbrev bc w<bar>bd
 
-cnoremap <expr> %% expand("%:h")."/"
-nnoremap <leader>e :edit %%
-nnoremap <leader>v :view %%
+cnoremap <expr> %% getcmdtype() == ":" ? expand("%:h")."/" : "%%"
+nmap <leader>e :edit %%
+nmap <leader>v :view %%
 
 " quickfix navigation
 nnoremap <silent> ]q :<C-U>exe "cnext".v:count1<cr>
 nnoremap <silent> [q :<C-U>exe "cprev".v:count1<cr>
 
-imap <c-c> <esc>
-imap <c-l> <space>=><space>
+inoremap <c-c> <esc>
+inoremap <c-l> <space>=><space>
 inoremap <expr> <tab> DwimTab()
 
 nnoremap <leader>l :set list!<cr>
@@ -242,14 +242,14 @@ augroup END
 augroup rails
   autocmd!
   autocmd User Rails
-   \ map <buffer> <leader>ra :A<cr>|
-   \ map <buffer> <leader>rr :R<cr>|
-   \ map <buffer> <leader>rg :topleft :split Gemfile<cr>|
-   \ map <buffer> <leader>rm :CommandT app/models<cr>|
-   \ map <buffer> <leader>rv :CommandT app/views<cr>|
-   \ map <buffer> <leader>rc :CommandT app/controllers<cr>|
-   \ map <buffer> <leader>rh :CommandT app/helpers<cr>|
-   \ map <buffer> <leader>rl :CommandT lib<cr>
+   \ nnoremap <buffer> <leader>ra :A<cr>|
+   \ nnoremap <buffer> <leader>rr :R<cr>|
+   \ nnoremap <buffer> <leader>rg :topleft :split Gemfile<cr>|
+   \ nnoremap <buffer> <leader>rm :CommandT app/models<cr>|
+   \ nnoremap <buffer> <leader>rv :CommandT app/views<cr>|
+   \ nnoremap <buffer> <leader>rc :CommandT app/controllers<cr>|
+   \ nnoremap <buffer> <leader>rh :CommandT app/helpers<cr>|
+   \ nnoremap <buffer> <leader>rl :CommandT lib<cr>
 augroup END
 
 augroup tests
