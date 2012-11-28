@@ -26,6 +26,8 @@ set writebackup
 set backupdir=$HOME/.vim/_backup,/tmp
 set backupcopy=yes
 set directory=$HOME/.vim/_swap,/tmp
+set autowrite
+set autoread
 
 set switchbuf=useopen
 set hidden
@@ -34,7 +36,6 @@ set background=dark
 colorscheme solarized
 syntax enable
 
-set ruler
 set number
 set numberwidth=3
 set scrolloff=3
@@ -60,8 +61,6 @@ set hlsearch
 set wildmode=longest,full
 set wildmenu
 
-set autowrite
-set autoread
 set autoindent
 set expandtab
 
