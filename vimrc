@@ -197,6 +197,14 @@ augroup focus
   autocmd FocusGained * silent! call fugitive#reload_status()
 augroup END
 
+augroup swapmod
+  autocmd!
+  autocmd CursorHold,CursorHoldI,CursorMoved,CursorMovedI,BufWritePost,BufReadPost,BufLeave *
+    \ if !empty(map(split(&directory, ","), "isdirectory(expand(v:val))")) |
+    \   let &swapfile = &modified |
+    \ endif
+augroup END
+
 augroup git
   autocmd!
   autocmd BufReadPost COMMIT_EDITMSG,TAG_EDITMSG exe "normal! gg"
