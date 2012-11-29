@@ -127,7 +127,6 @@ nnoremap <silent> [q :<C-U>exe "cprev".v:count1<cr>
 
 inoremap <c-c> <esc>
 inoremap <c-l> <space>=><space>
-inoremap <expr> <tab> DwimTab()
 
 nnoremap <leader>l :set list!<cr>
 
@@ -144,19 +143,6 @@ function! FugitiveStatuslineWrapper()
     return " (".head.")"
   else
     return ""
-  endif
-endfunction
-
-function! DwimTab()
-  if pumvisible()
-    return "\<c-n>"
-  endif
-
-  let col = col(".") - 1
-  if !col || getline(".")[col - 1] !~ '\k'
-      return "\<tab>"
-  else
-      return "\<c-x>\<c-o>"
   endif
 endfunction
 
