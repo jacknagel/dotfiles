@@ -84,8 +84,11 @@ set ttimeoutlen=10
 
 " plugin settings
 let g:vitality_fix_cursor = 0
-let g:CommandTMaxHeight = 12
-let g:CommandTMinHeight = 3
+let g:ctrlp_map = "<leader>f"
+let g:ctrlp_max_height = 12
+let g:ctrlp_cache_dir = $HOME."/.vim/_cache/ctrlp"
+let g:ctrlp_match_window_reversed = 1
+let g:ctrlp_extensions = ['undo']
 
 " mappings
 let mapleader = ","
@@ -107,9 +110,9 @@ nnoremap <c-l> <c-w>l
 " switch to previous file
 nnoremap <leader><leader> <c-^>
 
-nnoremap <silent> <leader>b :CommandTBuffer<cr>
-nnoremap <silent> <leader>f :CommandT<cr>
-nnoremap <silent> <leader>F :CommandT %%<cr>
+nnoremap <silent> <leader>b :CtrlPBuffer<cr>
+nnoremap <silent> <leader>f :CtrlP<cr>
+nnoremap <silent> <leader>F :CtrlP %%<cr>
 
 " :bc to write and delete buffer
 cnoreabbrev bc w<bar>bd
@@ -255,11 +258,11 @@ augroup rails
    \ nnoremap <buffer> <leader>ra :A<cr>|
    \ nnoremap <buffer> <leader>rr :R<cr>|
    \ nnoremap <buffer> <leader>rg :topleft :split Gemfile<cr>|
-   \ nnoremap <buffer> <leader>rm :CommandT app/models<cr>|
-   \ nnoremap <buffer> <leader>rv :CommandT app/views<cr>|
-   \ nnoremap <buffer> <leader>rc :CommandT app/controllers<cr>|
-   \ nnoremap <buffer> <leader>rh :CommandT app/helpers<cr>|
-   \ nnoremap <buffer> <leader>rl :CommandT lib<cr>
+   \ nnoremap <buffer> <leader>rm :CtrlP app/models<cr>|
+   \ nnoremap <buffer> <leader>rv :CtrlP app/views<cr>|
+   \ nnoremap <buffer> <leader>rc :CtrlP app/controllers<cr>|
+   \ nnoremap <buffer> <leader>rh :CtrlP app/helpers<cr>|
+   \ nnoremap <buffer> <leader>rl :CtrlP lib<cr>
 augroup END
 
 augroup tests
