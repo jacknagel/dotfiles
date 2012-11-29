@@ -162,12 +162,17 @@ endfunction
 
 augroup filetypes
   autocmd!
-  autocmd FileType c setlocal noet
-  autocmd FileType make setlocal noet
-  autocmd FileType ruby,cucumber,yaml,eruby setlocal ai sw=2 sts=2 et
-  autocmd FileType sh setlocal ai sw=4 sts=4 et
-  autocmd FileType python setlocal ai sw=4 sts=4 et
-  autocmd FileType gitconfig setlocal noet
+  autocmd FileType c                              setlocal noet
+  autocmd FileType make                           setlocal noet
+  autocmd FileType gitconfig                      setlocal noet
+  autocmd FileType ruby,cucumber,yaml             setlocal ai et sw=2 sts=2
+  autocmd FileType eruby,haml,html,css,scss,sass  setlocal ai et sw=2 sts=2
+  autocmd FileType sh                             setlocal ai et sw=4 sts=4
+  autocmd FileType python                         setlocal ai et sw=4 sts=4
+  autocmd FileType eruby,html
+    \ if g:html_indent_tags !~# '\v\|p>' |
+    \   let g:html_indent_tags .= '\|p\|li\|dt\|dd\|nav\|header\|footer' |
+    \ endif
   autocmd FileType help nnoremap <silent> <buffer> q :q<cr>
 augroup END
 
