@@ -26,7 +26,7 @@ set writebackup
 set backupdir=$HOME/.vim/_backup,/tmp
 set backupcopy=yes
 set backupskip+=/private/tmp/*
-set directory=$HOME/.vim/_swap,/tmp
+set directory=$HOME/.vim/_swap//,.
 set autowrite
 set autoread
 
