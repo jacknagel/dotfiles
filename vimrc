@@ -8,7 +8,6 @@ filetype plugin indent on
 runtime macros/matchit.vim
 
 set nocompatible
-set confirm
 
 set encoding=utf-8
 
