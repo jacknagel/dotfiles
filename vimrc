@@ -39,7 +39,7 @@ syntax enable
 set number
 set numberwidth=3
 set scrolloff=3
-set backspace=2
+set backspace=indent,eol,start
 set cmdheight=2
 set showcmd
 set visualbell
