@@ -51,9 +51,7 @@ set shortmess=aIoOtT
 set lazyredraw
 set virtualedit=block
 
-" ignore case while searching...
 set ignorecase
-" ...unless pattern contains capitals
 set smartcase
 set incsearch
 set hlsearch
