@@ -38,7 +38,7 @@ end
 
 namespace :vim do
   task :tmp do
-    mkdir_p %w{vim/_cache vim/_backup vim/_swap vim/_undo}
+    mkdir_p %w{vim/_backup vim/_swap vim/_undo}
   end
 
   task :command_t do

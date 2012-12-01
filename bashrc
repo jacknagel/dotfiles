@@ -36,7 +36,7 @@ GREP_COLORS="mt=01;31:sl=:cx=:fn=:ln=:bn=:se=00;36"
 export CLICOLOR LSCOLORS GREP_OPTIONS GREP_COLORS
 
 
-FIGNORE="~:.pyc:.swp:.swa:.git" # things to ignore during tab completion
+FIGNORE=".swp"
 COPYFILE_DISABLE=1 #no ._ (OS X resource fork) files in archives
 export FIGNORE COPYFILE_DISABLE
 
