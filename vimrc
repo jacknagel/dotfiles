@@ -56,7 +56,7 @@ set smartcase
 set incsearch
 set hlsearch
 
-set wildmode=longest,full
+set wildmode=longest:full,full
 set wildmenu
 
 set autoindent
