@@ -81,13 +81,18 @@ set notimeout
 set ttimeout
 set ttimeoutlen=10
 
+set wildignore+=*.aux,*.out
+set wildignore+=*.sw?
+set wildignore+=.DS_Store
+set wildignore+=*.[oa],*.so,*.dylib
+set wildignore+=*/_undo/*
+
 " plugin settings
 let g:vitality_fix_cursor = 0
 let g:ctrlp_map = "<leader>f"
 let g:ctrlp_max_height = 12
 let g:ctrlp_cache_dir = $HOME."/.vim/_cache/ctrlp"
 let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_extensions = ['undo']
 
 " mappings
 let mapleader = ","
