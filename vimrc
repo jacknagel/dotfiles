@@ -188,6 +188,7 @@ augroup lastposjump
 augroup END
 
 augroup focus
+  autocmd!
   autocmd FocusLost * silent! wall
   autocmd FocusGained * silent! call fugitive#reload_status()
 augroup END
