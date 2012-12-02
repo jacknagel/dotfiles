@@ -8,11 +8,8 @@ filetype plugin indent on
 runtime macros/matchit.vim
 
 set nocompatible
-
 set encoding=utf-8
-
-set history=10000
-
+set history=1000
 set viminfo='50,h,n~/.vim/viminfo
 
 if has("persistent_undo")
@@ -50,6 +47,7 @@ set cursorline
 set shortmess=aIoOtT
 set lazyredraw
 set virtualedit=block
+set nojoinspaces
 
 set ignorecase
 set smartcase
@@ -61,17 +59,18 @@ set wildmenu
 
 set autoindent
 set expandtab
+set smarttab
 
 set completeopt=menuone,longest,preview
 set complete-=i
 set formatoptions+=r
 set listchars=tab:▸\ ,eol:¬
 
-set statusline=[%n]                 " buffer number
-set statusline+=%<                  " truncation point
+set statusline=%<                   " truncation point
+set statusline+=[%n]                " buffer number
 set statusline+=\ %.99f             " relative path to file
 set statusline+=%{FugitiveStatuslineWrapper()}
-set statusline+=\ %h%w%m%r%y        " h, prev, mod, ro, ft
+set statusline+=\ %h%w%m%r%y        " help|preview|modified|readonly|filetype
 set statusline+=%=                  " l-r separator
 set statusline+=%-14(%3l,%02c%03V%) " line#,col#-vcol#
 
@@ -139,7 +138,7 @@ vnoremap < <gv
 function! FugitiveStatuslineWrapper()
   let head = fugitive#head(7)
   if head != ""
-    return " (".head.")"
+    return " [".head."]"
   else
     return ""
   endif
