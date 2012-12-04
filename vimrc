@@ -259,9 +259,9 @@ augroup rails
    \ nnoremap <buffer> <leader>rg :topleft :split Gemfile<cr>|
    \ nnoremap <buffer> <leader>rm :CommandT app/models<cr>|
    \ nnoremap <buffer> <leader>rv :CommandT app/views<cr>|
-   \ nnoremap <buffer> <leader>rc :CommandT CtrlP app/controllers<cr>|
-   \ nnoremap <buffer> <leader>rh :CommandT CtrlP app/helpers<cr>|
-   \ nnoremap <buffer> <leader>rl :CommandT CtrlP lib<cr>
+   \ nnoremap <buffer> <leader>rc :CommandT app/controllers<cr>|
+   \ nnoremap <buffer> <leader>rh :CommandT app/helpers<cr>|
+   \ nnoremap <buffer> <leader>rl :CommandT lib<cr>
   autocmd User Rails Rnavcommand factory spec/factories -glob=**/* -suffix=_factory.rb -default=model()
   autocmd User Rails Rnavcommand feature features -glob=**/* -suffix=.feature
   autocmd User Rails Rnavcommand steps features/step_definitions -glob **/* -suffix=_steps.rb
