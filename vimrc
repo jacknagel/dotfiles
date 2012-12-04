@@ -174,6 +174,22 @@ augroup completion
     \ endif
 augroup END
 
+augroup compilers
+  autocmd!
+  autocmd FileType cucumber             silent! compiler cucumber
+  autocmd FileType sass,scss            silent! compiler sass
+  autocmd FileType haml                 silent! compiler haml
+  autocmd BufNewFile,BufRead *_spec.rb  silent! compiler rspec
+  autocmd BufNewFile,BufRead *_test.rb  silent! compiler rubyunit
+  autocmd BufNewFile,BufRead test_*.rb
+    \ silent! compiler rubyunit |
+    \ setlocal makeprg=/usr/bin/testrb
+  autocmd User Bundler
+    \ if &makeprg !~# '^bundle' |
+    \   setlocal makeprg^=bundle\ exec\  |
+    \ endif
+augroup END
+
 augroup vimrc
   autocmd!
   autocmd BufWritePost *vimrc source $MYVIMRC
@@ -253,35 +269,18 @@ augroup END
 
 augroup rails
   autocmd!
-  autocmd User Rails
-   \ nnoremap <buffer> <leader>ra :A<cr>|
-   \ nnoremap <buffer> <leader>rr :R<cr>|
-   \ nnoremap <buffer> <leader>rg :topleft :split Gemfile<cr>|
-   \ nnoremap <buffer> <leader>rm :CommandT app/models<cr>|
-   \ nnoremap <buffer> <leader>rv :CommandT app/views<cr>|
-   \ nnoremap <buffer> <leader>rc :CommandT app/controllers<cr>|
-   \ nnoremap <buffer> <leader>rh :CommandT app/helpers<cr>|
-   \ nnoremap <buffer> <leader>rl :CommandT lib<cr>
+  autocmd User Rails nnoremap <buffer> <leader>ra :A<cr>
+  autocmd User Rails nnoremap <buffer> <leader>rr :R<cr>
+  autocmd User Rails nnoremap <buffer> <leader>rg :topleft :split Gemfile<cr>
+  autocmd User Rails nnoremap <buffer> <leader>rm :CommandT app/models<cr>
+  autocmd User Rails nnoremap <buffer> <leader>rv :CommandT app/views<cr>
+  autocmd User Rails nnoremap <buffer> <leader>rc :CommandT app/controllers<cr>
+  autocmd User Rails nnoremap <buffer> <leader>rh :CommandT app/helpers<cr>
+  autocmd User Rails nnoremap <buffer> <leader>rl :CommandT lib<cr>
   autocmd User Rails Rnavcommand factory spec/factories -glob=**/* -suffix=_factory.rb -default=model()
   autocmd User Rails Rnavcommand feature features -glob=**/* -suffix=.feature
   autocmd User Rails Rnavcommand steps features/step_definitions -glob **/* -suffix=_steps.rb
   autocmd User Rails command! Rroutes e config/routes.rb
-augroup END
-
-augroup compilers
-  autocmd!
-  autocmd FileType cucumber             silent! compiler cucumber
-  autocmd FileType sass,scss            silent! compiler sass
-  autocmd FileType haml                 silent! compiler haml
-  autocmd BufNewFile,BufRead *_spec.rb  silent! compiler rspec
-  autocmd BufNewFile,BufRead *_test.rb  silent! compiler rubyunit
-  autocmd BufNewFile,BufRead test_*.rb
-    \ silent! compiler rubyunit |
-    \ setlocal makeprg=/usr/bin/testrb
-  autocmd User Bundler
-    \ if &makeprg !~# '^bundle' |
-    \   setlocal makeprg^=bundle\ exec\  |
-    \ endif
 augroup END
 
 map <silent> <leader>T :call RunNearestTest()<cr>
