@@ -268,14 +268,16 @@ augroup rails
   autocmd User Rails command! Rroutes e config/routes.rb
 augroup END
 
-augroup tests
+augroup compilers
   autocmd!
-  autocmd BufNewFile,BufRead *_spec.rb silent! compiler rspec
-  autocmd BufNewFile,BufRead *_test.rb silent! compiler rubyunit
+  autocmd FileType cucumber             silent! compiler cucumber
+  autocmd FileType sass,scss            silent! compiler sass
+  autocmd FileType haml                 silent! compiler haml
+  autocmd BufNewFile,BufRead *_spec.rb  silent! compiler rspec
+  autocmd BufNewFile,BufRead *_test.rb  silent! compiler rubyunit
   autocmd BufNewFile,BufRead test_*.rb
     \ silent! compiler rubyunit |
     \ setlocal makeprg=/usr/bin/testrb
-  autocmd FileType cucumber silent! compiler cucumber
   autocmd User Bundler
     \ if &makeprg !~# '^bundle' |
     \   setlocal makeprg^=bundle\ exec\  |
