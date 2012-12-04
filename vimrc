@@ -234,6 +234,12 @@ augroup windows
   autocmd VimResized * wincmd =
 augroup END
 
+augroup quickfix
+  autocmd!
+  autocmd QuickFixCmdPost [^l]* nested cwindow
+  autocmd QuickFixCmdPost l* nested lwindow
+augroup END
+
 augroup diff
   autocmd!
   autocmd FilterWritePre * if &diff | set nonumber | endif
