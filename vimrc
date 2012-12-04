@@ -74,8 +74,9 @@ set statusline+=\ %h%w%m%r%y        " help|preview|modified|readonly|filetype
 set statusline+=%=                  " l-r separator
 set statusline+=%-14(%3l,%02c%03V%) " line#,col#-vcol#
 
-set notimeout
+set timeout
 set ttimeout
+set timeoutlen=1200
 set ttimeoutlen=10
 
 set wildignore+=*.aux,*.out
