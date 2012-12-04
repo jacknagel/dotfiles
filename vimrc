@@ -110,7 +110,6 @@ nnoremap <leader><leader> <c-^>
 
 nnoremap <silent> <leader>b :CommandTBuffer<cr>
 nnoremap <silent> <leader>f :CommandT<cr>
-nnoremap <silent> <leader>F :CommandT %%<cr>
 
 " :bc to write and delete buffer
 cnoreabbrev bc w<bar>bd
