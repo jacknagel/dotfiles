@@ -51,4 +51,4 @@
 	url = https://github.com/tpope/vim-markdown.git
 [submodule "vim/bundle/command-t"]
 	path = vim/bundle/command-t
-	url = https://github.com/wincent/command-t.git
+	url = https://github.com/wincent/Command-T.git
