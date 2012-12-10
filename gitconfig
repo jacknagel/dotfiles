@@ -1,5 +1,3 @@
-# ~/.gitconfig: git(1) configuration
-
 [user]
 	name = Jack Nagel
 	email = jacknagel@gmail.com
@@ -12,6 +10,9 @@
 	pager = less
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
+
+[interactive]
+	singlekey = true
 
 [pager]
 	log = less -+$LESS -iRSq
@@ -27,7 +28,7 @@
 	tool = vimdiff
 
 [difftool]
-	prompt=false
+	prompt = false
 
 [push]
 	default = upstream
