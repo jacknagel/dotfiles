@@ -154,6 +154,7 @@ augroup filetypes
   autocmd FileType css,scss,sass          setlocal ai et sta sw=2 sts=2
   autocmd FileType javascript             setlocal ai et sta sw=2 sts=2 cin
   autocmd FileType eruby,haml,html        setlocal ai et sta sw=2 sts=2
+  autocmd FileType vim                    setlocal ai et sta sw=2 sts=2 kp=:help
   autocmd FileType sh                     setlocal ai et sta sw=4 sts=4
   autocmd FileType python                 setlocal ai et sta sw=4 sts=4
   autocmd FileType eruby,html
