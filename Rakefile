@@ -46,7 +46,6 @@ namespace :vim do
 
     cd 'vim/bundle/command-t/ruby/command-t' do
       sh Vim.ruby_path, 'extconf.rb'
-      sh 'ruby', 'extconf.rb'
       sh 'make', 'clean'
       sh 'make'
     end
