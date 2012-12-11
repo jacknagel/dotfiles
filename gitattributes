@@ -3,6 +3,3 @@
 *.tar.bz2	diff=tar
 *.tar.gz	diff=tar
 *.tar.Z 	diff=tar
-*.doc		diff=word
-*.docx		diff=word
-*.od[pst]	diff=odf

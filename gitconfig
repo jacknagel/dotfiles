@@ -1,58 +1,3 @@
-[user]
-	name = Jack Nagel
-	email = jacknagel@gmail.com
-
-[include]
-	path = .gitcreds
-
-[core]
-	editor = vim
-	pager = less
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
-
-[interactive]
-	singlekey = true
-
-[pager]
-	log = less -+$LESS -iRSq
-
-[web]
-	browser = open
-
-[color]
-	ui = auto
-
-[diff]
-	renames = copies
-	tool = vimdiff
-
-[difftool]
-	prompt = false
-
-[push]
-	default = upstream
-
-[merge]
-	conflictstyle = diff3
-
-[rerere]
-	enabled = true
-
-[help]
-	format = web
-
-[sendemail]
-	smtpserver = smtp.gmail.com
-	smtpserverport = 587
-	smtpencryption = tls
-	smtpuser = jacknagel@gmail.com
-
-[instaweb]
-	local = true
-	httpd = lighttpd -f
-	port = 8080
-
 [alias]
 	ap = add --patch
 	au = add --update
@@ -88,32 +33,59 @@
 	top	= shortlog -ns
 	egrep	= grep -E
 	fgrep	= grep -F
-
-[log]
-	decorate = short
-
-[grep]
-	extendedregexp = true
-
+[color]
+	ui = auto
+[core]
+	editor = vim
+	pager = less
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+[diff]
+	renames = copies
+	tool = vimdiff
 [diff "gpg"]
 	textconv = gpg2 -qd --no-tty
-
 [diff "keyring"]
 	textconv = gpg2 -v
 	xfuncname = "^((pub|uid) .*)"
-
-[diff "odf"]
-	textconv = odt2txt
-
 [diff "tar"]
 	textconv = tar -tvf
-
-[diff "word"]
-	textconv = strings
-
+[difftool]
+	prompt = false
 [gist]
 	browse = 1
-
 [github]
 	user = jacknagel
 	password = !security 2>&1 > /dev/null find-generic-password -gs github.password | perl -ne '/^password: \\\"(.*)\\\"$/ and print $1'
+[grep]
+	extendedregexp = true
+[help]
+	format = web
+[include]
+	path = .gitcreds
+[instaweb]
+	httpd = lighttpd -f
+	local = true
+	port = 8080
+[interactive]
+	singlekey = true
+[log]
+	decorate = short
+[merge]
+	conflictstyle = diff3
+[pager]
+	log = less -+$LESS -iRSq
+[push]
+	default = upstream
+[rerere]
+	enabled = true
+[sendemail]
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpuser = jacknagel@gmail.com
+[user]
+	email = jacknagel@gmail.com
+	name = Jack Nagel
+[web]
+	browser = open
