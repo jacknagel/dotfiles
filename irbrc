@@ -1,30 +1,28 @@
-require 'rubygems'
-require 'irb/completion'
-require 'fileutils'
-require 'pathname'
-require 'tmpdir'
-require 'date'
-require 'set'
-require 'pp'
-
-$LOAD_PATH << File.expand_path('.')
+$LOAD_PATH.unshift(File.expand_path("~/.ruby"))
+$LOAD_PATH.unshift(File.expand_path("."))
 $LOAD_PATH.uniq!
 
-module Kernel extend self
-  alias_method :r, :require
+%w{rubygems pry pry-editline jacknagel}.each do |lib|
+  begin
+    require lib
+  rescue LoadError
+  end
 end
 
-IRB.conf[:USE_READLINE] = true
+if defined?(Pry)
+  Pry.start
+  exit
+end
+
+IRB.conf[:AUTO_INDENT]  = true
 IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:HISTORY_FILE] = if defined?(HOMEBREW_REPOSITORY)
-                            HOMEBREW_REPOSITORY/'Meta/irb_history'
-                          else
-                            File.expand_path('~/.history/irb')
-                          end
-
-def time(count=1, &block)
-  require 'benchmark'
-  Benchmark.bmbm do |x|
-    x.report { count.times(&block) }
-  end.first
-end
+IRB.conf[:USE_READLINE] = true
+IRB.conf[:LOAD_MODULES] |= %w{irb/completion}
+IRB.conf[:HISTORY_FILE] =
+  if defined?(Homebrew)
+    HOMEBREW_REPOSITORY.join("Meta/irb_history")
+  elsif defined?(Bundler)
+    Bundler.tmp.parent.join("history")
+  else
+    File.expand_path("~/.history/irb")
+  end
