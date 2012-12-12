@@ -19,3 +19,5 @@ Pry.config.history.file =
   else
     File.expand_path("~/.history/irb")
   end
+
+extend Rails::ConsoleMethods if defined?(Rails)
