@@ -77,7 +77,7 @@ set statusline+=%-14(%3l,%02c%03V%) " line#,col#-vcol#
 set timeout
 set ttimeout
 set timeoutlen=1200
-set ttimeoutlen=10
+set ttimeoutlen=50
 
 set wildignore+=*.aux,*.out
 set wildignore+=*.sw?
