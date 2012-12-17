@@ -6,7 +6,7 @@ $LOAD_PATH.uniq!
 
 %w{rubygems pry-editline jacknagel}.each do |lib|
   begin
-    require "lib"
+    require lib
   rescue LoadError
   end
 end
