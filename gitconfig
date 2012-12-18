@@ -77,6 +77,8 @@
 	log = less -+$LESS -iRSq
 [push]
 	default = upstream
+[rebase]
+	autosquash = true
 [rerere]
 	enabled = true
 [sendemail]
