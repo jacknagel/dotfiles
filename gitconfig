@@ -59,7 +59,7 @@
 	browse = 1
 [github]
 	user = jacknagel
-	password = !security 2>&1 > /dev/null find-generic-password -gs github.password | perl -ne '/^password: \\\"(.*)\\\"$/ and print $1'
+	password = !security 2>&1 >/dev/null find-generic-password -gs github.password | perl -ne '/^password: \\\"(.*)\\\"$/ and print $1'
 [grep]
 	extendedregexp = true
 [help]
