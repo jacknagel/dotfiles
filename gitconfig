@@ -33,6 +33,9 @@
 	top	= shortlog -ns
 	egrep	= grep -E
 	fgrep	= grep -F
+[branch]
+	autosetupmerge = always
+	autosetuprebase = always
 [color]
 	ui = auto
 [core]
