@@ -1,3 +1,4 @@
+*.rb		diff=ruby
 *.tar		diff=tar
 *.t[bg]z	diff=tar
 *.tar.bz2	diff=tar
