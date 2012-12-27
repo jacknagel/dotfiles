@@ -32,10 +32,10 @@ Pry.config.prompt_name =
   end.to_s.downcase.slice(0..7)
 
 Pry.config.prompt = [
-  proc do |obj, nest, pry|
+  lambda do |obj, nest, pry|
     "[#{pry.input_array.size}] #{RUBY_VERSION} #{Pry.config.prompt_name}(#{Pry.view_clip(obj)})#{":#{nest}" unless nest.zero?}> "
   end,
-  proc do |obj, nest, pry|
+  lambda do |obj, nest, pry|
     "[#{pry.input_array.size}] #{RUBY_VERSION} #{Pry.config.prompt_name}(#{Pry.view_clip(obj)})#{":#{nest}" unless nest.zero?}* "
   end
 ]
