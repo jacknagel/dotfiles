@@ -1,4 +1,4 @@
-# vim:set ft=sh:
+# vim:set ft=sh et sw=2:
 
 prepend_path () {
   for dir in "$@"; do
@@ -35,3 +35,22 @@ if [ -d "/opt/X11" ]; then
 else
   append_path "/usr/X11/bin"
 fi
+
+agent="$HOME/.gnupg/agent.env"
+if [ -f "$file" ] &&
+  kill -0 "$(grep -e "GPG_AGENT_INFO" "$file" | cut -d: -f 2)" 2>/dev/null
+then
+  eval "$(cat "$file")"
+else
+  eval "$(gpg-agent --daemon --write-env-file="$file")"
+fi
+unset agent
+export GPG_TTY=$(tty) GPG_AGENT_INFO
+
+alias be="bundle exec"
+alias cd..="cd .."
+alias du1="du -h -d1"
+alias ip="ipconfig getifaddr en0"
+alias sqlite="sqlite3"
+alias vi="vim"
+alias aws=". $HOME/.aws"

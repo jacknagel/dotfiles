@@ -1,5 +1,6 @@
-ENV="$HOME/.shrc"
-export ENV
+# vim:set ft=sh et sw=2:
+
+export ENV="$HOME/.shrc"
 . "$ENV"
 [ -z "$PS1" ] && return
 
@@ -19,11 +20,13 @@ export MANPATH INFOPATH
 
 
 EDITOR="vim"
+VISUAL="vim"
 PAGER="less"
 MANPAGER="less"
+BROWSER="open"
 LESS="FRSXiq"
 LESSHISTFILE="-"
-export EDITOR PAGER MANPAGER LESS LESSHISTFILE
+export EDITOR VISUAL PAGER MANPAGER BROWSER LESS LESSHISTFILE
 
 
 CLICOLOR=1
@@ -38,7 +41,7 @@ COPYFILE_DISABLE=1 #no ._ (OS X resource fork) files in archives
 export FIGNORE COPYFILE_DISABLE
 
 
-[[ -d "$HOME/.history" ]] || mkdir "$HOME/.history"
+[ -d "$HOME/.history" ] || mkdir "$HOME/.history"
 
 HISTSIZE=10000
 HISTFILESIZE=10000
@@ -56,10 +59,10 @@ shopt -s checkwinsize
 
 
 for file in \
-	/usr/local/share/bash-completion/bash_completion \
-	$HOME/src/git/contrib/completion/git-prompt.sh
+  /usr/local/share/bash-completion/bash_completion \
+  $HOME/src/git/contrib/completion/git-prompt.sh
 do
-	[[ -e $file ]] && . $file
+  [ -e $file ] && . $file
 done
 
 
@@ -83,5 +86,8 @@ PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_SUF}"
 PS2="${BOLD}..>${RESET} "
 
 
-setup_gpg_session
+cd () {
+  builtin cd "$@" >/dev/null
+}
+
 export HOMEBREW_KEEP_INFO=1
