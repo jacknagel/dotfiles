@@ -1,0 +1,37 @@
+# vim:set ft=sh:
+
+prepend_path () {
+  for dir in "$@"; do
+    if [ -d "$dir" ]; then
+      case ":$PATH:" in
+        ::) PATH="$dir" ;;
+        *:"$dir":*) ;;
+        *) PATH="$dir:$PATH" ;;
+      esac
+    fi
+  done
+}
+
+append_path () {
+  for dir in "$@"; do
+    if [ -d "$dir" ]; then
+      case ":$PATH:" in
+        ::) PATH="$dir" ;;
+        *:"$dir":*) ;;
+        *) PATH="$PATH:$dir" ;;
+      esac
+    fi
+  done
+}
+
+prepend_path "/sbin" "/usr/sbin" "/bin" "/usr/bin"
+prepend_path "/usr/local/sbin" "/usr/local/bin"
+prepend_path "/usr/local/opt/ruby/bin" "/usr/local/share/python"
+prepend_path "$HOME/bin"
+append_path  "/usr/local/texbin"
+
+if [ -d "/opt/X11" ]; then
+  append_path "/opt/X11/bin"
+else
+  append_path "/usr/X11/bin"
+fi

@@ -1,3 +1,6 @@
+ENV="$HOME/.shrc"
+export ENV
+. "$ENV"
 [ -z "$PS1" ] && return
 
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
@@ -10,15 +13,9 @@ LC_ALL="en_US.UTF-8"
 export LANG LC_CTYPE LC_ALL
 
 
-PATH="/usr/bin:/bin:/usr/sbin:/sbin"
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-PATH="$PATH:/usr/local/texbin"
-PATH="/usr/local/opt/ruby/bin:/usr/local/share/python:$PATH"
-PATH="$HOME/bin:$PATH"
-
 MANPATH="/usr/local/share/man:/usr/share/man"
 INFOPATH="/usr/local/share/info:/usr/share/info"
-export PATH MANPATH INFOPATH
+export MANPATH INFOPATH
 
 
 EDITOR="vim"
