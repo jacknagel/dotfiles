@@ -1,5 +1,22 @@
 # vim:set ft=sh et sw=2:
 
+stash_path () {
+  if [ -n "$PATH" ]; then
+    stashed_path=$PATH
+    PATH=
+  fi
+}
+
+unstash_path () {
+  [ -z "$stashed_path" ] && return
+  local IFS=":"
+  for dir in $stashed_path; do
+    if [ -d "$dir" ]; then
+      append_path "$dir"
+    fi
+  done
+}
+
 prepend_path () {
   for dir in "$@"; do
     if [ -d "$dir" ]; then
@@ -24,6 +41,8 @@ append_path () {
   done
 }
 
+stash_path
+
 prepend_path "/sbin" "/usr/sbin" "/bin" "/usr/bin"
 prepend_path "/usr/local/sbin" "/usr/local/bin"
 prepend_path "/usr/local/opt/ruby/bin" "/usr/local/share/python"
@@ -32,9 +51,13 @@ append_path  "/usr/local/texbin"
 
 if [ -d "/opt/X11" ]; then
   append_path "/opt/X11/bin"
-else
+elif [-d "/usr/X11" ]; then
   append_path "/usr/X11/bin"
 fi
+
+unstash_path
+
+export PATH
 
 agent="$HOME/.gnupg/agent.env"
 if [ -f "$file" ] &&
