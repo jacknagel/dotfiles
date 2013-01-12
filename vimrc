@@ -60,6 +60,7 @@ set wildmenu
 set autoindent
 set expandtab
 set smarttab
+set shiftround
 
 set completeopt=menuone,longest,preview
 set complete-=i
