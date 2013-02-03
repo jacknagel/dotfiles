@@ -60,12 +60,12 @@ unstash_path
 export PATH
 
 agent="$HOME/.gnupg/agent.env"
-if [ -f "$file" ] &&
-  kill -0 "$(grep -e "GPG_AGENT_INFO" "$file" | cut -d: -f 2)" 2>/dev/null
+if [ -f "$agent" ] &&
+  kill -0 "$(grep -e "GPG_AGENT_INFO" "$agent" | cut -d: -f 2)" 2>/dev/null
 then
-  eval "$(cat "$file")"
+  eval "$(cat "$agent")"
 else
-  eval "$(gpg-agent --daemon --write-env-file="$file")"
+  eval "$(gpg-agent --daemon --write-env-file="$agent")"
 fi
 unset agent
 export GPG_TTY=$(tty) GPG_AGENT_INFO
