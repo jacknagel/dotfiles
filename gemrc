@@ -2,8 +2,7 @@
 :verbose: true
 :update_sources: true
 :sources: 
-  - http://rubygems.org
-  - http://gems.github.com
+  - https://rubygems.org
 :bulk_threshold: 1000
 :backtrace: false
 :benchmark: false
