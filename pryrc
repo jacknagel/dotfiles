@@ -40,4 +40,4 @@ Pry.config.prompt = [
   end
 ]
 
-extend Rails::ConsoleMethods if defined?(Rails)
+extend(Rails::ConsoleMethods) if defined?(Rails)
