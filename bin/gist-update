@@ -1,13 +1,13 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env ruby -w
 
 require 'open-uri'
 require 'rubygems'
 require 'json'
 
-def git *args
+def git(*args)
   args.unshift 'git'
   puts args*' ' if ARGV.include? '-d'
-  Kernel.system *args
+  Kernel.system(*args)
 end
 
 uname = `git config --global --get github.user 2>/dev/null`.chomp
@@ -17,7 +17,7 @@ dir = "#{ENV['HOME']}/src/gists"
 open "https://api.github.com/users/#{uname}/gists?access_token=#{token}" do |json|
   JSON.parse(json.read).map{ |g| g['id'] }.each do |id|
     if File.directory? "#{dir}/gist-#{id}"
-      git "--git-dir=#{dir}/gist-#{id}/.git", "pull", "-q"
+      git "--git-dir=#{dir}/gist-#{id}/.git", "--work-tree=#{dir}/gist-#{id}", "pull", "-q"
     else
       git "clone", "-q", "git@gist.github.com:#{id}.git", "#{dir}/gist-#{id}"
     end
