@@ -159,6 +159,7 @@ augroup filetypes
   autocmd FileType vim                    setlocal ai et sta sw=2 sts=2 kp=:help
   autocmd FileType sh                     setlocal ai et sta sw=2 sts=2
   autocmd FileType python                 setlocal ai et sta sw=4 sts=4
+  autocmd Filetype java                   setlocal ai et sta sw=4 sts=4 cin
   autocmd FileType eruby,html
     \ if g:html_indent_tags !~# '\v\|p>' |
     \   let g:html_indent_tags .= '\|p\|li\|dt\|dd\|nav\|header\|footer' |
