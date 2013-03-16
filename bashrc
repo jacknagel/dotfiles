@@ -91,3 +91,4 @@ cd () {
 }
 
 export HOMEBREW_KEEP_INFO=1
+export HOMEBREW_DEVELOPER=1
