@@ -43,6 +43,8 @@
 	pager = less
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
+[credential]
+	helper = osxkeychain
 [diff]
 	renames = copies
 	tool = vimdiff
