@@ -89,7 +89,6 @@ set wildignore+=*/_undo/*
 
 " plugin settings
 let g:vitality_fix_cursor = 0
-let g:CommandTMaxHeight = 10
 
 " mappings
 let mapleader = ","
@@ -110,9 +109,6 @@ nnoremap <c-l> <c-w>l
 
 " switch to previous file
 nnoremap <leader><leader> <c-^>
-
-nnoremap <silent> <leader>b :CommandTBuffer<cr>
-nnoremap <silent> <leader>f :CommandT<cr>
 
 " :bc to write and delete buffer
 cnoreabbrev bc w<bar>bd
@@ -276,11 +272,6 @@ augroup rails
   autocmd User Rails nnoremap <buffer> <leader>ra :A<cr>
   autocmd User Rails nnoremap <buffer> <leader>rr :R<cr>
   autocmd User Rails nnoremap <buffer> <leader>rg :topleft :split Gemfile<cr>
-  autocmd User Rails nnoremap <buffer> <leader>rm :CommandT app/models<cr>
-  autocmd User Rails nnoremap <buffer> <leader>rv :CommandT app/views<cr>
-  autocmd User Rails nnoremap <buffer> <leader>rc :CommandT app/controllers<cr>
-  autocmd User Rails nnoremap <buffer> <leader>rh :CommandT app/helpers<cr>
-  autocmd User Rails nnoremap <buffer> <leader>rl :CommandT lib<cr>
   autocmd User Rails Rnavcommand factory spec/factories -glob=**/* -suffix=_factory.rb -default=model()
   autocmd User Rails Rnavcommand feature features -glob=**/* -suffix=.feature
   autocmd User Rails Rnavcommand steps features/step_definitions spec/steps -glob=**/* -suffix=_steps.rb -default=web
