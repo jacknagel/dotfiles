@@ -60,7 +60,9 @@ shopt -s checkwinsize
 
 for file in \
   /usr/local/share/bash-completion/bash_completion \
-  $HOME/src/git/contrib/completion/git-prompt.sh
+  $HOME/src/git/contrib/completion/git-prompt.sh \
+  /usr/local/opt/chruby/share/chruby/chruby.sh \
+  /usr/local/opt/chruby/share/chruby/auto.sh
 do
   [ -e $file ] && . $file
 done

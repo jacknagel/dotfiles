@@ -45,7 +45,7 @@ stash_path
 
 prepend_path "/sbin" "/usr/sbin" "/bin" "/usr/bin"
 prepend_path "/usr/local/sbin" "/usr/local/bin"
-prepend_path "/usr/local/opt/ruby/bin" "/usr/local/share/python"
+prepend_path "/usr/local/share/python"
 prepend_path "$HOME/bin"
 append_path  "/usr/local/texbin"
 
