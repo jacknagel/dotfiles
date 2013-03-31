@@ -94,3 +94,4 @@ cd () {
 
 export HOMEBREW_KEEP_INFO=1
 export HOMEBREW_DEVELOPER=1
+export AWS_CONFIG_FILE=~/.awsconfig
