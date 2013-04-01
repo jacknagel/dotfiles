@@ -183,7 +183,7 @@ augroup compilers
   autocmd BufNewFile,BufRead *_test.rb  silent! compiler rubyunit
   autocmd BufNewFile,BufRead test_*.rb
     \ silent! compiler rubyunit |
-    \ setlocal makeprg=/usr/bin/testrb
+    \ setlocal makeprg=testrb
   autocmd User Bundler
     \ if &makeprg !~# '^bundle' |
     \   setlocal makeprg^=bundle\ exec\  |
