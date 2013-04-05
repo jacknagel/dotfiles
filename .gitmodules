@@ -10,7 +10,7 @@
 	url = https://github.com/tpope/vim-eunuch.git
 [submodule "vim/bundle/ruby"]
 	path = vim/bundle/ruby
-	url = https://github.com/vim-ruby/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
