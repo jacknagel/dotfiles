@@ -96,3 +96,4 @@ export HOMEBREW_KEEP_INFO=1
 export HOMEBREW_DEVELOPER=1
 export HOMEBREW_CC=gcc
 export AWS_CONFIG_FILE=~/.awsconfig
+export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
