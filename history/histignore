@@ -1,14 +1,19 @@
  *
 ..*
 [bf]g
+jobs
+%1
+%2
 brew update
 cd
 cd ..
 exit
 git add -p
+git add -u
 git ap
+git au
 git b[rv]
-git c[aisv]
+git c[aiosv]
 git d[ci]
 git fetch --prune
 git fetch -p
