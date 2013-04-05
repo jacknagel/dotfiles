@@ -24,4 +24,3 @@ git show
 git status
 ls
 ls -l
-ssh*
