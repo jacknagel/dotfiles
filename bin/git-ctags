@@ -3,6 +3,6 @@
 set -e
 
 dir=$(git rev-parse --git-dir)
-trap 'rm -f "$dir/tags.$$"' EXIT
-git ls-files -z | xargs -0 ctags --tag-relative -f$dir/tags.$$
-mv $dir/tags.$$ $dir/tags
+trap 'rm -f "$dir/tags.$$"' EXIT INT TERM
+git ls-files -z | xargs -0 ctags --tag-relative -f"$dir/tags.$$"
+mv "$dir/tags.$$" "$dir/tags"
