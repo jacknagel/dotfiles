@@ -2,17 +2,18 @@ $LOAD_PATH.unshift(File.expand_path("~/.ruby"))
 $LOAD_PATH.unshift(File.expand_path("."))
 $LOAD_PATH.uniq!
 
-%w{rubygems pry pry-editline jacknagel}.each do |lib|
+%w{
+  rubygems
+  pry
+  jacknagel
+}.each do |lib|
   begin
-    require lib
+    require(lib)
   rescue LoadError
   end
 end
 
-if defined?(Pry)
-  Pry.start
-  exit
-end
+(Pry.start; exit) if defined?(Pry)
 
 IRB.conf[:AUTO_INDENT]  = true
 IRB.conf[:SAVE_HISTORY] = 1000
