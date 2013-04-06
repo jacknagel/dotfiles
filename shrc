@@ -3,7 +3,7 @@
 stash_path () {
   if [ -n "$PATH" ]; then
     stashed_path=$PATH
-    PATH=
+    unset PATH
   fi
 }
 
