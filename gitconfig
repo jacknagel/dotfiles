@@ -68,6 +68,8 @@
 	format = web
 [include]
 	path = .gitcreds
+[init]
+	templatedir = ~/.git_template
 [instaweb]
 	httpd = lighttpd -f
 	local = true
