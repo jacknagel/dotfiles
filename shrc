@@ -15,6 +15,7 @@ unstash_path () {
       append_path "$dir"
     fi
   done
+  unset stashed_path
 }
 
 prepend_path () {
