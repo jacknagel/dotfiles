@@ -20,6 +20,7 @@ namespace :dotfiles do
     files = FileList[%w{
       bash* shrc git* vim vimrc editrc inputrc
       irbrc pryrc rdebugrc gemrc ruby ruby-version
+      lesskey less
       history sqliterc psqlrc gdbinit valgrindrc
     }].existing!
 

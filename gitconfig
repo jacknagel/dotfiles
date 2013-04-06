@@ -40,7 +40,7 @@
 	ui = auto
 [core]
 	editor = vim
-	pager = less
+	pager = less -S
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 [credential]
