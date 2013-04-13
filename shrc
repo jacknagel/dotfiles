@@ -1,64 +1,57 @@
 # vim:set ft=sh et sw=2:
 
-stash_path () {
-  if [ -n "$PATH" ]; then
-    stashed_path=$PATH
-    unset PATH
-  fi
-}
-
-unstash_path () {
-  [ -z "$stashed_path" ] && return
-  local IFS=":"
-  for dir in $stashed_path; do
-    if [ -d "$dir" ]; then
-      append_path "$dir"
+remove_path () {
+  local IFS=':'
+  local dir val
+  local var="$1"
+  for dir in ${!var}; do
+    if [ -d "$dir" -a "$dir" != "$2" ]; then
+      val="${val:+$val:}$dir"
     fi
   done
-  unset stashed_path
+  eval $var="$val"
 }
 
 prepend_path () {
+  local dir
+  local var="$1"
+  shift
   for dir in "$@"; do
+    remove_path "$var" "$dir"
     if [ -d "$dir" ]; then
-      case ":$PATH:" in
-        ::) PATH="$dir" ;;
-        *:"$dir":*) ;;
-        *) PATH="$dir:$PATH" ;;
-      esac
+      eval $var="${dir}:${!var}"
     fi
   done
 }
 
 append_path () {
+  local dir
+  local var="$1"
+  shift
   for dir in "$@"; do
+    remove_path "$var" "$dir"
     if [ -d "$dir" ]; then
-      case ":$PATH:" in
-        ::) PATH="$dir" ;;
-        *:"$dir":*) ;;
-        *) PATH="$PATH:$dir" ;;
-      esac
+      eval $var="${!var}:${dir}"
     fi
   done
 }
 
-stash_path
-
-prepend_path "/sbin" "/usr/sbin" "/bin" "/usr/bin"
-prepend_path "/usr/local/sbin" "/usr/local/bin"
-prepend_path "/usr/local/share/python"
-prepend_path "$HOME/bin"
-append_path  "/usr/local/texbin"
+prepend_path PATH /sbin /usr/sbin /bin /usr/bin
+prepend_path PATH /usr/local/sbin /usr/local/bin
+prepend_path PATH /usr/local/share/python
+prepend_path PATH "$HOME/bin"
+append_path  PATH /usr/local/texbin
 
 if [ -d "/opt/X11" ]; then
-  append_path "/opt/X11/bin"
+  append_path PATH /opt/X11/bin
 elif [-d "/usr/X11" ]; then
-  append_path "/usr/X11/bin"
+  append_path PATH /usr/X11/bin
 fi
 
-unstash_path
+prepend_path MANPATH /usr/share/man /usr/local/share/man
+prepend_path INFOPATH /usr/share/info /usr/local/share/info
 
-export PATH
+export PATH MANPATH INFOPATH
 
 agent="$HOME/.gnupg/agent.env"
 if [ -f "$agent" ] &&

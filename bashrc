@@ -14,11 +14,6 @@ LC_ALL="en_US.UTF-8"
 export LANG LC_CTYPE LC_ALL
 
 
-MANPATH="/usr/local/share/man:/usr/share/man"
-INFOPATH="/usr/local/share/info:/usr/share/info"
-export MANPATH INFOPATH
-
-
 EDITOR="vim"
 VISUAL="vim"
 PAGER="less"
