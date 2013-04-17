@@ -64,9 +64,12 @@ fi
 unset agent
 export GPG_TTY=$(tty) GPG_AGENT_INFO
 
-alias be="bundle exec"
 alias cd..="cd .."
 alias du1="du -h -d1"
 alias ip="ipconfig getifaddr en0"
 alias sqlite="sqlite3"
 alias vi="vim"
+
+alias be="bundle exec"
+alias bi="bundle install"
+alias bis="bundle install --standalone --binstubs"
