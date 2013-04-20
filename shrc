@@ -5,9 +5,7 @@ remove_path () {
   local dir val
   local var="$1"
   for dir in ${!var}; do
-    if [ -d "$dir" -a "$dir" != "$2" ]; then
-      val="${val:+$val:}$dir"
-    fi
+    [ -d "$dir" -a "$dir" != "$2" ] && val="${val:+$val:}$dir"
   done
   eval $var="$val"
 }
@@ -18,9 +16,7 @@ prepend_path () {
   shift
   for dir in "$@"; do
     remove_path "$var" "$dir"
-    if [ -d "$dir" ]; then
-      eval $var="${dir}:${!var}"
-    fi
+    [ -d "$dir" ] && eval "${var}=${dir}:\$${var}"
   done
 }
 
@@ -30,9 +26,7 @@ append_path () {
   shift
   for dir in "$@"; do
     remove_path "$var" "$dir"
-    if [ -d "$dir" ]; then
-      eval $var="${!var}:${dir}"
-    fi
+    [ -d "$dir" ] && eval "${var}=\$${var}:${dir}"
   done
 }
 
