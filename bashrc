@@ -4,8 +4,6 @@ export ENV="$HOME/.shrc"
 . "$ENV"
 [ -z "$PS1" ] && return
 
-[ -f ~/.bash_aliases ] && . ~/.bash_aliases
-
 unset MAILCHECK
 
 LANG="en_US.UTF-8"
@@ -45,51 +43,32 @@ HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE=$(tr '\n' ':' <"$HOME/.history/histignore")
 
 
-shopt -s cdspell dirspell
-shopt -s dotglob extglob globstar
-shopt -s cmdhist histappend
+shopt -s cdspell
+shopt -s dirspell 2>/dev/null
+shopt -s dotglob
+shopt -s extglob
+shopt -s globstar 2>/dev/null
+shopt -s cmdhist
+shopt -s histappend
 shopt -s no_empty_cmd_completion
-shopt -s checkjobs
+shopt -s checkjobs 2>/dev/null
 shopt -s checkwinsize
-
-
-for file in \
-  /usr/local/share/bash-completion/bash_completion \
-  $HOME/src/git/contrib/completion/git-prompt.sh \
-  /usr/local/opt/chruby/share/chruby/chruby.sh \
-  /usr/local/opt/chruby/share/chruby/auto.sh
-do
-  [ -e $file ] && . $file
-done
-
-
-BOLD="\[\033[1m\]"
-BLUE="\[\033[0;34m\]"
-CYAN="\[\033[0;36m\]"
-GREEN="\[\033[0;32m\]"
-RESET="\[\033[0m\]"
-
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-GIT_PS1_SHOWUPSTREAM="auto"
-export GIT_PS1_SHOWDIRTYSTATE GIT_PS1_SHOWSTASHSTATE
-export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
-
-PROMPT_GIT='$(__git_ps1 "'${GREEN}'(%s)'${RESET}'")'
-PROMPT_PRE="\u@\h${BLUE}:\W${RESET}"
-PROMPT_SUF="${BOLD} \$${RESET} "
-PS1="${PROMPT_PRE}${PROMPT_GIT}${PROMPT_SUF}"
-PS2="${BOLD}..>${RESET} "
-
 
 cd () {
   builtin cd "$@" >/dev/null
 }
 
-HOMEBREW_KEEP_INFO=1
-HOMEBREW_DEVELOPER=1
-HOMEBREW_CC=gcc
-export HOMEBREW_KEEP_INFO HOMEBREW_DEVELOPER HOMEBREW_CC
-export AWS_CONFIG_FILE=~/.awsconfig
-export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+
+completion="/usr/local/share/bash-completion/bash_completion"
+if [ "${BASH_VERSINFO[0]}" -ge "4" -a "${BASH_VERSINFO[1]}" -ge "2" -a -f "$completion" ]; then
+  . /usr/local/share/bash-completion/bash_completion
+fi
+unset completion
+
+
+for file in \
+  /usr/local/opt/chruby/share/chruby/chruby.sh \
+  /usr/local/opt/chruby/share/chruby/auto.sh
+do
+  [ -f "$file" ] && . "$file"
+done
