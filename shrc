@@ -75,7 +75,7 @@ for file in "$HOME/src/git/contrib/completion/git-prompt.sh"; do
     GIT_PS1_SHOWUPSTREAM="auto"
     export GIT_PS1_SHOWDIRTYSTATE GIT_PS1_SHOWSTASHSTATE
     export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
-    prompt_git='$(__git_ps1 "'${green}'(%s)'${reset}'")'
+    prompt_git="\$(__git_ps1 '${green}(%s)${reset}')"
     break;
   fi
 done
