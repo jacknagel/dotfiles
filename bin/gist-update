@@ -4,22 +4,36 @@ require 'open-uri'
 require 'rubygems'
 require 'json'
 
+UNAME = "jacknagel"
+TOKEN = File.read("#{ENV['HOME']}/.gist").strip
+DIR   = "#{ENV['HOME']}/src/gists"
+
 def git(*args)
   args.unshift 'git'
   puts args*' ' if ARGV.include? '-d'
   Kernel.system(*args)
 end
 
-uname = `git config --global --get github.user 2>/dev/null`.chomp
-token = `git config --global --includes --get github.token 2>/dev/null`.chomp
-dir = "#{ENV['HOME']}/src/gists"
+def open(url, headers={}, &block)
+  default = {
+    'User-Agent'    => 'gist-update',
+    'Authorization' => "token #{TOKEN}",
+  }
+  Kernel.open(url, default.merge(headers), &block)
+end
 
-open "https://api.github.com/users/#{uname}/gists?access_token=#{token}" do |json|
-  JSON.parse(json.read).map{ |g| g['id'] }.each do |id|
-    if File.directory? "#{dir}/gist-#{id}"
-      git "--git-dir=#{dir}/gist-#{id}/.git", "--work-tree=#{dir}/gist-#{id}", "pull", "-q"
-    else
-      git "clone", "-q", "git@gist.github.com:#{id}.git", "#{dir}/gist-#{id}"
+page = 1
+
+while page
+  open("https://api.github.com/users/#{UNAME}/gists?page=#{page}") do |f|
+    f.meta.fetch('link').include?('next') ? page += 1 : page = nil
+    JSON.parse(f.read).map{ |g| g['id'] }.each do |id|
+      p id
+      # if File.directory? "#{DIR}/gist-#{id}"
+      #   git "--git-dir=#{DIR}/gist-#{id}/.git", "--work-tree=#{DIR}/gist-#{id}", "pull", "-q"
+      # else
+      #   git "clone", "-q", "git@gist.github.com:#{id}.git", "#{DIR}/gist-#{id}"
+      # end
     end
   end
 end
