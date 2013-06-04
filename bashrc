@@ -66,9 +66,8 @@ fi
 unset completion
 
 
-for file in \
-  /usr/local/opt/chruby/share/chruby/chruby.sh \
-  /usr/local/opt/chruby/share/chruby/auto.sh
-do
-  [ -f "$file" ] && . "$file"
-done
+if [ -d "/usr/local/opt/chruby" ]; then
+  . "/usr/local/opt/chruby/share/chruby/chruby.sh"
+  . "/usr/local/opt/chruby/share/chruby/auto.sh"
+  chruby 2.0.0-p195 &>/dev/null
+fi
