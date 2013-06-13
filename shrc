@@ -32,7 +32,6 @@ append_path () {
 
 prepend_path PATH /sbin /usr/sbin /bin /usr/bin
 prepend_path PATH /usr/local/sbin /usr/local/bin
-prepend_path PATH /usr/local/share/python
 prepend_path PATH "$HOME/bin"
 append_path  PATH /usr/local/texbin
 
