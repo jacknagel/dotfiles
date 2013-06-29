@@ -28,12 +28,11 @@ while page
   open("https://api.github.com/users/#{UNAME}/gists?page=#{page}") do |f|
     f.meta.fetch('link').include?('next') ? page += 1 : page = nil
     JSON.parse(f.read).map{ |g| g['id'] }.each do |id|
-      p id
-      # if File.directory? "#{DIR}/gist-#{id}"
-      #   git "--git-dir=#{DIR}/gist-#{id}/.git", "--work-tree=#{DIR}/gist-#{id}", "pull", "-q"
-      # else
-      #   git "clone", "-q", "git@gist.github.com:#{id}.git", "#{DIR}/gist-#{id}"
-      # end
+      if File.directory? "#{DIR}/gist-#{id}"
+        git "--git-dir=#{DIR}/gist-#{id}/.git", "--work-tree=#{DIR}/gist-#{id}", "pull", "-q"
+      else
+        git "clone", "-q", "git@gist.github.com:#{id}.git", "#{DIR}/gist-#{id}"
+      end
     end
   end
 end
