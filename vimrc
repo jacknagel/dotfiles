@@ -97,6 +97,9 @@ map <left> <nop>
 map <right> <nop>
 map <up> <nop>
 map <down> <nop>
+map h <nop>
+map l <nop>
+
 imap <left> <nop>
 imap <right> <nop>
 imap <up> <nop>
