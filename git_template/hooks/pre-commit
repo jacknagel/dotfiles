@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e
+
+[ ! -f Gemfile ] || git diff-index --quiet --cached HEAD -- Gemfile || bundle check
