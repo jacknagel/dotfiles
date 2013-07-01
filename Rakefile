@@ -4,13 +4,13 @@ end
 
 task :default => :dotfiles
 
-desc 'install dotfiles'
+desc 'Install dotfiles'
 task :dotfiles => %w{dotfiles:link}
 
-desc 'vim setup'
+desc 'Bootstrap vim setup'
 task :vim => %w{vim:tmp}
 
-desc 'update submodules'
+desc 'Update submodules'
 task :submodules => %w{submodules:update submodules:pull}
 
 namespace :dotfiles do
@@ -60,6 +60,7 @@ end
 
 namespace :ruby do
   namespace :install do
+    desc 'Install Ruby'
     task :ruby, :version, :url do |_, args|
       cmd = %w{ruby-install ruby}
       cmd << args.version if args.version
@@ -68,6 +69,7 @@ namespace :ruby do
       sh(*cmd)
     end
 
+    desc 'Install JRuby'
     task :jruby, :version, :url do |_, args|
       cmd = %w{ruby-install jruby}
       cmd << args.version if args.version
@@ -79,6 +81,7 @@ namespace :ruby do
   namespace :gems do
     DEFAULT_GEMS = %w{bundler ffi gem-browse gem-ctags pry}
 
+    desc 'Install base gems for the current Ruby'
     task :bootstrap do
       sh 'gem', 'install', *DEFAULT_GEMS
       sh 'gem', 'ctags'
