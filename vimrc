@@ -120,10 +120,6 @@ cnoremap <expr> %% getcmdtype() == ":" ? expand("%:h")."/" : "%%"
 nmap <leader>e :edit %%
 nmap <leader>v :view %%
 
-" quickfix navigation
-nnoremap <silent> ]q :<C-U>exe "cnext".v:count1<cr>
-nnoremap <silent> [q :<C-U>exe "cprev".v:count1<cr>
-
 inoremap <c-c> <esc>
 inoremap <c-l> <space>=><space>
 
@@ -235,11 +231,6 @@ augroup hlsearch
   autocmd CmdWinLeave * doautocmd User MapCR
   autocmd InsertEnter,InsertLeave * set invhlsearch
   autocmd User MapCR nnoremap <silent> <cr> :nohlsearch<cr>
-augroup END
-
-augroup paste
-  autocmd!
-  autocmd InsertLeave * set nopaste
 augroup END
 
 augroup windows
