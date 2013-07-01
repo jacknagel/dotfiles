@@ -69,5 +69,4 @@ unset completion
 if [ -d "/usr/local/opt/chruby" ]; then
   . "/usr/local/opt/chruby/share/chruby/chruby.sh"
   . "/usr/local/opt/chruby/share/chruby/auto.sh"
-  chruby 2.0.0-p247 &>/dev/null
 fi
