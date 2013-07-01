@@ -58,20 +58,14 @@ namespace :submodules do
   end
 end
 
-namespace :ruby_install do
-  task :ruby, :version, :url do |_, args|
-    cmd = %w{ruby-install ruby}
-    cmd << args.version
-    cmd << '--url' << args.url if args.url
-    cmd.concat %w{
-      --
-      --disable-silent-rules
-      --disable-install-doc
-      --with-out-ext=tk
-      --enable-dtrace
-      CFLAGS=-O3
-    }
-
-    sh(*cmd)
+namespace :ruby do
+  namespace :install do
+    task :ruby, :version, :url do |_, args|
+      cmd = %w{ruby-install ruby}
+      cmd << args.version if args.version
+      cmd << '--url' << args.url if args.url
+      cmd.concat %w{-- --disable-silent-rules --disable-install-doc --with-out-ext=tk --enable-dtrace CFLAGS=-O3}
+      sh(*cmd)
+    end
   end
 end
