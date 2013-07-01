@@ -67,5 +67,12 @@ namespace :ruby do
       cmd.concat %w{-- --disable-silent-rules --disable-install-doc --with-out-ext=tk --enable-dtrace CFLAGS=-O3}
       sh(*cmd)
     end
+
+    task :jruby, :version, :url do |_, args|
+      cmd = %w{ruby-install jruby}
+      cmd << args.version if args.version
+      cmd << '--url' << args.url if args.url
+      sh(*cmd)
+    end
   end
 end
