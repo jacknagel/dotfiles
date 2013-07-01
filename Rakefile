@@ -75,4 +75,13 @@ namespace :ruby do
       sh(*cmd)
     end
   end
+
+  namespace :gems do
+    DEFAULT_GEMS = %w{bundler ffi gem-browse gem-ctags pry}
+
+    task :bootstrap do
+      sh 'gem', 'install', *DEFAULT_GEMS
+      sh 'gem', 'ctags'
+    end
+  end
 end
