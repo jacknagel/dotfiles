@@ -49,3 +49,9 @@
 [submodule "vim/bundle/classpath"]
 	path = vim/bundle/classpath
 	url = https://github.com/tpope/vim-classpath.git
+[submodule "vim/bundle/surround"]
+	path = vim/bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/repeat"]
+	path = vim/bundle/repeat
+	url = https://github.com/tpope/vim-repeat.git
