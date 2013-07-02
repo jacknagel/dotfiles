@@ -2,7 +2,11 @@
 
 set -e
 
-file="$(git rev-parse --git-dir)/tags.$$"
-trap 'rm -f "$file"' EXIT INT TERM
+git_dir=$(git rev-parse --git-dir)
+lock="$git_dir/tags.lock"
+file="$git_dir/tags.$$"
+
+mkdir "$lock" 2>/dev/null || exit 0
+trap 'rmdir "$lock"; rm -f "$file"' EXIT INT TERM
 git ls-files | ctags --tag-relative -L- -f"$file"
 mv "$file" "${file%.$$}"
