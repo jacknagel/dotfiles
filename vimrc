@@ -244,7 +244,7 @@ augroup hlsearch
 augroup END
 
 augroup windows
-  " Initially, &wmh == 1 and & wh == 1. Setting &wmh > &wh is disallowed,
+  " Initially, &wmh == 1 and &wh == 1. Setting &wmh > &wh is disallowed,
   " as is setting 'wmh' after setting 'wh' sufficiently large to prevent
   " opening another window.
   autocmd!
