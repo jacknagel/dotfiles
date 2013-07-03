@@ -231,6 +231,7 @@ augroup git
   autocmd BufNewFile,BufRead TAG_EDITMSG setlocal ft=gitcommit
   autocmd BufNewFile,BufRead gitconfig setlocal ft=gitconfig
   autocmd FileType gitrebase nnoremap <buffer> <silent> S :Cycle<cr>
+  autocmd FileType gitcommit set spell
 augroup END
 
 augroup hlsearch
