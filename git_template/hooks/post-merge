@@ -1,1 +1,1 @@
-exec .git/hooks/post-checkout
+exec "$(git rev-parse --git-dir)/hooks/post-checkout"
