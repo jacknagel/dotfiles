@@ -79,7 +79,7 @@ namespace :ruby do
   end
 
   namespace :gems do
-    DEFAULT_GEMS = %w{bundler ffi gem-browse gem-ctags pry}
+    DEFAULT_GEMS = %w{bundler ffi gem-browse gem-ctags pry pry-editline}
 
     desc 'Install base gems for the current Ruby'
     task :bootstrap do
