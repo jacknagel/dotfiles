@@ -110,6 +110,11 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" break undo in sensible places
+inoremap <cr> <c-g>u<cr>
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>
+
 " switch to previous file
 nnoremap <leader><leader> <c-^>
 
