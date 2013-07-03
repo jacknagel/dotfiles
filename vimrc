@@ -115,6 +115,10 @@ inoremap <cr> <c-g>u<cr>
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
 
+" make & include flags
+nnoremap & :&&<cr>
+xnoremap & :&&<cr>
+
 " switch to previous file
 nnoremap <leader><leader> <c-^>
 
