@@ -134,9 +134,6 @@ inoremap <c-l> <space>=><space>
 
 nnoremap <leader>l :set list!<cr>
 
-" find merge conflict markers
-nnoremap <leader>cf /\v^[<=\|>]{7}\s.*$<cr>
-
 " continuous indentation
 vnoremap > >gv
 vnoremap < <gv
