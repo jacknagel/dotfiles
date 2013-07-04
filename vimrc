@@ -271,18 +271,6 @@ augroup cursorline
   autocmd WinEnter,InsertLeave * set cursorline
 augroup END
 
-augroup rails
-  autocmd!
-  autocmd User Rails nnoremap <buffer> <leader>ra :A<cr>
-  autocmd User Rails nnoremap <buffer> <leader>rr :R<cr>
-  autocmd User Rails nnoremap <buffer> <leader>rg :topleft :split Gemfile<cr>
-  " autocmd User Rails Rnavcommand factory spec/factories -glob=**/* -suffix=_factory.rb -default=model()
-  " autocmd User Rails Rnavcommand feature features -glob=**/* -suffix=.feature
-  " autocmd User Rails Rnavcommand steps features/step_definitions spec/steps -glob=**/* -suffix=_steps.rb -default=web
-  " autocmd User Rails Rnavcommand support spec/support features/support -default=env
-  " autocmd User Rails command! Rroutes e config/routes.rb
-augroup END
-
 map <silent> <leader>T :call RunNearestTest()<cr>
 map <silent> <leader>t :call RunTestFile()<cr>
 map <silent> <leader>a :call RunTests()<cr>
