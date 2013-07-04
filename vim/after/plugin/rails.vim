@@ -17,7 +17,7 @@ call extend(g:rails_gem_projections, {
   \ "rspec": {
   \  "spec/support/*.rb": {
   \    "command": "support"}},
-  \ "cucumber": {
+  \ "cucumber-rails": {
   \   "features/*.feature": {
   \     "command": "feature",
   \     "template": "Feature: %h"},
@@ -29,7 +29,7 @@ call extend(g:rails_gem_projections, {
   \     "command": "steps"},
   \   "features/step_definitions/web_steps.rb": {
   \     "command": "steps"}},
-  \ "factory_girl": {
+  \ "factory_girl_rails": {
   \   "spec/factories/*_factory.rb": {
   \     "command": "factory",
   \     "alternate": "app/models/%s.rb",
