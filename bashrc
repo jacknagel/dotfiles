@@ -58,13 +58,9 @@ cd () {
   builtin cd "$@" >/dev/null
 }
 
-
-completion="/usr/local/share/bash-completion/bash_completion"
-if [ "${BASH_VERSINFO[0]}" -ge "4" -a "${BASH_VERSINFO[1]}" -ge "1" -a -f "$completion" ]; then
+if [ -f " /usr/local/share/bash-completion/bash_completion" ]; then
   . /usr/local/share/bash-completion/bash_completion
 fi
-unset completion
-
 
 if [ -d "/usr/local/opt/chruby" ]; then
   . "/usr/local/opt/chruby/share/chruby/chruby.sh"
