@@ -66,7 +66,7 @@ set completeopt=menuone,longest,preview
 set complete-=i
 set infercase
 set formatoptions+=r
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:$
 
 set statusline=%<                   " truncation point
 set statusline+=[%n]                " buffer number
