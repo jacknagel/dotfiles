@@ -9,6 +9,8 @@ endif
 call extend(g:rails_projections, {
   \ "config/routes.rb": {
   \   "command": "routes"},
+  \ "config/projections.json": {
+  \   "command": "projections"},
   \ }, "keep")
 
 call extend(g:rails_gem_projections, {
