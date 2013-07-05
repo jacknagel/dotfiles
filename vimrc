@@ -26,9 +26,6 @@ set directory^=$HOME/.vim/_swap//
 set autowrite
 set autoread
 
-set switchbuf=useopen
-set hidden
-
 set background=dark
 colorscheme solarized
 syntax enable
