@@ -5,7 +5,6 @@ $LOAD_PATH.uniq!
   date
   fileutils
   pathname
-  pp
   set
   stringio
   tmpdir
