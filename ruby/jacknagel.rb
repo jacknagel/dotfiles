@@ -4,6 +4,8 @@ $LOAD_PATH.uniq!
 %w{
   date
   fileutils
+  open-uri
+  ostruct
   pathname
   set
   stringio
