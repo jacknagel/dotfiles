@@ -90,48 +90,45 @@ let g:vitality_fix_cursor = 0
 " mappings
 let mapleader = ","
 
-map <left> <nop>
-map <right> <nop>
-map <up> <nop>
-map <down> <nop>
-map h <nop>
-map l <nop>
+map  <Left>  <Nop>
+map  <Right> <Nop>
+map  <Up>    <Nop>
+map  <Down>  <Nop>
+imap <Left>  <Nop>
+imap <Right> <Nop>
+imap <Up>    <Nop>
+imap <Down>  <Nop>
 
-imap <left> <nop>
-imap <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
 
 nnoremap Q :<C-U>q<CR>
 
 " break undo in sensible places
-inoremap <cr> <c-g>u<cr>
-inoremap <c-u> <c-g>u<c-u>
-inoremap <c-w> <c-g>u<c-w>
+inoremap <CR>  <C-G>u<CR>
+inoremap <C-U> <C-G>u<C-U>
+inoremap <C-W> <C-G>u<C-W>
 
 " make & include flags
-nnoremap & :&&<cr>
-xnoremap & :&&<cr>
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 
 " switch to previous file
-nnoremap <leader><leader> <c-^>
+nnoremap <Leader><Leader> <C-^>
 
 " :bc to write and delete buffer
-cnoreabbrev bc w<bar>bd
+cnoreabbrev bc w<Bar>bd
 
 cnoremap <expr> %% getcmdtype() == ":" ? expand("%:h")."/" : "%%"
-nmap <leader>e :edit %%
-nmap <leader>v :view %%
+nmap <Leader>e :edit %%
+nmap <Leader>v :view %%
 
-inoremap <c-c> <esc>
-inoremap <c-l> <space>=><space>
+inoremap <C-C> <Esc>
+inoremap <C-L> <Space>=><Space>
 
-nnoremap <leader>l :set list!<cr>
+nnoremap <Leader>l :set list!<CR>
 
 " continuous indentation
 vnoremap > >gv
@@ -226,17 +223,17 @@ augroup git
   autocmd BufReadPost COMMIT_EDITMSG,TAG_EDITMSG exe "normal! gg"
   autocmd BufNewFile,BufRead TAG_EDITMSG setf gitcommit
   autocmd BufNewFile,BufRead gitconfig setf gitconfig
-  autocmd FileType gitrebase nnoremap <buffer> <silent> S :Cycle<cr>
+  autocmd FileType gitrebase nnoremap <buffer> <silent> S :Cycle<CR>
   autocmd FileType gitcommit set spell
 augroup END
 
 augroup hlsearch
   autocmd!
   autocmd VimEnter * doautocmd User MapCR
-  autocmd CmdWinEnter * nunmap <cr>
+  autocmd CmdWinEnter * nunmap <CR>
   autocmd CmdWinLeave * doautocmd User MapCR
   autocmd InsertEnter,InsertLeave * set invhlsearch
-  autocmd User MapCR nnoremap <silent> <cr> :nohlsearch<cr>
+  autocmd User MapCR nnoremap <silent> <CR> :nohlsearch<CR>
 augroup END
 
 augroup windows
@@ -267,9 +264,9 @@ augroup cursorline
   autocmd WinEnter,InsertLeave * set cursorline
 augroup END
 
-map <silent> <leader>T :call RunNearestTest()<cr>
-map <silent> <leader>t :call RunTestFile()<cr>
-map <silent> <leader>a :call RunTests()<cr>
+map <silent> <Leader>T :call RunNearestTest()<CR>
+map <silent> <Leader>t :call RunTestFile()<CR>
+map <silent> <Leader>a :call RunTests()<CR>
 
 function! InTestFile()
   if !exists("t:test_regexp")
