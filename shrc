@@ -59,35 +59,6 @@ GPG_TTY=$(tty)
 export GPG_TTY GPG_AGENT_INFO
 
 
-bold="\[\033[1m\]"
-blue="\[\033[0;34m\]"
-cyan="\[\033[0;36m\]"
-green="\[\033[0;32m\]"
-reset="\[\033[0m\]"
-
-for file in "$HOME/src/git/contrib/completion/git-prompt.sh"; do
-  if [ -f "$file" ]; then
-    . "$file"
-    GIT_PS1_SHOWDIRTYSTATE=1
-    GIT_PS1_SHOWSTASHSTATE=1
-    GIT_PS1_SHOWUNTRACKEDFILES=1
-    GIT_PS1_SHOWUPSTREAM="auto"
-    export GIT_PS1_SHOWDIRTYSTATE GIT_PS1_SHOWSTASHSTATE
-    export GIT_PS1_SHOWUNTRACKEDFILES GIT_PS1_SHOWUPSTREAM
-    prompt_git="\$(__git_ps1 '${green}(%s)${reset}')"
-    break;
-  fi
-done
-
-prompt_prefix="\u@\h${blue}:\W${reset}"
-prompt_suffix="${bold} \$${reset} "
-
-PS1="${prompt_prefix}${prompt_git}${prompt_suffix}"
-PS2="${bold}..>${reset} "
-
-unset prompt_git prompt_prefix prompt_suffix
-
-
 alias cd..="cd .."
 alias du1="du -h -d1"
 alias sqlite="sqlite3"

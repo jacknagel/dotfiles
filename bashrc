@@ -58,6 +58,23 @@ cd () {
   builtin cd "$@" >/dev/null
 }
 
+bold="\[\033[1m\]"
+blue="\[\033[0;34m\]"
+reset="\[\033[0m\]"
+
+PS1="\u@\h${blue}:\W${reset} ${bold}\$${reset} "
+PS2="${bold}..>${reset} "
+
+if [ -f "$HOME/src/git/contrib/completion/git-prompt.sh" ]; then
+  . "$HOME/src/git/contrib/completion/git-prompt.sh"
+  GIT_PS1_SHOWDIRTYSTATE=1
+  GIT_PS1_SHOWSTASHSTATE=1
+  GIT_PS1_SHOWCOLORHINTS=1
+  GIT_PS1_SHOWUNTRACKEDFILES=1
+  GIT_PS1_SHOWUPSTREAM=auto
+  PROMPT_COMMAND="__git_ps1 '\u@\h${blue}:\W${reset}' ' ${bold}\\$ ${reset}' '(%s)'"
+fi
+
 if [ -f "/usr/local/share/bash-completion/bash_completion" ]; then
   . "/usr/local/share/bash-completion/bash_completion"
 fi
