@@ -22,6 +22,10 @@
 	rp = reset --patch
 	se = send-email
 	st = status --short --branch -uno
+	ss = stash save
+	sp = stash pop
+	sd = stash drop
+	sc = stash clear
 	csq     = commit --squash
 	rbc	= rebase --continue
 	top	= shortlog -ns
