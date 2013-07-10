@@ -37,10 +37,10 @@ Pry.config.prompt_name =
 
 Pry.config.prompt = [
   lambda do |obj, nest, pry|
-    "[#{pry.input_array.size}] #{RUBY_VERSION} #{Pry.config.prompt_name}(#{Pry.view_clip(obj)})#{":#{nest}" unless nest.zero?}> "
+    "[#{pry.input_array.size}] #{RUBY_VERSION}p#{RUBY_PATCHLEVEL} #{Pry.config.prompt_name}(#{Pry.view_clip(obj)})#{":#{nest}" unless nest.zero?}> "
   end,
   lambda do |obj, nest, pry|
-    "[#{pry.input_array.size}] #{RUBY_VERSION} #{Pry.config.prompt_name}(#{Pry.view_clip(obj)})#{":#{nest}" unless nest.zero?}* "
+    "[#{pry.input_array.size}] #{RUBY_VERSION}p#{RUBY_PATCHLEVEL} #{Pry.config.prompt_name}(#{Pry.view_clip(obj)})#{":#{nest}" unless nest.zero?}* "
   end
 ]
 
