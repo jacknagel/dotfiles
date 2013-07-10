@@ -43,5 +43,3 @@ Pry.config.prompt = [
     "[#{pry.input_array.size}] #{RUBY_VERSION}p#{RUBY_PATCHLEVEL} #{Pry.config.prompt_name}(#{Pry.view_clip(obj)})#{":#{nest}" unless nest.zero?}* "
   end
 ]
-
-extend(Rails::ConsoleMethods) if defined?(Rails)
