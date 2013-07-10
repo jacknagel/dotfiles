@@ -27,7 +27,9 @@
 	sd = stash drop
 	sc = stash clear
 	csq	= commit --squash
+	rba	= rebase --abort
 	rbc	= rebase --continue
+	rbs	= rebase --skip
 	top	= shortlog -ns
 	wip	= commit -amwip
 	egrep	= grep -E
