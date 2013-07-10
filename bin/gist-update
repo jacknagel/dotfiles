@@ -1,12 +1,9 @@
-#!/usr/bin/env ruby -w
+#!/usr/bin/env ruby
 
-require 'open-uri'
-require 'rubygems'
-require 'json'
+gem 'octokit', '~> 1.25.0'
+require 'octokit'
 
-UNAME = "jacknagel"
-TOKEN = File.read("#{ENV['HOME']}/.gist").strip
-DIR   = "#{ENV['HOME']}/src/gists"
+DIR = "#{ENV['HOME']}/src/gists"
 
 def git(*args)
   args.unshift 'git'
@@ -14,25 +11,14 @@ def git(*args)
   Kernel.system(*args)
 end
 
-def open(url, headers={}, &block)
-  default = {
-    'User-Agent'    => 'gist-update',
-    'Authorization' => "token #{TOKEN}",
-  }
-  Kernel.open(url, default.merge(headers), &block)
-end
-
-page = 1
-
-while page
-  open("https://api.github.com/users/#{UNAME}/gists?page=#{page}") do |f|
-    f.meta.fetch('link').include?('next') ? page += 1 : page = nil
-    JSON.parse(f.read).map{ |g| g['id'] }.each do |id|
-      if File.directory? "#{DIR}/gist-#{id}"
-        git "--git-dir=#{DIR}/gist-#{id}/.git", "--work-tree=#{DIR}/gist-#{id}", "pull", "-q"
-      else
-        git "clone", "-q", "git@gist.github.com:#{id}.git", "#{DIR}/gist-#{id}"
-      end
-    end
+Octokit::Client.new(
+  login: ENV.fetch('GIST_USER') { 'jacknagel' },
+  oauth_token: ENV.fetch('GIST_TOKEN') { File.read("#{ENV['HOME']}/.gist").strip },
+  auto_traversal: true
+).gists.map(&:id).each do |id|
+  if File.directory? "#{DIR}/gist-#{id}"
+    git "--git-dir=#{DIR}/gist-#{id}/.git", "--work-tree=#{DIR}/gist-#{id}", "pull", "-q"
+  else
+    git "clone", "-q", "git@gist.github.com:#{id}.git", "#{DIR}/gist-#{id}"
   end
 end
