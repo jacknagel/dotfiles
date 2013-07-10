@@ -55,7 +55,22 @@ shopt -s checkjobs 2>/dev/null
 shopt -s checkwinsize
 
 cd () {
-  builtin cd "$@" >/dev/null
+  builtin cd "$@" >/dev/null || return
+  binstubs_hook
+}
+
+binstubs_hook () {
+  if [ -d ".git/trustbin" ]; then
+    if [ -n "$GIT_BIN_IN_PATH" ]; then
+      return
+    else
+      GIT_BIN_IN_PATH=1
+      prepend_path PATH ".git/trustbin/../../bin"
+    fi
+  elif [ -n "$GIT_BIN_IN_PATH" ]; then
+    remove_path PATH ".git/trustbin/../../bin"
+    unset GIT_BIN_IN_PATH
+  fi
 }
 
 bold="\[\033[1m\]"

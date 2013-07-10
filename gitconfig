@@ -33,6 +33,7 @@
 	top	= shortlog -ns
 	egrep	= grep -E
 	fgrep	= grep -F
+	trust   = !mkdir -p .git/trustbin
 [branch]
 	autosetupmerge = always
 	autosetuprebase = always
