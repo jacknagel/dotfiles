@@ -78,12 +78,14 @@ set ttimeoutlen=50
 
 set wildmenu
 set wildmode=longest:full,full
-set wildignore+=*.aux,*.out
-set wildignore+=*.sw?
+set wildignore+=*~,*.s[a-w][a-z],*.un~,Session.vim
 set wildignore+=.DS_Store
-set wildignore+=*.[oa],*.so,*.dylib
-set wildignore+=*/_undo/*
 set wildignore+=tags
+set wildignore+=*.aux,*.out
+set wildignore+=*.class,*.pyc
+set wildignore+=*.[oa],*.so,*.dylib
+set wildignore+=tmp/**
+set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**
 
 set spelllang=en_us
 set spellfile^=$HOME/.vim/spell/en_us.utf-8.add
