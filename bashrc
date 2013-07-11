@@ -30,8 +30,7 @@ export CLICOLOR LSCOLORS GREP_OPTIONS GREP_COLORS
 
 
 FIGNORE=".swp"
-COPYFILE_DISABLE=1 #no ._ (OS X resource fork) files in archives
-export FIGNORE COPYFILE_DISABLE
+export FIGNORE
 
 
 [ -d "$HOME/.history" ] || mkdir "$HOME/.history"
