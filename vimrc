@@ -85,6 +85,9 @@ set wildignore+=*.[oa],*.so,*.dylib
 set wildignore+=*/_undo/*
 set wildignore+=tags
 
+set spelllang=en_us
+set spellfile^=$HOME/.vim/spell/en_us.utf-8.add
+
 " plugin settings
 let g:vitality_fix_cursor = 0
 
