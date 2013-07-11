@@ -148,11 +148,7 @@ vnoremap < <gv
 
 function! FugitiveStatuslineWrapper()
   let head = fugitive#head(7)
-  if head != ""
-    return " [".head."]"
-  else
-    return ""
-  endif
+  return head == "" ? "" : " [".head."]"
 endfunction
 
 augroup filetypes
