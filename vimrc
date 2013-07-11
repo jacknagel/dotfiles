@@ -96,6 +96,9 @@ set spelllang=en_us
 set spellfile^=$HOME/.vim/spell/en.utf-8.add
 set thesaurus+=$HOME/.vim/spell/mthesaur.txt
 
+set splitbelow
+set splitright
+
 " plugin settings
 let g:vitality_fix_cursor = 0
 
@@ -251,7 +254,6 @@ augroup windows
   autocmd!
   autocmd VimEnter * set wh=5 wmh=5 wh=999 hh=999 cwh=999
   autocmd VimEnter * set wiw=80
-  autocmd VimEnter * set splitright
   autocmd VimResized * wincmd =
 augroup END
 
