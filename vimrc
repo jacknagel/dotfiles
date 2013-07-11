@@ -10,7 +10,7 @@ runtime macros/matchit.vim
 set nocompatible
 set encoding=utf-8
 set history=1000
-set viminfo='50,h,n~/.vim/viminfo
+set viminfo=!,'50,<50,s10,h,n$HOME/.vim/viminfo
 
 if has("persistent_undo")
   set undodir^=$HOME/.vim/_undo
