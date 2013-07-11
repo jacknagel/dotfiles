@@ -60,7 +60,12 @@ set completeopt=menuone,longest,preview
 set complete-=i
 set infercase
 
-set formatoptions+=rj
+set formatoptions+=r
+
+if v:version > 703 || v:version == 703 && has("patch541")
+  set formatoptions+=j
+endif
+
 set listchars=tab:▸\ ,eol:$
 
 set statusline=%<                   " truncation point
