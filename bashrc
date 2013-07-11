@@ -87,6 +87,7 @@ if [ -f "$HOME/src/git/contrib/completion/git-prompt.sh" ]; then
   GIT_PS1_SHOWCOLORHINTS=1
   GIT_PS1_SHOWUNTRACKEDFILES=1
   GIT_PS1_SHOWUPSTREAM=auto
+  GIT_PS1_DESCRIBE_STYLE=branch
   PROMPT_COMMAND="__git_ps1 '\u@\h${blue}:\W${reset}' ' ${bold}\\$ ${reset}' '(%s)'"
 fi
 
