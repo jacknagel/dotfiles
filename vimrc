@@ -60,7 +60,7 @@ set completeopt=menuone,longest,preview
 set complete-=i
 set infercase
 
-set formatoptions+=r
+set formatoptions+=rj
 set listchars=tab:▸\ ,eol:$
 
 set statusline=%<                   " truncation point
