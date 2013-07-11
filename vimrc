@@ -51,9 +51,6 @@ set smartcase
 set incsearch
 set hlsearch
 
-set wildmode=longest:full,full
-set wildmenu
-
 set autoindent
 set expandtab
 set smarttab
@@ -62,6 +59,7 @@ set shiftround
 set completeopt=menuone,longest,preview
 set complete-=i
 set infercase
+
 set formatoptions+=r
 set listchars=tab:▸\ ,eol:$
 
@@ -78,11 +76,14 @@ set ttimeout
 set timeoutlen=1200
 set ttimeoutlen=50
 
+set wildmenu
+set wildmode=longest:full,full
 set wildignore+=*.aux,*.out
 set wildignore+=*.sw?
 set wildignore+=.DS_Store
 set wildignore+=*.[oa],*.so,*.dylib
 set wildignore+=*/_undo/*
+set wildignore+=tags
 
 " plugin settings
 let g:vitality_fix_cursor = 0
