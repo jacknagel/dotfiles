@@ -89,6 +89,7 @@ set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**
 
 set spelllang=en_us
 set spellfile^=$HOME/.vim/spell/en_us.utf-8.add
+set thesaurus+=$HOME/.vim/spell/mthesaur.txt
 
 " plugin settings
 let g:vitality_fix_cursor = 0
