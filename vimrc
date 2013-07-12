@@ -113,13 +113,12 @@ imap <Left>  <Nop>
 imap <Right> <Nop>
 imap <Up>    <Nop>
 imap <Down>  <Nop>
+nmap Q       <Nop>
 
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l
-
-nnoremap Q :<C-U>q<CR>
 
 " break undo in sensible places
 inoremap <CR>  <C-G>u<CR>
