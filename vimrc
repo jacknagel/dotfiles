@@ -43,7 +43,7 @@ set showtabline=2
 set cursorline
 set shortmess=aIoOtT
 set lazyredraw
-set virtualedit=block
+set virtualedit+=block
 set nojoinspaces
 
 set ignorecase
