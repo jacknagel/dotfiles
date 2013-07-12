@@ -51,6 +51,7 @@ unset agent
 GPG_TTY=$(tty)
 export GPG_TTY GPG_AGENT_INFO
 
+[ ! -x /bin/stty ] || stty -ixon
 
 alias cd..="cd .."
 alias du1="du -h -d1"
