@@ -233,7 +233,6 @@ augroup git
   autocmd BufReadPost COMMIT_EDITMSG,TAG_EDITMSG exe "normal! gg"
   autocmd BufNewFile,BufRead TAG_EDITMSG setf gitcommit
   autocmd BufNewFile,BufRead gitconfig setf gitconfig
-  autocmd FileType gitrebase nnoremap <buffer> <silent> S :Cycle<CR>
   autocmd FileType gitcommit set spell
 augroup END
 
