@@ -237,7 +237,7 @@ augroup git
   autocmd BufReadPost COMMIT_EDITMSG,TAG_EDITMSG exe "normal! gg"
   autocmd BufNewFile,BufRead TAG_EDITMSG setf gitcommit
   autocmd BufNewFile,BufRead gitconfig setf gitconfig
-  autocmd FileType gitcommit set spell
+  autocmd FileType gitcommit set spell nonumber
 augroup END
 
 augroup hlsearch
