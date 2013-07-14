@@ -148,6 +148,10 @@ nnoremap <Leader>l :set list!<CR>
 vnoremap > >gv
 vnoremap < <gv
 
+function! s:map_CR()
+  nnoremap <silent> <CR> :nohlsearch<CR>
+endfunction
+
 function! FugitiveStatuslineWrapper()
   let head = fugitive#head(7)
   return head == "" ? "" : " [".head."]"
@@ -238,11 +242,10 @@ augroup END
 
 augroup hlsearch
   autocmd!
-  autocmd VimEnter * doautocmd User MapCR
+  autocmd VimEnter * call s:map_CR()
   autocmd CmdWinEnter * nunmap <CR>
-  autocmd CmdWinLeave * doautocmd User MapCR
-  autocmd InsertEnter,InsertLeave * set invhlsearch
-  autocmd User MapCR nnoremap <silent> <CR> :nohlsearch<CR>
+  autocmd CmdWinLeave * call s:map_CR()
+  autocmd InsertEnter,InsertLeave * set hlsearch!
 augroup END
 
 augroup windows
