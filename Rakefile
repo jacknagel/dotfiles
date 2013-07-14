@@ -83,6 +83,7 @@ namespace :ruby do
 
     desc 'Install base gems for the current Ruby'
     task :bootstrap do
+      sh 'gem', 'update', '--system'
       sh 'gem', 'install', *DEFAULT_GEMS
       sh 'gem', 'ctags'
     end
