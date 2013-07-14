@@ -1,5 +1,4 @@
 $LOAD_PATH.unshift(File.expand_path("~/.ruby"))
-$LOAD_PATH.unshift(File.expand_path("."))
 $LOAD_PATH.uniq!
 
 %w{
