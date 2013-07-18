@@ -1,6 +1,4 @@
-*.rb		diff=ruby
-*.tar		diff=tar
-*.t[bg]z	diff=tar
-*.tar.bz2	diff=tar
-*.tar.gz	diff=tar
-*.tar.Z 	diff=tar
+*.rb         diff=ruby
+*.t[bg]z     diff=tar
+*.tar.*      diff=tar
+Gemfile.lock merge=bundle

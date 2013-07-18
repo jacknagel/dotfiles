@@ -76,6 +76,9 @@
 	decorate = short
 [merge]
 	conflictstyle = diff3
+[merge "bundle"]
+	name = bundle
+	driver = bundle
 [pager]
 	log = less -+$LESS -iRSq
 [push]
