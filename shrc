@@ -21,7 +21,7 @@ prepend_path () {
   shift
   for dir in "$@"; do
     remove_path "$var" "$dir"
-    [ -d "$dir" ] && eval "${var}=${dir}:\$${var}"
+    [ -d "$dir" ] && eval "${var}=\${dir}\${${var}:+:\$${var}}"
   done
 }
 
@@ -31,7 +31,7 @@ append_path () {
   shift
   for dir in "$@"; do
     remove_path "$var" "$dir"
-    [ -d "$dir" ] && eval "${var}=\$${var}:${dir}"
+    [ -d "$dir" ] && eval "${var}=\${${var}:+\$${var}:}\${dir}"
   done
 }
 
