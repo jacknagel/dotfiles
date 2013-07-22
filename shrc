@@ -1,10 +1,15 @@
 # vim:set ft=sh et sw=2:
 
+indirect_expand () {
+  IFS=$' \t\n'
+  eval echo \$$1
+}
+
 remove_path () {
   local IFS=':'
   local dir val
   local var="$1"
-  for dir in ${!var}; do
+  for dir in $(indirect_expand "$var"); do
     [ -d "$dir" -a "$dir" != "$2" ] && val="${val:+$val:}$dir"
   done
   eval $var="$val"
