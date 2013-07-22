@@ -10,7 +10,7 @@ remove_path () {
   local dir val
   local var="$1"
   for dir in $(indirect_expand "$var"); do
-    [ -d "$dir" -a "$dir" != "$2" ] && val="${val:+$val:}$dir"
+    [ "$dir" != "$2" ] && val="${val:+$val:}$dir"
   done
   eval $var="$val"
 }
