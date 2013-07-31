@@ -177,7 +177,7 @@ augroup filetypes
     \ if g:html_indent_tags !~# '\v\|p>' |
     \   let g:html_indent_tags .= '\|p\|li\|dt\|dd\|nav\|header\|footer' |
     \ endif
-  autocmd FileType help nnoremap <silent> <buffer> q :q<cr>
+  autocmd FileType help,qf nnoremap <silent> <buffer> q :<C-U>q<CR>
 augroup END
 
 augroup completion
