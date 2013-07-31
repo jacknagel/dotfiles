@@ -60,6 +60,7 @@ set completeopt=menuone,longest,preview
 set complete-=i
 set infercase
 
+set nrformats-=octal
 set formatoptions+=r
 
 if v:version > 703 || v:version == 703 && has("patch541")
