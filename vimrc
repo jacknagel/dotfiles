@@ -174,7 +174,7 @@ augroup filetypes
   autocmd FileType python                 setlocal ai et sta sw=4
   autocmd Filetype java                   setlocal ai et sta sw=4 cin
   autocmd FileType eruby,html
-    \ if g:html_indent_tags !~# '\v\|p>' |
+    \ if exists("g:html_indent_tags") && g:html_indent_tags !~# '\v\|p>' |
     \   let g:html_indent_tags .= '\|p\|li\|dt\|dd\|nav\|header\|footer' |
     \ endif
   autocmd FileType help,qf nnoremap <silent> <buffer> q :<C-U>q<CR>
