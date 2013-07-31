@@ -58,14 +58,10 @@ export GPG_TTY GPG_AGENT_INFO
 
 [ ! -x /bin/stty ] || stty -ixon
 
-alias cd..="cd .."
+alias be="bundle exec"
 alias du1="du -h -d1"
 alias sqlite="sqlite3"
 alias vi="vim"
-alias be="bundle exec"
-alias bi="bundle install"
-alias bis="bundle install --standalone --binstubs"
-
 
 AWS_CONFIG_FILE="$HOME/.awsconfig"
 if [ -f "$AWS_CONFIG_FILE" ]; then
