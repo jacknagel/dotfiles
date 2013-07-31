@@ -166,6 +166,7 @@ augroup filetypes
   autocmd FileType ruby,cucumber,yaml     setlocal ai et sta sw=2 sts=2
   autocmd FileType css,scss,sass          setlocal ai et sta sw=2 sts=2
   autocmd FileType javascript             setlocal ai et sta sw=2 sts=2 cin
+  autocmd FileType coffee                 setlocal ai et sta sw=2 sts=2
   autocmd FileType eruby,haml,html        setlocal ai et sta sw=2 sts=2
   autocmd FileType vim                    setlocal ai et sta sw=2 sts=2 kp=:help
   autocmd FileType sh                     setlocal ai et sta sw=2 sts=2
