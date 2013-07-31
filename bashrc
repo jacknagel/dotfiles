@@ -63,10 +63,12 @@ binstubs_hook () {
     else
       GIT_BIN_IN_PATH=1
       prepend_path PATH ".git/trustbin/../../bin"
+      hash -r 2>/dev/null
     fi
   elif [ -n "$GIT_BIN_IN_PATH" ]; then
     remove_path PATH ".git/trustbin/../../bin"
     unset GIT_BIN_IN_PATH
+    hash -r 2>/dev/null
   fi
 }
 
