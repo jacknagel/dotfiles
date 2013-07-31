@@ -160,19 +160,19 @@ endfunction
 
 augroup filetypes
   autocmd!
-  autocmd FileType c                      setlocal ai et sta sw=4 sts=4 cin
+  autocmd FileType c                      setlocal ai et sta sw=4 cin
   autocmd FileType make                   setlocal ai noet sta
   autocmd FileType gitconfig              setlocal ai noet sta
-  autocmd FileType sql                    setlocal ai et sta sw=2 sts=2
-  autocmd FileType ruby,cucumber,yaml     setlocal ai et sta sw=2 sts=2
-  autocmd FileType css,scss,sass          setlocal ai et sta sw=2 sts=2
-  autocmd FileType javascript             setlocal ai et sta sw=2 sts=2 cin
-  autocmd FileType coffee                 setlocal ai et sta sw=2 sts=2
-  autocmd FileType eruby,haml,html        setlocal ai et sta sw=2 sts=2
-  autocmd FileType vim                    setlocal ai et sta sw=2 sts=2 kp=:help
-  autocmd FileType sh                     setlocal ai et sta sw=2 sts=2
-  autocmd FileType python                 setlocal ai et sta sw=4 sts=4
-  autocmd Filetype java                   setlocal ai et sta sw=4 sts=4 cin
+  autocmd FileType sql                    setlocal ai et sta sw=2
+  autocmd FileType ruby,cucumber,yaml     setlocal ai et sta sw=2
+  autocmd FileType css,scss,sass          setlocal ai et sta sw=2
+  autocmd FileType javascript             setlocal ai et sta sw=2 cin
+  autocmd FileType coffee                 setlocal ai et sta sw=2
+  autocmd FileType eruby,haml,html        setlocal ai et sta sw=2
+  autocmd FileType vim                    setlocal ai et sta sw=2 kp=:help
+  autocmd FileType sh                     setlocal ai et sta sw=2
+  autocmd FileType python                 setlocal ai et sta sw=4
+  autocmd Filetype java                   setlocal ai et sta sw=4 cin
   autocmd FileType eruby,html
     \ if g:html_indent_tags !~# '\v\|p>' |
     \   let g:html_indent_tags .= '\|p\|li\|dt\|dd\|nav\|header\|footer' |
