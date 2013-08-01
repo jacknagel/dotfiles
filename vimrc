@@ -177,13 +177,13 @@ augroup filetypes
   autocmd FileType sql                    setlocal ai et sta sw=2
   autocmd FileType ruby,cucumber,yaml     setlocal ai et sta sw=2
   autocmd FileType css,scss,sass          setlocal ai et sta sw=2
-  autocmd FileType javascript             setlocal ai et sta sw=2 cin
+  autocmd FileType javascript             setlocal ai et sta sw=2
   autocmd FileType coffee                 setlocal ai et sta sw=2
   autocmd FileType eruby,haml,html        setlocal ai et sta sw=2
   autocmd FileType vim                    setlocal ai et sta sw=2 kp=:help
   autocmd FileType sh                     setlocal ai et sta sw=2
   autocmd FileType python                 setlocal ai et sta sw=4
-  autocmd Filetype java                   setlocal ai et sta sw=4 cin
+  autocmd Filetype java                   setlocal ai et sta sw=4
   autocmd FileType help,qf nnoremap <silent> <buffer> q :<C-U>q<CR>
   autocmd FileType help                   setlocal kp=:help
 augroup END
