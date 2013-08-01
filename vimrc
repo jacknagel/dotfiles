@@ -185,6 +185,7 @@ augroup filetypes
   autocmd FileType python                 setlocal ai et sta sw=4
   autocmd Filetype java                   setlocal ai et sta sw=4 cin
   autocmd FileType help,qf nnoremap <silent> <buffer> q :<C-U>q<CR>
+  autocmd FileType help                   setlocal kp=:help
 augroup END
 
 augroup html
