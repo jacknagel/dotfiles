@@ -153,6 +153,17 @@ function! s:map_CR()
   nnoremap <silent> <CR> :nohlsearch<CR>
 endfunction
 
+function! s:popular_html_indent_tags()
+  let g:html_indent_script1 = "inc"
+  let g:html_indent_style1  = "inc"
+  let g:html_indent_inctags = "dd,dt,li,p,tbody"
+
+  " support legacy indent script
+  if exists("g:html_indent_tags") && g:html_indent_tags !~# '\v\|p>'
+    let g:html_indent_tags .= '\|p\|li\|dt\|dd\|nav\|header\|footer'
+  endif
+endfunction
+
 function! FugitiveStatuslineWrapper()
   let head = fugitive#head(7)
   return head == "" ? "" : " [".head."]"
@@ -173,11 +184,11 @@ augroup filetypes
   autocmd FileType sh                     setlocal ai et sta sw=2
   autocmd FileType python                 setlocal ai et sta sw=4
   autocmd Filetype java                   setlocal ai et sta sw=4 cin
-  autocmd FileType eruby,html
-    \ if exists("g:html_indent_tags") && g:html_indent_tags !~# '\v\|p>' |
-    \   let g:html_indent_tags .= '\|p\|li\|dt\|dd\|nav\|header\|footer' |
-    \ endif
   autocmd FileType help,qf nnoremap <silent> <buffer> q :<C-U>q<CR>
+augroup END
+
+augroup html
+  autocmd FileType eruby,html call s:populate_html_indent_tags()
 augroup END
 
 augroup completion
