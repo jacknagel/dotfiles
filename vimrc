@@ -153,7 +153,7 @@ function! s:map_CR()
   nnoremap <silent> <CR> :nohlsearch<CR>
 endfunction
 
-function! s:popular_html_indent_tags()
+function! s:populate_html_indent_tags()
   let g:html_indent_script1 = "inc"
   let g:html_indent_style1  = "inc"
   let g:html_indent_inctags = "dd,dt,li,p,tbody"
@@ -188,7 +188,7 @@ augroup filetypes
   autocmd FileType help                   setlocal kp=:help
 augroup END
 
-augroup html
+augroup html_indent
   autocmd FileType eruby,html call s:populate_html_indent_tags()
 augroup END
 
