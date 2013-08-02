@@ -171,7 +171,7 @@ endfunction
 
 augroup filetypes
   autocmd!
-  autocmd FileType c                      setlocal ai et sta sw=4 cin
+  autocmd FileType c                      setlocal ai et sta sw=4
   autocmd FileType make                   setlocal ai noet sta
   autocmd FileType gitconfig              setlocal ai noet sta
   autocmd FileType sql                    setlocal ai et sta sw=2
