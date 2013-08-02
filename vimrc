@@ -1,4 +1,4 @@
-" vim:set sts=2 sw=2 et:
+" vim:set et sw=2:
 
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
