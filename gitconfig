@@ -11,6 +11,7 @@
 	dc = diff --cached
 	dh = diff HEAD
 	di = diff
+	du = diff @{u}
 	ff = merge --ff-only
 	fp = format-patch
 	fx = commit --fixup
