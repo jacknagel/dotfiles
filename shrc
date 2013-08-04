@@ -48,7 +48,7 @@ export PATH MANPATH INFOPATH
 agent="$HOME/.gnupg/.gpg-agent-info"
 if [ -f "$agent" ] && kill -0 "$(grep -e "GPG_AGENT_INFO" "$agent" | cut -d: -f 2)" 2>/dev/null
 then
-  eval "$(cat "$agent")"
+  eval "$(<"$agent")"
 else
   eval "$(gpg-agent --daemon --write-env-file="$agent")"
 fi
