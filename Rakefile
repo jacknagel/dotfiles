@@ -8,7 +8,7 @@ desc 'Install dotfiles'
 task :dotfiles => %w{dotfiles:link}
 
 desc 'Bootstrap vim setup'
-task :vim => %w{vim:tmp}
+task :vim => %w{vim:tmp vim:helptags}
 
 desc 'Update submodules'
 task :submodules => %w{submodules:update submodules:pull}
@@ -43,6 +43,10 @@ end
 namespace :vim do
   task :tmp do
     mkdir_p %w{vim/_backup vim/_swap vim/_undo}
+  end
+
+  task :helptags do
+    sh 'vim', '-e', '-c', 'Helptags', '-c', 'q'
   end
 end
 
