@@ -105,7 +105,7 @@ let g:vitality_fix_cursor = 0
 
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
-let g:html_indent_inctags = "body,dd,dt,head,li,p,tbody"
+let g:html_indent_inctags = "body,dd,dt,head,html,li,p,tbody"
 
 " mappings
 let mapleader = ","
