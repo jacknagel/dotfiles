@@ -103,6 +103,10 @@ set splitright
 " plugin settings
 let g:vitality_fix_cursor = 0
 
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1  = "inc"
+let g:html_indent_inctags = "body,dd,dt,head,li,p,tbody"
+
 " mappings
 let mapleader = ","
 
@@ -153,17 +157,6 @@ function! s:map_CR()
   nnoremap <silent> <CR> :nohlsearch<CR>
 endfunction
 
-function! s:populate_html_indent_tags()
-  let g:html_indent_script1 = "inc"
-  let g:html_indent_style1  = "inc"
-  let g:html_indent_inctags = "dd,dt,li,p,tbody"
-
-  " support legacy indent script
-  if exists("g:html_indent_tags") && g:html_indent_tags !~# '\v\|p>'
-    let g:html_indent_tags .= '\|p\|li\|dt\|dd\|nav\|header\|footer'
-  endif
-endfunction
-
 function! FugitiveStatuslineWrapper()
   let head = fugitive#head(7)
   return head == "" ? "" : " [".head."]"
@@ -186,10 +179,6 @@ augroup filetypes
   autocmd Filetype java                   setlocal ai et sta sw=4
   autocmd FileType help,qf nnoremap <silent> <buffer> q :<C-U>q<CR>
   autocmd FileType help                   setlocal kp=:help
-augroup END
-
-augroup html_indent
-  autocmd FileType eruby,html call s:populate_html_indent_tags()
 augroup END
 
 augroup completion
