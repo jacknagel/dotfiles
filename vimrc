@@ -164,19 +164,19 @@ endfunction
 
 augroup filetypes
   autocmd!
-  autocmd FileType c                      setlocal ai et sta sw=4
-  autocmd FileType make                   setlocal ai noet sta
-  autocmd FileType gitconfig              setlocal ai noet sta
-  autocmd FileType sql                    setlocal ai et sta sw=2
-  autocmd FileType ruby,cucumber,yaml     setlocal ai et sta sw=2
-  autocmd FileType css,scss,sass          setlocal ai et sta sw=2 isk+=-
-  autocmd FileType javascript             setlocal ai et sta sw=2 isk+=$
-  autocmd FileType coffee                 setlocal ai et sta sw=2 isk+=$
-  autocmd FileType eruby,haml,html        setlocal ai et sta sw=2
-  autocmd FileType vim                    setlocal ai et sta sw=2 kp=:help
-  autocmd FileType sh                     setlocal ai et sta sw=2
-  autocmd FileType python                 setlocal ai et sta sw=4
-  autocmd Filetype java                   setlocal ai et sta sw=4
+  autocmd FileType c                      setlocal ai et sw=4
+  autocmd FileType make                   setlocal ai noet
+  autocmd FileType gitconfig              setlocal ai noet
+  autocmd FileType sql                    setlocal ai et sw=2
+  autocmd FileType ruby,cucumber,yaml     setlocal ai et sw=2
+  autocmd FileType css,scss,sass          setlocal ai et sw=2 isk+=-
+  autocmd FileType javascript             setlocal ai et sw=2 isk+=$
+  autocmd FileType coffee                 setlocal ai et sw=2 isk+=$
+  autocmd FileType eruby,haml,html        setlocal ai et sw=2
+  autocmd FileType vim                    setlocal ai et sw=2 kp=:help
+  autocmd FileType sh                     setlocal ai et sw=2
+  autocmd FileType python                 setlocal ai et sw=4
+  autocmd Filetype java                   setlocal ai et sw=4
   autocmd FileType help,qf nnoremap <silent> <buffer> q :<C-U>q<CR>
   autocmd FileType help                   setlocal kp=:help
 augroup END
