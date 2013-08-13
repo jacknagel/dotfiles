@@ -1,11 +1,8 @@
 --- 
+:sources:
+  - https://rubygems.org
 :verbose: true
 :update_sources: true
-:sources: 
-  - https://rubygems.org
-:bulk_threshold: 1000
-:backtrace: false
-:benchmark: false
-install: --no-document
-update: --no-document
-search: --remote
+install: --env-shebang --no-document
+pristine: --env-shebang
+update: --env-shebang --no-document
