@@ -221,6 +221,11 @@ augroup lastposjump
     \ endif
 augroup END
 
+augroup undo
+ autocmd!
+ autocmd CursorHoldI * silent! call feedkeys("\<C-G>u", "nt")
+augroup END
+
 augroup focus
   autocmd!
   autocmd FocusLost * silent! wall
