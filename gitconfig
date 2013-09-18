@@ -30,6 +30,7 @@
 	csq	= commit --squash
 	rba	= rebase --abort
 	rbc	= rebase --continue
+	rbi	= rebase --interactive
 	rbs	= rebase --skip
 	top	= shortlog -ns
 	wip	= commit -amwip
