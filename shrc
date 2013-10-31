@@ -76,7 +76,7 @@ case "$(uname)" in
 
     if [ -d "/opt/X11" ]; then
       append_path PATH /opt/X11/bin
-    elif [-d "/usr/X11" ]; then
+    elif [ -d "/usr/X11" ]; then
       append_path PATH /usr/X11/bin
     fi
 
