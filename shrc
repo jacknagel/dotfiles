@@ -50,7 +50,7 @@ if [ -f "$agent" ] && kill -0 "$(grep -e "GPG_AGENT_INFO" "$agent" | cut -d: -f 
 then
   eval "$(<"$agent")"
 else
-  eval "$(gpg-agent --daemon --write-env-file="$agent")"
+  type -p gpg-agent >/dev/null && eval "$(gpg-agent --daemon --write-env-file="$agent")"
 fi
 unset agent
 GPG_TTY=$(tty)
