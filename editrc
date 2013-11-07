@@ -2,3 +2,5 @@ edit on
 bind -v
 eind ^R em-inc-search-prev
 bind ^S em-inc-search-next
+
+lldb:bind ^I lldb_complete
