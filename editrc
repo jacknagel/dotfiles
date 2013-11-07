@@ -1,5 +1,4 @@
 edit on
 bind -v
-bind "\t" rl_complete
-bind "^R" em-inc-search-prev
-bind "^S" em-inc-search-next
+eind ^R em-inc-search-prev
+bind ^S em-inc-search-next
