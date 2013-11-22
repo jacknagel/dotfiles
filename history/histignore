@@ -5,6 +5,7 @@ jobs
 %1
 %2
 brew update
+brw
 cd
 cd ..
 exit
@@ -15,8 +16,6 @@ git au
 git b[rv]
 git c[aiosv]
 git d[ci]
-git fetch --prune
-git fetch -p
 git lg
 git reset --hard
 git s[at]
