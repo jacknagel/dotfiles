@@ -98,7 +98,7 @@ namespace :ruby do
     task :bootstrap do
       sh 'gem', 'update', '--system'
       sh 'gem', 'install', *gems
-      sh 'gem', 'ctags'
+      sh 'gem', 'ripper_tags', '--reindex'
     end
   end
 end
