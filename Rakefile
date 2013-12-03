@@ -83,12 +83,21 @@ namespace :ruby do
   end
 
   namespace :gems do
-    DEFAULT_GEMS = %w{bundler ffi gem-browse gem-ctags pry pry-editline benchmark-ips}
+    gems = %w{
+      benchmark-ips
+      bundler
+      ffi
+      gem-browse
+      pry
+      pry-editline
+      ripper-tags
+      gem-ripper-tags
+    }
 
     desc 'Install base gems for the current Ruby'
     task :bootstrap do
       sh 'gem', 'update', '--system'
-      sh 'gem', 'install', *DEFAULT_GEMS
+      sh 'gem', 'install', *gems
       sh 'gem', 'ctags'
     end
   end
