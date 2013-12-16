@@ -19,7 +19,7 @@ namespace :dotfiles do
     relative_prefix = pwd.sub(home/'', '')
     files = FileList[%w{
       bash* shrc git* vim vimrc editrc inputrc
-      irbrc pryrc rdebugrc gemrc ruby ruby-version bundle
+      irbrc pryrc rdebugrc gemrc ruby bundle
       lesskey less ctags
       history sqliterc psqlrc gdbinit valgrindrc
     }].existing!
