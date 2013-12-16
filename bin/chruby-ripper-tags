@@ -5,7 +5,7 @@ shopt -s nullglob
 
 index() {
   echo "  indexing $1"
-  (builtin cd "$1"; ctags -R --languages=ruby)
+  (builtin cd "$1"; ripper-tags -R)
 }
 
 index_LOAD_PATH() {
