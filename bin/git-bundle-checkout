@@ -1,23 +1,31 @@
 #!/usr/bin/env ruby -w
 
-def partial?(flag)
-  flag == '0'
+class Checkout
+  attr_reader :old, :new, :flag
+
+  def initialize(old, new, flag)
+    @old  = old
+    @old  = "4b825dc642cb6eb9a060e54bf8d69288fbee4904" if old == "0"*40
+    @new  = new
+    @flag = flag
+  end
+
+  def partial?
+    flag == "0"
+  end
+
+  def bundle_changed?
+    !system(*%W{git diff-tree --quiet -w --diff-filter=AM #{old} #{new} -- Gemfile* *.gemspec})
+  end
 end
 
-def bundle_changed?(old, new)
-  !system(*%W{git diff-tree --quiet -w --diff-filter=AM #{old} #{new} -- Gemfile* *.gemspec})
-end
+checkout = Checkout.new(*ARGV)
 
-old, new, flag = *ARGV
-old = '4b825dc642cb6eb9a060e54bf8d69288fbee4904' if old == '0'*40
-
-if !partial?(flag) && bundle_changed?(old, new)
-  ENV.delete('GIT_DIR')
-  %x{bundle check}
-
-  unless $?.success?
-    %x{bundle}.each_line do |line|
+if not checkout.partial? and checkout.bundle_changed?
+  IO.popen("bundle") do |io|
+    until io.eof?
+      line = io.readline.chomp
       puts line unless /^Using|^It was|complete!$/ === line
     end
-  end
+  end unless system "bundle", "check"
 end
