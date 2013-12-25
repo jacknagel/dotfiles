@@ -73,3 +73,6 @@
 [submodule "vim/bundle/slim"]
 	path = vim/bundle/slim
 	url = https://github.com/slim-template/vim-slim.git
+[submodule "vim/bundle/vinegar"]
+	path = vim/bundle/vinegar
+	url = https://github.com/tpope/vim-vinegar.git
