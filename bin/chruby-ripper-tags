@@ -42,7 +42,10 @@ case "$#" in
     ;;
   *)
     for dir in ${RUBIES[@]}; do
-      [[ "${dir##*/}" == *"$1"* ]] && match="$dir"
+      case "${dir##*/}" in
+        "$1") match="$dir" && break ;;
+        *"$1"*) match="$dir" ;;
+      esac
     done
 
     if [[ -n "$match" ]]; then
