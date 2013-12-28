@@ -52,24 +52,7 @@ export CLICOLOR LSCOLORS GREP_OPTIONS GREP_COLORS
 
 
 cd () {
-  builtin cd "$@" >/dev/null || return
-  binstubs_hook
-}
-
-binstubs_hook () {
-  if [ -d ".git/trustbin" ]; then
-    if [ -n "$GIT_BIN_IN_PATH" ]; then
-      return
-    else
-      GIT_BIN_IN_PATH=1
-      prepend_path PATH ".git/trustbin/../../bin"
-      hash -r 2>/dev/null
-    fi
-  elif [ -n "$GIT_BIN_IN_PATH" ]; then
-    remove_path PATH ".git/trustbin/../../bin"
-    unset GIT_BIN_IN_PATH
-    hash -r 2>/dev/null
-  fi
+  builtin cd "$@" >/dev/null
 }
 
 bold="\[\033[1m\]"
