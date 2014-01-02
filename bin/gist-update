@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-gem 'octokit', '~> 1.25.0'
+gem 'octokit', '~> 2.7'
 require 'octokit'
 
 DIR = "#{ENV['HOME']}/src/gists"
@@ -11,11 +11,15 @@ def git(*args)
   Kernel.system(*args)
 end
 
+def access_token
+  ENV.fetch('GIST_TOKEN') { File.read("#{ENV['HOME']}/.gist").strip }
+end
+
 Octokit::Client.new(
-  login: ENV.fetch('GIST_USER') { 'jacknagel' },
-  oauth_token: ENV.fetch('GIST_TOKEN') { File.read("#{ENV['HOME']}/.gist").strip },
-  auto_traversal: true
-).gists.map(&:id).each do |id|
+  access_token:  access_token,
+  auto_paginate: true
+).gists.each do |gist|
+  id = gist.id
   if File.directory? "#{DIR}/gist-#{id}"
     git "--git-dir=#{DIR}/gist-#{id}/.git", "--work-tree=#{DIR}/gist-#{id}", "pull", "-q"
   else
