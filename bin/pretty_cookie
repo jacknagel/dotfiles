@@ -7,7 +7,6 @@ cols     = 0
 
 ARGF.read.split(/[;,] */).each_with_object({}) { |cookie, h|
   k, v = cookie.split("=", 2).map { |s| URI.decode_www_form_component(s, encoding) }
-  len  = k.length
-  cols = [cols, len].max
+  cols = [cols, k.length].max
   h[k] = v
 }.each { |k, v| puts "#{k.rjust(cols)} = #{v}" }
