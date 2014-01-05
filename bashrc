@@ -5,7 +5,7 @@ export ENV="$HOME/.shrc"
 [ -z "$PS1" ] && return
 
 shopt -s cdspell
-shopt -s dirspell 2>/dev/null
+shopt -s direxpand 2>/dev/null && shopt -s dirspell
 shopt -s dotglob
 shopt -s extglob
 shopt -s globstar 2>/dev/null
