@@ -74,7 +74,7 @@ if [ -f "$HOME/src/git/contrib/completion/git-prompt.sh" ]; then
 fi
 
 if [ -f "/usr/local/share/bash-completion/bash_completion" ]; then
-  . "/usr/local/share/bash-completion/bash_completion"
+  . "/usr/local/share/bash-completion/bash_completion" 2>/dev/null
 fi
 
 if [ -d "/usr/local/opt/chruby" ]; then
