@@ -10,6 +10,10 @@ set show-all-if-ambiguous on
 set show-all-if-unmodified on
 set skip-completed-text on
 
+set input-meta on
+set output-meta on
+set convert-meta off
+
 set keymap vi-command
 "\e[A": history-search-backward
 "\e[B": history-search-forward
