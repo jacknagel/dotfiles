@@ -5,7 +5,7 @@ require "uri"
 encoding = Encoding::UTF_8
 cols     = 0
 
-ARGF.read.split(/[;,] */).each_with_object({}) { |cookie, h|
+ARGF.binmode.read.split(/[;,] */n).each_with_object({}) { |cookie, h|
   k, v = cookie.split("=", 2).map { |s| URI.decode_www_form_component(s, encoding) }
   cols = [cols, k.length].max
   h[k] = v
