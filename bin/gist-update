@@ -1,18 +1,18 @@
 #!/usr/bin/env ruby
 
-gem 'octokit', '~> 2.7'
+gem "octokit", "~> 2.7"
 require 'octokit'
 
-DIR = "#{ENV['HOME']}/src/gists"
+DIR = "#{ENV["HOME"]}/src/gists"
 
 def git(*args)
-  args.unshift 'git'
-  puts args*' ' if ARGV.include? '-d'
+  args.unshift "git"
+  puts args*" " if ARGV.include? "-d"
   Kernel.system(*args)
 end
 
 def access_token
-  ENV.fetch('GIST_TOKEN') { File.read("#{ENV['HOME']}/.gist").strip }
+  ENV.fetch("GIST_TOKEN") { File.read("#{ENV["HOME"]}/.gist").strip }
 end
 
 Octokit::Client.new(
