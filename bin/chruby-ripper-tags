@@ -36,14 +36,14 @@ RUBIES=()
 
 case "$#" in
   0)
-    for dir in ${RUBIES[@]}; do
+    for dir in "${RUBIES[@]}"; do
       index_LOAD_PATH "$dir"
     done
     ;;
   *)
-    for dir in ${RUBIES[@]}; do
+    for dir in "${RUBIES[@]}"; do
       case "${dir##*/}" in
-        "$1") match="$dir" && break ;;
+        "$1")   match="$dir" && break ;;
         *"$1"*) match="$dir" ;;
       esac
     done

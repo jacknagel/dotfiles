@@ -7,6 +7,6 @@ RUBIES=()
 [[ -d "$PREFIX/opt/rubies/" ]] && RUBIES+=("$PREFIX"/opt/rubies/*)
 [[ -d "$HOME/.rubies" ]] && RUBIES+=("$HOME"/.rubies/*)
 
-for dir in ${RUBIES[@]}; do
+for dir in "${RUBIES[@]}"; do
   chruby-exec "${dir##*/}" -- "$@"
 done
