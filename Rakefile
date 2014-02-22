@@ -4,19 +4,19 @@ end
 
 task :default => :dotfiles
 
-desc 'Install dotfiles'
+desc "Install dotfiles"
 task :dotfiles => %w{dotfiles:link}
 
-desc 'Bootstrap vim setup'
+desc "Bootstrap vim setup"
 task :vim => %w{vim:tmp vim:helptags}
 
-desc 'Update submodules'
+desc "Update submodules"
 task :submodules => %w{submodules:update submodules:pull}
 
 namespace :dotfiles do
   task :link do
-    home = ENV['HOME']
-    relative_prefix = pwd.sub(home/'', '')
+    home = ENV["HOME"]
+    relative_prefix = pwd.sub(home/"", "")
     files = FileList[%w{
       bash* shrc git* vim vimrc editrc inputrc
       irbrc pryrc rdebugrc gemrc ruby bundle
@@ -46,18 +46,18 @@ namespace :vim do
   end
 
   task :helptags do
-    sh 'vim', '-e', '-c', 'Helptags', '-c', 'q'
+    sh "vim", "-e", "-c", "Helptags", "-c", "q"
   end
 end
 
 namespace :submodules do
   task :update do
-    sh 'git', 'submodule', 'sync', '-q'
-    sh 'git', 'submodule', 'update', '--init', '-q'
+    sh "git", "submodule", "sync", "-q"
+    sh "git", "submodule", "update", "--init", "-q"
   end
 
   task :pull => :update do
-  sh 'git', 'submodule', 'foreach', '-q',
+  sh "git", "submodule", "foreach", "-q",
     %{git pull -q --ff-only && git --no-pager lg "master@{#{Time.now}}.." || :}
   end
 end
@@ -74,10 +74,10 @@ namespace :gems do
       gem-ripper-tags
   }
 
-  desc 'Install base gems for the current Ruby'
+  desc "Install base gems for the current Ruby"
   task :bootstrap do
-    sh 'gem', 'update', '--system'
-    sh 'gem', 'install', *gems
-    sh 'gem', 'ripper_tags', '--reindex'
+    sh "gem", "update", "--system"
+    sh "gem", "install", *gems
+    sh "gem", "ripper_tags", "--reindex"
   end
 end
