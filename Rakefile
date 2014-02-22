@@ -1,7 +1,3 @@
-class String
-  def /(o); "#{self}/#{o}" end
-end
-
 task :default => :dotfiles
 
 desc "Install dotfiles"
@@ -16,26 +12,24 @@ task :submodules => %w{submodules:update submodules:pull}
 namespace :dotfiles do
   task :link do
     home = ENV["HOME"]
-    relative_prefix = pwd.sub(home/"", "")
+    relative_prefix = pwd.sub("#{home}/", "")
     files = FileList[%w{
-      bash* shrc git* vim vimrc editrc inputrc
-      irbrc pryrc rdebugrc gemrc ruby bundle
-      lesskey less ctags
-      history sqliterc psqlrc gdbinit valgrindrc
+      bash* bundle ctags editrc gdbinit gemrc git* history inputrc irbrc
+      less lesskey pryrc psqlrc ruby shrc sqliterc valgrindrc vim vimrc
     }].existing!
 
-    files.zip(files.pathmap(home/".%p")) do |src, dst|
+    files.zip(files.pathmap(File.join(home, ".%p"))) do |src, dst|
       if File.symlink? dst and File.dirname(File.readlink(dst)) == relative_prefix
         next
       elsif File.exist? dst
         STDERR.puts "#{dst} exists, skipping"
       else
-        ln_s relative_prefix/src, dst
+        ln_s File.join(relative_prefix, src), dst
       end
     end
 
-    unless File.directory? home/:bin
-      ln_s relative_prefix/:bin, home/:bin
+    unless File.directory? File.join(home, "bin")
+      ln_s File.join(relative_prefix, "bin"), File.join(home, "bin")
     end
   end
 end
