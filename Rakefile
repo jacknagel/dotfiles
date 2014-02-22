@@ -62,28 +62,8 @@ namespace :submodules do
   end
 end
 
-namespace :ruby do
-  namespace :install do
-    desc 'Install Ruby'
-    task :ruby, :version, :url do |_, args|
-      cmd = %w{ruby-install ruby}
-      cmd << args.version if args.version
-      cmd << '--url' << args.url if args.url
-      cmd.concat %w{-- --disable-silent-rules --disable-install-doc --with-out-ext=tk --enable-dtrace CFLAGS=-O3}
-      sh(*cmd)
-    end
-
-    desc 'Install JRuby'
-    task :jruby, :version, :url do |_, args|
-      cmd = %w{ruby-install jruby}
-      cmd << args.version if args.version
-      cmd << '--url' << args.url if args.url
-      sh(*cmd)
-    end
-  end
-
-  namespace :gems do
-    gems = %w{
+namespace :gems do
+  gems = %w{
       benchmark-ips
       bundler
       ffi
@@ -92,13 +72,12 @@ namespace :ruby do
       pry-editline
       ripper-tags
       gem-ripper-tags
-    }
+  }
 
-    desc 'Install base gems for the current Ruby'
-    task :bootstrap do
-      sh 'gem', 'update', '--system'
-      sh 'gem', 'install', *gems
-      sh 'gem', 'ripper_tags', '--reindex'
-    end
+  desc 'Install base gems for the current Ruby'
+  task :bootstrap do
+    sh 'gem', 'update', '--system'
+    sh 'gem', 'install', *gems
+    sh 'gem', 'ripper_tags', '--reindex'
   end
 end
