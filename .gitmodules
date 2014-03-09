@@ -76,3 +76,6 @@
 [submodule "vim/bundle/vinegar"]
 	path = vim/bundle/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+[submodule "vim/bundle/projectile"]
+	path = vim/bundle/projectile
+	url = https://github.com/tpope/vim-projectile.git
