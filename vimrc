@@ -101,6 +101,7 @@ set splitright
 
 " plugin settings
 let g:vitality_fix_cursor = 0
+let g:vim_json_syntax_conceal = 0
 
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
