@@ -47,11 +47,11 @@ end
 namespace :submodules do
   task :update do
     sh "git", "submodule", "sync", "-q"
-    sh "git", "submodule", "update", "--init", "-q"
+    sh "git", "submodule", "update", "--init", "--recursive", "-q"
   end
 
   task :pull => :update do
-  sh "git", "submodule", "foreach", "-q",
+  sh "git", "submodule", "foreach", "--recursive", "-q",
     %{git pull -q --ff-only && git --no-pager lg "master@{#{Time.now}}.." || :}
   end
 end
