@@ -242,8 +242,7 @@ augroup END
 
 augroup git
   autocmd!
-  autocmd BufReadPost COMMIT_EDITMSG,TAG_EDITMSG exe "normal! gg"
-  autocmd BufNewFile,BufRead TAG_EDITMSG setf gitcommit
+  autocmd BufReadPost *.git/{,modules/**/}{COMMIT_EDIT,TAG_EDIT,MERGE_,}MSG exe "normal! gg"
   autocmd BufNewFile,BufRead gitconfig setf gitconfig
   autocmd FileType gitcommit set spell nonumber
 augroup END
