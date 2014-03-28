@@ -46,9 +46,6 @@
 [submodule "vim/bundle/markdown"]
 	path = vim/bundle/markdown
 	url = https://github.com/tpope/vim-markdown.git
-[submodule "vim/bundle/classpath"]
-	path = vim/bundle/classpath
-	url = https://github.com/tpope/vim-classpath.git
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
