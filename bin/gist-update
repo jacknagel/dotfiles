@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-gem "octokit", "~> 2.7"
-require 'octokit'
+gem "octokit", ">= 2.7"
+require "octokit"
 
 DIR = "#{ENV["HOME"]}/src/gists"
 
