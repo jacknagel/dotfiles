@@ -12,11 +12,10 @@ ARGV.kegs.each do |keg|
     begin
       owner = Keg.for(Pathname.new(dylib))
     rescue NotAKegError, Errno::ENOENT
-      next
     end
 
-    next if owner == keg
-
-    puts "#{dylib} (#{owner.fname})"
+    print dylib
+    print " (#{owner.fname})" if owner
+    puts
   end
 end
