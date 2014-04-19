@@ -60,8 +60,6 @@ namespace :gems do
   gems = %w{
       benchmark-ips
       bundler
-      ffi
-      gem-browse
       pry
       pry-editline
       ripper-tags
