@@ -177,7 +177,7 @@ augroup filetypes
   autocmd FileType sh                     setlocal ai et sw=2
   autocmd FileType python                 setlocal ai et sw=4
   autocmd Filetype java                   setlocal ai et sw=4
-  autocmd FileType help,qf nnoremap <silent> <buffer> q :<C-U>q<CR>
+  autocmd FileType help,qf                nnoremap <silent> <buffer> q :<C-U>q<CR>
   autocmd FileType help                   setlocal kp=:help
 augroup END
 
