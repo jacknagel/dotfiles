@@ -169,12 +169,13 @@ augroup filetypes
   autocmd FileType css,scss,sass          setlocal ai et sw=2 isk+=-
   autocmd FileType javascript,coffee      setlocal ai et sw=2 isk+=$
   autocmd FileType eruby,haml,html,slim   setlocal ai et sw=2
-  autocmd FileType vim                    setlocal ai et sw=2 kp=:help
   autocmd FileType sh                     setlocal ai et sw=2
   autocmd FileType python                 setlocal ai et sw=4
   autocmd Filetype java                   setlocal ai et sw=4
   autocmd FileType help,qf                nnoremap <silent> <buffer> q :<C-U>q<CR>
-  autocmd FileType help                   setlocal kp=:help
+  autocmd FileType vim                    setlocal ai et sw=2 sua=.vim
+  autocmd FileType vim,help               setlocal kp=:help
+  autocmd FileType vim,help               let &l:path = escape(&runtimepath, ' ')
 augroup END
 
 augroup completion
