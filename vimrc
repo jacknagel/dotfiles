@@ -142,12 +142,7 @@ nnoremap <Leader><Leader> <C-^>
 " :bc to write and delete buffer
 cnoreabbrev bc w<Bar>bd
 
-cnoremap <expr> %% getcmdtype() == ":" ? expand("%:h")."/" : "%%"
-nmap <Leader>e :edit %%
-nmap <Leader>v :view %%
-
 inoremap <C-C> <Esc>
-inoremap <C-L> <Space>=><Space>
 
 nnoremap <Leader>l :set list!<CR>
 
