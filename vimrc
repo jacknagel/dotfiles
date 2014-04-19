@@ -81,6 +81,8 @@ set ttimeout
 set timeoutlen=1200
 set ttimeoutlen=50
 
+set tags+=../tags;
+
 set wildmenu
 set wildmode=longest:full,full
 set wildignore+=*~,*.s[a-w][a-z],*.un~,Session.vim
