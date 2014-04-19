@@ -71,7 +71,9 @@ set listchars=tab:▸\ ,eol:$
 set statusline=%<                   " truncation point
 set statusline+=[%n]                " buffer number
 set statusline+=\ %.99f             " relative path to file
-set statusline+=%{FugitiveStatuslineWrapper()}
+if exists("g:loaded_fugitive")
+  set statusline+=%{FugitiveStatuslineWrapper()}
+endif
 set statusline+=\ %h%w%m%r%y        " help|preview|modified|readonly|filetype
 set statusline+=%=                  " l-r separator
 set statusline+=%-14(%3l,%02c%03V%) " line#,col#-vcol#
