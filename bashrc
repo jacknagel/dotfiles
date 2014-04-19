@@ -19,7 +19,7 @@ unset MAILCHECK
 
 FIGNORE=".swp"
 HISTSIZE=10000
-HISTFILESIZE=10000
+HISTFILESIZE=100000
 HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE=$(tr '\n' ':' <"$HOME/.history/histignore")
