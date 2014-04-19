@@ -170,8 +170,7 @@ augroup filetypes
   autocmd FileType sql                    setlocal ai et sw=2
   autocmd FileType ruby,cucumber,yaml     setlocal ai et sw=2
   autocmd FileType css,scss,sass          setlocal ai et sw=2 isk+=-
-  autocmd FileType javascript             setlocal ai et sw=2 isk+=$
-  autocmd FileType coffee                 setlocal ai et sw=2 isk+=$
+  autocmd FileType javascript,coffee      setlocal ai et sw=2 isk+=$
   autocmd FileType eruby,haml,html,slim   setlocal ai et sw=2
   autocmd FileType vim                    setlocal ai et sw=2 kp=:help
   autocmd FileType sh                     setlocal ai et sw=2
