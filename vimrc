@@ -177,6 +177,7 @@ augroup filetypes
   autocmd FileType vim                    setlocal ai et sw=2 sua=.vim
   autocmd FileType vim,help               setlocal kp=:help
   autocmd FileType vim,help               let &l:path = escape(&runtimepath, ' ')
+  autocmd FileType sh                     let &l:path = substitute($PATH, ':', ',', 'g')
 augroup END
 
 augroup completion
