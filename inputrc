@@ -1,4 +1,4 @@
-# ~/.inputrc
+# vim:set et sw=2:
 
 set editing-mode vi
 
@@ -13,6 +13,10 @@ set skip-completed-text on
 set input-meta on
 set output-meta on
 set convert-meta off
+
+$if Bash
+  Space: magic-space
+$endif
 
 set keymap vi-command
 "\e[A": history-search-backward
