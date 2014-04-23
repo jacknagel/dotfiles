@@ -4,8 +4,10 @@ require "keg"
 ARGV.kegs.each do |keg|
   dylibs = Set.new
 
-  keg.mach_o_files.each do |file|
-    dylibs.merge file.dynamically_linked_libraries
+  keg.find do |file|
+    if file.dylib? || file.mach_o_executable? || file.mach_o_bundle?
+      dylibs.merge file.dynamically_linked_libraries
+    end
   end
 
   dylibs.each do |dylib|
