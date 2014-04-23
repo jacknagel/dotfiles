@@ -17,7 +17,7 @@
 	fx = commit --fixup
 	lg = log --graph --decorate --oneline
 	lp = log --patch
-	ls = ls-files --cached --abbrev
+	ls = ls-files -oc --exclude-standard
 	rh = reset HEAD
 	rl = reflog
 	rp = reset --patch
