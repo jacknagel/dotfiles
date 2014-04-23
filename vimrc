@@ -61,7 +61,7 @@ set infercase
 set nrformats-=octal
 set formatoptions+=1r
 
-if v:version > 703 || v:version == 703 && has("patch541")
+if v:version >= 704
   set formatoptions+=j
 endif
 
