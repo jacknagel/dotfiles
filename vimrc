@@ -96,7 +96,8 @@ set wildignore+=tmp/**
 set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**
 
 set spelllang=en_us
-set spellfile^=$HOME/.vim/spell/en.utf-8.add
+set spellfile=$HOME/.vim/spell/en.utf-8.add,$HOME/.vim/spell/en-local.utf-8.add
+set dictionary+=/usr/share/dict/words
 set thesaurus+=$HOME/.vim/spell/mthesaur.txt
 
 set splitbelow
@@ -146,6 +147,9 @@ cnoreabbrev bc w<Bar>bd
 inoremap <C-C> <Esc>
 
 nnoremap <Leader>l :set list!<CR>
+
+" add word under cursor to unversioned spellfile
+nnoremap zG 2zg
 
 " continuous indentation
 vnoremap > >gv
