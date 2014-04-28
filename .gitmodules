@@ -70,6 +70,6 @@
 [submodule "vim/bundle/slim"]
 	path = vim/bundle/slim
 	url = https://github.com/slim-template/vim-slim.git
-[submodule "vim/bundle/projectile"]
-	path = vim/bundle/projectile
-	url = https://github.com/tpope/vim-projectile.git
+[submodule "vim/bundle/projectionist"]
+	path = vim/bundle/projectionist
+	url = https://github.com/tpope/vim-projectionist.git
