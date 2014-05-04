@@ -81,12 +81,5 @@ case "$(uname)" in
     HOMEBREW_DEVELOPER=1
     HOMEBREW_NO_EMOJI=1
     export HOMEBREW_DEVELOPER HOMEBREW_NO_EMOJI
-
-    sw_vers=$(/usr/bin/sw_vers -productVersion)
-    if [ "${sw_vers%.*}" = "10.6" ]; then
-      HOMEBREW_CC=gcc
-      export HOMEBREW_CC
-    fi
-    unset sw_vers
     ;;
 esac
