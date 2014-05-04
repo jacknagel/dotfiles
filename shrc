@@ -73,7 +73,6 @@ fi
 case "$(uname)" in
   Darwin)
     append_path PATH /usr/local/texbin
-    append_path PATH /opt/X11/bin
     append_path MANPATH /Library/Developer/CommandLineTools/usr/share/man
 
     COPYFILE_DISABLE=1
