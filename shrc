@@ -77,6 +77,8 @@ case "$(uname)" in
     append_path MANPATH /Applications/Xcode.app/Contents/Developer/usr/share/man
     append_path MANPATH /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/share/man
 
+    type git >/dev/null 2>&1 || alias git=$(xcrun -find git 2>/dev/null)
+
     COPYFILE_DISABLE=1
     export COPYFILE_DISABLE
 
