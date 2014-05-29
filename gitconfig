@@ -4,7 +4,6 @@
 	br = branch
 	bv = branch --verbose --verbose
 	ca = commit --amend
-	cb = checkout -b
 	ci = commit
 	co = checkout
 	cp = cherry-pick
@@ -21,7 +20,6 @@
 	rh = reset HEAD
 	rl = reflog
 	rp = reset --patch
-	se = send-email
 	st = status --short --branch -uno
 	ss = stash save
 	sp = stash pop

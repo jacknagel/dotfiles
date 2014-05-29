@@ -1,26 +1,37 @@
  *
-..*
-[bf]g
-jobs
 %1
 %2
+..*
+./configure --help
+[bf]g
+brew up
 brew update
 brw *
 brwe *
 cd
+cd -
 cd ..
+clear
 exit
 git add -p
 git add -u
 git ap
 git au
 git b[rv]
-git c[aiosv]
-git d[ci]
+git c[aiop]
+git d[chiu]
+git f[fp]
+git fetch -p
+git l[gs]
 git lg
+git prm
+git push
+git rb[acis]
 git reset --hard
 git s[at]
 git show
 git status
+jobs
 ls
 ls -l
+pwd
