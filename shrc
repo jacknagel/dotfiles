@@ -39,10 +39,9 @@ prepend_path PATH /sbin /usr/sbin /bin /usr/bin
 prepend_path PATH /usr/local/sbin /usr/local/bin
 prepend_path PATH "$HOME/bin"
 
-prepend_path MANPATH /usr/share/man /usr/local/share/man
 prepend_path INFOPATH /usr/share/info /usr/local/share/info
 
-export PATH MANPATH INFOPATH
+export PATH INFOPATH
 
 
 agent="$HOME/.gnupg/.gpg-agent-info"
@@ -73,9 +72,6 @@ fi
 case "$(uname)" in
   Darwin)
     append_path PATH /usr/local/texbin
-    append_path MANPATH /Library/Developer/CommandLineTools/usr/share/man
-    append_path MANPATH /Applications/Xcode.app/Contents/Developer/usr/share/man
-    append_path MANPATH /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/share/man
 
     type git >/dev/null 2>&1 || alias git=$(xcrun -find git 2>/dev/null)
 
