@@ -17,7 +17,7 @@ ARGV.kegs.each do |keg|
     end
 
     print dylib
-    print " (#{owner.fname})" if owner
+    print " (#{owner.name})" if owner
     puts
   end
 end
