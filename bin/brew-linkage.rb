@@ -52,11 +52,11 @@ ARGV.kegs.each do |keg|
     next
   end
 
-  missing_deps = brewed_dylibs.keys - f.deps.map(&:name)
-  missing_deps -= [f.name]
+  undeclared_deps = brewed_dylibs.keys - f.deps.map(&:name)
+  undeclared_deps -= [f.name]
 
-  unless missing_deps.empty?
-    puts "Possible missing dependencies:"
-    puts "  #{missing_deps * ", "}"
+  unless undeclared_deps.empty?
+    puts "Possible undeclared dependencies:"
+    puts "  #{undeclared_deps * ", "}"
   end
 end
