@@ -19,4 +19,4 @@ gem "rails"
 EOS
 
 bundle --path .bundle
-bundle exec rails new . -f
+bundle exec rails new . -f --skip-spring
