@@ -25,14 +25,14 @@ ARGV.kegs.each do |keg|
 
   unless system_dylibs.empty?
     puts "System libraries:"
-    system_dylibs.each do |dylib|
+    system_dylibs.sort.each do |dylib|
       puts "  #{dylib}"
     end
   end
 
   unless brewed_dylibs.empty?
     puts "Homebrew libraries:"
-    brewed_dylibs.each do |name, dylibs|
+    brewed_dylibs.sort.each do |name, dylibs|
       dylibs.each do |dylib|
         puts "  #{dylib} (#{name})"
       end
@@ -41,7 +41,7 @@ ARGV.kegs.each do |keg|
 
   unless broken_dylibs.empty?
     puts "Missing libraries:"
-    broken_dylibs.each do |dylib|
+    broken_dylibs.sort.each do |dylib|
       puts "  #{dylib}"
     end
   end
