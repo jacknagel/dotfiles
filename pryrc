@@ -1,5 +1,3 @@
-# vim:set ft=ruby:
-
 require "rubygems" unless defined?(Gem)
 
 begin
