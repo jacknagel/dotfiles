@@ -27,15 +27,13 @@ Pry.config.prompt_name =
     "pry"
   end.to_s.downcase.slice(0..7)
 
-ruby_version = lambda {
-  RUBY_VERSION >= "2.1" ? RUBY_VERSION : "#{RUBY_VERSION}p#{RUBY_PATCHLEVEL}"
-}
+version = RUBY_VERSION >= "2.1" ? RUBY_VERSION : "#{RUBY_VERSION}p#{RUBY_PATCHLEVEL}"
 
 Pry.config.prompt = [
   lambda { |obj, nest, pry|
-    "[#{pry.input_array.size}] #{ruby_version.call} #{Pry.config.prompt_name}(#{Pry.view_clip(obj)})#{":#{nest}" unless nest.zero?}> "
+    "[#{pry.input_array.size}] #{version} #{Pry.config.prompt_name}(#{Pry.view_clip(obj)})#{":#{nest}" unless nest.zero?}> "
   },
   lambda { |obj, nest, pry|
-    "[#{pry.input_array.size}] #{ruby_version.call} #{Pry.config.prompt_name}(#{Pry.view_clip(obj)})#{":#{nest}" unless nest.zero?}* "
+    "[#{pry.input_array.size}] #{version} #{Pry.config.prompt_name}(#{Pry.view_clip(obj)})#{":#{nest}" unless nest.zero?}* "
   }
 ]
