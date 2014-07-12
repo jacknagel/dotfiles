@@ -15,7 +15,7 @@ class Checkout
   end
 
   def bundle_changed?
-    !system(*%W{git diff-tree --quiet -w --diff-filter=AM #{old} #{new} -- Gemfile* *.gemspec})
+    !system("git", "diff-tree", "--quiet", "-w", "--diff-filter=AM", old, new, "--", "Gemfile*", "*.gemspec")
   end
 end
 
