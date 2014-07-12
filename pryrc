@@ -1,18 +1,10 @@
 # vim:set ft=ruby:
 
-$LOAD_PATH.unshift(File.expand_path("~/.ruby"))
-$LOAD_PATH.unshift(File.expand_path("."))
-$LOAD_PATH.uniq!
+require "rubygems" unless defined?(Gem)
 
-%w{
-  rubygems
-  pry-editline
-  jacknagel
-}.each do |lib|
-  begin
-    require(lib)
-  rescue LoadError
-  end
+begin
+  require "pry-editline"
+rescue LoadError
 end
 
 Pry.config.history.file =
