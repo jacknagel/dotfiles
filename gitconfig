@@ -60,6 +60,8 @@
 	textconv = tar -tvf
 [difftool]
 	prompt = false
+[fetch]
+	prune = true
 [grep]
 	extendedregexp = true
 [help]
