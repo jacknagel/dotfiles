@@ -23,5 +23,5 @@ then url=$(git config --get gh.url)/pull/$GITHUB_PR_ID
 else url=$(echo "$1" | grep -Eo ".+[0-9]+")
 fi
 
-git checkout --no-track -b "gh/$GITHUB_PR_ID" "$upstream"
+git checkout -b "gh/$GITHUB_PR_ID" "$upstream"
 curl -# "$url.patch" | git am -s -3 || git checkout -f master
