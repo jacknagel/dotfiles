@@ -2,7 +2,7 @@
 
 require "webrick/httpproxy"
 
-WEBrick::HTTPProxyServer.new(Port: 8000).tap { |s|
+WEBrick::HTTPProxyServer.new(BindAddress: "localhost", Port: 8000).tap { |s|
   s.logger.level = 5
   trap("INT") { s.shutdown }
 }.start
