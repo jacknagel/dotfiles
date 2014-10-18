@@ -2,7 +2,21 @@
 
 require "webrick/httpproxy"
 
-WEBrick::HTTPProxyServer.new(BindAddress: "localhost", Port: 8000).tap { |s|
+config = {
+  BindAddress: "localhost",
+  Port: 8000,
+}
+
+if auth = ARGV.first
+  config[:ProxyAuthProc] = ->(req, res) {
+    if req["Proxy-Authorization"] != "Basic #{[auth].pack("m").chomp}"
+      raise WEBrick::HTTPStatus::ProxyAuthenticationRequired
+    end
+  }
+end
+
+WEBrick::HTTPProxyServer.new(config).tap { |s|
   s.logger.level = 5
   trap("INT") { s.shutdown }
+  trap("TERM") { s.shutdown }
 }.start
