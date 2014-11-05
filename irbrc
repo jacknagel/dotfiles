@@ -1,22 +1,14 @@
 require "rubygems" unless defined?(Gem)
 
-begin
-  require "pry"
-rescue LoadError
-  IRB.conf[:AUTO_INDENT]  = true
-  IRB.conf[:SAVE_HISTORY] = 1000
-  IRB.conf[:USE_READLINE] = true
-  IRB.conf[:LOAD_MODULES] |= %w{irb/completion}
-  IRB.conf[:HISTORY_FILE] =
-    if defined?(Homebrew)
-      HOMEBREW_REPOSITORY.join("Meta/irb_history")
-    elsif defined?(Bundler)
-      Bundler.tmp.parent.join("history")
-    else
-      File.expand_path("~/.history/irb")
-    end
-else
-  Pry.start
-  exit
-end
-
+IRB.conf[:AUTO_INDENT]  = true
+IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:USE_READLINE] = true
+IRB.conf[:LOAD_MODULES] |= %w{irb/completion}
+IRB.conf[:HISTORY_FILE] =
+  if defined?(Homebrew)
+    HOMEBREW_REPOSITORY.join("Meta/irb_history")
+  elsif defined?(Bundler)
+    Bundler.tmp.parent.join("history")
+  else
+    File.expand_path("~/.history/irb")
+  end
