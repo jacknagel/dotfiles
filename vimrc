@@ -44,8 +44,6 @@ set lazyredraw
 set virtualedit+=block
 set nojoinspaces
 
-set ignorecase
-set smartcase
 set incsearch
 set hlsearch
 
