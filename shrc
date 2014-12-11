@@ -59,6 +59,7 @@ export GPG_TTY GPG_AGENT_INFO
 
 alias be="bundle exec"
 alias du1="du -h -d1"
+alias grep="grep --color=auto"
 alias sqlite="sqlite3"
 alias vi="vim"
 
