@@ -44,16 +44,8 @@ prepend_path INFOPATH /usr/share/info /usr/local/share/info
 export PATH INFOPATH
 
 
-agent="$HOME/.gnupg/.gpg-agent-info"
-if [ -f "$agent" ] && kill -0 "$(grep -e "GPG_AGENT_INFO" "$agent" | cut -d: -f 2)" 2>/dev/null
-then
-  eval "$(<"$agent")"
-else
-  type -p gpg-agent >/dev/null && eval "$(gpg-agent --daemon --write-env-file="$agent")"
-fi
-unset agent
 GPG_TTY=$(tty)
-export GPG_TTY GPG_AGENT_INFO
+export GPG_TTY
 
 [ ! -x /bin/stty ] || stty -ixon
 
