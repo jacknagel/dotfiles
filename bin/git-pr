@@ -24,4 +24,4 @@ else url=$(echo "$1" | grep -Eo ".+[0-9]+")
 fi
 
 git checkout -b "gh/$GITHUB_PR_ID" "$upstream"
-curl -# "$url.patch" | git am -s -3 || git checkout -f master
+curl -L# "$url.patch" | git am -s -3 || git checkout -f master
