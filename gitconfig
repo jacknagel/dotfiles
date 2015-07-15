@@ -32,9 +32,6 @@
 	rbs	= rebase --skip
 	top	= shortlog -ns
 	wip	= commit -amwip
-	egrep	= grep -E
-	fgrep	= grep -F
-	trust	= !mkdir -p .git/trustbin
 [branch]
 	autosetupmerge = always
 	autosetuprebase = always
