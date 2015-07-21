@@ -54,7 +54,6 @@ set shiftround
 
 set completeopt=menuone,longest,preview
 set complete-=i
-set infercase
 
 set nrformats-=octal
 set formatoptions+=1r
