@@ -1,2 +1,0 @@
-#!/bin/sh
-[ ! -f Gemfile ] || git diff-index --quiet --cached HEAD -- 'Gemfile*' '*.gemspec' || bundle check
