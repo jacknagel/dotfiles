@@ -83,7 +83,7 @@ setglobal tags+=./tags;
 
 set wildmenu
 set wildmode=longest:full,full
-set wildignore+=*~,*.s[a-w][a-z],*.un~,Session.vim
+set wildignore+=*~,[._]*.s[a-w][a-z],[._]s[a-w][a-z],*.un~,Session.vim
 set wildignore+=.DS_Store
 set wildignore+=tags
 set wildignore+=*.aux,*.out
