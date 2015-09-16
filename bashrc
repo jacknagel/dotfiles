@@ -61,8 +61,8 @@ reset="\[\033[0m\]"
 PS1="\u@\h${blue}:\W${reset} ${bold}\$${reset} "
 PS2="${bold}..>${reset} "
 
-if [ -f "$HOME/src/git/contrib/completion/git-prompt.sh" ]; then
-  . "$HOME/src/git/contrib/completion/git-prompt.sh"
+if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
+  . "/usr/local/etc/bash_completion.d/git-prompt.sh"
   GIT_PS1_SHOWDIRTYSTATE=1
   GIT_PS1_SHOWSTASHSTATE=1
   GIT_PS1_SHOWCOLORHINTS=1
