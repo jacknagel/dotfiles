@@ -73,3 +73,6 @@
 [submodule "vim/bundle/projectionist"]
 	path = vim/bundle/projectionist
 	url = https://github.com/tpope/vim-projectionist.git
+[submodule "vim/bundle/jshint2.vim"]
+	path = vim/bundle/jshint2.vim
+	url = https://github.com/Shutnik/jshint2.vim.git
