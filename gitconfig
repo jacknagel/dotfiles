@@ -25,13 +25,13 @@
 	sp = stash pop
 	sd = stash drop
 	sc = stash clear
-	csq	= commit --squash
-	rba	= rebase --abort
-	rbc	= rebase --continue
-	rbi	= rebase --interactive
-	rbs	= rebase --skip
-	top	= shortlog -ns
-	wip	= commit -amwip
+	csq = commit --squash
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbi = rebase --interactive
+	rbs = rebase --skip
+	top = shortlog -ns
+	wip = commit -amwip
 [branch]
 	autosetupmerge = always
 	autosetuprebase = always
