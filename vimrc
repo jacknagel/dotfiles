@@ -67,9 +67,7 @@ set listchars=tab:▸\ ,eol:$
 set statusline=%<                   " truncation point
 set statusline+=[%n]                " buffer number
 set statusline+=\ %.99f             " relative path to file
-if exists("g:loaded_fugitive")
-  set statusline+=%{FugitiveStatuslineWrapper()}
-endif
+set statusline+=%{FugitiveStatuslineWrapper()}
 set statusline+=\ %h%w%m%r%y        " help|preview|modified|readonly|filetype
 set statusline+=%=                  " l-r separator
 set statusline+=%-14(%3l,%02c%03V%) " line#,col#-vcol#
@@ -158,8 +156,13 @@ function! s:map_CR()
 endfunction
 
 function! FugitiveStatuslineWrapper()
+  if !exists('*fugitive#head')
+    return ""
+  endif
+
   let head = fugitive#head(7)
   return head == "" ? "" : " [".head."]"
+  endif
 endfunction
 
 augroup filetypes
