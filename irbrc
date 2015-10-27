@@ -5,9 +5,7 @@ IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:USE_READLINE] = true
 IRB.conf[:LOAD_MODULES] |= %w{irb/completion}
 IRB.conf[:HISTORY_FILE] =
-  if defined?(Homebrew)
-    HOMEBREW_REPOSITORY.join("Meta/irb_history")
-  elsif defined?(Bundler)
+  if defined?(Bundler)
     Bundler.tmp.parent.join("history")
   else
     File.expand_path("~/.history/irb")
