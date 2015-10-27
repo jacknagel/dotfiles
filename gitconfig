@@ -81,7 +81,7 @@
 [pager]
 	log = less -+$LESS -iRSq
 [push]
-	default = upstream
+	default = simple
 [rebase]
 	autosquash = true
 [rerere]
