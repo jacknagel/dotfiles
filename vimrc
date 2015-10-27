@@ -172,8 +172,7 @@ augroup filetypes
   autocmd FileType gitconfig              setlocal ai noet
   autocmd FileType sql                    setlocal ai et sw=2
   autocmd FileType ruby,cucumber,yaml     setlocal ai et sw=2
-  autocmd FileType css,scss,sass          setlocal ai et sw=2 isk+=-
-  autocmd FileType javascript,coffee      setlocal ai et sw=2 isk+=$
+  autocmd FileType javascript,coffee      setlocal ai et sw=2
   autocmd FileType eruby,haml,html,slim   setlocal ai et sw=2
   autocmd FileType sh                     setlocal ai et sw=2
   autocmd FileType python                 setlocal ai et sw=4
@@ -183,6 +182,8 @@ augroup filetypes
   autocmd FileType vim,help               setlocal kp=:help
   autocmd FileType vim,help               let &l:path = escape(&runtimepath, ' ')
   autocmd FileType sh                     let &l:path = substitute($PATH, ':', ',', 'g')
+  autocmd Syntax css,scss,sass,less       setlocal isk+=-
+  autocmd Syntax javascript               setlocal isk+=$
 augroup END
 
 augroup completion
