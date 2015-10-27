@@ -172,9 +172,9 @@ augroup filetypes
   autocmd FileType gitconfig              setlocal ai noet
   autocmd FileType sql                    setlocal ai et sw=2
   autocmd FileType ruby,cucumber,yaml     setlocal ai et sw=2
-  autocmd FileType javascript,coffee      setlocal ai et sw=2
+  autocmd FileType javascript             setlocal ai et sw=2
   autocmd FileType json                   setlocal ai et sw=2
-  autocmd FileType eruby,haml,html,slim   setlocal ai et sw=2
+  autocmd FileType html,eruby             setlocal ai et sw=2
   autocmd FileType sh                     setlocal ai et sw=2
   autocmd FileType python                 setlocal ai et sw=4
   autocmd Filetype java                   setlocal ai et sw=4
@@ -202,16 +202,8 @@ augroup compilers
   autocmd!
   autocmd FileType cucumber             silent! compiler cucumber
   autocmd FileType sass,scss            silent! compiler sass
-  autocmd FileType haml                 silent! compiler haml
   autocmd BufNewFile,BufRead *_spec.rb  silent! compiler rspec
   autocmd BufNewFile,BufRead *_test.rb  silent! compiler rubyunit
-  autocmd BufNewFile,BufRead test_*.rb
-    \ silent! compiler rubyunit |
-    \ setlocal makeprg=ruby\ -I%:h
-  autocmd User Bundler
-    \ if &makeprg !~# '^bundle' |
-    \   setlocal makeprg^=bundle\ exec\  |
-    \ endif
 augroup END
 
 augroup vimrc
