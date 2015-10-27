@@ -173,6 +173,7 @@ augroup filetypes
   autocmd FileType sql                    setlocal ai et sw=2
   autocmd FileType ruby,cucumber,yaml     setlocal ai et sw=2
   autocmd FileType javascript,coffee      setlocal ai et sw=2
+  autocmd FileType json                   setlocal ai et sw=2
   autocmd FileType eruby,haml,html,slim   setlocal ai et sw=2
   autocmd FileType sh                     setlocal ai et sw=2
   autocmd FileType python                 setlocal ai et sw=4
