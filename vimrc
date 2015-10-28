@@ -167,6 +167,7 @@ endfunction
 
 augroup filetypes
   autocmd!
+  autocmd FileType gitcommit              setlocal spell nonumber
   autocmd FileType c                      setlocal ai et sw=4
   autocmd FileType make                   setlocal ai noet
   autocmd FileType gitconfig              setlocal ai noet
@@ -236,11 +237,6 @@ augroup swapmod
     \ if !empty(map(split(&directory, ","), "isdirectory(expand(v:val))")) |
     \   let &swapfile = &modified |
     \ endif
-augroup END
-
-augroup git
-  autocmd!
-  autocmd FileType gitcommit set spell nonumber
 augroup END
 
 augroup hlsearch
