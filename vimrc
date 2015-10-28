@@ -88,8 +88,8 @@ set wildignore+=*.aux,*.out
 set wildignore+=*.class,*.pyc
 set wildignore+=*.[oa],*.so,*.dylib
 set wildignore+=tmp/**
-set wildignore+=bundle/**,vendor/bundle/**,vendor/cache/**
-set wildignore+=node_modules/**
+set wildignore+=bundle/**,vendor/**
+set wildignore+=node_modules/**,bower_components/**
 
 set spelllang=en_us
 set spellfile=$HOME/.vim/spell/en.utf-8.add,$HOME/.vim/spell/en-local.utf-8.add
