@@ -214,7 +214,7 @@ augroup END
 augroup lastposjump
   autocmd!
   autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \ if line("'\"") > 0 && line("'\"") <= line("$") && &l:filetype !=# 'gitcommit' |
     \   execute "normal g`\"zvzz" |
     \ endif
 augroup END
@@ -240,7 +240,6 @@ augroup END
 
 augroup git
   autocmd!
-  autocmd BufReadPost *.git/{,modules/**/}{COMMIT_EDIT,TAG_EDIT,MERGE_,}MSG exe "normal! gg"
   autocmd FileType gitcommit set spell nonumber
 augroup END
 
