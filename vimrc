@@ -172,7 +172,8 @@ augroup filetypes
   autocmd FileType make                   setlocal ai noet
   autocmd FileType gitconfig              setlocal ai noet
   autocmd FileType sql                    setlocal ai et sw=2
-  autocmd FileType ruby,cucumber,yaml     setlocal ai et sw=2
+  autocmd FileType ruby,yaml              setlocal ai et sw=2
+  autocmd FileType cucumber               setlocal ai et sw=2 nowrap
   autocmd FileType javascript             setlocal ai et sw=2
   autocmd FileType json                   setlocal ai et sw=2
   autocmd FileType html,eruby             setlocal ai et sw=2
