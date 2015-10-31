@@ -55,13 +55,6 @@ alias grep="grep --color=auto"
 alias sqlite="sqlite3"
 alias vi="vim"
 
-AWS_CONFIG_FILE="$HOME/.awsconfig"
-if [ -f "$AWS_CONFIG_FILE" ]; then
-  export AWS_CONFIG_FILE
-else
-  unset AWS_CONFIG_FILE
-fi
-
 case "$(uname)" in
   Darwin)
     append_path PATH /usr/local/texbin
