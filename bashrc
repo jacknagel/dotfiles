@@ -80,5 +80,5 @@ fi
 
 if [ -d "/usr/local/opt/chruby" ]; then
   . "/usr/local/opt/chruby/share/chruby/chruby.sh"
-  chruby 2.2 >/dev/null
+  chruby 2.3 >/dev/null
 fi
