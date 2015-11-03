@@ -12,7 +12,7 @@ trap 'rmdir "$lock"; rm -f "$file"' EXIT INT TERM
 if [ -f Gemfile -o "${0##*/}" = "git-ripper-tags" ]; then
   ripper-tags -R --tag-relative -f"$file" --exclude=.git --exclude=log --exclude=vendor --exclude=.bundle
 else
-  git ls-files | ctags --tag-relative -L- -f"$file"
+  git ls-files -oc --exclude-standard | ctags --tag-relative -L- -f"$file"
 fi
 
 mv "$file" "${file%.$$}"
