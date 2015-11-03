@@ -225,6 +225,7 @@ augroup END
 augroup undo
  autocmd!
  autocmd CursorHoldI * silent! call feedkeys("\<C-G>u", "nt")
+ autocmd BufWritePre /tmp/*,$TMPDIR/*,/private/tmp/* setlocal noundofile
 augroup END
 
 augroup focus
