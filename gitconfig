@@ -12,26 +12,15 @@
 	di = diff
 	du = diff @{u}
 	ff = merge --ff-only
-	fp = format-patch
 	fx = commit --fixup
 	lg = log --graph --decorate --oneline
-	lp = log --patch
 	ls = ls-files -oc --exclude-standard
-	rh = reset HEAD
-	rl = reflog
-	rp = reset --patch
 	st = status --short --branch -uno
-	ss = stash save
-	sp = stash pop
-	sd = stash drop
-	sc = stash clear
-	csq = commit --squash
 	rba = rebase --abort
 	rbc = rebase --continue
 	rbi = rebase --interactive
 	rbs = rebase --skip
 	top = shortlog -ns
-	wip = commit -amwip
 [branch]
 	autosetupmerge = always
 	autosetuprebase = always
