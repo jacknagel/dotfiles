@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-gem "octokit", ">= 2.7"
+gem "octokit", "~> 4.1", ">= 4.1.1"
 require "octokit"
 
 DIR = "#{ENV["HOME"]}/src/gists"
