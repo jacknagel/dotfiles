@@ -1,8 +1,7 @@
  *
-%1
-%2
+%[0-9]
+&
 ..*
-./configure --help
 [bf]g
 brew up
 brew update
@@ -13,24 +12,21 @@ cd -
 cd ..
 clear
 exit
-git add -p
-git add -u
-git ap
-git au
+git a[pu]
+git add -[pu]
 git b[rv]
 git c[aiop]
 git d[chiu]
-git f[fp]
 git fetch -p
+git ff
 git l[gs]
-git lg
-git prm
 git push
 git rb[acis]
 git reset --hard
-git s[at]
 git show
+git st
 git status
+git top
 jobs
 ls
 ls -l
