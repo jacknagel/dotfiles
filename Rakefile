@@ -58,12 +58,15 @@ end
 
 namespace :gems do
   gems = %w{
-      benchmark-ips
-      bundler
-      pry
-      pry-editline
-      ripper-tags
-      gem-ripper-tags
+    allocation_tracer
+    benchmark-ips
+    bundler
+    gc_tracer
+    gem-ripper-tags
+    minitest
+    octokit
+    ripper-tags
+    stackprof
   }
 
   desc "Install base gems for the current Ruby"
