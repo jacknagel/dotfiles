@@ -52,6 +52,8 @@
 	extendedregexp = true
 [help]
 	format = web
+[include]
+	path = ~/.gitconfig_local
 [init]
 	templatedir = ~/.git_template
 [instaweb]
@@ -75,13 +77,5 @@
 	autosquash = true
 [rerere]
 	enabled = true
-[sendemail]
-	smtpencryption = tls
-	smtpserver = smtp.gmail.com
-	smtpserverport = 587
-	smtpuser = jacknagel@gmail.com
-[user]
-	email = jacknagel@gmail.com
-	name = Jack Nagel
 [web]
 	browser = open
