@@ -15,7 +15,7 @@ namespace :dotfiles do
     relative_prefix = pwd.sub("#{home}/", "")
     files = FileList[%w{
       bash* bundle ctags editrc gdbinit gemrc git* history inputrc irbrc
-      less lesskey pryrc psqlrc ruby shrc sqliterc valgrindrc vim vimrc
+      less lesskey psqlrc ruby shrc sqliterc valgrindrc vim vimrc
     }].existing!
 
     files.zip(files.pathmap(File.join(home, ".%p"))) do |src, dst|
