@@ -5,3 +5,5 @@
 Session.vim
 .DS_Store
 tags
+*.bak
+*.orig
