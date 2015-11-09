@@ -57,7 +57,7 @@
 [init]
 	templatedir = ~/.git_template
 [instaweb]
-	httpd = lighttpd -f
+	httpd = webrick
 	local = true
 	port = 8080
 [interactive]
