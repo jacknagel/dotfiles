@@ -14,7 +14,7 @@ namespace :dotfiles do
     home = ENV["HOME"]
     relative_prefix = pwd.sub("#{home}/", "")
     files = FileList[%w{
-      bash* bundle ctags editrc gdbinit gemrc git* history inputrc irbrc
+      bash* bundle ctags editrc gdbinit gemrc git* histignore inputrc irbrc
       less lesskey psqlrc ruby shrc sqliterc valgrindrc vim vimrc
     }].existing!
 

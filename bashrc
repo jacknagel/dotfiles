@@ -22,7 +22,7 @@ HISTSIZE=10000
 HISTFILESIZE=100000
 HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
-HISTIGNORE=$(tr '\n' ':' <"$HOME/.history/histignore")
+HISTIGNORE=$(tr '\n' ':' <"$HOME/.histignore")
 
 
 LANG="en_US.UTF-8"
