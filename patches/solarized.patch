@@ -1,8 +1,8 @@
 diff --git a/colors/solarized.vim b/colors/solarized.vim
-index 70f5223..d68f22e 100644
+index 70f5223..146813d 100644
 --- a/colors/solarized.vim
 +++ b/colors/solarized.vim
-@@ -664,9 +664,9 @@ exe "hi! Pmenu"          .s:fmt_none   .s:fg_base0  .s:bg_base02  .s:fmt_revbb
+@@ -664,9 +664,8 @@ exe "hi! Pmenu"          .s:fmt_none   .s:fg_base0  .s:bg_base02  .s:fmt_revbb
  exe "hi! PmenuSel"       .s:fmt_none   .s:fg_base01 .s:bg_base2   .s:fmt_revbb
  exe "hi! PmenuSbar"      .s:fmt_none   .s:fg_base2  .s:bg_base0   .s:fmt_revbb
  exe "hi! PmenuThumb"     .s:fmt_none   .s:fg_base0  .s:bg_base03  .s:fmt_revbb
@@ -11,7 +11,6 @@ index 70f5223..d68f22e 100644
 -exe "hi! TabLineSel"     .s:fmt_undr   .s:fg_base01 .s:bg_base2   .s:sp_base0  .s:fmt_revbbu
 +exe "hi! TabLine"        .s:fmt_none   .s:fg_base0  .s:bg_base02  .s:sp_base0
 +exe "hi! TabLineFill"    .s:fmt_none   .s:fg_base0  .s:bg_base01  .s:sp_base0
-+"exe "hi! TabLineSel"     .s:fmt_undr   .s:fg_base01 .s:bg_base2   .s:sp_base0  .s:fmt_revbbu
  exe "hi! CursorColumn"   .s:fmt_none   .s:fg_none   .s:bg_base02
  exe "hi! CursorLine"     .s:fmt_uopt   .s:fg_none   .s:bg_base02  .s:sp_base1
  exe "hi! ColorColumn"    .s:fmt_none   .s:fg_none   .s:bg_base02
