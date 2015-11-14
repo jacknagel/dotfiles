@@ -3,7 +3,7 @@
 gem "octokit", "~> 4.1", ">= 4.1.1"
 require "octokit"
 
-DIR = "#{ENV["HOME"]}/src/gists"
+dir = "#{ENV["HOME"]}/git/gists"
 
 def git(*args)
   args.unshift "git"
@@ -20,9 +20,12 @@ Octokit::Client.new(
   auto_paginate: true
 ).gists.each do |gist|
   id = gist.id
-  if File.directory? "#{DIR}/gist-#{id}"
-    git "--git-dir=#{DIR}/gist-#{id}/.git", "--work-tree=#{DIR}/gist-#{id}", "pull", "-q"
+  worktree = File.join(dir, id)
+  gitdir = File.join(worktree, ".git")
+
+  if File.directory?(worktree)
+    git "--git-dir=#{gitdir}", "--work-tree=#{worktree}", "pull", "-q"
   else
-    git "clone", "-q", "git@gist.github.com:#{id}.git", "#{DIR}/gist-#{id}"
+    git "clone", "-q", "git@gist.github.com:#{id}.git", worktree
   end
 end
