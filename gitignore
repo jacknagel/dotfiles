@@ -7,3 +7,4 @@ Session.vim
 tags
 *.bak
 *.orig
+*.rej
