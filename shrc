@@ -62,6 +62,7 @@ case "$(uname)" in
     type git >/dev/null 2>&1 || alias git=$(xcrun -find git 2>/dev/null)
 
     alias jsc=/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc
+    alias flushdns="sudo -k killall -HUP mDNSResponder"
 
     COPYFILE_DISABLE=1
     export COPYFILE_DISABLE
