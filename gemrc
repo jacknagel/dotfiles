@@ -1,8 +1,2 @@
 --- 
-:sources:
-  - https://rubygems.org
-:verbose: true
-:update_sources: true
-install: --env-shebang --no-document
-pristine: --env-shebang
-update: --env-shebang --no-document
+gem: --env-shebang --no-document
