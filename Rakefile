@@ -55,24 +55,3 @@ namespace :submodules do
     %{git pull -q --ff-only && git --no-pager lg "master@{#{Time.now}}.." || :}
   end
 end
-
-namespace :gems do
-  gems = %w{
-    allocation_tracer
-    benchmark-ips
-    bundler
-    gc_tracer
-    gem-ripper-tags
-    minitest
-    octokit
-    ripper-tags
-    stackprof
-  }
-
-  desc "Install base gems for the current Ruby"
-  task :bootstrap do
-    sh "gem", "update", "--system"
-    sh "gem", "install", *gems
-    sh "gem", "ripper_tags", "--reindex"
-  end
-end
