@@ -61,6 +61,8 @@ case "$(uname)" in
 
     type git >/dev/null 2>&1 || alias git=$(xcrun -find git 2>/dev/null)
 
+    type ggrep >/dev/null 2>&1 && alias grep="ggrep --color=auto"
+
     alias jsc=/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc
     alias flushdns="sudo -k killall -HUP mDNSResponder"
 
