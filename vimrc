@@ -101,6 +101,7 @@ set splitright
 
 " plugin settings
 let g:vim_json_syntax_conceal = 0
+let g:commentary_map_backslash = 0
 
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
