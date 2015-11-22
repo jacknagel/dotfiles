@@ -181,6 +181,10 @@ augroup filetypes
   autocmd Syntax javascript               setlocal isk+=$
 augroup END
 
+augroup readonly
+  autocmd BufNewFile,BufRead */node_modules/* setlocal readonly
+augroup END
+
 augroup completion
   autocmd FileType *
     \ if &omnifunc == "" |
@@ -203,7 +207,6 @@ augroup END
 augroup vimrc
   autocmd!
   autocmd BufWritePost *vimrc source $MYVIMRC
-  autocmd BufNewFile,BufRead */node_modules/* setlocal readonly
 augroup END
 
 augroup lastposjump
