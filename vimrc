@@ -87,9 +87,6 @@ set wildignore+=tags
 set wildignore+=*.aux,*.out
 set wildignore+=*.class,*.pyc
 set wildignore+=*.[oa],*.so,*.dylib
-set wildignore+=tmp/**
-set wildignore+=bundle/**,vendor/**
-set wildignore+=node_modules/**,bower_components/**
 
 set spelllang=en_us
 set spellfile=$HOME/.vim/spell/en.utf-8.add,$HOME/.vim/spell/en-local.utf-8.add
@@ -212,6 +209,7 @@ augroup END
 augroup vimrc
   autocmd!
   autocmd BufWritePost *vimrc source $MYVIMRC
+  autocmd BufNewFile,BufRead */node_modules/* setlocal readonly
 augroup END
 
 augroup lastposjump
