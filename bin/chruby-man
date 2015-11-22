@@ -1,2 +1,0 @@
-#!/bin/sh
-exec man -M "$RUBY_ROOT/share/man" "$@"
