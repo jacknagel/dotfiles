@@ -73,7 +73,7 @@ if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   PROMPT_COMMAND="__git_ps1 '\u@\h${blue}:\W${reset}' ' ${bold}\\$ ${reset}' '(%s)'"
 fi
 
-if [ -f "/usr/local/share/bash-completion/bash_completion" ]; then
+if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -gt 40 -a -f "/usr/local/share/bash-completion/bash_completion" ]; then
   . "/usr/local/share/bash-completion/bash_completion" 2>/dev/null
 elif [ -f "/usr/local/etc/bash_completion" ]; then
   . "/usr/local/etc/bash_completion" 2>/dev/null
