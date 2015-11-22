@@ -8,7 +8,8 @@ runtime macros/matchit.vim
 
 set nocompatible
 set history=1000
-set viminfo=!,'50,<50,s10,h,n$HOME/.vim/viminfo
+set viminfo^=!
+set viminfo+=n~/.vim/viminfo
 
 set backupdir^=$HOME/.vim/_backup//
 set backupskip+=/private/tmp/*
