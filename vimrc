@@ -11,10 +11,10 @@ set history=1000
 set viminfo^=!
 set viminfo+=n~/.vim/viminfo
 
-set backupdir^=$HOME/.vim/_backup//
+set backupdir^=~/.vim/_backup//
 set backupskip+=/private/tmp/*
-set directory^=$HOME/.vim/_swap//
-set undodir^=$HOME/.vim/_undo
+set directory^=~/.vim/_swap//
+set undodir^=~/.vim/_undo
 set undofile
 set autowrite
 set autoread
@@ -83,9 +83,9 @@ set wildignore+=*.class,*.pyc
 set wildignore+=*.[oa],*.so,*.dylib
 
 set spelllang=en_us
-set spellfile=$HOME/.vim/spell/en.utf-8.add,$HOME/.vim/spell/en-local.utf-8.add
+set spellfile=~/.vim/spell/en.utf-8.add,~/.vim/spell/en-local.utf-8.add
 set dictionary+=/usr/share/dict/words
-set thesaurus+=$HOME/.vim/spell/mthesaur.txt
+set thesaurus+=~/.vim/spell/mthesaur.txt
 
 set splitbelow
 set splitright
