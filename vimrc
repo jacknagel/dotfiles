@@ -7,7 +7,6 @@ filetype plugin indent on
 runtime macros/matchit.vim
 
 set nocompatible
-set encoding=utf-8
 set history=1000
 set viminfo=!,'50,<50,s10,h,n$HOME/.vim/viminfo
 
@@ -16,8 +15,6 @@ if has("persistent_undo")
   set undofile
 endif
 
-set nobackup
-set writebackup
 set backupdir^=$HOME/.vim/_backup//
 set backupskip+=/private/tmp/*
 set directory^=$HOME/.vim/_swap//
@@ -72,7 +69,6 @@ set statusline+=\ %h%w%m%r%y        " help|preview|modified|readonly|filetype
 set statusline+=%=                  " l-r separator
 set statusline+=%-14(%3l,%02c%03V%) " line#,col#-vcol#
 
-set timeout
 set ttimeout
 set timeoutlen=1200
 set ttimeoutlen=50
