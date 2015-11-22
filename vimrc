@@ -10,14 +10,11 @@ set nocompatible
 set history=1000
 set viminfo=!,'50,<50,s10,h,n$HOME/.vim/viminfo
 
-if has("persistent_undo")
-  set undodir^=$HOME/.vim/_undo
-  set undofile
-endif
-
 set backupdir^=$HOME/.vim/_backup//
 set backupskip+=/private/tmp/*
 set directory^=$HOME/.vim/_swap//
+set undodir^=$HOME/.vim/_undo
+set undofile
 set autowrite
 set autoread
 
