@@ -228,7 +228,7 @@ augroup END
 augroup swapmod
   autocmd!
   autocmd CursorHold,CursorHoldI,BufWritePost,BufReadPost,BufLeave *
-    \ if !empty(map(split(&directory, ","), "isdirectory(expand(v:val))")) |
+    \ if !empty(filter(split(&directory, ","), "isdirectory(expand(v:val))")) |
     \   let &swapfile = &modified |
     \ endif
 augroup END
