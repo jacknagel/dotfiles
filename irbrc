@@ -1,5 +1,3 @@
-require "rubygems" unless defined?(Gem)
-
 IRB.conf[:AUTO_INDENT]  = true
 IRB.conf[:SAVE_HISTORY] = 1000
 IRB.conf[:USE_READLINE] = true
