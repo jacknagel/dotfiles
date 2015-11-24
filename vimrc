@@ -196,14 +196,6 @@ augroup completion
     \ endif
 augroup END
 
-augroup compilers
-  autocmd!
-  autocmd FileType cucumber             silent! compiler cucumber
-  autocmd FileType sass,scss            silent! compiler sass
-  autocmd BufNewFile,BufRead *_spec.rb  silent! compiler rspec
-  autocmd BufNewFile,BufRead *_test.rb  silent! compiler rubyunit
-augroup END
-
 augroup vimrc
   autocmd!
   autocmd BufWritePost *vimrc source $MYVIMRC
