@@ -62,7 +62,7 @@ sudo () {
     return 1
     ;;
   *)
-    exec sudo "$@"
+    command sudo "$@"
     ;;
   esac
 }
