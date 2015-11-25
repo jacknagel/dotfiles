@@ -29,8 +29,6 @@
 [core]
 	editor = vim
 	pager = less -S
-	excludesfile = ~/.gitignore
-	attributesfile = ~/.gitattributes
 [credential]
 	helper = osxkeychain
 [diff]
