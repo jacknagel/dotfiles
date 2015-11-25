@@ -50,8 +50,6 @@
 	extendedregexp = true
 [help]
 	format = web
-[include]
-	path = ~/.gitconfig_local
 [init]
 	templatedir = ~/.git_template
 [instaweb]
