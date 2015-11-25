@@ -1,3 +1,5 @@
+require "pathname"
+
 task :default => :dotfiles
 
 desc "Install dotfiles"
@@ -9,29 +11,51 @@ task :vim => %w{vim:tmp vim:helptags}
 desc "Update submodules"
 task :submodules => %w{submodules:update submodules:pull}
 
+def relative_path(to, from)
+  Pathname.new(to).expand_path.relative_path_from(Pathname.new(from))
+end
+
 namespace :dotfiles do
-  task :link do
-    home = ENV["HOME"]
-    relative_prefix = pwd.sub("#{home}/", "")
-    files = FileList[%w{
-      bash* bundle ctags editrc gdbinit gemrc git* histignore inputrc irbrc
-      less lesskey psqlrc shrc sqliterc valgrindrc vim vimrc
-    }].existing!
+  dotfiles = FileList[%w{
+    bash*
+    bundle/config
+    config/git
+    ctags
+    editrc
+    gdbinit
+    gemrc
+    git*
+    histignore
+    inputrc
+    irbrc
+    less
+    lesskey
+    psqlrc
+    shrc
+    sqliterc
+    valgrindrc
+    vim
+    vimrc
+  }].existing!
 
-    files.zip(files.pathmap(File.join(home, ".%p"))) do |src, dst|
-      if File.symlink? dst and File.dirname(File.readlink(dst)) == relative_prefix
-        next
-      elsif File.exist? dst
-        STDERR.puts "#{dst} exists, skipping"
-      else
-        ln_s File.join(relative_prefix, src), dst
-      end
-    end
+  dotfiles.each do |dotfile|
+    dst = File.expand_path(".#{dotfile}", "~")
+    dirname = File.dirname(dst)
 
-    unless File.directory? File.join(home, "bin")
-      ln_s File.join(relative_prefix, "bin"), File.join(home, "bin")
+    task dotfile => dst
+    directory dirname
+    file dst => dirname do
+      ln_s relative_path(dotfile, dirname), dst
     end
   end
+  task :link => dotfiles
+
+  bin = File.expand_path("~/bin")
+  file bin do |t|
+    dirname = File.dirname(t.name)
+    ln_s relative_path("bin", dirname), t.name
+  end
+  task :link => bin
 end
 
 namespace :vim do
