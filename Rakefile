@@ -24,7 +24,6 @@ namespace :dotfiles do
     editrc
     gdbinit
     gemrc
-    git*
     histignore
     inputrc
     irbrc
