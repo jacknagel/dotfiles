@@ -7,4 +7,4 @@
       git --no-pager --git-dir="$dir/.git" --work-tree="$dir" grep --color=always "$@"
     fi
   done
-} | $(git config --global --get core.pager)
+} | $(git config --get core.pager)
