@@ -22,7 +22,6 @@ namespace :dotfiles do
     config/git
     ctags
     editrc
-    gdbinit
     gemrc
     histignore
     inputrc
