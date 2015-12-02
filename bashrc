@@ -17,7 +17,6 @@ shopt -s checkwinsize
 
 unset MAILCHECK
 
-FIGNORE=".swp"
 HISTSIZE=10000
 HISTFILESIZE=100000
 HISTFILE="$HOME/.history/bash"
