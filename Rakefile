@@ -74,6 +74,6 @@ namespace :submodules do
 
   task :pull => :update do
   sh "git", "submodule", "foreach", "--recursive", "-q",
-    %{git pull -q --ff-only && git --no-pager lg "master@{#{Time.now}}.." || :}
+    %{git pull -q --no-rebase --ff-only && git --no-pager lg "master@{#{Time.now}}.." || :}
   end
 end
