@@ -162,6 +162,7 @@ augroup filetypes
   autocmd FileType c                      setlocal ai et sw=4
   autocmd FileType make                   setlocal ai noet
   autocmd FileType gitconfig              setlocal ai noet
+  autocmd FileType sshconfig              setlocal ai noet
   autocmd FileType sql                    setlocal ai et sw=2
   autocmd FileType ruby,yaml              setlocal ai et sw=2
   autocmd FileType css,scss,sass,less     setlocal ai et sw=2
