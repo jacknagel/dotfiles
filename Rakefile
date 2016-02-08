@@ -9,7 +9,7 @@ desc "Bootstrap vim setup"
 task :vim => %w{vim:tmp vim:helptags}
 
 desc "Update submodules"
-task :submodules => %w{submodules:update submodules:pull}
+task :submodules => %w{submodules:update}
 
 def relative_path(to, from)
   Pathname.new(to).expand_path.relative_path_from(Pathname.new(from))
@@ -70,10 +70,7 @@ namespace :submodules do
   task :update do
     sh "git", "submodule", "sync", "-q"
     sh "git", "submodule", "update", "--init", "--recursive", "-q"
-  end
-
-  task :pull => :update do
-  sh "git", "submodule", "foreach", "--recursive", "-q",
-    %{git pull -q --no-rebase --ff-only && git --no-pager lg "master@{#{Time.now}}.." || :}
+    sh "git", "submodule", "foreach", "--recursive", "-q",
+      %{git checkout -q master && git pull -q --no-rebase --ff-only && git --no-pager lg "master@{#{Time.now}}.." || :}
   end
 end
