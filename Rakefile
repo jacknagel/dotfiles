@@ -71,6 +71,6 @@ namespace :submodules do
     sh "git", "submodule", "sync", "-q"
     sh "git", "submodule", "update", "--init", "--recursive", "-q"
     sh "git", "submodule", "foreach", "--recursive", "-q",
-      %{git checkout -q master && git pull -q --no-rebase --ff-only && git --no-pager --graph --decorate --oneline "master@{#{Time.now}}.." || :}
+      %{git checkout -q master && git pull -q --no-rebase --ff-only && git --no-pager log --graph --decorate --oneline "master@{#{Time.now}}.." || :}
   end
 end
