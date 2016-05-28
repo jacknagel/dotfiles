@@ -14,18 +14,12 @@
 	path = vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
 	ignore = dirty
-[submodule "vim/bundle/rake"]
-	path = vim/bundle/rake
-	url = https://github.com/tpope/vim-rake.git
 [submodule "vim/bundle/cucumber"]
 	path = vim/bundle/cucumber
 	url = https://github.com/tpope/vim-cucumber.git
 [submodule "vim/bundle/commentary"]
 	path = vim/bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "vim/bundle/bundler"]
-	path = vim/bundle/bundler
-	url = https://github.com/tpope/vim-bundler.git
 [submodule "vim/bundle/pathogen"]
 	path = vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
