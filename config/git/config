@@ -35,6 +35,7 @@
 	renames = copies
 	tool = vimdiff
 	algorithm = patience
+	compactionHeuristic = true
 [diff "gpg"]
 	textconv = gpg2 -qd --no-tty
 [diff "keyring"]
