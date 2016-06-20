@@ -52,7 +52,7 @@
 [help]
 	format = web
 [init]
-	templatedir = ~/.config/git/template
+	; templatedir = ~/.config/git/template
 [instaweb]
 	httpd = webrick
 	local = true
