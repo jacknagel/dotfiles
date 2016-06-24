@@ -77,3 +77,7 @@ if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -gt 40 -a -f "/usr/local/share/bas
 elif [ -f "/usr/local/etc/bash_completion" ]; then
   . "/usr/local/etc/bash_completion" 2>/dev/null
 fi
+
+if [ -f "$HOME/.nvm/nvm.sh" ]; then
+  . "$HOME/.nvm/nvm.sh" 2>/dev/null
+fi
