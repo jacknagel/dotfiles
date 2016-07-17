@@ -74,6 +74,7 @@
 	default = simple
 [rebase]
 	autosquash = true
+	autostash = true
 [rerere]
 	enabled = true
 [submodule]
