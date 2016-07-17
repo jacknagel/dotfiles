@@ -90,9 +90,6 @@ set thesaurus+=~/.vim/spell/mthesaur.txt
 set splitbelow
 set splitright
 
-" plugin settings
-let g:commentary_map_backslash = 0
-
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1  = "inc"
 let g:html_indent_inctags = "body,dd,dt,head,html,li,p,tbody"
