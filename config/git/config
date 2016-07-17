@@ -76,5 +76,7 @@
 	autosquash = true
 [rerere]
 	enabled = true
+[submodule]
+	fetchjobs = 8
 [web]
 	browser = open
