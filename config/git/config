@@ -77,6 +77,8 @@
 	autostash = true
 [rerere]
 	enabled = true
+[stash]
+	showpatch = true
 [submodule]
 	fetchjobs = 8
 [web]
