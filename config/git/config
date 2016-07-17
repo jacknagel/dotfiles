@@ -26,6 +26,8 @@
 	autosetuprebase = always
 [color]
 	ui = auto
+[commit]
+	verbose = true
 [core]
 	editor = vim
 	pager = less -S
