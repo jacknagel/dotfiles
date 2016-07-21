@@ -81,3 +81,4 @@ fi
 if [ -f "$HOME/.nvm/nvm.sh" ]; then
   . "$HOME/.nvm/nvm.sh" 2>/dev/null
 fi
+export DISABLE_NOTIFIER=1
