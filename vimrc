@@ -42,7 +42,6 @@ set incsearch
 set hlsearch
 
 set autoindent
-set expandtab
 set smarttab
 set shiftround
 
