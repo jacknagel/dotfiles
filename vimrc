@@ -32,7 +32,6 @@ set showcmd
 set visualbell
 set report=0
 set laststatus=2
-set showtabline=2
 set cursorline
 set shortmess=aIoOtT
 set lazyredraw
