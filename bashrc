@@ -54,12 +54,13 @@ cd () {
   builtin cd "$@" >/dev/null
 }
 
-bold="\[\033[1m\]"
-blue="\[\033[0;34m\]"
-reset="\[\033[0m\]"
+bold="\[\e[1m\]"
+blue="\[\e[0;34m\]"
+yellow="\[\e[0;32m\]"
+reset="\[\e[0m\]"
 
-PS1="\u@\h${blue}:\W${reset} ${bold}\$${reset} "
-PS2="${bold}..>${reset} "
+PS1="${blue}\W${reset} » "
+PS2="  » "
 
 if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   . "/usr/local/etc/bash_completion.d/git-prompt.sh"
@@ -69,7 +70,7 @@ if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   GIT_PS1_SHOWUNTRACKEDFILES=1
   GIT_PS1_SHOWUPSTREAM=auto
   GIT_PS1_DESCRIBE_STYLE=branch
-  PROMPT_COMMAND="__git_ps1 '\u@\h${blue}:\W${reset}' ' ${bold}\\$ ${reset}' '(%s)'"
+  PROMPT_COMMAND="__git_ps1 '${blue}\W${reset}' ' » ' ' :: ${yellow}(${reset}%s${yellow})${reset}'"
 fi
 
 if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -gt 40 -a -f "/usr/local/share/bash-completion/bash_completion" ]; then
