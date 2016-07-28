@@ -54,6 +54,7 @@ alias du1="du -h -d1"
 alias grep="grep --color=auto"
 alias sqlite="sqlite3"
 alias vi="vim"
+alias nom="rm -rf node_modules && npm cache clear && npm install"
 
 sudo () {
   case "$1" in
