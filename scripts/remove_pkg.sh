@@ -5,11 +5,11 @@ set -e
 cd /
 
 for id in "$@"; do
-  bom=/var/db/receipts/com.apple.pkg.${id}.bom
-  plist=/var/db/receipts/com.apple.pkg.${id}.plist
+  bom=/var/db/receipts/${id}.bom
+  plist=/var/db/receipts/${id}.plist
 
   if [ -f "$bom" ]; then
-    lsbom -fls "$bom" | xargs -I{} rm -r "{}"
+    lsbom -fls "$bom" | xargs -I{} rm -rf "{}"
     rm $bom $plist
   fi
 done
