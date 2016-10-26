@@ -106,7 +106,10 @@ imap <Left>  <Nop>
 imap <Right> <Nop>
 imap <Up>    <Nop>
 imap <Down>  <Nop>
-nmap Q       <Nop>
+
+" never switch to ex mode
+nmap Q <Nop>
+nmap gQ <Nop>
 
 " break undo in sensible places
 inoremap <CR>  <C-G>u<CR>
