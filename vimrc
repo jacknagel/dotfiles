@@ -126,6 +126,7 @@ nnoremap <Leader><Leader> <C-^>
 " :bc to write and delete buffer
 cnoreabbrev bc w<Bar>bd
 
+" make Ctrl-C check abbreviations and trigger InsertLeave
 inoremap <C-C> <Esc>
 
 nnoremap <Leader>l :set list!<CR>
