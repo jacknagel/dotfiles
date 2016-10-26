@@ -138,6 +138,9 @@ nnoremap zG 2zg
 vnoremap > >gv
 vnoremap < <gv
 
+" space in visual mode inserts space
+vnoremap <Space> I<Space><Esc>gv
+
 function! s:map_CR()
   nnoremap <silent> <CR> :nohlsearch<CR>
 endfunction
