@@ -49,3 +49,6 @@
 [submodule "vim/bundle/projectionist"]
 	path = vim/bundle/projectionist
 	url = https://github.com/tpope/vim-projectionist.git
+[submodule "vim/bundle/jsx"]
+	path = vim/bundle/jsx
+	url = https://github.com/mxw/vim-jsx.git
