@@ -1,7 +1,9 @@
 require "nokogiri"
 require "net/https"
 
-def check_url url
+STDOUT.sync = !$stdout.tty?
+
+def check_url(url, method: Net::HTTP::Head)
   uri = URI(url)
 
   opts = {
@@ -12,9 +14,15 @@ def check_url url
   }
 
   Net::HTTP.start(uri.host, uri.port, opts) do |http|
-    case resp = http.request(Net::HTTP::Head.new(uri))
+    case resp = http.request(method.new(uri))
     when Net::HTTPRedirection
       check_redirect(uri, resp)
+    when Net::HTTPNotFound, Net::HTTPMethodNotAllowed
+      if method == Net::HTTP::Head
+        check_url(uri, method: Net::HTTP::Get)
+      else
+        puts "#{resp.code}: #{uri}"
+      end
     else
       puts "#{resp.code}: #{uri}"
     end
@@ -25,10 +33,15 @@ rescue StandardError => e
   puts "ERROR: #{uri}\n  #{e.message}"
 end
 
-def check_redirect uri, resp
+def check_redirect(uri, resp)
   loc = resp.fetch("location")
   puts "#{resp.code}: #{uri} -> #{loc}"
-  check_url URI.join(uri, loc)
+  new_uri = URI.join(uri, loc)
+  if new_uri == uri
+    puts "ERROR: skipping self-redirect"
+  else
+    check_url new_uri
+  end
 end
 
 Nokogiri::HTML(ARGF).css("a").each { |link| check_url link["href"] }
