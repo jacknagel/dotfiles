@@ -30,4 +30,5 @@ git top
 jobs
 ls
 ls -l
+npm i*
 pwd
