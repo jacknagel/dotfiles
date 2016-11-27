@@ -3,13 +3,13 @@
 &
 ..*
 [bf]g
-brew up
-brew update
+brew cleanup*
+brew up*
 brw *
 brwe *
 cd
-cd -
 cd ..
+cd [-~]
 clear
 exit
 git a[pu]
@@ -19,6 +19,7 @@ git c[aiop]
 git d[chiu]
 git fetch -p
 git ff
+git fx *
 git l[gs]
 git push
 git rb[acis]
@@ -29,6 +30,7 @@ git status
 git top
 jobs
 ls
-ls -l
+ls *
 npm i*
 pwd
+which *
