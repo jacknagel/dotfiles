@@ -1,3 +1,2 @@
-#!/usr/bin/env ruby
-
-puts ARGV
+#!/bin/sh
+printf "%s\n" "$@"
