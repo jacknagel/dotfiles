@@ -91,12 +91,12 @@ set splitright
 " plugin settings
 let g:vim_json_syntax_conceal = 0
 
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1  = "inc"
-let g:html_indent_inctags = "body,dd,dt,head,html,li,p,tbody"
+let g:html_indent_script1 = 'inc'
+let g:html_indent_style1  = 'inc'
+let g:html_indent_inctags = 'body,dd,dt,head,html,li,p,tbody'
 
 " mappings
-let mapleader = ","
+let g:mapleader = ','
 
 map  <Left>  <Nop>
 map  <Right> <Nop>
@@ -147,12 +147,11 @@ endfunction
 
 function! FugitiveStatuslineWrapper()
   if !exists('*fugitive#head')
-    return ""
+    return ''
   endif
 
   let head = fugitive#head(7)
-  return head == "" ? "" : " [".head."]"
-  endif
+  return head ==# '' ? '' : ' ['.head.']'
 endfunction
 
 augroup filetypes
