@@ -17,7 +17,7 @@ const pbcopy = data => {
     pbcopy.stdin.write(data);
     pbcopy.stdin.end();
   });
-}
+};
 
 repl
   .start({ prompt: '> ' })
