@@ -49,11 +49,7 @@ set completeopt=menuone,longest,preview
 set complete-=i
 
 set nrformats-=octal
-set formatoptions+=1r
-
-if v:version >= 704
-  set formatoptions+=j
-endif
+set formatoptions+=1rj
 
 set listchars=tab:▸\ ,eol:$
 
