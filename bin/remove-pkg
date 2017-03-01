@@ -2,9 +2,7 @@
 
 set -e
 
-cd /
-
-for id in "$@"; do
+for id; do
   bom=/var/db/receipts/${id}.bom
   plist=/var/db/receipts/${id}.plist
 
