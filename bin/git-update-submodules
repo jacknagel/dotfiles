@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+cd $(git rev-parse --show-toplevel)
+
+time=$(date +"%Y-%m-%d %H:%M:%S %z")
+
+git submodule sync -q &&
+git submodule update --init --recursive -q &&
+git submodule foreach --recursive -q "
+  echo \$path &&
+  git checkout -q master &&
+  git pull -q --no-rebase --ff-only &&
+  git --no-pager log --graph --decorate --oneline 'master@{${time}}..'
+"

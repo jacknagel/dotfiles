@@ -8,9 +8,6 @@ task :dotfiles => %w{dotfiles:link}
 desc "Bootstrap vim setup"
 task :vim => %w{vim:tmp vim:helptags}
 
-desc "Update submodules"
-task :submodules => %w{submodules:update}
-
 def relative_path(to, from)
   Pathname.new(to).expand_path.relative_path_from(Pathname.new(from))
 end
@@ -63,14 +60,5 @@ namespace :vim do
 
   task :helptags do
     sh "vim", "-e", "-c", "Helptags", "-c", "q"
-  end
-end
-
-namespace :submodules do
-  task :update do
-    sh "git", "submodule", "sync", "-q"
-    sh "git", "submodule", "update", "--init", "--recursive", "-q"
-    sh "git", "submodule", "foreach", "--recursive", "-q",
-      %{git checkout -q master && git pull -q --no-rebase --ff-only && git --no-pager log --graph --decorate --oneline "master@{#{Time.now}}.." || :}
   end
 end
