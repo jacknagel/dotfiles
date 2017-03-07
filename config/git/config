@@ -20,7 +20,7 @@
 	rbc = rebase --continue
 	rbi = rebase --interactive
 	rbs = rebase --skip
-	top = shortlog -ns
+	thx = shortlog -ns
 [branch]
 	autosetupmerge = always
 	autosetuprebase = always

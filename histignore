@@ -27,6 +27,7 @@ git reset --hard
 git show
 git st
 git status
+git thx
 git top
 jobs
 ls
