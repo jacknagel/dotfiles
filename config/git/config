@@ -81,5 +81,7 @@
 	showpatch = true
 [submodule]
 	fetchjobs = 8
+[transfer]
+	fsckobjects = true
 [web]
 	browser = open
