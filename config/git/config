@@ -80,7 +80,7 @@
 [stash]
 	showpatch = true
 [submodule]
-	fetchjobs = 8
+	fetchjobs = 0
 [transfer]
 	fsckobjects = true
 [web]
