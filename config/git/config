@@ -77,6 +77,7 @@
 	autostash = true
 [rerere]
 	enabled = true
+	autoupdate = true
 [stash]
 	showpatch = true
 [submodule]
