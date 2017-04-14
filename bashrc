@@ -36,9 +36,16 @@ SUDO_EDITOR="vim -n -i NONE"
 PAGER="less"
 MANPAGER="less"
 BROWSER="open"
-LESS="FRXiq"
+export EDITOR VISUAL SUDO_EDITOR PAGER MANPAGER BROWSER
+
+# F   - exit if content fits on one screen
+# R   - output ANSI colors
+# X   - don't clear screen on exit
+# j.5 - center search results
+# q   - quiet, visual bell
+LESS="FRXj.5q"
 LESSHISTFILE="$HOME/.history/less"
-export EDITOR VISUAL SUDO_EDITOR PAGER MANPAGER BROWSER LESS LESSHISTFILE
+export LESS LESSHISTFILE
 
 
 CLICOLOR=1

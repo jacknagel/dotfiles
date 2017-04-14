@@ -30,7 +30,7 @@
 	verbose = true
 [core]
 	editor = vim
-	pager = less -S
+	pager = less -S ; truncates long lines
 [credential]
 	helper = osxkeychain
 [diff]
