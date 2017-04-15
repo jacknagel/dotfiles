@@ -84,5 +84,7 @@
 	fetchJobs = 0
 [transfer]
 	fsckObjects = true
+[user]
+	useConfigOnly = true
 [web]
 	browser = open
