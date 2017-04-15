@@ -22,8 +22,8 @@
 	rbs = rebase --skip
 	thx = shortlog -ns
 [branch]
-	autosetupmerge = always
-	autosetuprebase = always
+	autoSetupMerge = always
+	autoSetupRebase = always
 [color]
 	ui = auto
 [commit]
@@ -37,7 +37,7 @@
 	renames = copies
 	tool = vimdiff
 	algorithm = patience
-	indentheuristic = true
+	indentHeuristic = true
 [diff "gpg"]
 	textconv = gpg2 -qd --no-tty
 [diff "keyring"]
@@ -50,7 +50,7 @@
 [fetch]
 	prune = true
 [grep]
-	extendedregexp = true
+	extendedRegexp = true
 [help]
 	format = web
 [init]
@@ -60,11 +60,11 @@
 	local = true
 	port = 8080
 [interactive]
-	singlekey = true
+	singleKey = true
 [log]
 	decorate = short
 [merge]
-	conflictstyle = diff3
+	conflictStyle = diff3
 [merge "bundle"]
 	name = bundle
 	driver = bundle
@@ -73,16 +73,16 @@
 [push]
 	default = simple
 [rebase]
-	autosquash = true
-	autostash = true
+	autoSquash = true
+	autoStash = true
 [rerere]
 	enabled = true
-	autoupdate = true
+	autoUpdate = true
 [stash]
-	showpatch = true
+	showPatch = true
 [submodule]
-	fetchjobs = 0
+	fetchJobs = 0
 [transfer]
-	fsckobjects = true
+	fsckObjects = true
 [web]
 	browser = open
