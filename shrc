@@ -77,7 +77,6 @@ case "$(uname)" in
     inpath ggrep && alias grep="ggrep --color=auto"
     inpath sudoedit || alias sudoedit="sudo -e"
 
-    alias jsc=/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc
     alias flushdns="sudo -k killall -HUP mDNSResponder"
     alias resetlaunchpad="defaults write com.apple.dock ResetLaunchPad -bool true && killall Dock"
 
