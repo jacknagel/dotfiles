@@ -68,13 +68,17 @@ sudo () {
   esac
 }
 
+inpath () {
+  type "$1" >/dev/null 2>&1
+}
+
 case "$(uname)" in
   Darwin)
-    type ggrep >/dev/null 2>&1 && alias grep="ggrep --color=auto"
+    inpath ggrep && alias grep="ggrep --color=auto"
+    inpath sudoedit || alias sudoedit="sudo -e"
 
     alias jsc=/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc
     alias flushdns="sudo -k killall -HUP mDNSResponder"
-    alias sudoedit="sudo -e"
     alias resetlaunchpad="defaults write com.apple.dock ResetLaunchPad -bool true && killall Dock"
 
     COPYFILE_DISABLE=1
