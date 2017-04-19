@@ -77,7 +77,10 @@
 	name = bundle
 	driver = bundle
 [pager]
-	log = less -+$LESS -iRSq
+	; for log
+	; +F - don't quit if one screen
+	; +X - dont' clear the screen on exit
+	log = less -+FX -S
 [push]
 	default = simple
 [rebase]
