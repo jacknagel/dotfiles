@@ -1,0 +1,2 @@
+#!/bin/sh
+exec rg --color=always --no-ignore-vcs -g '!.git' -g '!node_modules' "$@" | $(git config --get core.pager)
