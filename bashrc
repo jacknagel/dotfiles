@@ -50,8 +50,7 @@ export LESS LESSHISTFILE
 
 CLICOLOR=1
 LSCOLORS=ExGxFxdxCxDaDahbadacec
-GREP_COLORS="mt=01;31:sl=:cx=:fn=:ln=:bn=:se=00;36"
-export CLICOLOR LSCOLORS GREP_COLORS
+export CLICOLOR LSCOLORS
 
 
 [ -d "$HOME/.history" ] || mkdir "$HOME/.history"

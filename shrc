@@ -52,9 +52,10 @@ export GPG_TTY
 alias be="bundle exec"
 alias du1="du -h -d1"
 alias grep="grep --color=auto"
+alias nom="rm -rf node_modules && npm cache clear && npm install"
+alias rg="rg --line-number --no-heading"
 alias sqlite="sqlite3"
 alias vi="vim"
-alias nom="rm -rf node_modules && npm cache clear && npm install"
 
 sudo () {
   case "$1" in
