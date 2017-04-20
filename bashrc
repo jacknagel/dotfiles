@@ -65,7 +65,7 @@ yellow="\[\e[0;33m\]"
 blue="\[\e[0;34m\]"
 reset="\[\e[0m\]"
 
-PS1="${blue}\W${reset} ${red}»${reset} "
+PS1="${blue}\W${reset} ${yellow}»${reset} "
 PS2="  ${yellow}»${reset} "
 
 if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
