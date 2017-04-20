@@ -1,8 +1,7 @@
 # vim:set ft=sh et sw=2:
 
 indirect_expand () {
-  IFS=$' \t\n'
-  eval echo \$$1
+  eval printf '%s' "\"\$$var\""
 }
 
 remove_path () {
@@ -12,7 +11,7 @@ remove_path () {
   for dir in $(indirect_expand "$var"); do
     [ "$dir" != "$2" ] && val="${val:+$val:}$dir"
   done
-  eval "$var=$val"
+  eval "$var=\$val"
 }
 
 prepend_path () {
