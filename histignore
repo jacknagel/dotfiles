@@ -16,6 +16,7 @@ git a[pu]
 git add -[pu]
 git b[rv]
 git c[aiop]
+git co -
 git d[chiu]
 git fetch -p
 git ff
@@ -31,7 +32,10 @@ git thx
 git top
 jobs
 ls
-ls *
-npm i*
+ls -l?
+npm i
+npm install
 pwd
+vi
+vim
 which *
