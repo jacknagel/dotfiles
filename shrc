@@ -12,7 +12,7 @@ remove_path () {
   for dir in $(indirect_expand "$var"); do
     [ "$dir" != "$2" ] && val="${val:+$val:}$dir"
   done
-  eval $var="$val"
+  eval "$var=$val"
 }
 
 prepend_path () {
