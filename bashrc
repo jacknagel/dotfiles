@@ -47,6 +47,7 @@ LESS="FRXj.5q"
 LESSHISTFILE="$HOME/.history/less"
 export LESS LESSHISTFILE
 
+export NODE_REPL_HISTORY="$HOME/.history/node_repl"
 
 CLICOLOR=1
 LSCOLORS=ExGxFxdxCxfxDxxbadacad
