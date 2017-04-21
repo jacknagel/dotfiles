@@ -2,4 +2,4 @@
 set -e
 prog="$(git --exec-path)/../../share/git-core/contrib/diff-highlight/diff-highlight"
 [ -x "$prog" ] || prog=cat
-exec $prog
+exec "$prog"
