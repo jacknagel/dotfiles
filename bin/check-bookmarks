@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby -w
+
+require "nokogiri"
+require "net/https"
+
+STDOUT.sync = !$stdout.tty?
+
+BOOKMARKS_PATH = File.expand_path("~/Library/Safari/Bookmarks.plist")
+
+def check_url(url, method: Net::HTTP::Head, &block)
+  uri = URI(url)
+
+  opts = {
+    open_timeout: 3,
+    read_timeout: 3,
+    use_ssl:      uri.scheme == "https",
+    verify_mode:  OpenSSL::SSL::VERIFY_PEER,
+  }
+
+  Net::HTTP.start(uri.host, uri.port, opts) do |http|
+    case resp = http.request(method.new(uri))
+    when Net::HTTPRedirection
+      check_redirect(uri, resp, &block)
+    when Net::HTTPNotFound, Net::HTTPMethodNotAllowed
+      if method == Net::HTTP::Head
+        check_url(uri, method: Net::HTTP::Get, &block)
+      else
+        yield "#{resp.code}: #{uri}"
+      end
+    else
+      yield "#{resp.code}: #{uri}"
+    end
+  end
+rescue Net::OpenTimeout, Net::ReadTimeout
+  yield "TIMEOUT: #{uri}"
+rescue StandardError => e
+  yield "ERROR: #{uri}\n  #{e.message}"
+end
+
+def check_redirect(uri, resp, &block)
+  loc = resp.fetch("location")
+  yield "#{resp.code}: #{uri} -> #{loc}"
+  new_uri = URI.join(uri, loc)
+  if new_uri == uri
+    yield "ERROR: skipping self-redirect"
+  else
+    check_url(new_uri, &block)
+  end
+end
+
+IO.popen(%W[plutil -convert xml1 -o - #{BOOKMARKS_PATH}]) do |io|
+  Nokogiri::XML(io).xpath("//key[.=\"URLString\"]/../string[contains(text(),'http')]/text()").each do |url|
+    check_url(url) { |result| puts result }
+  end
+end
