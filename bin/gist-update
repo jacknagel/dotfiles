@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env ruby -w
 
 gem "octokit", "~> 4.1", ">= 4.1.1"
 require "octokit"
