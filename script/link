@@ -1,0 +1,51 @@
+#!/bin/sh
+
+set -e
+
+files='
+  bash_profile
+  bashrc
+  config/git
+  ctags
+  editrc
+  gemrc
+  histignore
+  inputrc
+  irbrc
+  less
+  lesskey
+  local/bin
+  psqlrc
+  shrc
+  sqliterc
+  valgrindrc
+  vim
+  vimrc
+'
+
+repo=$(git rev-parse --show-toplevel)
+
+for file in $files; do
+  basename=${file##*/}
+
+  case "$file" in
+    */*)
+      dirname="$HOME/.${file%/*}"
+      ;;
+    *)
+      dirname=$HOME
+      basename=".${basename}"
+      ;;
+  esac
+
+  source="$repo/$file"
+  target="$dirname/$basename"
+
+  if [ ! -L "$target" ] && [ -f "$target" -o -d "$target" ]; then
+    echo "path $target already exists, skipping" >&2
+    continue
+  fi
+
+  mkdir -p "$dirname"
+  ln -sfhv "$source" "$target"
+done

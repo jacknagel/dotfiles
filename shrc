@@ -36,7 +36,7 @@ append_path () {
 
 prepend_path PATH /sbin /usr/sbin /bin /usr/bin
 prepend_path PATH /usr/local/sbin /usr/local/bin
-prepend_path PATH "$HOME/bin"
+prepend_path PATH "$HOME/.local/bin"
 
 prepend_path INFOPATH /usr/share/info /usr/local/share/info
 
@@ -51,6 +51,7 @@ export GPG_TTY
 alias be="bundle exec"
 alias du1="du -h -d1"
 alias grep="grep --color=auto"
+alias helptags="vim -e -c Helptags -c q"
 alias nom="rm -rf node_modules && npm cache clear && npm install"
 alias rg="rg --line-number --no-heading"
 alias sqlite="sqlite3"

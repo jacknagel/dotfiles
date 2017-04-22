@@ -1,0 +1,30 @@
+#!/bin/sh
+
+set -e
+
+cd "$(git rev-parse --show-toplevel)"
+
+bootstrap_git () {
+  [ -f "$HOME/.gitconfig" ] || >"$HOME/.gitconfig"
+
+  if ! git config --get user.name >/dev/null; then
+    printf "Name: "
+    read -r name
+    git config --global user.name "$name"
+  fi
+
+  if ! git config --get user.email >/dev/null; then
+    printf "Email: "
+    read -r email
+    git config --global user.email "$email"
+  fi
+}
+
+bootstrap_vim () {
+  mkdir -p vim/_backup vim/_swap vim/_undo
+  vim -e -c Helptags -c q
+}
+
+bootstrap_git
+bootstrap_vim
+script/link
