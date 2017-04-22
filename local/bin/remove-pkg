@@ -1,13 +1,23 @@
 #!/bin/sh
 
-set -e
+set -eu
+
+pkg_root () {
+  pkgutil --pkg-info-plist "$1" | plutil -convert json - -o - | ruby -rjson -e '
+    pkg = JSON.load(ARGF)
+    puts File.join(pkg["volume"], pkg["install-location"])
+  '
+}
 
 for id; do
-  bom=/var/db/receipts/${id}.bom
-  plist=/var/db/receipts/${id}.plist
-
-  if [ -f "$bom" ]; then
-    lsbom -fls "$bom" | xargs -I{} rm -rf {}
-    rm "$bom" "$plist"
+  if ! pkgutil --pkg-info "$id" >/dev/null 2>&1; then
+    echo "Package $id does not exist, skipping" >&2
+    continue
   fi
+
+  root=$(pkg_root "$id")
+
+  sudo -k
+  sudo pkgutil --only-files --files "$id" | xargs -I{} rm -rf "$root/{}"
+  sudo pkgutil --forget "$id"
 done
