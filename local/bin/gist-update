@@ -1,31 +1,24 @@
-#!/usr/bin/env ruby -w
+#!/bin/bash
 
-gem "octokit", "~> 4.1", ">= 4.1.1"
-require "octokit"
+set -eu
 
-dir = "#{ENV["HOME"]}/git/gists"
+gist_dir="$HOME/git/gists"
+host="git@gist.github.com"
 
-def git(*args)
-  args.unshift "git"
-  puts args*" " if ARGV.include? "-d"
-  Kernel.system(*args)
-end
+mkdir -p "$gist_dir"
 
-def access_token
-  ENV.fetch("GIST_TOKEN") { File.read("#{ENV["HOME"]}/.gist").strip }
-end
+have () {
+  ls "$gist_dir" | sort
+}
 
-Octokit::Client.new(
-  access_token:  access_token,
-  auto_paginate: true
-).gists.each do |gist|
-  id = gist.id
-  worktree = File.join(dir, id)
-  gitdir = File.join(worktree, ".git")
+want () {
+  gist --list | cut -d' ' -f1 | while read -r url; do
+    echo "${url#https://gist.github.com/}"
+  done | sort
+}
 
-  if File.directory?(worktree)
-    git "--git-dir=#{gitdir}", "--work-tree=#{worktree}", "pull", "-q"
-  else
-    git "clone", "-q", "git@gist.github.com:#{id}.git", worktree
-  end
-end
+ssh -qfNM -o ControlPersist=600 "$host"
+comm -23 <(have) <(want) | xargs -n1 -P8 -I{} rm -rf "$gist_dir/{}"
+comm -13 <(have) <(want) | xargs -n1 -P8 -I{} git clone -q "$host:{}.git"  "$gist_dir/{}"
+comm -12 <(have) <(want) | xargs -n1 -P8 -I{} git -C "$gist_dir/{}" pull -q
+ssh -q -O exit "$host"
