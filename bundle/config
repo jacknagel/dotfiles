@@ -1,5 +1,0 @@
----
-BUNDLE_PATH: .bundle
-BUNDLE_DISABLE_SHARED_GEMS: '1'
-BUNDLE_BUILD__SQLITE3: --with-sqlite3-include=/usr/local/opt/sqlite/include --with-sqlite3-lib=/usr/local/opt/sqlite/lib
-BUNDLE_BUILD__PG: --with-pg-config=/usr/local/opt/postgresql/bin/pg_config

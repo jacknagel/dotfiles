@@ -15,7 +15,6 @@ end
 namespace :dotfiles do
   dotfiles = FileList[%w{
     bash*
-    bundle/config
     config/git
     ctags
     editrc
