@@ -89,4 +89,12 @@ fi
 
 if [ -f "$HOME/.nvm/nvm.sh" ]; then
   . "$HOME/.nvm/nvm.sh" 2>/dev/null
+
+  _load_nvm_bash_completion () {
+    . "$HOME/.nvm/bash_completion" 2>/dev/null &&
+      compopt +o nospace nvm &&
+      return 124
+  }
+
+  complete -F _load_nvm_bash_completion nvm
 fi
