@@ -56,7 +56,6 @@ alias lstcp="sudo lsof -Pn -iTCP"
 alias lsudp="sudo lsof -Pn -iUDP"
 alias nom="rm -rf node_modules && npm cache clear && npm install"
 alias rg="rg --line-number --no-heading"
-alias sqlite="sqlite3"
 alias vi="vim"
 
 sudo () {
