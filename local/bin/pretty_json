@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby -w
 
 require "json"
-puts JSON.pretty_generate(JSON.parse(ARGF.read))
+puts JSON.pretty_generate(JSON.load(ARGF))
