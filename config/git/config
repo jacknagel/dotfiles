@@ -50,6 +50,8 @@
 [diff "keyring"]
 	textconv = gpg2 -v
 	xfuncname = "^((pub|uid) .*)"
+[diff "plist"]
+	textconv = plutil -convert xml1 -o -
 [diff "tar"]
 	textconv = tar -tvf
 [difftool]
