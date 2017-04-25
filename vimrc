@@ -154,6 +154,26 @@ function! FugitiveStatuslineWrapper()
   return head ==# '' ? '' : ' ['.head.']'
 endfunction
 
+function! s:restore_last_cursor_position()
+  if &l:filetype == "gitcommit"
+    return
+  endif
+
+  " If the last cursor position is on the first line or past the end of the
+  " file, don't do anything.
+  if line("'\"") == 0 || line("'\"") > line("$")
+    return
+  endif
+
+  " Jump to the last cursor position. If it is not in the bottom half of the
+  " last window, then re-center the window on the line.
+  if line("$") - line("'\"") > (line("w$") - line("w0")) / 2
+    execute "normal! g`\"zz"
+  else
+    execute "normal! g`\""
+  endif
+endfunction
+
 augroup filetypes
   autocmd!
   autocmd FileType gitcommit              setlocal spell nonumber noundofile
@@ -202,10 +222,7 @@ augroup END
 
 augroup lastposjump
   autocmd!
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") && &l:filetype !=# 'gitcommit' |
-    \   execute "normal g`\"zvzz" |
-    \ endif
+  autocmd BufReadPost * call s:restore_last_cursor_position()
 augroup END
 
 augroup undo
