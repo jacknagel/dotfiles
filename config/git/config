@@ -81,7 +81,6 @@
 	name = bundle
 	driver = bundle
 [pager]
-	; for log
 	; +F - don't quit if one screen
 	; +X - don't clear the screen on exit
 	; -S - don't wrap long lines
