@@ -155,7 +155,7 @@ function! FugitiveStatuslineWrapper()
 endfunction
 
 function! s:restore_last_cursor_position()
-  if &l:filetype == "gitcommit"
+  if &l:filetype == "gitcommit" || &l:filetype == "gitrebase" || &l:buftype == "quickfix"
     return
   endif
 
