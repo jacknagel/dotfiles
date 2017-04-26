@@ -168,7 +168,8 @@ endfunction
 
 augroup filetypes
   autocmd!
-  autocmd FileType gitcommit              setlocal spell nonumber noundofile
+  autocmd FileType gitcommit              setlocal spell
+  autocmd FileType gitcommit,gitrebase    setlocal nonumber noundofile
   autocmd FileType c                      setlocal ai et sw=4
   autocmd FileType make                   setlocal ai noet
   autocmd FileType gitconfig              setlocal ai noet
