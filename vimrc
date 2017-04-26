@@ -57,13 +57,12 @@ endif
 
 set listchars=tab:▸\ ,eol:$
 
-set statusline=%<                   " truncation point
-set statusline+=[%n]                " buffer number
+set statusline=[%n]                 " buffer number
 set statusline+=\ %.99f             " relative path to file
 set statusline+=%{FugitiveStatuslineWrapper()}
 set statusline+=\ %h%w%m%r%y        " help|preview|modified|readonly|filetype
 set statusline+=%=                  " l-r separator
-set statusline+=%-14(%3l,%02c%03V%) " line#,col#-vcol#
+set statusline+=%-14.(%l,%c%V%)\ %P " line#,col#-vcol# %
 
 set ttimeout
 set timeoutlen=1200
@@ -145,7 +144,7 @@ function! FugitiveStatuslineWrapper()
   endif
 
   let head = fugitive#head(7)
-  return head ==# '' ? '' : ' ['.head.']'
+  return head ==# '' ? '' : ' [' . head . ']'
 endfunction
 
 function! s:restore_last_cursor_position()
