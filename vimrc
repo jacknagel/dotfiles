@@ -244,6 +244,7 @@ augroup windows
   autocmd VimEnter * set wh=5 wmh=5 wh=999 hh=999 cwh=999
   autocmd VimEnter * set wiw=80
   autocmd VimResized * wincmd =
+  autocmd VimEnter * if &lazyredraw | redrawstatus! | endif
 augroup END
 
 augroup quickfix
