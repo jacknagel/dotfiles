@@ -134,9 +134,8 @@ nnoremap zG 2zg
 vnoremap > >gv
 vnoremap < <gv
 
-function! s:map_CR()
-  nnoremap <silent> <CR> :nohlsearch<CR>
-endfunction
+" clear search highlighting
+nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
 function! FugitiveStatuslineWrapper()
   if !exists('*fugitive#head')
@@ -235,14 +234,6 @@ augroup swapmod
     \ if !empty(filter(split(&directory, ","), "isdirectory(expand(v:val))")) |
     \   let &swapfile = &modified |
     \ endif
-augroup END
-
-augroup hlsearch
-  autocmd!
-  autocmd VimEnter * call s:map_CR()
-  autocmd CmdWinEnter * nunmap <CR>
-  autocmd CmdWinLeave * call s:map_CR()
-  autocmd InsertEnter,InsertLeave * set hlsearch!
 augroup END
 
 augroup windows
