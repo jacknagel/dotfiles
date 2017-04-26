@@ -37,6 +37,7 @@ set shortmess=aIoOtT
 set lazyredraw
 set virtualedit+=block
 set nojoinspaces
+set display=lastline
 
 set incsearch
 set hlsearch
