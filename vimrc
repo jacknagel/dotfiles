@@ -12,6 +12,7 @@ set viminfo^=!
 set viminfo+=n~/.vim/viminfo
 
 set backupdir^=~/.vim/_backup//
+set backupskip&
 set backupskip+=/private/tmp/*
 set directory^=~/.vim/_swap//
 set undodir^=~/.vim/_undo
