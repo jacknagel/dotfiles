@@ -123,9 +123,6 @@ xnoremap & :&&<CR>
 " switch to previous file
 nnoremap <Leader><Leader> <C-^>
 
-" :bc to write and delete buffer
-cnoreabbrev bc w<Bar>bd
-
 " make Ctrl-C check abbreviations and trigger InsertLeave
 inoremap <C-C> <Esc>
 
@@ -137,9 +134,6 @@ nnoremap zG 2zg
 " continuous indentation
 vnoremap > >gv
 vnoremap < <gv
-
-" space in visual mode inserts space
-vnoremap <Space> I<Space><Esc>gv
 
 function! s:map_CR()
   nnoremap <silent> <CR> :nohlsearch<CR>
