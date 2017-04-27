@@ -17,6 +17,7 @@ set backupskip+=/private/tmp/*
 set directory^=~/.vim/_swap//
 set undodir^=~/.vim/_undo
 set undofile
+set sessionoptions-=options
 set autowrite
 set autoread
 
