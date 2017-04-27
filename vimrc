@@ -244,7 +244,7 @@ augroup windows
   " as is setting 'wmh' after setting 'wh' sufficiently large to prevent
   " opening another window.
   autocmd!
-  autocmd VimEnter * set wh=5 wmh=5 wh=999 hh=999 cwh=999
+  autocmd VimEnter * set wh=10 wmh=10 wh=999 hh=999 cwh=999
   autocmd VimEnter * set wiw=80
   autocmd VimResized * wincmd =
   autocmd VimEnter * if &lazyredraw | redrawstatus! | endif
