@@ -112,8 +112,12 @@ imap <Down>  <Nop>
 nmap Q <Nop>
 nmap gQ <Nop>
 
-" break undo in sensible places
-inoremap <CR>  <C-G>u<CR>
+" In insert mode, break the current undo sequence in sensible places. If <CR>
+" is already mapped to include <C-G>u, then don't remap it. This preserves the
+" endwise.vim <CR> mapping when re-sourcing this file.
+if maparg('<CR>', 'i') !~ '<C-G>u<CR>'
+  inoremap <CR> <C-G>u<CR>
+endif
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 
