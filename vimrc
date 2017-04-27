@@ -20,10 +20,6 @@ set sessionoptions-=options
 set autowrite
 set autoread
 
-set background=dark
-colorscheme solarized
-syntax enable
-
 set number
 set numberwidth=3
 set scrolloff=3
@@ -88,6 +84,12 @@ set thesaurus+=~/.vim/spell/mthesaur.txt
 
 set splitbelow
 set splitright
+
+if has('termguicolors') && $TERM_PROGRAM ==# 'iTerm.app'
+  set termguicolors
+  set background=dark
+  colorscheme solarized8_dark
+endif
 
 " plugin settings
 let g:vim_json_syntax_conceal = 0

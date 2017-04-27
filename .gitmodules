@@ -10,9 +10,6 @@
 [submodule "vim/bundle/ruby"]
 	path = vim/bundle/ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/cucumber"]
 	path = vim/bundle/cucumber
 	url = https://github.com/tpope/vim-cucumber.git
@@ -52,3 +49,6 @@
 [submodule "vim/bundle/jsx"]
 	path = vim/bundle/jsx
 	url = https://github.com/mxw/vim-jsx.git
+[submodule "vim/bundle/solarized8"]
+	path = vim/bundle/solarized8
+	url = https://github.com/lifepillar/vim-solarized8
