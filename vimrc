@@ -1,16 +1,15 @@
 " vim:set et sw=2:
 
 execute pathogen#infect()
-
-filetype plugin indent on
-
 runtime macros/matchit.vim
 
 set nocompatible
+filetype plugin indent on
+syntax on
+
 set history=1000
 set viminfo^=!
 set viminfo+=n~/.vim/viminfo
-
 set backupdir^=~/.vim/_backup//
 set backupskip&
 set backupskip+=/private/tmp/*
