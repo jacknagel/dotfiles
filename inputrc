@@ -1,6 +1,8 @@
 # vim:set et sw=2:
 
-set editing-mode vi
+set input-meta on
+set output-meta on
+set convert-meta off
 
 set bell-style visual
 set completion-ignore-case on
@@ -10,9 +12,7 @@ set show-all-if-ambiguous on
 set show-all-if-unmodified on
 set skip-completed-text on
 
-set input-meta on
-set output-meta on
-set convert-meta off
+set editing-mode vi
 
 $if Bash
   Space: magic-space
@@ -24,10 +24,6 @@ set keymap vi-command
 "gg": beginning-of-history
 "G": end-of-history
 
-set keymap vi-move
-"\e[A": history-search-backward
-"\e[B": history-search-forward
-
 set keymap vi-insert
 Control-a: beginning-of-line
 Control-b: backward-char
@@ -35,9 +31,9 @@ Control-d: delete-char
 Control-e: end-of-line
 Control-f: forward-char
 Control-k: kill-line
+Control-l: clear-screen
 Control-n: next-history
 Control-p: previous-history
-Control-L: clear-screen
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
