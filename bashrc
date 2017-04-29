@@ -77,12 +77,19 @@ fi
 
 __prompt_command () {
   local exit=$?
+  local red="\[\e[0;31m\]"
   local green="\[\e[0;32m\]"
   local yellow="\[\e[0;33m\]"
   local blue="\[\e[0;34m\]"
   local reset="\[\e[0m\]"
+  local sudo=""
+
+  if [ "$EUID" -eq 0 ]; then
+    sudo="${red}sudo!${reset} "
+  fi
+
   local ps1pre="${blue}\W${reset}"
-  local ps1post=" ${yellow}»${reset} "
+  local ps1post=" ${sudo}${yellow}»${reset} "
 
   __set_ps1 "$ps1pre" "$ps1post" " :: ${green}(${reset}%s${green})${reset}"
   PS2=" $ps1post"
