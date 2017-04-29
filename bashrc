@@ -99,16 +99,16 @@ __prompt_command () {
 PROMPT_COMMAND=__prompt_command
 
 if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -gt 40 -a -f "/usr/local/share/bash-completion/bash_completion" ]; then
-  . "/usr/local/share/bash-completion/bash_completion" 2>/dev/null
+  . "/usr/local/share/bash-completion/bash_completion"
 elif [ -f "/usr/local/etc/bash_completion" ]; then
-  . "/usr/local/etc/bash_completion" 2>/dev/null
+  . "/usr/local/etc/bash_completion"
 fi
 
 if [ -f "$HOME/.nvm/nvm.sh" ]; then
-  . "$HOME/.nvm/nvm.sh" 2>/dev/null
+  . "$HOME/.nvm/nvm.sh"
 
   _load_nvm_bash_completion () {
-    . "$HOME/.nvm/bash_completion" 2>/dev/null &&
+    . "$HOME/.nvm/bash_completion" &&
       compopt +o nospace nvm &&
       return 124
   }
