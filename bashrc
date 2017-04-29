@@ -62,14 +62,6 @@ cd () {
   builtin cd "$@" >/dev/null
 }
 
-green="\[\e[0;32m\]"
-yellow="\[\e[0;33m\]"
-blue="\[\e[0;34m\]"
-reset="\[\e[0m\]"
-
-PS1="${blue}\W${reset} ${yellow}»${reset} "
-PS2="  ${yellow}»${reset} "
-
 if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   . "/usr/local/etc/bash_completion.d/git-prompt.sh"
   GIT_PS1_SHOWDIRTYSTATE=1
@@ -78,8 +70,26 @@ if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   GIT_PS1_SHOWUNTRACKEDFILES=1
   GIT_PS1_SHOWUPSTREAM=auto
   GIT_PS1_DESCRIBE_STYLE=branch
-  PROMPT_COMMAND="__git_ps1 '${blue}\W${reset}' ' ${yellow}»${reset} ' ' :: ${green}(${reset}%s${green})${reset}'"
+  __set_ps1 () { __git_ps1 "$@"; }
+else
+  __set_ps1 () { PS1="$1$2"; }
 fi
+
+__prompt_command () {
+  local exit=$?
+  local green="\[\e[0;32m\]"
+  local yellow="\[\e[0;33m\]"
+  local blue="\[\e[0;34m\]"
+  local reset="\[\e[0m\]"
+  local ps1pre="${blue}\W${reset}"
+  local ps1post=" ${yellow}»${reset} "
+
+  __set_ps1 "$ps1pre" "$ps1post" " :: ${green}(${reset}%s${green})${reset}"
+  PS2=" $ps1post"
+
+  return $exit
+}
+PROMPT_COMMAND=__prompt_command
 
 if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -gt 40 -a -f "/usr/local/share/bash-completion/bash_completion" ]; then
   . "/usr/local/share/bash-completion/bash_completion" 2>/dev/null
