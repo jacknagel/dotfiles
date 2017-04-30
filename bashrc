@@ -100,6 +100,10 @@ if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -gt 40 -a -f "/usr/local/share/bas
   . "/usr/local/share/bash-completion/bash_completion"
 elif [ -f "/usr/local/etc/bash_completion" ]; then
   . "/usr/local/etc/bash_completion"
+else
+  for file in /usr/local/etc/bash_completion.d/*; do
+    [ -f "$file" ] && . "$file"
+  done
 fi
 
 if [ -f "$HOME/.nvm/nvm.sh" ]; then
