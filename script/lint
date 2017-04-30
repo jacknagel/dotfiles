@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -eu
+
+type shellcheck >/dev/null 2>&1 || echo "Install shellcheck" >&2
+
+status=0
+
+lint_file () {
+  shellcheck "$1" || status=1
+}
+
+is_shell_script () {
+  [ -f "$1" ] && head -n1 "$1" | grep -E -w "(ba)?sh" >/dev/null 2>&1
+}
+
+for file in $(git ls-files -oc --exclude-standard); do
+  is_shell_script "$file" && lint_file "$file"
+done
+
+exit $status
