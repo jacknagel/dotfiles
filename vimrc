@@ -98,6 +98,9 @@ let g:html_indent_script1 = 'inc'
 let g:html_indent_style1  = 'inc'
 let g:html_indent_inctags = 'body,dd,dt,head,html,li,p,tbody'
 
+let g:EditorConfig_core_mode = 'external_command'
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
 " mappings
 let g:mapleader = ','
 
