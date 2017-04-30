@@ -113,5 +113,10 @@ if [ -f "$HOME/.nvm/nvm.sh" ]; then
     . "$HOME/.nvm/bash_completion" && return 124
   }
 
+  _load_npm_bash_completion () {
+    type npm >/dev/null 2>&1 && . <(npm completion) && return 124
+  }
+
   complete -F _load_nvm_bash_completion nvm
+  complete -F _load_npm_bash_completion npm
 fi
