@@ -1,4 +1,5 @@
 # vim:set ft=sh et sw=2:
+# shellcheck shell=sh disable=SC2039
 
 indirect_expand () {
   eval printf '%s' "\"\$$var\""

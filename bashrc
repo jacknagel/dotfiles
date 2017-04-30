@@ -1,4 +1,5 @@
 # vim:set ft=sh et sw=2:
+# shellcheck shell=bash disable=SC1090,SC1091
 
 export ENV="$HOME/.shrc"
 . "$ENV"
@@ -62,6 +63,7 @@ cd () {
   builtin cd "$@" >/dev/null
 }
 
+# shellcheck disable=SC2034
 if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
   . "/usr/local/etc/bash_completion.d/git-prompt.sh"
   GIT_PS1_SHOWDIRTYSTATE=1
@@ -96,7 +98,7 @@ __prompt_command () {
 }
 PROMPT_COMMAND=__prompt_command
 
-if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -gt 40 -a -f "/usr/local/share/bash-completion/bash_completion" ]; then
+if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -gt 40 ] && [ -f "/usr/local/share/bash-completion/bash_completion" ]; then
   . "/usr/local/share/bash-completion/bash_completion"
 elif [ -f "/usr/local/etc/bash_completion" ]; then
   . "/usr/local/etc/bash_completion"

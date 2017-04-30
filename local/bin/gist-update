@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# shellcheck disable=SC2029
 
 set -eu
 
@@ -8,6 +9,7 @@ host="git@gist.github.com"
 mkdir -p "$gist_dir"
 
 have () {
+  # shellcheck disable=SC2012
   ls "$gist_dir" | sort
 }
 

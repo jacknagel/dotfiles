@@ -42,6 +42,7 @@ for file in $files; do
   source="$repo/$file"
   target="$dirname/$basename"
 
+  # shellcheck disable=SC2166
   if [ ! -L "$target" ] && [ -f "$target" -o -d "$target" ]; then
     echo "path $target already exists, skipping" >&2
     continue

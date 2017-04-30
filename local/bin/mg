@@ -1,2 +1,3 @@
 #!/bin/sh
+# shellcheck disable=SC2091
 exec rg --color=always --no-ignore-vcs -g '!.git' -g '!node_modules' "$@" | $(git config --get core.pager)
