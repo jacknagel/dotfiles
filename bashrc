@@ -110,9 +110,7 @@ if [ -f "$HOME/.nvm/nvm.sh" ]; then
   . "$HOME/.nvm/nvm.sh"
 
   _load_nvm_bash_completion () {
-    . "$HOME/.nvm/bash_completion" &&
-      compopt +o nospace nvm &&
-      return 124
+    . "$HOME/.nvm/bash_completion" && return 124
   }
 
   complete -F _load_nvm_bash_completion nvm
