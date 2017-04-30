@@ -47,9 +47,12 @@
 	algorithm = patience
 	indentHeuristic = true
 [diff "gpg"]
-	textconv = gpg2 -qd --no-tty
+	textconv = gpg -qd --no-tty
+[diff "keybox"]
+	textconv = kbxutil
+	xfuncname = "^((Uid|Key-Kid)\\[.*)"
 [diff "keyring"]
-	textconv = gpg2 -v
+	textconv = gpg -v
 	xfuncname = "^((pub|uid) .*)"
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
