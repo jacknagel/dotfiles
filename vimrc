@@ -205,7 +205,7 @@ augroup filetypes
 augroup END
 
 augroup readonly
-  autocmd BufNewFile,BufReadPost *.log setlocal readonly nowrap
+  autocmd BufNewFile,BufReadPost *.log{,.[0-9]*} setlocal readonly nowrap
   autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly
 augroup END
 
