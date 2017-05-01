@@ -94,6 +94,8 @@ __prompt_command () {
   __set_ps1 "$ps1pre" "$ps1post" " :: ${green}(${reset}%s${green})${reset}"
   PS2=" $ps1post"
 
+  history -a
+
   return $exit
 }
 PROMPT_COMMAND=__prompt_command
