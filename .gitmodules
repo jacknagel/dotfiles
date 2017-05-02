@@ -52,6 +52,3 @@
 [submodule "vim/bundle/solarized8"]
 	path = vim/bundle/solarized8
 	url = https://github.com/lifepillar/vim-solarized8
-[submodule "vim/bundle/editorconfig"]
-	path = vim/bundle/editorconfig
-	url = https://github.com/editorconfig/editorconfig-vim
