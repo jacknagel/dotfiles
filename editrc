@@ -12,7 +12,5 @@ bind ^N ed-next-history
 bind ^P ed-prev-history
 bind ^R em-inc-search-prev
 bind ^S em-inc-search-next
-bind ^[[A ed-search-prev-history
-bind ^[[B ed-search-next-history
 
 lldb:bind ^I lldb_complete
