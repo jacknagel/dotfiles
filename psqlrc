@@ -1,10 +1,10 @@
 \pset null 'NULL'
 \set FETCH_COUNT 1000
-
+\set HISTCONTROL ignoreboth
 \set HISTFILE ~/.history/psql- :HOST - :DBNAME
 \set HISTSIZE 1000
-\set HISTCONTROL ignoreboth
-
-\set PROMPT1 '%m%/%R%# '
+\set ON_ERROR_ROLLBACK interactive
+\set PROMPT1 '%n@%m:%~ %R%# '
 \set PROMPT2 :PROMPT1
 \set PROMPT3 '>> '
+\timing
