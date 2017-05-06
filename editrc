@@ -1,7 +1,7 @@
 bind -v
 bind ^A ed-move-to-beg
 bind ^B ed-prev-char
-bind ^D ed-delete-next-char
+bind ^D em-delete-or-list
 bind ^E ed-move-to-end
 bind ^F ed-next-char
 bind ^G vi-command-mode
