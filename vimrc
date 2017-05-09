@@ -158,10 +158,6 @@ function! FugitiveStatuslineWrapper()
 endfunction
 
 function! s:restore_last_cursor_position()
-  if &l:filetype == "gitcommit" || &l:filetype == "gitrebase" || &l:buftype == "quickfix"
-    return
-  endif
-
   " If the last cursor position is on the first line or past the end of the
   " file, don't do anything.
   if line("'\"") == 0 || line("'\"") > line("$")
@@ -227,6 +223,9 @@ augroup END
 
 augroup lastposjump
   autocmd!
+  autocmd FileType gitcommit,gitrebase delmarks \"
+  autocmd BufReadPost *.log{,.[0-9]*} delmarks \"
+  autocmd BufReadPost quickfix delmarks \"
   autocmd BufReadPost * call s:restore_last_cursor_position()
 augroup END
 
