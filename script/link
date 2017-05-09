@@ -6,7 +6,6 @@ files='
   bash_profile
   bashrc
   config/git
-  ctags
   curlrc
   editorconfig
   editrc
