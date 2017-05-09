@@ -33,15 +33,17 @@ else
   inoremap <silent> <F27> <C-\><C-O>:silent doautocmd FocusGained %<CR>
 endif
 
-let &t_ti .= "\<Esc>[?2004h"
-let &t_te = "\<Esc>[?2004l" . &t_te
+if !exists('+t_BD') || empty(&t_BD) || empty(&t_PS)
+  let &t_ti .= "\<Esc>[?2004h"
+  let &t_te = "\<Esc>[?2004l" . &t_te
 
-execute "set <F28>=\<Esc>[200~"
-execute "set <F29>=\<Esc>[201~"
+  execute "set <F28>=\<Esc>[200~"
+  execute "set <F29>=\<Esc>[201~"
 
-set pastetoggle=<F29>
-cnoremap <F28> <Nop>
-cnoremap <F29> <Nop>
-nnoremap <expr> <F28> terminator#paste("i")
-vnoremap <expr> <F28> terminator#paste("c")
-inoremap <expr> <F28> terminator#paste("")
+  set pastetoggle=<F29>
+  cnoremap <F28> <Nop>
+  cnoremap <F29> <Nop>
+  nnoremap <expr> <F28> terminator#paste("i")
+  vnoremap <expr> <F28> terminator#paste("c")
+  inoremap <expr> <F28> terminator#paste("")
+endif
