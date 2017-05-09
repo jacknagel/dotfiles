@@ -63,16 +63,27 @@ cd () {
   builtin cd "$@" >/dev/null
 }
 
-# shellcheck disable=SC2034
-if [ -f "/usr/local/etc/bash_completion.d/git-prompt.sh" ]; then
-  . "/usr/local/etc/bash_completion.d/git-prompt.sh"
-  GIT_PS1_SHOWDIRTYSTATE=1
-  GIT_PS1_SHOWSTASHSTATE=1
-  GIT_PS1_SHOWCOLORHINTS=1
-  GIT_PS1_SHOWUNTRACKEDFILES=1
-  GIT_PS1_SHOWUPSTREAM=auto
-  GIT_PS1_DESCRIBE_STYLE=branch
-  __set_ps1 () { __git_ps1 "$@"; }
+if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -gt 40 ] && [ -f "/usr/local/share/bash-completion/bash_completion" ]; then
+  . "/usr/local/share/bash-completion/bash_completion"
+elif [ -f "/usr/local/etc/bash_completion" ]; then
+  . "/usr/local/etc/bash_completion"
+else
+  for file in /usr/local/etc/bash_completion.d/*; do
+    [ -f "$file" ] && . "$file"
+  done
+fi
+
+if declare -F __git_ps1 >/dev/null; then
+  # shellcheck disable=SC2034
+  __set_ps1 () {
+    local GIT_PS1_SHOWDIRTYSTATE=1
+    local GIT_PS1_SHOWSTASHSTATE=1
+    local GIT_PS1_SHOWCOLORHINTS=1
+    local GIT_PS1_SHOWUNTRACKEDFILES=1
+    local GIT_PS1_SHOWUPSTREAM=auto
+    local GIT_PS1_DESCRIBE_STYLE=branch
+    __git_ps1 "$@";
+  }
 else
   __set_ps1 () { PS1="$1$2"; }
 fi
@@ -99,16 +110,6 @@ __prompt_command () {
   return $exit
 }
 PROMPT_COMMAND=__prompt_command
-
-if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -gt 40 ] && [ -f "/usr/local/share/bash-completion/bash_completion" ]; then
-  . "/usr/local/share/bash-completion/bash_completion"
-elif [ -f "/usr/local/etc/bash_completion" ]; then
-  . "/usr/local/etc/bash_completion"
-else
-  for file in /usr/local/etc/bash_completion.d/*; do
-    [ -f "$file" ] && . "$file"
-  done
-fi
 
 if [ -f "$HOME/.nvm/nvm.sh" ]; then
   . "$HOME/.nvm/nvm.sh"
