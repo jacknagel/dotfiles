@@ -85,8 +85,11 @@ set thesaurus+=~/.vim/spell/mthesaur.txt
 set splitbelow
 set splitright
 
-if has('termguicolors') && $TERM_PROGRAM ==# 'iTerm.app'
-  set termguicolors
+if $TERM_PROGRAM ==# 'iTerm.app'
+  if has('termguicolors')
+    set termguicolors
+  endif
+
   set background=dark
   colorscheme solarized8_dark
 endif
