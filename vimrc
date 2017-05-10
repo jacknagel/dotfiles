@@ -58,9 +58,9 @@ set listchars=tab:▸\ ,eol:$
 set statusline=[%n]                 " buffer number
 set statusline+=\ %.99f             " relative path to file
 set statusline+=\ %h%w%m%r%y        " help|preview|modified|readonly|filetype
-set statusline+=%{FugitiveStatusLineWrapper()}
+set statusline+=%(\ %{FugitiveStatusLineWrapper()}%)
 set statusline+=%=                  " l-r separator
-set statusline+=%#ErrorMsg#%{ALEStatusLineWrapper()}%*
+set statusline+=%(%#ErrorMsg#%{ALEStatusLineWrapper()}%*\ %)
 set statusline+=%-14.(%l,%c%V%)\ %P " line#,col#-vcol# %
 
 set ttimeout
@@ -157,7 +157,7 @@ function! FugitiveStatusLineWrapper()
   endif
 
   let head = fugitive#head(7)
-  return head ==# '' ? '' : ' [' . head . ']'
+  return head ==# '' ? '' : '[' . head . ']'
 endfunction
 
 function! ALEStatusLineWrapper()
