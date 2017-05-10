@@ -198,6 +198,9 @@ augroup filetypes
   autocmd FileType sh                     let &l:path = substitute($PATH, ':', ',', 'g')
   autocmd Syntax css,scss,sass,less       setlocal isk+=-
   autocmd Syntax javascript               setlocal isk+=$
+  autocmd BufNewFile,BufReadPost .eslintrc setlocal ft=json
+  autocmd BufNewFile,BufReadPost .npmrc setlocal ft=dosini
+  autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
 augroup END
 
 augroup readonly
