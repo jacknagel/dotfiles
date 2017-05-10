@@ -57,9 +57,10 @@ set listchars=tab:▸\ ,eol:$
 
 set statusline=[%n]                 " buffer number
 set statusline+=\ %.99f             " relative path to file
-set statusline+=%{FugitiveStatuslineWrapper()}
 set statusline+=\ %h%w%m%r%y        " help|preview|modified|readonly|filetype
+set statusline+=%{FugitiveStatusLineWrapper()}
 set statusline+=%=                  " l-r separator
+set statusline+=%#ErrorMsg#%{ALEStatusLineWrapper()}%*
 set statusline+=%-14.(%l,%c%V%)\ %P " line#,col#-vcol# %
 
 set ttimeout
@@ -95,11 +96,13 @@ if $TERM_PROGRAM ==# 'iTerm.app'
 endif
 
 " plugin settings
-let g:vim_json_syntax_conceal = 0
-
+let g:ale_lint_on_text_changed = 0
+let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
+let g:html_indent_inctags = 'dd,dt,p'
 let g:html_indent_script1 = 'inc'
 let g:html_indent_style1  = 'inc'
-let g:html_indent_inctags = 'dd,dt,p'
+let g:vim_json_syntax_conceal = 0
 
 " mappings
 let g:mapleader = ','
@@ -148,13 +151,21 @@ vnoremap < <gv
 " clear search highlighting
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 
-function! FugitiveStatuslineWrapper()
+function! FugitiveStatusLineWrapper()
   if !exists('*fugitive#head')
     return ''
   endif
 
   let head = fugitive#head(7)
   return head ==# '' ? '' : ' [' . head . ']'
+endfunction
+
+function! ALEStatusLineWrapper()
+  if !exists('*ALEGetStatusLine')
+    return ''
+  endif
+
+  return ALEGetStatusLine()
 endfunction
 
 function! s:restore_last_cursor_position()
