@@ -99,7 +99,7 @@ let g:vim_json_syntax_conceal = 0
 
 let g:html_indent_script1 = 'inc'
 let g:html_indent_style1  = 'inc'
-let g:html_indent_inctags = 'body,dd,dt,head,html,li,p,tbody'
+let g:html_indent_inctags = 'dd,dt,p'
 
 " mappings
 let g:mapleader = ','
