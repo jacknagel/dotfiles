@@ -9,6 +9,7 @@ files='
   curlrc
   editorconfig
   editrc
+  eslintrc.json
   gemrc
   histignore
   inputrc
