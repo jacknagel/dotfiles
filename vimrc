@@ -103,6 +103,7 @@ let g:html_indent_inctags = 'dd,dt,p'
 let g:html_indent_script1 = 'inc'
 let g:html_indent_style1  = 'inc'
 let g:markdown_fenced_languages = ['css', 'html', 'javascript', 'ruby']
+let g:vim_indent_cont = 2
 let g:vim_json_syntax_conceal = 0
 
 " mappings
