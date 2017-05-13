@@ -102,6 +102,7 @@ let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
 let g:html_indent_inctags = 'dd,dt,p'
 let g:html_indent_script1 = 'inc'
 let g:html_indent_style1  = 'inc'
+let g:markdown_fenced_languages = ['css', 'html', 'javascript', 'ruby']
 let g:vim_json_syntax_conceal = 0
 
 " mappings
@@ -205,6 +206,7 @@ augroup filetypes
   autocmd FileType sh                     setlocal ai et sw=2
   autocmd FileType python                 setlocal ai et sw=4
   autocmd Filetype java                   setlocal ai et sw=4
+  autocmd FileType markdown               setlocal ai et sw=2 linebreak spell | if exists('+breakindent') | setlocal breakindent | endif
   autocmd FileType help,qf                nnoremap <silent> <buffer> q :<C-U>q<CR>
   autocmd FileType vim                    setlocal ai et sw=2 sua=.vim
   autocmd FileType vim,help               setlocal kp=:help
