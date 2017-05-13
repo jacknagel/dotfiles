@@ -97,7 +97,11 @@ endif
 
 " plugin settings
 let g:ale_lint_on_text_changed = 0
-let g:ale_linters = { 'javascript': ['eslint'] }
+let g:ale_linters = {
+  \ 'javascript': ['eslint'],
+  \ 'css': ['stylelint'],
+  \ 'scss': ['stylelint']
+  \}
 let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
 let g:html_indent_inctags = 'dd,dt,p'
 let g:html_indent_script1 = 'inc'
