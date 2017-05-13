@@ -193,6 +193,18 @@ function! s:restore_last_cursor_position()
   endif
 endfunction
 
+function! s:setup_formatprg(cmd, args) abort
+  let prg = getcwd() . '/' . findfile('node_modules/.bin' . a:cmd, '.;')
+
+  if !executable(prg)
+    let prg = a:cmd
+  endif
+
+  if executable(prg)
+    let &l:formatprg = prg . ' ' . a:args
+  endif
+endfunction
+
 augroup filetypes
   autocmd!
   autocmd FileType gitcommit              setlocal spell
@@ -221,6 +233,8 @@ augroup filetypes
   autocmd Syntax javascript               setlocal isk+=$
   autocmd BufNewFile,BufReadPost .npmrc setlocal ft=dosini
   autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
+  autocmd FileType javascript             call s:setup_formatprg('prettier-eslint', '--stdin')
+  autocmd FileType css,scss               call s:setup_formatprg('stylefmt', '--stdin-filename ' . expand('<afile>'))
 augroup END
 
 augroup readonly
