@@ -149,6 +149,7 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 noremap <silent> g\| :Tabularize/\|/l1<CR>
 
 noremap gs :sort<CR>
+noremap gy "*y
 
 function! FugitiveStatusLineWrapper()
   if !exists('*fugitive#head')
