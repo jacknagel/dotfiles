@@ -148,6 +148,8 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " format cucumber tables
 noremap <silent> g\| :Tabularize/\|/l1<CR>
 
+noremap gs :sort<CR>
+
 function! FugitiveStatusLineWrapper()
   if !exists('*fugitive#head')
     return ''
