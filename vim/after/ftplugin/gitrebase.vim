@@ -1,3 +1,8 @@
+delmarks \"
+
+setlocal nonumber
+setlocal noundofile
+
 nnoremap <silent> <buffer> E :Edit<CR>
 nnoremap <silent> <buffer> F :Fixup<CR>
 nnoremap <silent> <buffer> P :Pick<CR>

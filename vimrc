@@ -91,9 +91,6 @@ let g:ale_linters = {
   \ 'scss': ['stylelint']
   \}
 let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
-let g:html_indent_inctags = 'dd,dt,p'
-let g:html_indent_script1 = 'inc'
-let g:html_indent_style1  = 'inc'
 let g:markdown_fenced_languages = ['css', 'html', 'javascript', 'ruby']
 let g:vim_indent_cont = 2
 let g:vim_json_syntax_conceal = 0
@@ -184,64 +181,12 @@ function! s:restore_last_cursor_position()
   endif
 endfunction
 
-function! s:setup_formatprg(cmd, args) abort
-  let prg = getcwd() . '/' . findfile('node_modules/.bin' . a:cmd, '.;')
-
-  if !executable(prg)
-    let prg = a:cmd
-  endif
-
-  if executable(prg)
-    let &l:formatprg = prg . ' ' . a:args
-  endif
-endfunction
-
 augroup filetypes
   autocmd!
-  autocmd FileType gitcommit              setlocal spell
-  autocmd FileType gitcommit,gitrebase    setlocal nonumber noundofile
-  autocmd FileType c                      setlocal ai et sw=4
-  autocmd FileType make                   setlocal ai noet
-  autocmd FileType gitconfig              setlocal ai noet
-  autocmd FileType sshconfig              setlocal ai noet
-  autocmd FileType sql                    setlocal ai et sw=2
-  autocmd FileType ruby,yaml              setlocal ai et sw=2
-  autocmd FileType css,scss,sass,less     setlocal ai et sw=2
-  autocmd FileType cucumber               setlocal ai et sw=2 nowrap
-  autocmd FileType javascript             setlocal ai et sw=2
-  autocmd FileType json                   setlocal ai et sw=2
-  autocmd FileType html,eruby             setlocal ai et sw=2
-  autocmd FileType sh                     setlocal ai et sw=2
-  autocmd FileType python                 setlocal ai et sw=4
-  autocmd Filetype java                   setlocal ai et sw=4
-  autocmd FileType markdown               setlocal ai et sw=2 linebreak spell | if exists('+breakindent') | setlocal breakindent | endif
-  autocmd FileType help,qf                nnoremap <silent> <buffer> q :<C-U>q<CR>
-  autocmd FileType vim                    setlocal ai et sw=2 sua=.vim
-  autocmd FileType vim,help               setlocal kp=:help
-  autocmd FileType vim,help               let &l:path = escape(&runtimepath, ' ')
-  autocmd FileType sh                     let &l:path = substitute($PATH, ':', ',', 'g')
-  autocmd Syntax css,scss,sass,less       setlocal isk+=-
-  autocmd Syntax javascript               setlocal isk+=$
-  autocmd BufNewFile,BufReadPost .npmrc setlocal ft=dosini
-  autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
-  autocmd FileType javascript             call s:setup_formatprg('prettier-eslint', '--stdin')
-  autocmd FileType css,scss               call s:setup_formatprg('stylefmt', '--stdin-filename ' . expand('<afile>'))
-augroup END
-
-augroup readonly
   autocmd BufNewFile,BufReadPost *.log{,.[0-9]*} setlocal readonly nowrap
   autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly
-augroup END
-
-augroup completion
-  autocmd FileType *
-    \ if &omnifunc == "" |
-    \   setlocal omnifunc=syntaxcomplete#Complete |
-    \ endif
-  autocmd FileType *
-    \ if &completefunc == "" |
-    \   setlocal completefunc=syntaxcomplete#Complete |
-    \ endif
+  autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
+  autocmd BufNewFile,BufReadPost .npmrc setlocal ft=dosini
 augroup END
 
 augroup vimrc
@@ -251,7 +196,6 @@ augroup END
 
 augroup lastposjump
   autocmd!
-  autocmd FileType gitcommit,gitrebase delmarks \"
   autocmd BufReadPost *.log{,.[0-9]*} delmarks \"
   autocmd BufReadPost quickfix delmarks \"
   autocmd BufReadPost * call s:restore_last_cursor_position()
