@@ -64,9 +64,9 @@ set wildmenu
 set wildmode=longest:full,full
 
 set statusline=[%n]                 " buffer number
-set statusline+=\ %.99f             " relative path to file
-set statusline+=\ %h%w%m%r%y        " help|preview|modified|readonly|filetype
-set statusline+=%(\ %{FugitiveStatusLineWrapper()}%)
+set statusline+=%(\ %.120f\ %)      " relative path to file
+set statusline+=%h%w%m%r%y          " help|preview|modified|readonly|filetype
+set statusline+=%{FugitiveStatusLineWrapper()}
 set statusline+=%=                  " l-r separator
 set statusline+=%(%#ErrorMsg#%{ALEStatusLineWrapper()}%*\ %)
 set statusline+=%-14.(%l,%c%V%)\ %P " line#,col#-vcol# %
