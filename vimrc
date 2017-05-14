@@ -27,7 +27,7 @@ set hlsearch
 set incsearch
 set laststatus=2
 set lazyredraw
-set listchars=tab:▸\ ,eol:$
+set listchars=tab:▸\ ,trail:·,extends:…,precedes:…,nbsp:␠
 set nojoinspaces
 set nrformats-=octal
 set number
