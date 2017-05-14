@@ -4,56 +4,64 @@ execute pathogen#infect()
 runtime macros/matchit.vim
 
 set nocompatible
-filetype plugin indent on
-syntax on
-
-set history=1000
-set viminfo^=!
-set viminfo+=n~/.vim/viminfo
+set autoindent
+set autoread
+set autowrite
+set backspace=indent,eol,start
 set backupdir^=~/.vim/_backup//
 set backupskip&
 set backupskip+=/private/tmp/*
-set directory^=~/.vim/_swap//
-set undodir^=~/.vim/_undo
-set undofile
-set sessionoptions-=options
-set autowrite
-set autoread
-
-set number
-set numberwidth=3
-set scrolloff=3
-set backspace=indent,eol,start
 set cmdheight=2
-set showcmd
-set visualbell
-set report=0
-set laststatus=2
-set cursorline
-set shortmess=aIoOtT
-set lazyredraw
-set virtualedit+=block
-set nojoinspaces
-set display=lastline
-
-set incsearch
-set hlsearch
-
-set autoindent
-set smarttab
-set shiftround
-
-set completeopt=menuone,longest,preview
 set complete-=i
-
-set nrformats-=octal
+set completeopt=menuone,longest,preview
+set cursorline
+set dictionary+=/usr/share/dict/words
+set directory^=~/.vim/_swap//
+set display=lastline
 set formatoptions+=1r
-
 if v:version >= 704
   set formatoptions+=j
 endif
-
+set history=1000
+set hlsearch
+set incsearch
+set laststatus=2
+set lazyredraw
 set listchars=tab:▸\ ,eol:$
+set nojoinspaces
+set nrformats-=octal
+set number
+set numberwidth=3
+set report=0
+set scrolloff=3
+set sessionoptions-=options
+set shiftround
+set shortmess=aIoOtT
+set showcmd
+set smarttab
+set spellfile=~/.vim/spell/en.utf-8.add,~/.vim/spell/en-local.utf-8.add
+set spelllang=en_us
+set splitbelow
+set splitright
+setglobal tags+=./tags;
+set thesaurus+=~/.vim/spell/mthesaur.txt
+set timeoutlen=1200
+set ttimeout
+set ttimeoutlen=50
+set undodir^=~/.vim/_undo
+set undofile
+set viminfo+=n~/.vim/viminfo
+set viminfo^=!
+set virtualedit+=block
+set visualbell
+set wildignore+=*.[oa],*.so,*.dylib
+set wildignore+=*.aux,*.out
+set wildignore+=*.class,*.pyc
+set wildignore+=*~,[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],Session.vim
+set wildignore+=.DS_Store
+set wildignore+=tags
+set wildmenu
+set wildmode=longest:full,full
 
 set statusline=[%n]                 " buffer number
 set statusline+=\ %.99f             " relative path to file
@@ -63,29 +71,6 @@ set statusline+=%=                  " l-r separator
 set statusline+=%(%#ErrorMsg#%{ALEStatusLineWrapper()}%*\ %)
 set statusline+=%-14.(%l,%c%V%)\ %P " line#,col#-vcol# %
 
-set ttimeout
-set timeoutlen=1200
-set ttimeoutlen=50
-
-setglobal tags+=./tags;
-
-set wildmenu
-set wildmode=longest:full,full
-set wildignore+=*~,[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],Session.vim
-set wildignore+=.DS_Store
-set wildignore+=tags
-set wildignore+=*.aux,*.out
-set wildignore+=*.class,*.pyc
-set wildignore+=*.[oa],*.so,*.dylib
-
-set spelllang=en_us
-set spellfile=~/.vim/spell/en.utf-8.add,~/.vim/spell/en-local.utf-8.add
-set dictionary+=/usr/share/dict/words
-set thesaurus+=~/.vim/spell/mthesaur.txt
-
-set splitbelow
-set splitright
-
 if $TERM_PROGRAM ==# 'iTerm.app'
   if has('termguicolors')
     set termguicolors
@@ -94,6 +79,9 @@ if $TERM_PROGRAM ==# 'iTerm.app'
   set background=dark
   colorscheme solarized8_dark
 endif
+
+filetype plugin indent on
+syntax on
 
 " plugin settings
 let g:ale_lint_on_text_changed = 0
