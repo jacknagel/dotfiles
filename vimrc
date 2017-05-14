@@ -1,5 +1,6 @@
 " vim:set et sw=2:
 
+scriptencoding utf-8
 execute pathogen#infect()
 runtime macros/matchit.vim
 
