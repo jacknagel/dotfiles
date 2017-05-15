@@ -81,6 +81,13 @@ if $TERM_PROGRAM ==# 'iTerm.app'
   colorscheme solarized8_dark
 endif
 
+if executable('rg')
+  set grepprg=rg\ -H\ --no-heading\ --vimgrep
+  set grepformat=%f:%l:%c:%m
+else
+  set grepprg=grep\ -rnH
+endif
+
 filetype plugin indent on
 syntax on
 " plugin settings
