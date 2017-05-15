@@ -83,12 +83,12 @@ endif
 
 filetype plugin indent on
 syntax on
-
 " plugin settings
 let g:ale_lint_on_text_changed = 0
 let g:ale_linters = {
   \ 'javascript': ['eslint'],
   \ 'css': ['stylelint'],
+  \ 'html': [],
   \ 'scss': ['stylelint']
   \}
 let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
