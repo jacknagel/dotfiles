@@ -55,3 +55,9 @@
 [submodule "vim/bundle/ale"]
 	path = vim/bundle/ale
 	url = https://github.com/w0rp/ale
+[submodule "vim/bundle/deep-space"]
+	path = vim/bundle/deep-space
+	url = https://github.com/tyrannicaltoucan/vim-deep-space
+[submodule "vim/bundle/quantum"]
+	path = vim/bundle/quantum
+	url = https://github.com/tyrannicaltoucan/vim-quantum

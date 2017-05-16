@@ -78,7 +78,7 @@ if $TERM_PROGRAM ==# 'iTerm.app'
   endif
 
   set background=dark
-  colorscheme solarized8_dark
+  colorscheme deep-space
 endif
 
 if executable('rg')
