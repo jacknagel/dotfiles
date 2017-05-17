@@ -70,6 +70,7 @@ set statusline+=%h%w%m%r%y          " help|preview|modified|readonly|filetype
 set statusline+=%{FugitiveStatusLineWrapper()}
 set statusline+=%=                  " l-r separator
 set statusline+=%(%#ErrorMsg#%{ALEStatusLineWrapper()}%*\ %)
+set statusline+=%-10.(0x%B%)        " hex value of character under cursor
 set statusline+=%-14.(%l,%c%V%)\ %P " line#,col#-vcol# %
 
 if $TERM_PROGRAM ==# 'iTerm.app'
