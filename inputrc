@@ -27,6 +27,8 @@ set keymap vi-command
 "G": end-of-history
 
 set keymap vi-insert
+"\e[A": history-search-backward
+"\e[B": history-search-forward
 Control-a: beginning-of-line
 Control-b: backward-char
 Control-d: delete-char
@@ -37,10 +39,12 @@ Control-k: kill-line
 Control-l: clear-screen
 Control-n: next-history
 Control-p: previous-history
-"\e[A": history-search-backward
-"\e[B": history-search-forward
 
 set keymap emacs-ctlx
 v: vi-editing-mode
 Control-v: "\C-xv\e"
 Escape: "\C-xv\e"
+
+set keymap emacs
+"\e[A": history-search-backward
+"\e[B": history-search-forward
