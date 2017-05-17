@@ -39,9 +39,11 @@ Control-k: kill-line
 Control-l: clear-screen
 Control-n: next-history
 Control-p: previous-history
+"\C-x\C-l": redraw-current-line
 
 set keymap emacs-ctlx
 v: vi-editing-mode
+Control-l: redraw-current-line
 Control-v: "\C-xv\e"
 Escape: "\C-xv\e"
 
