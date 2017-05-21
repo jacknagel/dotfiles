@@ -1,6 +1,7 @@
 # vim:set ft=gitconfig:
 
 [alias]
+	afx = autofixup
 	ap = add --patch
 	au = add --update
 	br = branch
