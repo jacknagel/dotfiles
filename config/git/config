@@ -91,11 +91,15 @@
 	log = diff-highlight | less -+FX -S
 	show = diff-highlight | less -S
 	diff = diff-highlight | less -S
+[pull]
+	rebase = preserve
 [push]
 	default = simple
 [rebase]
 	autoSquash = true
 	autoStash = true
+[remote]
+	pushDefault = origin
 [rerere]
 	enabled = true
 	autoUpdate = true

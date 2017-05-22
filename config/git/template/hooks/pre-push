@@ -1,0 +1,7 @@
+#!/bin/sh
+while read -r local_ref local_sha remote_ref remote_sha; do
+  if [ "$remote_ref" = refs/heads/master ]; then
+    echo "Use --no-verify if you really want to push to master" >&2
+    exit 1
+  fi
+done
