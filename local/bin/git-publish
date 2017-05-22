@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+branch=$(git symbolic-ref --short HEAD)
+remote=${1:-origin}
+
+if [ "$branch" = master ]; then
+  echo "Will not publish master!" >&2
+  exit 1
+fi
+
+git push -u "$remote" "$branch"
