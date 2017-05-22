@@ -96,21 +96,13 @@ __prompt_command () {
   local blue="\[\e[0;34m\]"
   local reset="\[\e[0m\]"
   local ps1pre="${blue}\W${reset}"
-  local promptchar ps1post
+  local ps1post=" ${yellow}»${reset} "
 
   if [ "$EUID" -eq 0 ]; then
-    promptchar=#
-  else
-    promptchar=»
+    ps1post=" ${boldred}#${reset} "
   fi
 
-  if [ "$exit" -ne 0 ]; then
-    ps1post="${boldred}${promptchar}${reset}"
-  else
-    ps1post="${yellow}${promptchar}${reset}"
-  fi
-
-  __set_ps1 "$ps1pre" " $ps1post " " :: ${green}(${reset}%s${green})${reset}"
+  __set_ps1 "$ps1pre" "$ps1post" " :: ${green}(${reset}%s${green})${reset}"
   PS2=" $ps1post"
 
   history -a
