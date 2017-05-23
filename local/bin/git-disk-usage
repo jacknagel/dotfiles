@@ -1,21 +1,27 @@
 #!/bin/sh
-git rev-list --objects --all |
-git cat-file --batch-check="%(objectsize:disk) %(objecttype) %(rest)" |
-ruby -ane '
-  BEGIN {
-    paths = Hash.new(0)
-  }
+{
+  printf "objectsize,disksize,path\n"
+  git rev-list --objects --all |
+  git cat-file --batch-check="%(objectsize:disk) %(objectsize) %(objecttype) %(rest)" |
+  ruby -ane '
+    BEGIN {
+      paths = Hash.new { |h, k| h[k] = { disksize: 0, size: 0 } }
+    }
 
-  size, type, path = $F
+    disksize, size, type, path = $F
 
-  case type
-  when "blob"
-    paths[path] += size.to_i
-  end
+    case type
+    when "blob"
+      paths[path][:disksize] += disksize.to_i
+      paths[path][:size] += size.to_i
+    end
 
-  END {
-    puts paths.
-      sort_by { |p, s| s }.
-      map { |p, s| "%5.1fK %s" % [s.to_f / 1024, p] }
-  }
-'
+    END {
+      puts paths
+        .sort_by { |p, o| -o[:disksize] }
+        .first(100)
+        .map { |p, o| [o[:size].to_f / 1024, o[:disksize].to_f / 1024, p] }
+        .map { |fields| "%.1fK,%.1fK,%s" % fields }
+    }
+  '
+} | column -t -s, | $(git config --get core.pager)
