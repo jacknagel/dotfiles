@@ -1,7 +1,7 @@
 " vim:set et sw=2:
 
 scriptencoding utf-8
-execute pathogen#infect()
+silent! execute pathogen#infect()
 runtime macros/matchit.vim
 
 set nocompatible
@@ -79,7 +79,7 @@ if $TERM_PROGRAM ==# 'iTerm.app'
   endif
 
   set background=dark
-  colorscheme deep-space
+  silent! colorscheme deep-space
 endif
 
 if executable('rg')
