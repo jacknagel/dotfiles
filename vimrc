@@ -1,7 +1,7 @@
 " vim:set et sw=2:
 
 scriptencoding utf-8
-silent! execute pathogen#infect()
+silent! execute pathogen#infect("bundle/{}", "bundle.local/{}")
 runtime macros/matchit.vim
 
 set nocompatible
