@@ -58,6 +58,3 @@
 [submodule "vim/bundle/deep-space"]
 	path = vim/bundle/deep-space
 	url = https://github.com/tyrannicaltoucan/vim-deep-space
-[submodule "vim/bundle/fugitive-gitlab"]
-	path = vim/bundle/fugitive-gitlab
-	url = https://github.com/shumphrey/fugitive-gitlab.vim
