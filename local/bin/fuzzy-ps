@@ -1,0 +1,12 @@
+#!/bin/sh
+set -euo pipefail
+cmd="ps -ewwo pid,ppid,user,%cpu,%mem,vsz,rss,stat,start,time,command"
+
+if [ -t 1 ]; then
+  $cmd | sed "1p;d"
+fi
+
+$cmd |
+sed 1d |
+grep -E -v '\<(fps|sed|grep|fzy)\>' |
+fzy --prompt "Process: " --query "${1-}"
