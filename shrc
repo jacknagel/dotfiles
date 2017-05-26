@@ -56,7 +56,7 @@ alias helptags="vim -e -c Helptags -c q"
 alias lstcp="sudo lsof -Pn -iTCP"
 alias lsudp="sudo lsof -Pn -iUDP"
 alias nom="rm -rf node_modules && npm cache clear && npm install"
-alias rg="rg --line-number --no-heading"
+alias rg="rg --line-number --no-heading --hidden"
 alias tree="tree -aCI .git"
 alias vi="vim"
 
