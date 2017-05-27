@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+signal=TERM
+case "${1-}" in
+  -*)
+    signal=${1#-}
+    shift
+    ;;
+esac
+
+fuzzy-ps "${1-}" | awk '{ print $1 }' | xargs kill -"$signal"
