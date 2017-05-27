@@ -80,7 +80,6 @@ inpath () {
 
 case "$(uname)" in
   Darwin)
-    inpath ggrep && alias grep="ggrep --color=auto"
     inpath sudoedit || alias sudoedit="sudo -e"
 
     alias flushdns="sudo -k killall -HUP mDNSResponder"
