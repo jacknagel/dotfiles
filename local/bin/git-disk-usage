@@ -1,4 +1,6 @@
 #!/bin/sh
+set -eu
+
 {
   printf "objectsize,disksize,path\n"
   git rev-list --objects --all |

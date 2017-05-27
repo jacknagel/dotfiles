@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 set -eu
 
 type shellcheck >/dev/null 2>&1 || echo "Install shellcheck" >&2

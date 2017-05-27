@@ -1,6 +1,5 @@
 #!/bin/sh
-
-set -e
+set -eu
 
 git diff-index --no-prefix -U0 --cached HEAD | awk '
   /^--- / { file = $2 }

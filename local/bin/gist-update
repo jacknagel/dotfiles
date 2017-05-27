@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2029
-
 set -eu
 
 gist_dir="$HOME/git/gists"

@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/sh
+set -eu
 
 cmd="ps -ewwo pid,ppid,user,%cpu,%mem,vsz,rss,stat,start,time,command"
 
