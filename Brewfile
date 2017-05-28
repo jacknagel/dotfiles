@@ -6,6 +6,7 @@ brew "fzy"
 brew "gist"
 brew "git"
 brew "gnupg", args: ["with-readline", "without-libusb"]
+brew "grep"
 brew "less"
 brew "pinentry-mac"
 brew "ripgrep"
