@@ -17,8 +17,12 @@ def check_url(url, method: Net::HTTP::Head, &block)
     verify_mode:  OpenSSL::SSL::VERIFY_PEER,
   }
 
+  headers = {
+    'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'
+  }
+
   Net::HTTP.start(uri.host, uri.port, opts) do |http|
-    case resp = http.request(method.new(uri))
+    case resp = http.request(method.new(uri, headers))
     when Net::HTTPRedirection
       check_redirect(uri, resp, &block)
     when Net::HTTPNotFound, Net::HTTPMethodNotAllowed
