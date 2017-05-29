@@ -23,13 +23,12 @@ HISTFILESIZE=100000
 HISTFILE="$HOME/.history/bash"
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE=" *:%[0-9]:&:[bf]g:cd:cd ..:cd [-~]:clear:exit:ls:pwd"
-
+[ -d "$HOME/.history" ] || mkdir "$HOME/.history"
 
 LANG="en_US.UTF-8"
 LC_CTYPE="en_US.UTF-8"
 LC_ALL="en_US.UTF-8"
 export LANG LC_CTYPE LC_ALL
-
 
 EDITOR="vim"
 VISUAL="vim"
@@ -54,10 +53,6 @@ CLICOLOR=1
 LSCOLORS=ExGxFxdxCxfxDxxbadacad
 LS_COLORS="di=1;34:ln=1;36:so=1;35:pi=33:ex=1;32:bd=35:cd=1;33:su=0;41:sg=30;43:tw=30;42:ow=30;43"
 export CLICOLOR LSCOLORS LS_COLORS
-
-
-[ -d "$HOME/.history" ] || mkdir "$HOME/.history"
-
 
 cd () {
   builtin cd "$@" >/dev/null
