@@ -95,7 +95,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {
   \ 'javascript': ['eslint'],
   \ 'css': ['stylelint'],
-  \ 'html': [],
+  \ 'html': ['tidy'],
   \ 'scss': ['stylelint']
   \}
 let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
