@@ -85,7 +85,7 @@ case "$(uname)" in
     inpath ggrep && alias grep="ggrep --color=auto"
     inpath sudoedit || alias sudoedit="sudo -e"
 
-    alias ls="ls -AFGb"
+    alias ls="ls -AFGbh"
     alias flushdns="sudo -k killall -HUP mDNSResponder"
     alias resetlaunchpad="defaults write com.apple.dock ResetLaunchPad -bool true && killall Dock"
 
@@ -97,6 +97,6 @@ case "$(uname)" in
     export HOMEBREW_NO_EMOJI HOMEBREW_NO_ANALYTICS
     ;;
   Linux)
-    alias ls="ls -AFb --color=auto"
+    alias ls="ls -AFbh --color=auto"
     ;;
 esac
