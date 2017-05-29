@@ -102,6 +102,10 @@ __prompt_command () {
 
   history -a
 
+  case "$(history 1)" in
+    *install*) hash -r ;;
+  esac
+
   return $exit
 }
 PROMPT_COMMAND=__prompt_command
