@@ -10,7 +10,6 @@ files='
   editrc
   eslintrc.json
   gemrc
-  histignore
   inputrc
   irbrc
   less
