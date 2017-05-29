@@ -6,15 +6,16 @@ export ENV="$HOME/.shrc"
 [ -z "$PS1" ] && return
 
 shopt -s cdspell
+shopt -s checkhash
+shopt -s checkjobs 2>/dev/null
+shopt -s checkwinsize
+shopt -s cmdhist
 shopt -s direxpand 2>/dev/null && shopt -s dirspell
 shopt -s dotglob
 shopt -s extglob
 shopt -s globstar 2>/dev/null
-shopt -s cmdhist
 shopt -s histappend
 shopt -s no_empty_cmd_completion
-shopt -s checkjobs 2>/dev/null
-shopt -s checkwinsize
 
 unset MAILCHECK
 
