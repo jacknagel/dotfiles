@@ -53,7 +53,7 @@ alias be="bundle exec"
 alias du1="du -h -d1"
 alias fkill="fuzzy-kill"
 alias fps="fuzzy-ps"
-alias grep="grep --color=auto"
+alias grep="grep --color=auto --line-number --exclude-dir=.git --exclude=tags"
 alias egrep="grep -E"
 alias fgrep="grep -F"
 alias helptags="vim -e -c Helptags -c q"
@@ -82,7 +82,7 @@ inpath () {
 
 case "$(uname)" in
   Darwin)
-    inpath ggrep && alias grep="ggrep --color=auto"
+    inpath ggrep && alias grep="ggrep --color=auto --line-number --exclude-dir=.git --exclude=tags"
     inpath sudoedit || alias sudoedit="sudo -e"
 
     alias ls="ls -AFGbh"
