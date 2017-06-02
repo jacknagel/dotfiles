@@ -60,7 +60,7 @@ alias helptags="vim -e -c Helptags -c q"
 alias lstcp="sudo lsof -Pn -iTCP"
 alias lsudp="sudo lsof -Pn -iUDP"
 alias rg="rg --line-number --no-heading --hidden"
-alias tree="tree -aCI .git"
+alias tree="tree -ACFIa .git --dirsfirst"
 alias vi="vim"
 
 sudo () {
