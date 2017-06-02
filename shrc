@@ -49,7 +49,6 @@ export GPG_TTY
 
 [ ! -x /bin/stty ] || stty -ixon
 
-alias be="bundle exec"
 alias du1="du -h -d1"
 alias fkill="fuzzy-kill"
 alias fps="fuzzy-ps"
