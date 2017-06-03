@@ -2,7 +2,7 @@
 # shellcheck disable=SC2034
 while read -r local_ref local_sha remote_ref remote_sha; do
   if [ "$remote_ref" = refs/heads/master ]; then
-    echo "Use --no-verify if you really want to push to master" >&2
+    echo >&2 "pre-push: use --no-verify if you really want to push to master"
     exit 1
   fi
 done
