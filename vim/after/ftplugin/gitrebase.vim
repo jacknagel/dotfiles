@@ -3,9 +3,9 @@ delmarks \"
 setlocal nonumber
 setlocal noundofile
 
-nnoremap <silent> <buffer> E :Edit<CR>
-nnoremap <silent> <buffer> F :Fixup<CR>
-nnoremap <silent> <buffer> P :Pick<CR>
-nnoremap <silent> <buffer> R :Reword<CR>
-nnoremap <silent> <buffer> S :Squash<CR>
-nnoremap <silent> <buffer> C :Cycle<CR>
+noremap <silent> <buffer> E :Edit<CR>
+noremap <silent> <buffer> F :Fixup<CR>
+noremap <silent> <buffer> P :Pick<CR>
+noremap <silent> <buffer> R :Reword<CR>
+noremap <silent> <buffer> S :Squash<CR>
+noremap <silent> <buffer> C :Cycle<CR>
