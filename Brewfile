@@ -14,7 +14,7 @@ brew "ripgrep"
 brew "shellcheck"
 brew "tidy-html5"
 brew "tree"
-brew "vim"
+brew "vim", args: ["with-custom-perl", "with-custom-python", "with-custom-ruby"]
 brew "watch"
 brew "youtube-dl"
 cask "basictex"
