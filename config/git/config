@@ -45,7 +45,6 @@
 	renames = copies
 	tool = vimdiff
 	algorithm = patience
-	indentHeuristic = true
 [diff "gpg"]
 	textconv = gpg -qd --no-tty
 [diff "keybox"]
