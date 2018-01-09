@@ -5,7 +5,6 @@ bind ^D em-delete-or-list
 bind ^E ed-move-to-end
 bind ^F ed-next-char
 bind ^G vi-command-mode
-bind ^I rl_complete
 bind ^K ed-kill-line
 bind ^L ed-clear-screen
 bind ^N ed-next-history
@@ -13,4 +12,5 @@ bind ^P ed-prev-history
 bind ^R em-inc-search-prev
 bind ^S em-inc-search-next
 
+Ruby:bind ^I rl_complete
 lldb:bind ^I lldb_complete
