@@ -92,12 +92,6 @@ syntax on
 " plugin settings
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {
-  \ 'javascript': ['eslint'],
-  \ 'css': ['stylelint'],
-  \ 'html': ['tidy'],
-  \ 'scss': ['stylelint']
-  \}
 let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
 let g:markdown_fenced_languages = ['css', 'html', 'javascript', 'ruby']
 let g:vim_indent_cont = 2
