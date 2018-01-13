@@ -1,3 +1,4 @@
+tap "jacknagel/bespoke"
 brew "awscli"
 brew "bash"
 brew "bash-completion@2"
@@ -14,7 +15,7 @@ brew "ripgrep"
 brew "shellcheck"
 brew "tidy-html5"
 brew "tree"
-brew "vim", args: ["with-custom-perl", "with-custom-python", "with-custom-ruby"]
+brew "jacknagel/bespoke/vim", args: ["HEAD"]
 brew "watch"
 brew "youtube-dl"
 cask "basictex"
