@@ -58,3 +58,6 @@
 [submodule "vim/bundle/deep-space"]
 	path = vim/bundle/deep-space
 	url = https://github.com/tyrannicaltoucan/vim-deep-space
+[submodule "vim/bundle/swift"]
+	path = vim/bundle/swift
+	url = git@github.com:keith/swift.vim.git
