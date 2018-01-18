@@ -19,10 +19,7 @@ set cursorline
 set dictionary+=/usr/share/dict/words
 set directory^=~/.vim/_swap//
 set display=lastline
-set formatoptions+=1r
-if v:version >= 704
-  set formatoptions+=j
-endif
+set formatoptions+=1rj
 set history=1000
 set hlsearch
 set incsearch
