@@ -10,6 +10,7 @@ brew "git-lfs"
 brew "gnupg", args: ["with-readline", "without-libusb"]
 brew "grep"
 brew "jacknagel/bespoke/vim", args: ["HEAD"]
+brew "kops"
 brew "kubernetes-cli"
 brew "less"
 brew "pinentry-mac"
