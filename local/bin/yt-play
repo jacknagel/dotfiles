@@ -1,0 +1,8 @@
+#!/bin/sh
+
+youtube-dl --default-search=ytsearch: \
+           --youtube-skip-dash-manifest \
+           --output="${TMPDIR:-/tmp/}%(title)s-%(id)s.%(ext)s" \
+           --restrict-filenames \
+           --format="bestaudio[ext!=webm]" \
+           --exec=afplay "$*"

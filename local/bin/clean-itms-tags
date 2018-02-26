@@ -1,0 +1,13 @@
+#!/bin/sh
+
+find . -type f -name "*.m4a" \
+  -exec AtomicParsley {} \
+  --DeepScan \
+  --manualAtomRemove moov.trak.mdia.minf.stbl.stsd.mp4a.UUID \
+  --manualAtomRemove moov.trak.mdia.minf.stbl.stsd.mp4a.pinf \
+  --manualAtomRemove moov.udta.meta.ilst.apID \
+  --manualAtomRemove moov.udta.meta.ilst.ownr \
+  --manualAtomRemove moov.udta.meta.ilst.purd \
+  --manualAtomRemove moov.udta.meta.ilst.sfID \
+  -W \
+  \;
