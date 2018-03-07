@@ -89,7 +89,6 @@ syntax on
 " plugin settings
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_statusline_format = ['%d error(s)', '%d warning(s)', '']
 let g:markdown_fenced_languages = ['css', 'html', 'javascript', 'ruby']
 let g:vim_indent_cont = 2
 let g:vim_json_syntax_conceal = 0
@@ -157,11 +156,19 @@ function! FugitiveStatusLineWrapper()
 endfunction
 
 function! ALEStatusLineWrapper()
-  if !exists('*ALEGetStatusLine')
+  if !exists('*ale#statusline#Count')
     return ''
   endif
 
-  return ALEGetStatusLine()
+  let l:count = ale#statusline#Count(bufnr('')).total
+
+  if l:count == 0
+    return ''
+  endif
+
+  let suffix = l:count == 1 ? '' : 's'
+
+  return ' ' . l:count . ' problem' . suffix . ' '
 endfunction
 
 function! s:restore_last_cursor_position()
