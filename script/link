@@ -48,5 +48,5 @@ for file in $files; do
   fi
 
   mkdir -p "$dirname"
-  ln -sfhv "$source" "$target"
+  ln -sfnv "$source" "$target"
 done
