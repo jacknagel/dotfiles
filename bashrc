@@ -93,6 +93,10 @@ __prompt_command () {
   local ps1pre="${blue}\W${reset}"
   local ps1post=" ${yellow}»${reset} "
 
+  if [ -n "$SSH_CLIENT" ]; then
+    ps1pre="${green}\u@\h${reset}:${ps1pre}"
+  fi
+
   if [ "$EUID" -eq 0 ]; then
     ps1post=" ${boldred}#${reset} "
   fi
