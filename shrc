@@ -86,6 +86,7 @@ case "$(uname)" in
     alias ls="ls -AFGbh"
     alias flushdns="sudo -k killall -HUP mDNSResponder"
     alias resetlaunchpad="defaults write com.apple.dock ResetLaunchPad -bool true && killall Dock"
+    alias resetls="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -v -apps u"
 
     COPYFILE_DISABLE=1
     export COPYFILE_DISABLE
