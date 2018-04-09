@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Expand save panels
+defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
+defaults write -g NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Save new documents to local disk
+defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Safari
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+# TweetBot: bypass "t.co" links
+defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
+
+chflags nohidden ~/Library
+sudo chflags nohidden /Volumes
