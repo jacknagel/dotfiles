@@ -1,17 +1,76 @@
 #!/usr/bin/env bash
 
-# Expand save panels
+# System
+
+## Expand save panels
 defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
 defaults write -g NSNavPanelExpandedStateForSaveMode2 -bool true
 
-# Save new documents to local disk
+## Save new documents to local disk
 defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
 
+# Finder
+
+## Show Library folder
+chflags nohidden ~/Library
+
+## Show Volumes folder
+sudo chflags nohidden /Volumes
+
+## Show these items on the desktop
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+## New Finder windows show home folder
+defaults write com.apple.finder NewWindowTarget -string PfHm
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+
+## Open folders in tabs intead of windows
+defaults write com.apple.finder FinderSpawnTab -bool true
+
+## Show all filename extensions
+defaults write -g AppleShowAllExtensions -bool false
+
+## Show warning before changing an extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool true
+
+## Show warning before removing from iCloud Drive
+defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool true
+
+## Show warning before emptying the Trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool true
+
+## Remove items from the Trash after 30 days
+defaults write com.apple.finder FXRemoveOldTrashItems -bool true
+
+## Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+## When performing a search, search the current folder
+defaults write com.apple.finder FXDefaultSearchScope -string SCcf
+
+## View options
+defaults write com.apple.finder ShowTabView -bool false
+
+## Show Status Bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+## Show Path Bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+## Open windows in list view
+defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
+defaults write com.apple.finder FXPreferredSearchViewStyle -string Nlsv
+
 # Safari
+
+## Enable debug menu
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
-# TweetBot: bypass "t.co" links
-defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
-chflags nohidden ~/Library
-sudo chflags nohidden /Volumes
+# TweetBot
+
+## Bypass "t.co" links
+defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
