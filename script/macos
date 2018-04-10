@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -eu
+sudo -K
+
 # System
 
 ## Expand save panels
@@ -8,6 +11,38 @@ defaults write -g NSNavPanelExpandedStateForSaveMode2 -bool true
 
 ## Save new documents to local disk
 defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Dock
+
+## Size
+defaults write com.apple.dock tilesize -int 32
+
+## Magnification
+defaults write com.apple.dock magnification -bool false
+
+## Position on screen
+defaults write com.apple.dock orientation -string left
+
+## Minimize windows using
+defaults write com.apple.dock mineffect -string scale
+
+## Prefer tabs when opening documents
+defaults write -g AppleWindowTabbingMode -string fullscreen
+
+## Double click a window's title bar to zoom
+defaults write -g AppleActionOnDoubleClick -string Maximize
+
+## Minimize windows into application icon
+defaults write com.apple.dock minimize-to-application -bool false
+
+## Animate opening applications
+defaults write com.apple.dock launchanim -bool true
+
+## Automatically hide and show the dock
+defaults write com.apple.dock autohide -bool false
+
+## Show indicators for open applications
+defaults write com.apple.dock show-process-indicators -bool true
 
 # Finder
 
@@ -63,6 +98,33 @@ defaults write com.apple.finder ShowPathbar -bool true
 ## Open windows in list view
 defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
 defaults write com.apple.finder FXPreferredSearchViewStyle -string Nlsv
+
+# Mission Control
+
+## Automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool true
+
+## When switching to an application, switch to a Space with open windows for the application
+defaults write -g AppleSpacesSwitchOnActivate -bool true
+
+# Group windows by application
+defaults write com.apple.dock expose-group-by-app -bool false
+
+## Displays have separate Spaces
+defaults write com.apple.spaces spans-displays -bool true
+
+## Dashboard off
+defaults write com.apple.dashboard dashboard-enabled-state -int 1
+
+## Hot corners
+defaults write com.apple.dock wvous-bl-corner   -int 10 # Put display to sleep
+defaults write com.apple.dock wvous-bl-modifier -int 0
+defaults write com.apple.dock wvous-br-corner   -int 10 # Put display to sleep
+defaults write com.apple.dock wvous-br-modifier -int 0
+defaults write com.apple.dock wvous-tl-corner   -int 11 # Launchpad
+defaults write com.apple.dock wvous-tl-modifier -int 0
+defaults write com.apple.dock wvous-tr-corner   -int 2 # Mission Control
+defaults write com.apple.dock wvous-tr-modifier -int 0
 
 # Safari
 
