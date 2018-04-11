@@ -129,7 +129,7 @@ defaults write -g AppleSpacesSwitchOnActivate -bool true
 defaults write com.apple.dock expose-group-by-app -bool false
 
 ## Displays have separate Spaces
-defaults write com.apple.spaces spans-displays -bool true
+defaults write com.apple.spaces spans-displays -bool false
 
 ## Dashboard off
 defaults write com.apple.dashboard dashboard-enabled-state -int 1
