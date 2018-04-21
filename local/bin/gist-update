@@ -1,11 +1,21 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2029
-set -euo pipefail
+set -eu
 
 gist_dir="$HOME/git/gists"
-host="git@gist.github.com"
+host=git@gist.github.com
+dir=$(mktemp -d -t "$host:22")
+ssh_cmd="ssh -q -S $dir/sock"
+export GIT_SSH_COMMAND=$ssh_cmd
 
 mkdir -p "$gist_dir"
+
+cleanup () {
+  status=$?
+  trap - EXIT INT TERM
+  $ssh_cmd -O exit "$host"
+  rmdir "$dir"
+  exit $status
+}
 
 have () {
   # shellcheck disable=SC2012
@@ -18,8 +28,9 @@ want () {
   done | sort
 }
 
-ssh -qfNM -o ControlPersist=600 "$host"
+$ssh_cmd -fNM -o ControlPersist=yes "$host"
+trap cleanup EXIT INT TERM
+
 comm -23 <(have) <(want) | xargs -n1 -P8 -I{} rm -rf "$gist_dir/{}"
 comm -13 <(have) <(want) | xargs -n1 -P8 -I{} git clone -q "$host:{}.git"  "$gist_dir/{}"
 comm -12 <(have) <(want) | xargs -n1 -P8 -I{} git -C "$gist_dir/{}" pull -q
-ssh -q -O exit "$host"
