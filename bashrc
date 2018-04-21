@@ -1,5 +1,5 @@
 # vim:set ft=sh et sw=2:
-# shellcheck shell=bash disable=SC1090,SC1091
+# shellcheck shell=bash disable=SC1090,SC1091,SC1117
 
 export ENV="$HOME/.shrc"
 . "$ENV"
