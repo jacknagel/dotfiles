@@ -4,15 +4,19 @@ set -eu
 cleanup() {
   status=$?
   trap - EXIT INT TERM
-  ssh -qO exit git@github.com
+  $ssh_cmd -O exit git@github.com
+  rmdir "$dir"
   exit $status
 }
 
 cd "$(git rev-parse --show-toplevel)"
 
 time=$(date +"%Y-%m-%d %H:%M:%S %z")
+dir=$(mktemp -d -t git@github.com:22)
+ssh_cmd="ssh -q -S $dir/sock"
+export GIT_SSH_COMMAND=$ssh_cmd
 
-ssh -qfNM git@github.com
+$ssh_cmd -fNM -o ControlPersist=yes git@github.com
 trap cleanup EXIT INT TERM
 
 git submodule sync --recursive -q &&
