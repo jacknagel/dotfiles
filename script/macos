@@ -30,6 +30,11 @@ sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdateRestartReq
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate ConfigDataInstall -bool true
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdateInstall -bool true
 
+# Archive Utility
+
+## After expanding: move archive into Trash
+defaults write com.apple.archiveutility dearchive-move-after -string '~/.Trash'
+
 # Dock
 
 ## Size
