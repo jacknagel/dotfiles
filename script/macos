@@ -158,3 +158,6 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 
 ## Bypass "t.co" links
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
+
+# Reboot, allow cancellation
+osascript -e 'tell app "loginwindow" to «event aevtrrst»'
