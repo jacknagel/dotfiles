@@ -70,7 +70,7 @@ fi
 
 if declare -F __git_ps1 >/dev/null; then
   # shellcheck disable=SC2034
-  __set_ps1 () {
+  _set_ps1 () {
     local GIT_PS1_SHOWDIRTYSTATE=1
     local GIT_PS1_SHOWSTASHSTATE=1
     local GIT_PS1_SHOWCOLORHINTS=1
@@ -80,10 +80,10 @@ if declare -F __git_ps1 >/dev/null; then
     __git_ps1 "$@";
   }
 else
-  __set_ps1 () { PS1="$1$2"; }
+  _set_ps1 () { PS1="$1$2"; }
 fi
 
-__prompt_command () {
+_prompt_command () {
   local exit=$?
   local boldred="\[\e[1;31m\]"
   local green="\[\e[0;32m\]"
@@ -101,7 +101,7 @@ __prompt_command () {
     ps1post=" ${boldred}#${reset} "
   fi
 
-  __set_ps1 "$ps1pre" "$ps1post" " :: ${green}(${reset}%s${green})${reset}"
+  _set_ps1 "$ps1pre" "$ps1post" " :: ${green}(${reset}%s${green})${reset}"
   PS2=" $ps1post"
 
   history -a
@@ -112,7 +112,7 @@ __prompt_command () {
 
   return $exit
 }
-PROMPT_COMMAND=__prompt_command
+PROMPT_COMMAND=_prompt_command
 
 if [ -f "$HOME/.nvm/nvm.sh" ]; then
   . "$HOME/.nvm/nvm.sh"

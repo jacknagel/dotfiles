@@ -74,14 +74,14 @@ sudo () {
   esac
 }
 
-inpath () {
+_inpath () {
   type "$1" >/dev/null 2>&1
 }
 
 case "$(uname)" in
   Darwin)
-    inpath ggrep && alias grep="ggrep -In --color=auto --exclude-dir=.git --exclude=tags"
-    inpath sudoedit || alias sudoedit="sudo -e"
+    _inpath ggrep && alias grep="ggrep -In --color=auto --exclude-dir=.git --exclude=tags"
+    _inpath sudoedit || alias sudoedit="sudo -e"
 
     alias ls="ls -AFGbh"
     alias flushdns="sudo -k killall -HUP mDNSResponder"
