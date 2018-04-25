@@ -114,6 +114,14 @@ _prompt_command () {
 }
 PROMPT_COMMAND=_prompt_command
 
+_without_aliases () {
+  local aliases
+  aliases=$(alias)
+  unalias -a
+  "$@"
+  eval "$aliases"
+}
+
 if [ -f "$HOME/.nvm/nvm.sh" ]; then
   . "$HOME/.nvm/nvm.sh"
 
@@ -131,7 +139,7 @@ fi
 
 if [ -d "/Applications/Docker.app" ]; then
   _load_docker_bash_completion () {
-    . /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion && return 124
+    _without_aliases . /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion && return 124
   }
 
   _load_docker_compose_bash_completion () {
