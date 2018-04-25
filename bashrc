@@ -128,3 +128,16 @@ if [ -f "$HOME/.nvm/nvm.sh" ]; then
   complete -F _load_nvm_bash_completion nvm
   complete -F _load_npm_bash_completion npm
 fi
+
+if [ -d "/Applications/Docker.app" ]; then
+  _load_docker_bash_completion () {
+    . /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion && return 124
+  }
+
+  _load_docker_compose_bash_completion () {
+    . /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion && return 124
+  }
+
+  complete -F _load_docker_bash_completion docker
+  complete -F _load_docker_compose_bash_completion docker-compose
+fi
