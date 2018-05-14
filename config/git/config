@@ -47,6 +47,8 @@
 	algorithm = patience
 [diff "gpg"]
 	textconv = gpg -qd --no-tty
+[diff "gzip"]
+	textconv = gzip -d -c
 [diff "keybox"]
 	textconv = kbxutil
 	xfuncname = "^((Uid|Key-Kid)\\[.*)"
@@ -55,6 +57,8 @@
 	xfuncname = "^((pub|uid) .*)"
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
+[diff "sqlite"]
+	textconv = sh -c 'exec sqlite3 "$@" .dump' -
 [diff "tar"]
 	textconv = tar -tvf
 [difftool]
