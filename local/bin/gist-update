@@ -3,7 +3,7 @@ set -eu
 
 gist_dir="$HOME/git/gists"
 host=git@gist.github.com
-dir=$(mktemp -d -t "$host:22")
+dir=$(mktemp -d -t "$host:22.XXXXXX")
 ssh_cmd="ssh -q -S $dir/sock"
 export GIT_SSH_COMMAND=$ssh_cmd
 
