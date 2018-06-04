@@ -3,7 +3,7 @@ set -eu
 
 time=$(date +"%Y-%m-%d %H:%M:%S %z")
 host=git@github.com
-dir=$(mktemp -d -t "$host:22.XXXXXX")
+dir=$(mktemp -d "${TMPDIR:-/tmp}/${host}.XXXXXX")
 ssh_cmd="ssh -q -S $dir/sock"
 export GIT_SSH_COMMAND=$ssh_cmd
 
@@ -13,7 +13,7 @@ cleanup () {
   status=$?
   trap - EXIT INT TERM
   $ssh_cmd -O exit "$host"
-  rmdir "$dir"
+  rm -r "$dir"
   exit $status
 }
 
