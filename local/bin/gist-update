@@ -7,8 +7,6 @@ dir=$(mktemp -d "${TMPDIR:-/tmp}/${host}.XXXXXX")
 ssh_cmd="ssh -q -S $dir/sock"
 export GIT_SSH_COMMAND=$ssh_cmd
 
-mkdir -p "$gist_dir"
-
 cleanup () {
   status=$?
   trap - EXIT INT TERM
@@ -27,6 +25,9 @@ want () {
     echo "${url#https://gist.github.com/}"
   done | sort
 }
+
+mkdir -p "$gist_dir"
+[ -f "$HOME/.gist" ] || gist --login
 
 $ssh_cmd -fNM -o ControlPersist=yes "$host"
 trap cleanup EXIT INT TERM
