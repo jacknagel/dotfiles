@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+
+file=${1}
+branch=$(git symbolic-ref --short HEAD)
+
+git rev-list "$branch" -- "$file" |
+  git diff-tree -r -w --name-only --no-commit-id --stdin |
+  grep -vw "$file" | sort | uniq -c | sort -rn | head
