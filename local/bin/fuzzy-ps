@@ -9,5 +9,5 @@ fi
 
 $cmd |
 sed 1d |
-grep -E -v '\<(fps|sed|grep|fzy)\>' |
+grep -vw -e fuzzy-ps -e fzy -e sed |
 fzy --prompt "Process: " --query "${1-}"
