@@ -85,7 +85,7 @@ case "$(uname)" in
     alias resetls="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -v -apps u"
 
     mdopen () {
-      mdfind "$@" | fzy | xargs open
+      mdfind "$@" | fzy | xargs -I{} open {}
     }
 
     COPYFILE_DISABLE=1
