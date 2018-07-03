@@ -33,6 +33,7 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdate
 # Archive Utility
 
 ## After expanding: move archive into Trash
+# shellcheck disable=2088
 defaults write com.apple.archiveutility dearchive-move-after -string '~/.Trash'
 
 # Dock

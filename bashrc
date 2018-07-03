@@ -55,6 +55,7 @@ LS_COLORS="di=1;34:ln=1;36:so=1;35:pi=33:ex=1;32:bd=35:cd=1;33:su=0;41:sg=30;43:
 export LSCOLORS LS_COLORS
 
 cd () {
+  # shellcheck disable=2164
   builtin cd "$@" >/dev/null
 }
 
