@@ -39,9 +39,6 @@ prepend_path INFOPATH /usr/share/info /usr/local/share/info
 
 export PATH INFOPATH
 
-GPG_TTY=$(tty)
-export GPG_TTY
-
 [ ! -x /bin/stty ] || stty -ixon
 
 alias du1="du -h -d1"
