@@ -67,7 +67,7 @@ set statusline+=%(%#ErrorMsg#%{ALEStatusLineWrapper()}%*\ %)
 set statusline+=%-10.(0x%B%)        " hex value of character under cursor
 set statusline+=%-14.(%l,%c%V%)\ %P " line#,col#-vcol# %
 
-if $TERM_PROGRAM ==# 'iTerm.app'
+if $COLORTERM ==# 'truecolor'
   if has('termguicolors')
     set termguicolors
   endif
