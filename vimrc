@@ -26,7 +26,6 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set listchars=tab:▸\ ,trail:·,extends:…,precedes:…,nbsp:␠
-set mouse=a
 set nojoinspaces
 set nrformats-=octal
 set number
