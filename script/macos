@@ -123,6 +123,11 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string Nlsv
 defaults write com.apple.finder FXPreferredSearchViewStyle -string Nlsv
 
+# Keyboard
+
+## Full Keyboard Access: In windows and dialogs, press Tab to move keyboard focus between: All controls
+defaults write -g AppleKeyboardUIMode -int 3
+
 # Mission Control
 
 ## Automatically rearrange Spaces based on most recent use
