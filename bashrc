@@ -86,20 +86,23 @@ fi
 
 _prompt_command () {
   local exit=$?
-  local boldred="\[\e[1;31m\]"
-  local green="\[\e[0;32m\]"
-  local yellow="\[\e[0;33m\]"
-  local blue="\[\e[0;34m\]"
-  local reset="\[\e[0m\]"
-  local ps1pre="${blue}\W${reset}"
-  local ps1post=" ${yellow}»${reset} "
+  local bold red green yellow blue reset ps1pre ps1post
+
+  bold=$(tput bold)
+  red=$(tput setaf 1)
+  green=$(tput setaf 2)
+  yellow=$(tput setaf 3)
+  blue=$(tput setaf 4)
+  reset=$(tput sgr0)
+  ps1pre="${blue}\W${reset}"
+  ps1post=" ${yellow}»${reset} "
 
   if [ -n "$SSH_CLIENT" ]; then
     ps1pre="${green}\u@\h${reset}:${ps1pre}"
   fi
 
   if [ "$EUID" -eq 0 ]; then
-    ps1post=" ${boldred}#${reset} "
+    ps1post=" ${bold}${red}#${reset} "
   fi
 
   _set_ps1 "$ps1pre" "$ps1post" " :: ${green}(${reset}%s${green})${reset}"
