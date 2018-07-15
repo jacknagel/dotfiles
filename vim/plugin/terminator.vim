@@ -36,3 +36,8 @@ if !exists('+t_BD') || empty(&t_BD) || empty(&t_PS)
   vnoremap <expr> <F28> terminator#paste("c")
   inoremap <expr> <F28> terminator#paste("")
 endif
+
+augroup terminator
+  autocmd!
+  autocmd FocusGained * silent! checktime
+augroup END
