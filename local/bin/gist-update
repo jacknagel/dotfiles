@@ -16,8 +16,7 @@ cleanup () {
 }
 
 have () {
-  # shellcheck disable=SC2012
-  ls "$gist_dir" | sort
+  find "$gist_dir" -mindepth 1 -maxdepth 1 -exec basename {} \; | sort
 }
 
 want () {
