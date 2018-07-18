@@ -98,7 +98,7 @@ _prompt_command () {
   ps1post=" ${yellow}»${reset} "
 
   if [ -n "$SSH_CLIENT" ]; then
-    ps1pre="${green}\u@\h${reset}:${ps1pre}"
+    ps1pre="${green}\u@\h${reset} ${ps1pre}"
   fi
 
   if [ "$EUID" -eq 0 ]; then
@@ -106,7 +106,7 @@ _prompt_command () {
     ps1post=" ${bold}${red}#${reset} "
   fi
 
-  _set_ps1 "$ps1pre" "$ps1post" " :: ${green}(${reset}%s${green})${reset}"
+  _set_ps1 "$ps1pre" "$ps1post" " ${green}(${reset}%s${green})${reset}"
   PS2=" $ps1post"
 
   history -a
