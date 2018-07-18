@@ -102,6 +102,7 @@ _prompt_command () {
   fi
 
   if [ "$EUID" -eq 0 ]; then
+    ps1pre="${bold}${red}\u@\h${reset} ${ps1pre}"
     ps1post=" ${bold}${red}#${reset} "
   fi
 
