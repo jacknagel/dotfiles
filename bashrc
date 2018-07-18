@@ -97,7 +97,7 @@ _prompt_command () {
   ps1pre="${blue}\W${reset}"
   ps1post=" ${yellow}»${reset} "
 
-  if [ -n "$SSH_CLIENT" ]; then
+  if [ -n "$SSH_TTY" ]; then
     ps1pre="${green}\u@\h${reset} ${ps1pre}"
   fi
 
