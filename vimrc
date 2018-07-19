@@ -44,6 +44,7 @@ set splitright
 setglobal tags+=./tags;
 set thesaurus+=~/.vim/spell/mthesaur.txt
 set timeoutlen=1200
+set title
 set ttimeout
 set ttimeoutlen=50
 set undodir^=~/.vim/_undo

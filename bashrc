@@ -70,7 +70,7 @@ else
 fi
 
 _set_ps1_strings () {
-  local bold red yellow blue cyan reset
+  local bold red yellow blue cyan reset title
 
   bold=$(tput bold)
   red=$(tput setaf 1)
@@ -78,20 +78,24 @@ _set_ps1_strings () {
   blue=$(tput setaf 4)
   cyan=$(tput setaf 6)
   reset=$(tput sgr0)
+  title=""
 
   _ps1_prefix=""
   _ps1_suffix=" ${yellow}»${reset} "
 
   if [ "$EUID" -eq 0 ]; then
+    title="\u"
     _ps1_prefix="${bold}${red}\u${reset}"
     _ps1_suffix=" ${bold}${red}#${reset} "
   fi
 
   if [ -n "$SSH_TTY" ]; then
+    title="\u@\h"
     _ps1_prefix="${_ps1_prefix:-${bold}${cyan}\u${reset}}${bold}${cyan}@\h${reset}"
   fi
 
-  _ps1_prefix="${_ps1_prefix:+$_ps1_prefix }${blue}\W${reset}"
+  title="\[\033]0;${title} \w\007\]"
+  _ps1_prefix="${title}${_ps1_prefix:+$_ps1_prefix }${blue}\W${reset}"
 }
 _set_ps1_strings
 
