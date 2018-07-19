@@ -69,6 +69,32 @@ else
   done
 fi
 
+_set_ps1_strings () {
+  local bold red yellow blue cyan reset
+
+  bold=$(tput bold)
+  red=$(tput setaf 1)
+  yellow=$(tput setaf 3)
+  blue=$(tput setaf 4)
+  cyan=$(tput setaf 6)
+  reset=$(tput sgr0)
+
+  _ps1_prefix=""
+  _ps1_suffix=" ${yellow}»${reset} "
+
+  if [ "$EUID" -eq 0 ]; then
+    _ps1_prefix="${bold}${red}\u${reset}"
+    _ps1_suffix=" ${bold}${red}#${reset} "
+  fi
+
+  if [ -n "$SSH_TTY" ]; then
+    _ps1_prefix="${_ps1_prefix:-${bold}${cyan}\u${reset}}${bold}${cyan}@\h${reset}"
+  fi
+
+  _ps1_prefix="${_ps1_prefix:+$_ps1_prefix }${blue}\W${reset}"
+}
+_set_ps1_strings
+
 if declare -F __git_ps1 >/dev/null; then
   # shellcheck disable=SC2034
   _set_ps1 () {
@@ -78,7 +104,7 @@ if declare -F __git_ps1 >/dev/null; then
     local GIT_PS1_SHOWUNTRACKEDFILES=1
     local GIT_PS1_SHOWUPSTREAM=auto
     local GIT_PS1_DESCRIBE_STYLE=branch
-    __git_ps1 "$@";
+    __git_ps1 "$@"
   }
 else
   _set_ps1 () { PS1="$1$2"; }
@@ -86,34 +112,9 @@ fi
 
 _prompt_command () {
   local exit=$?
-  local bold red green yellow blue reset ps1pre ps1post ps1user ps1host ps1char
 
-  bold=$(tput bold)
-  red=$(tput setaf 1)
-  green=$(tput setaf 2)
-  yellow=$(tput setaf 3)
-  blue=$(tput setaf 4)
-  cyan=$(tput setaf 6)
-  reset=$(tput sgr0)
-
-  if [ "$EUID" -eq 0 ]; then
-    ps1user="${bold}${red}\u${reset}"
-    ps1char="${bold}${red}#${reset}"
-  else
-    ps1char="${yellow}»${reset}"
-  fi
-
-  if [ -n "$SSH_TTY" ]; then
-    ps1user=${ps1user:-"${bold}${cyan}\u"}
-    ps1host="${bold}${cyan}@\h${reset}"
-  fi
-
-  ps1pre="${ps1user}${ps1host}"
-  ps1pre="${ps1pre:+$ps1pre }${blue}\W${reset}"
-  ps1post=" ${ps1char} "
-
-  _set_ps1 "$ps1pre" "$ps1post" " ${green}(${reset}%s${green})${reset}"
-  PS2=" $ps1post"
+  _set_ps1 "$_ps1_prefix" "$_ps1_suffix"
+  PS2=" $_ps1_suffix"
 
   history -a
 
