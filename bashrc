@@ -86,25 +86,31 @@ fi
 
 _prompt_command () {
   local exit=$?
-  local bold red green yellow blue reset ps1pre ps1post
+  local bold red green yellow blue reset ps1pre ps1post ps1user ps1host ps1char
 
   bold=$(tput bold)
   red=$(tput setaf 1)
   green=$(tput setaf 2)
   yellow=$(tput setaf 3)
   blue=$(tput setaf 4)
+  cyan=$(tput setaf 6)
   reset=$(tput sgr0)
-  ps1pre="${blue}\W${reset}"
-  ps1post=" ${yellow}»${reset} "
-
-  if [ -n "$SSH_TTY" ]; then
-    ps1pre="${green}\u@\h${reset} ${ps1pre}"
-  fi
 
   if [ "$EUID" -eq 0 ]; then
-    ps1pre="${bold}${red}\u@\h${reset} ${ps1pre}"
-    ps1post=" ${bold}${red}#${reset} "
+    ps1user="${bold}${red}\u${reset}"
+    ps1char="${bold}${red}#${reset}"
+  else
+    ps1char="${yellow}»${reset}"
   fi
+
+  if [ -n "$SSH_TTY" ]; then
+    ps1user=${ps1user:-"${bold}${cyan}\u"}
+    ps1host="${bold}${cyan}@\h${reset}"
+  fi
+
+  ps1pre="${ps1user}${ps1host}"
+  ps1pre="${ps1pre:+$ps1pre }${blue}\W${reset}"
+  ps1post=" ${ps1char} "
 
   _set_ps1 "$ps1pre" "$ps1post" " ${green}(${reset}%s${green})${reset}"
   PS2=" $ps1post"
