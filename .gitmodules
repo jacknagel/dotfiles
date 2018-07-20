@@ -1,63 +1,63 @@
-[submodule "vim/bundle/git"]
-	path = vim/bundle/git
+[submodule "vim/pack/bundle/start/vim-git"]
+	path = vim/pack/bundle/start/vim-git
 	url = git@github.com:tpope/vim-git
-[submodule "vim/bundle/fugitive"]
-	path = vim/bundle/fugitive
+[submodule "vim/pack/bundle/start/vim-fugitive"]
+	path = vim/pack/bundle/start/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive
-[submodule "vim/bundle/eunuch"]
-	path = vim/bundle/eunuch
+[submodule "vim/pack/bundle/start/vim-eunuch"]
+	path = vim/pack/bundle/start/vim-eunuch
 	url = git@github.com:tpope/vim-eunuch
-[submodule "vim/bundle/ruby"]
-	path = vim/bundle/ruby
+[submodule "vim/pack/bundle/start/vim-ruby"]
+	path = vim/pack/bundle/start/vim-ruby
 	url = git@github.com:vim-ruby/vim-ruby
-[submodule "vim/bundle/cucumber"]
-	path = vim/bundle/cucumber
+[submodule "vim/pack/bundle/start/vim-cucumber"]
+	path = vim/pack/bundle/start/vim-cucumber
 	url = git@github.com:tpope/vim-cucumber
-[submodule "vim/bundle/commentary"]
-	path = vim/bundle/commentary
+[submodule "vim/pack/bundle/start/vim-commentary"]
+	path = vim/pack/bundle/start/vim-commentary
 	url = git@github.com:tpope/vim-commentary
-[submodule "vim/bundle/pathogen"]
-	path = vim/bundle/pathogen
+[submodule "vim/pack/bundle/start/vim-pathogen"]
+	path = vim/pack/bundle/start/vim-pathogen
 	url = git@github.com:tpope/vim-pathogen
-[submodule "vim/bundle/endwise"]
-	path = vim/bundle/endwise
+[submodule "vim/pack/bundle/start/vim-endwise"]
+	path = vim/pack/bundle/start/vim-endwise
 	url = git@github.com:tpope/vim-endwise
-[submodule "vim/bundle/markdown"]
-	path = vim/bundle/markdown
+[submodule "vim/pack/bundle/start/vim-markdown"]
+	path = vim/pack/bundle/start/vim-markdown
 	url = git@github.com:tpope/vim-markdown
-[submodule "vim/bundle/surround"]
-	path = vim/bundle/surround
+[submodule "vim/pack/bundle/start/vim-surround"]
+	path = vim/pack/bundle/start/vim-surround
 	url = git@github.com:tpope/vim-surround
-[submodule "vim/bundle/repeat"]
-	path = vim/bundle/repeat
+[submodule "vim/pack/bundle/start/vim-repeat"]
+	path = vim/pack/bundle/start/vim-repeat
 	url = git@github.com:tpope/vim-repeat
-[submodule "vim/bundle/unimpaired"]
-	path = vim/bundle/unimpaired
+[submodule "vim/pack/bundle/start/vim-unimpaired"]
+	path = vim/pack/bundle/start/vim-unimpaired
 	url = git@github.com:tpope/vim-unimpaired
-[submodule "vim/bundle/tabular"]
-	path = vim/bundle/tabular
+[submodule "vim/pack/bundle/start/tabular"]
+	path = vim/pack/bundle/start/tabular
 	url = git@github.com:godlygeek/tabular
-[submodule "vim/bundle/javascript"]
-	path = vim/bundle/javascript
+[submodule "vim/pack/bundle/start/vim-javascript"]
+	path = vim/pack/bundle/start/vim-javascript
 	url = git@github.com:pangloss/vim-javascript
-[submodule "vim/bundle/json"]
-	path = vim/bundle/json
+[submodule "vim/pack/bundle/start/vim-json"]
+	path = vim/pack/bundle/start/vim-json
 	url = git@github.com:elzr/vim-json
-[submodule "vim/bundle/projectionist"]
-	path = vim/bundle/projectionist
+[submodule "vim/pack/bundle/start/vim-projectionist"]
+	path = vim/pack/bundle/start/vim-projectionist
 	url = git@github.com:tpope/vim-projectionist
-[submodule "vim/bundle/jsx"]
-	path = vim/bundle/jsx
+[submodule "vim/pack/bundle/start/vim-jsx"]
+	path = vim/pack/bundle/start/vim-jsx
 	url = git@github.com:mxw/vim-jsx
-[submodule "vim/bundle/solarized8"]
-	path = vim/bundle/solarized8
+[submodule "vim/pack/bundle/start/vim-solarized8"]
+	path = vim/pack/bundle/start/vim-solarized8
 	url = git@github.com:lifepillar/vim-solarized8
-[submodule "vim/bundle/ale"]
-	path = vim/bundle/ale
+[submodule "vim/pack/bundle/start/ale"]
+	path = vim/pack/bundle/start/ale
 	url = git@github.com:w0rp/ale
-[submodule "vim/bundle/deep-space"]
-	path = vim/bundle/deep-space
+[submodule "vim/pack/bundle/start/vim-deep-space"]
+	path = vim/pack/bundle/start/vim-deep-space
 	url = git@github.com:tyrannicaltoucan/vim-deep-space
-[submodule "vim/bundle/swift"]
-	path = vim/bundle/swift
+[submodule "vim/pack/bundle/start/swift.vim"]
+	path = vim/pack/bundle/start/swift.vim
 	url = git@github.com:keith/swift.vim
