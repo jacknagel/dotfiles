@@ -1,13 +1,8 @@
 " vim:set et sw=2:
 
 scriptencoding utf-8
-silent! execute pathogen#infect("bundle/{}", "bundle.local/{}")
 
-if has('packages')
-  packadd! matchit
-else
-  runtime macros/matchit.vim
-endif
+packadd! matchit
 
 set nocompatible
 set autoindent

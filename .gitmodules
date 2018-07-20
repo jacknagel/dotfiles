@@ -16,9 +16,6 @@
 [submodule "vim/pack/bundle/start/vim-commentary"]
 	path = vim/pack/bundle/start/vim-commentary
 	url = git@github.com:tpope/vim-commentary
-[submodule "vim/pack/bundle/start/vim-pathogen"]
-	path = vim/pack/bundle/start/vim-pathogen
-	url = git@github.com:tpope/vim-pathogen
 [submodule "vim/pack/bundle/start/vim-endwise"]
 	path = vim/pack/bundle/start/vim-endwise
 	url = git@github.com:tpope/vim-endwise

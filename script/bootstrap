@@ -22,7 +22,7 @@ bootstrap_git () {
 
 bootstrap_vim () {
   mkdir -p vim/{_backup,_swap,_undo,pack/{bundle,local}/{start,opt}}
-  vim -e -c "silent! Helptags" -c q
+  vim +helptags\ ALL +q
 }
 
 bootstrap_git
