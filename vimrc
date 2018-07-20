@@ -2,7 +2,12 @@
 
 scriptencoding utf-8
 silent! execute pathogen#infect("bundle/{}", "bundle.local/{}")
-runtime macros/matchit.vim
+
+if has('packages')
+  packadd! matchit
+else
+  runtime macros/matchit.vim
+endif
 
 set nocompatible
 set autoindent
