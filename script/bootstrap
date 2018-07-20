@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eu
 
 cd "$(git rev-parse --show-toplevel)"
@@ -21,7 +21,7 @@ bootstrap_git () {
 }
 
 bootstrap_vim () {
-  mkdir -p vim/{_backup,_swap,_undo,bundle.local,pack/$USER/start}
+  mkdir -p vim/{_backup,_swap,_undo,pack/{bundle,local}/{start,opt}}
   vim -e -c "silent! Helptags" -c q
 }
 
