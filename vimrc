@@ -52,7 +52,7 @@ set undofile
 set viminfo+=n~/.vim/viminfo
 set viminfo^=!
 set virtualedit+=block
-set visualbell
+set visualbell t_vb=
 set wildignore+=*.[aos],*.aux,*.class,*.dSYM,*.dylib,*.out,*.py[co],*.so,.DS_Store
 set wildignore+=*~,Session.vim,[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],tags
 set wildmenu
