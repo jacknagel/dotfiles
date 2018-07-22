@@ -194,6 +194,7 @@ augroup filetypes
   autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly | silent! ALEDisable
   autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
   autocmd BufNewFile,BufReadPost .npmrc setlocal ft=dosini
+  autocmd BufNewFile,BufReadPost bash-fc.* setlocal ft=sh
 augroup END
 
 augroup vimrc
