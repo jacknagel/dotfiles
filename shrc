@@ -80,6 +80,7 @@ case "$(uname)" in
     alias flushdns="sudo -k killall -HUP mDNSResponder"
     alias resetlaunchpad="defaults write com.apple.dock ResetLaunchPad -bool true && killall Dock"
     alias resetls="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -v -apps u"
+    alias bu="brew update && brew upgrade && brew cleanup -s --prune=0"
 
     mdopen () {
       mdfind "$@" | fzy | xargs -I{} open {}
