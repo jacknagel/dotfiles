@@ -73,7 +73,8 @@ if $COLORTERM ==# 'truecolor'
   endif
 
   set background=dark
-  silent! colorscheme deep-space
+  let g:material_theme_style = 'dark'
+  silent! colorscheme material
 endif
 
 if executable('rg')
