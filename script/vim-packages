@@ -1,0 +1,22 @@
+#!/bin/bash
+set -eu
+
+time=$(date +"%Y-%m-%d %H:%M:%S %z")
+
+cd "$(git rev-parse --show-toplevel)"
+
+packfile=vim/packages
+packpath=vim/pack/bundle/start
+
+while read -r pkg; do
+  pkgdir="${packpath}/${pkg##*/}"
+
+  if [ ! -d "$pkgdir" ]; then
+    git clone "git@github.com:${pkg}" "$pkgdir"
+  else
+    printf "%s\\n" "$pkgdir"
+    git -C "$pkgdir" checkout -q master
+    git -C "$pkgdir" pull -q --no-rebase --ff-only
+    git -C "$pkgdir" --no-pager log --graph --decorate --oneline "master@{${time}}.."
+  fi
+done < "$packfile"
