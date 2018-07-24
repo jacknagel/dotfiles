@@ -8,13 +8,15 @@ cd "$(git rev-parse --show-toplevel)"
 packfile=vim/packages
 packpath=vim/pack/bundle/start
 
+mkdir -p "$packpath"
+
 while read -r pkg; do
   pkgdir="${packpath}/${pkg##*/}"
 
   if [ ! -d "$pkgdir" ]; then
     git clone "git@github.com:${pkg}" "$pkgdir"
   else
-    printf "%s\\n" "$pkgdir"
+    printf "Updating %s\\n" "$pkgdir"
     git -C "$pkgdir" checkout -q master
     git -C "$pkgdir" pull -q --no-rebase --ff-only
     git -C "$pkgdir" --no-pager log --graph --decorate --oneline "master@{${time}}.."
