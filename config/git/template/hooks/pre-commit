@@ -1,0 +1,2 @@
+#!/bin/sh
+exec "$(git --exec-path)/../../share/git-core/templates/hooks/pre-commit.sample"
