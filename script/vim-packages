@@ -5,13 +5,12 @@ time=$(date +"%Y-%m-%d %H:%M:%S %z")
 
 cd "$(git rev-parse --show-toplevel)"
 
-packfile=vim/packages
+packfile=vim/pack/manifest
 packpath=vim/pack/bundle/start
 
-mkdir -p "$packpath"
-
-while read -r pkg; do
-  pkgdir="${packpath}/${pkg##*/}"
+install_or_update () {
+  local pkg="${1##*/}"
+  local pkgdir="${packpath}/${pkg}"
 
   if [ ! -d "$pkgdir" ]; then
     git clone "git@github.com:${pkg}" "$pkgdir"
@@ -21,6 +20,13 @@ while read -r pkg; do
     git -C "$pkgdir" pull -q --no-rebase --ff-only
     git -C "$pkgdir" --no-pager log --graph --decorate --oneline "master@{${time}}.."
   fi
+}
+
+mkdir -p "$packpath"
+
+while read -r pkg; do
+  install_or_update "$pkg"
 done < "$packfile"
 
+echo "Generating help tags"
 vim +helptags\ ALL +q
