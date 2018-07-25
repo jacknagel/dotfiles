@@ -22,3 +22,5 @@ while read -r pkg; do
     git -C "$pkgdir" --no-pager log --graph --decorate --oneline "master@{${time}}.."
   fi
 done < "$packfile"
+
+vim +helptags\ ALL +q
