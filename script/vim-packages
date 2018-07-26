@@ -9,11 +9,12 @@ packfile=vim/pack/manifest
 packpath=vim/pack/bundle/start
 
 install_or_update () {
-  local pkg="${1##*/}"
-  local pkgdir="${packpath}/${pkg}"
+  local pkg=${1}
+  local pkgdir="${packpath}/${pkg##*/}"
 
   if [ ! -d "$pkgdir" ]; then
-    git clone "git@github.com:${pkg}" "$pkgdir"
+    printf "Installing %s\\n" "$pkg"
+    git clone --depth 1 "git@github.com:${pkg}" "$pkgdir"
   else
     printf "Updating %s\\n" "$pkgdir"
     git -C "$pkgdir" checkout -q master
