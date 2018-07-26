@@ -77,7 +77,7 @@ if $COLORTERM ==# 'truecolor'
 endif
 
 if executable('rg')
-  set grepprg=rg\ -H\ --no-heading\ --vimgrep
+  set grepprg=rg\ --vimgrep
   set grepformat=%f:%l:%c:%m
 elseif executable('ggrep')
   set grepprg=ggrep\ -rnHI\ --exclude-dir=.git\ --exclude=tags
