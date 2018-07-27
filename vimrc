@@ -20,7 +20,7 @@ set dictionary+=/usr/share/dict/words
 set directory^=~/.vim/_swap//
 set display=lastline
 set formatoptions+=1rj
-set history=1000
+set history=200
 set hlsearch
 set incsearch
 set laststatus=2
