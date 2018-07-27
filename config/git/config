@@ -38,7 +38,6 @@
 [commit]
 	verbose = true
 [core]
-	editor = vim
 	pager = less -S ; -S - don't wrap long lines
 [credential]
 	helper = osxkeychain
