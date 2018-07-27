@@ -19,6 +19,7 @@
 	ls = ls-files -oc --exclude-standard
 	st = status --short --branch -uno
 	cem = commit --allow-empty-message -m ''
+	cop = checkout --patch
 	rba = rebase --abort
 	rbc = rebase --continue
 	rbi = rebase --interactive
