@@ -91,6 +91,7 @@ syntax on
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:markdown_fenced_languages = ['css', 'html', 'javascript', 'ruby']
+let g:no_default_tabular_maps = 1
 let g:vim_indent_cont = 2
 let g:vim_json_syntax_conceal = 0
 
