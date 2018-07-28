@@ -108,9 +108,11 @@ imap <Right> <Nop>
 imap <Up>    <Nop>
 imap <Down>  <Nop>
 
-" never switch to ex mode
-nmap Q <Nop>
-nmap gQ <Nop>
+" make Q work like gq instead of switching
+map Q gq
+
+" make Y work like y$ instead of yy
+nmap Y y$
 
 " In insert mode, break the current undo sequence in sensible places. If <CR>
 " is already mapped to include <C-G>u, then don't remap it. This preserves the
