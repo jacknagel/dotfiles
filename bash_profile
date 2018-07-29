@@ -1,3 +1,3 @@
-# vim:set ft=sh et sw=2:
+# vim:ft=sh
 # shellcheck shell=bash disable=SC1090
 [ -r "$HOME/.bashrc" ] && . "$HOME/.bashrc"

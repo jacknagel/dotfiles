@@ -1,4 +1,4 @@
-# vim:set ft=sh et sw=2:
+# vim:ft=sh
 # shellcheck shell=sh disable=SC2039
 
 remove_path () {
