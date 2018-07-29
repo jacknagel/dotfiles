@@ -203,7 +203,7 @@ augroup END
 
 augroup vimrc
   autocmd!
-  autocmd BufWritePost *vimrc source $MYVIMRC
+  autocmd BufWritePost {,.}vimrc source <afile>
 augroup END
 
 augroup lastposjump
