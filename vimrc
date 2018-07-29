@@ -194,7 +194,7 @@ endfunction
 
 augroup filetypes
   autocmd!
-  autocmd BufNewFile,BufReadPost *.log{,.[0-9]*} setlocal readonly nowrap
+  autocmd BufNewFile,BufReadPost *.log{,.[0-9]*} setlocal readonly nowrap noundofile
   autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly | silent! ALEDisable
   autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
   autocmd BufNewFile,BufReadPost .npmrc setlocal ft=dosini
@@ -216,7 +216,7 @@ augroup END
 augroup undo
   autocmd!
   autocmd CursorHoldI * silent! call feedkeys("\<C-G>u", "nt")
-  autocmd BufWritePre /tmp/*,$TMPDIR/*,/{private,var,private/var}/tmp/* setlocal noundofile
+  autocmd BufWritePre /tmp/*,$TMPDIR/*,/{private,var,private/var}/tmp/*,/{var,private/var}/folders/* setlocal noundofile
 augroup END
 
 augroup focus
