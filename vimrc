@@ -204,6 +204,7 @@ augroup END
 augroup vimrc
   autocmd!
   autocmd BufWritePost {,.}vimrc source <afile>
+  autocmd BufWritePost */spell/*.add silent! mkspell! <afile>
 augroup END
 
 augroup lastposjump
