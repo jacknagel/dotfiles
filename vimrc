@@ -239,7 +239,7 @@ augroup windows
   autocmd!
   autocmd VimEnter * nested if &lazyredraw | redrawstatus! | endif | all | resize
   autocmd VimResized * nested wincmd =
-  autocmd WinEnter * nested resize
+  autocmd WinEnter * nested if &buftype != 'quickfix' | resize | endif
 augroup END
 
 augroup quickfix
