@@ -255,8 +255,8 @@ augroup END
 
 augroup cursorline
   autocmd!
-  autocmd InsertEnter * setlocal nocursorline
-  autocmd InsertLeave * setlocal cursorline
+  autocmd WinLeave,InsertEnter * set nocursorline
+  autocmd WinEnter,InsertLeave * set cursorline
 augroup END
 
 silent! source ~/.vimrc.local
