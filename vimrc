@@ -24,6 +24,7 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set listchars=tab:▸\ ,trail:·,extends:…,precedes:…,nbsp:␠
+set noequalalways
 set nojoinspaces
 set nrformats-=octal
 set number
@@ -56,6 +57,9 @@ set wildignore+=*.[aos],*.aux,*.class,*.dSYM,*.dylib,*.out,*.py[co],*.so,.DS_Sto
 set wildignore+=*~,Session.vim,[._]*.s[a-v][a-z],[._]*.sw[a-p],[._]s[a-v][a-z],[._]sw[a-p],tags
 set wildmenu
 set wildmode=longest:full,full
+set winheight=10
+set winminheight=10
+set winwidth=80
 
 set statusline=[%n]                 " buffer number
 set statusline+=%(\ %.120f\ %)      " relative path to file
@@ -232,14 +236,10 @@ augroup swapmod
 augroup END
 
 augroup windows
-  " Initially, &wmh == 1 and &wh == 1. Setting &wmh > &wh is disallowed,
-  " as is setting 'wmh' after setting 'wh' sufficiently large to prevent
-  " opening another window.
   autocmd!
-  autocmd VimEnter * set wh=10 wmh=10 wh=999 hh=999 cwh=999
-  autocmd VimEnter * set wiw=80
-  autocmd VimResized * wincmd =
-  autocmd VimEnter * if &lazyredraw | redrawstatus! | endif
+  autocmd VimEnter * nested if &lazyredraw | redrawstatus! | endif | all | resize
+  autocmd VimResized * nested wincmd =
+  autocmd WinEnter * nested resize
 augroup END
 
 augroup quickfix
