@@ -4,6 +4,7 @@ git@github.com:keith/swift.vim
 git@github.com:lifepillar/vim-solarized8
 git@github.com:mxw/vim-jsx
 git@github.com:pangloss/vim-javascript
+git@github.com:tpope/vim-apathy
 git@github.com:tpope/vim-commentary
 git@github.com:tpope/vim-cucumber
 git@github.com:tpope/vim-endwise
