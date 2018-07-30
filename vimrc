@@ -68,7 +68,7 @@ set statusline+=%{FugitiveStatusLineWrapper()}
 set statusline+=%=                  " l-r separator
 set statusline+=%(%#ErrorMsg#%{ALEStatusLineWrapper()}%*\ %)
 set statusline+=%-10.(0x%B%)        " hex value of character under cursor
-set statusline+=%-14.(%l,%c%V%)\ %P " line#,col#-vcol# %
+set statusline+=%-15.(%l,%c%V%)\ %P " line#,col#-vcol# %
 
 if $COLORTERM ==# 'truecolor'
   if has('termguicolors')
