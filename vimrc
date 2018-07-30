@@ -255,8 +255,10 @@ augroup END
 
 augroup cursorline
   autocmd!
-  autocmd WinLeave,InsertEnter * set nocursorline
-  autocmd WinEnter,InsertLeave * set cursorline
+  autocmd InsertEnter * set nocursorline
+  autocmd InsertLeave * set cursorline
+  autocmd WinEnter * if &buftype != 'quickfix' | set cursorline | endif
+  autocmd WinLeave * set nocursorline
 augroup END
 
 silent! source ~/.vimrc.local
