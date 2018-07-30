@@ -1,2 +1,1 @@
 setlocal nocursorline
-setlocal nonumber
