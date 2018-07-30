@@ -244,8 +244,8 @@ augroup END
 
 augroup quickfix
   autocmd!
-  autocmd QuickFixCmdPost [^l]* nested cwindow
-  autocmd QuickFixCmdPost l* nested lwindow
+  autocmd QuickFixCmdPost [^l]* nested botright cwindow | wincmd p
+  autocmd QuickFixCmdPost l* nested botright lwindow
 augroup END
 
 augroup diff
