@@ -31,11 +31,13 @@ set nrformats-=octal
 set number
 set numberwidth=3
 set report=0
-set scrolloff=3
+set scrolloff=5
 set sessionoptions-=options
 set shiftround
 set shortmess=aFIoOtT
 set showcmd
+set sidescroll=1
+set sidescrolloff=5
 set smarttab
 set spellfile=~/.vim/spell/en.utf-8.add,~/.vim/spell/en-local.utf-8.add
 set spelllang=en_us
