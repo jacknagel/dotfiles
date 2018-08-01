@@ -33,7 +33,7 @@ set report=0
 set scrolloff=3
 set sessionoptions-=options
 set shiftround
-set shortmess=aIoOtT
+set shortmess=aFIoOtT
 set showcmd
 set smarttab
 set spellfile=~/.vim/spell/en.utf-8.add,~/.vim/spell/en-local.utf-8.add
