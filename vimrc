@@ -27,6 +27,7 @@ set lazyredraw
 set listchars=tab:▸\ ,trail:·,extends:…,precedes:…,nbsp:␠
 set noequalalways
 set nojoinspaces
+set nolangremap
 set nrformats-=octal
 set number
 set numberwidth=3
