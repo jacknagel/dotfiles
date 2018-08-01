@@ -74,12 +74,14 @@ set statusline+=%(%#ErrorMsg#%{ALEStatusLineWrapper()}%*\ %)
 set statusline+=%-10.(0x%B%)        " hex value of character under cursor
 set statusline+=%-15.(%l,%c%V%)\ %P " line#,col#-vcol# %
 
+filetype plugin indent on
+syntax enable
+
 if $COLORTERM ==# 'truecolor'
   if has('termguicolors')
     set termguicolors
   endif
 
-  set background=dark
   silent! colorscheme deep-space
 endif
 
@@ -92,8 +94,6 @@ else
   set grepprg=grep\ -rnHI\ --exclude-dir=.git\ --exclude=tags
 endif
 
-filetype plugin indent on
-syntax on
 " plugin settings
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 'never'
