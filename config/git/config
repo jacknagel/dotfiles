@@ -15,6 +15,9 @@
 	du = diff @{u}
 	ff = merge --ff-only
 	fx = commit --fixup
+	jd = jump diff
+	jg = jump grep
+	jm = jump merge
 	lg = log --graph --decorate --oneline
 	ls = ls-files -oc --exclude-standard
 	st = status --short --branch -uno
