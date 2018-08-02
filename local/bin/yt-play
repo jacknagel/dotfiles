@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 youtube-dl --default-search=ytsearch: \
            --youtube-skip-dash-manifest \

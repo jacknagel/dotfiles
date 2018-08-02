@@ -1,3 +1,2 @@
 #!/bin/sh
-# shellcheck disable=SC1117
-printf "%s\n" "$@"
+printf '%s\n' "$@"

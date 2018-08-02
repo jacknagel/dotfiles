@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eu
 
 find . -type f -name "*.m4a" \
   -exec AtomicParsley {} \
