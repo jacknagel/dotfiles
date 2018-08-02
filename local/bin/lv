@@ -1,2 +1,0 @@
-#!/bin/sh
-exec tail -F "$1" | bunyan
