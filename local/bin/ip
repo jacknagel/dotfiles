@@ -1,3 +1,2 @@
 #!/bin/sh
-curl https://domains.google.com/checkip
-echo
+exec curl https://domains.google.com/checkip -w '\n'
