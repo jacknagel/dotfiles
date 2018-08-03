@@ -129,38 +129,29 @@ _prompt_command () {
 }
 PROMPT_COMMAND=_prompt_command
 
-_without_aliases () {
-  local aliases
+_source_completion () {
+  local aliases exit
   aliases=$(alias)
   unalias -a
-  "$@"
+  . "$1" >/dev/null 2>&1 || return 1
   eval "$aliases"
+  return 124
+}
+
+_load_completion () {
+  case "$1" in
+    nvm) _source_completion ~/.nvm/bash_completion ;;
+    npm) _source_completion <(npm completion) ;;
+    docker) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion ;;
+    docker-compose) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ;;
+  esac
 }
 
 if [ -f "$HOME/.nvm/nvm.sh" ]; then
   . "$HOME/.nvm/nvm.sh"
-
-  _load_nvm_bash_completion () {
-    . "$HOME/.nvm/bash_completion" && return 124
-  }
-
-  _load_npm_bash_completion () {
-    type npm >/dev/null 2>&1 && . <(npm completion) && return 124
-  }
-
-  complete -F _load_nvm_bash_completion nvm
-  complete -F _load_npm_bash_completion npm
+  complete -F _load_completion -o bashdefault -o default nvm npm
 fi
 
 if [ -d "/Applications/Docker.app" ]; then
-  _load_docker_bash_completion () {
-    _without_aliases . /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion && return 124
-  }
-
-  _load_docker_compose_bash_completion () {
-    . /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion && return 124
-  }
-
-  complete -F _load_docker_bash_completion docker
-  complete -F _load_docker_compose_bash_completion docker-compose
+  complete -F _load_completion -o bashdefault -o default docker docker-compose
 fi
