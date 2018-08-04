@@ -32,7 +32,7 @@ prune () {
   find "$packpath" -mindepth 1 -maxdepth 1 -type d -exec git -C {} config --get remote.origin.url \; | while read -r repo; do
     if ! grep -q -F "$repo" < "$manifest"; then
       echo "Removing $repo"
-      rm -r "${packpath}/${repo##*/}"
+      rm -r "${packpath:?}/${repo##*/}"
     fi
   done
 }
