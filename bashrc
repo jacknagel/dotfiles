@@ -130,7 +130,7 @@ _prompt_command () {
 PROMPT_COMMAND=_prompt_command
 
 _source_completion () {
-  local aliases exit
+  local aliases
   aliases=$(alias)
   unalias -a
   . "$1" >/dev/null 2>&1 || return 1
