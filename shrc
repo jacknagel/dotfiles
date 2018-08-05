@@ -21,16 +21,6 @@ prepend_path () {
   done
 }
 
-append_path () {
-  local dir
-  local var="$1"
-  shift
-  for dir in "$@"; do
-    remove_path "$var" "$dir"
-    [ -d "$dir" ] && eval "${var}=\${${var}:+\$${var}:}\${dir}"
-  done
-}
-
 PKG_PREFIX=/usr/local
 
 prepend_path PATH /sbin /usr/sbin /bin /usr/bin
