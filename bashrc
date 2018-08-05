@@ -1,4 +1,4 @@
-# shellcheck shell=bash disable=SC1090,SC1091,SC1117
+# shellcheck shell=bash disable=SC1090,SC1117
 
 export ENV="$HOME/.shrc"
 . "$ENV"
@@ -58,12 +58,12 @@ cd () {
   builtin cd "$@" >/dev/null
 }
 
-if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -gt 40 ] && [ -f "/usr/local/share/bash-completion/bash_completion" ]; then
-  . "/usr/local/share/bash-completion/bash_completion"
-elif [ -f "/usr/local/etc/bash_completion" ]; then
-  . "/usr/local/etc/bash_completion"
+if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -ge 41 ] && [ -f "${PKG_PREFIX}/share/bash-completion/bash_completion" ]; then
+  . "${PKG_PREFIX}/share/bash-completion/bash_completion"
+elif [ -f "${PKG_PREFIX}/etc/bash_completion" ]; then
+  . "${PKG_PREFIX}/etc/bash_completion"
 else
-  for file in /usr/local/etc/bash_completion.d/*; do
+  for file in "${PKG_PREFIX}"/etc/bash_completion.d/*; do
     [ -f "$file" ] && . "$file"
   done
 fi

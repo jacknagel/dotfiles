@@ -31,11 +31,13 @@ append_path () {
   done
 }
 
-prepend_path PATH /sbin /usr/sbin /bin /usr/bin
-prepend_path PATH /usr/local/sbin /usr/local/bin
-prepend_path PATH "$HOME/.local/bin"
+PKG_PREFIX=/usr/local
 
-prepend_path INFOPATH /usr/share/info /usr/local/share/info
+prepend_path PATH /sbin /usr/sbin /bin /usr/bin
+prepend_path PATH "$PKG_PREFIX"/sbin "$PKG_PREFIX"/bin
+prepend_path PATH ~/.local/bin
+
+prepend_path INFOPATH /usr/share/info "$PKG_PREFIX"/share/info
 
 export PATH INFOPATH
 
