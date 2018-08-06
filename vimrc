@@ -242,9 +242,11 @@ augroup END
 
 augroup windows
   autocmd!
+  autocmd FilterWritePre * if &diff | set nonumber | endif
   autocmd VimEnter * nested if &lazyredraw | redrawstatus! | endif
   autocmd VimResized * nested wincmd =
-  autocmd WinEnter * nested if &buftype != 'quickfix' | resize | endif
+  autocmd WinEnter * nested if &buftype != 'quickfix' | resize | set cursorline | endif
+  autocmd WinLeave * set nocursorline
 augroup END
 
 augroup quickfix
@@ -252,17 +254,6 @@ augroup quickfix
   autocmd QuickFixCmdPost [^l]* nested botright cwindow | wincmd p
   autocmd QuickFixCmdPost l* nested botright lwindow
   autocmd VimEnter * nested if filereadable(&errorfile) | botright cwindow | wincmd p | endif
-augroup END
-
-augroup diff
-  autocmd!
-  autocmd FilterWritePre * if &diff | set nonumber | endif
-augroup END
-
-augroup cursorline
-  autocmd!
-  autocmd WinEnter * if &buftype != 'quickfix' | set cursorline | endif
-  autocmd WinLeave * set nocursorline
 augroup END
 
 silent! source ~/.vimrc.local
