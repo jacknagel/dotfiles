@@ -148,8 +148,30 @@ _load_completion () {
   esac
 }
 
-if [ -f "$HOME/.nvm/nvm.sh" ]; then
-  . "$HOME/.nvm/nvm.sh"
+NVM_DIR=~/.nvm
+if [ -f "$NVM_DIR/nvm.sh" ]; then
+  if [ -d "$NVM_DIR/versions/node" ] && type -t mapfile >/dev/null; then
+    mapfile -t NODE_GLOBALS < <(find "$NVM_DIR/versions/node" -maxdepth 3 \( -type l -o -type f \) -wholename '*/bin/*' -exec basename -a {} + | sort -u)
+  fi
+
+  _nvm_shim () {
+    local cmd=$1
+    shift
+    unset -f "${NODE_GLOBALS[@]}"
+    declare -F nvm >/dev/null 2>&1 || [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    "$cmd" "${@}"
+  }
+
+  _setup_nvm_shims () {
+    local cmd
+    for cmd in "${NODE_GLOBALS[@]}" nvm; do
+      if ! command -v "$cmd" >/dev/null 2>&1; then
+        eval "${cmd} () { _nvm_shim \"$cmd\" \"\$@\"; }"
+      fi
+    done
+  }
+
+  _setup_nvm_shims
   complete -F _load_completion -o bashdefault -o default nvm npm
 fi
 
