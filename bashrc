@@ -66,6 +66,7 @@ else
   for file in "${PKG_PREFIX}"/etc/bash_completion.d/*; do
     [ -f "$file" ] && . "$file"
   done
+  unset file
 fi
 
 _set_ps1_strings () {
