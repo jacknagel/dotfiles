@@ -5,7 +5,7 @@ cd "$(git rev-parse --show-toplevel)"
 
 time=$(date +"%Y-%m-%d %H:%M:%S %z")
 manifest=vim/pack/manifest
-packpath=vim/pack/bundle/start
+packpath=vim/pack/default/start
 
 install_or_update () {
   local repo=${1}
