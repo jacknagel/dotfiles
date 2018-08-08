@@ -178,3 +178,7 @@ fi
 if [ -d "/Applications/Docker.app" ]; then
   complete -F _load_completion -o bashdefault -o default docker docker-compose
 fi
+
+if command -v terraform >/dev/null 2>&1; then
+  complete -C "$PKG_PREFIX"/bin/terraform terraform
+fi
