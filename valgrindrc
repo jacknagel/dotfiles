@@ -1,6 +1,0 @@
---memcheck:leak-check=yes
---memcheck:show-reachable=yes
---memcheck:dsymutil=yes
---memcheck:track-fds=yes
---memcheck:track-origins=yes
---memcheck:gen-suppressions=all
