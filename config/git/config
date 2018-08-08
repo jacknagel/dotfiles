@@ -94,6 +94,9 @@
 [merge "bundle"]
 	name = bundle
 	driver = bundle
+[merge "npm-merge-driver"]
+	name = automatically merge npm lockfiles
+	driver = npx npm-merge-driver merge %A %O %B %P
 [pager]
 	; +F - don't quit if one screen
 	; +X - don't clear the screen on exit

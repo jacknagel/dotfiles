@@ -5,3 +5,5 @@
 *.tar.lzma    diff=tar
 *.tbz2        diff=tar
 Gemfile.lock  merge=bundle
+npm-shrinkwrap.json merge=npm-merge-driver
+package-lock.json merge=npm-merge-driver
