@@ -155,7 +155,12 @@ nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
 " format cucumber tables
 noremap <silent> g\| :Tabularize/\|/l1<CR>
 
-noremap gs :sort<CR>
+function! s:sort_opfunc(...)
+  '[,']sort
+endfunction
+nnoremap <silent> gs :set operatorfunc=<SID>sort_opfunc<CR>g@
+vnoremap <silent> gs :sort<CR>
+
 noremap gy "*y
 
 nnoremap [q :cprev<CR>
