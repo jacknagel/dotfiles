@@ -21,7 +21,8 @@ bootstrap_git () {
 }
 
 bootstrap_vim () {
-  mkdir -p vim/{_backup,_swap,_undo,pack/{default,local}/{start,opt}}
+  mkdir -p vim/{_backup,_swap,_undo}
+  script/vim-packages
 }
 
 bootstrap_git

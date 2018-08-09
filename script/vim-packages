@@ -42,7 +42,7 @@ generate_help_tags () {
   vim +helptags\ ALL +q
 }
 
-mkdir -p "$packpath"
+mkdir -p vim/pack/{default,local}/{start,opt}
 update
 prune
 generate_help_tags
