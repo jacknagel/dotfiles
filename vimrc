@@ -158,6 +158,10 @@ noremap <silent> g\| :Tabularize/\|/l1<CR>
 noremap gs :sort<CR>
 noremap gy "*y
 
+nnoremap [q :cprev<CR>
+nnoremap ]q :cnext<CR>
+nnoremap yow :setlocal invwrap<CR>
+
 function! FugitiveStatusLineWrapper()
   if !exists('*fugitive#head')
     return ''
