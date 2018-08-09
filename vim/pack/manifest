@@ -15,6 +15,6 @@ git@github.com:tpope/vim-projectionist
 git@github.com:tpope/vim-repeat
 git@github.com:tpope/vim-surround
 git@github.com:tpope/vim-unimpaired
-git@github.com:tyrannicaltoucan/vim-deep-space
+git@github.com:tyrannicaltoucan/vim-deep-space opt
 git@github.com:vim-ruby/vim-ruby
 git@github.com:w0rp/ale
