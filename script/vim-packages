@@ -5,11 +5,10 @@ cd "$(git rev-parse --show-toplevel)"
 
 time=$(date +"%Y-%m-%d %H:%M:%S %z")
 manifest=vim/pack/manifest
-default_packpath=vim/pack/default/start
 
-install_if_missing () {
-  local repo=${1}
-  local pkgdir="${default_packpath}/${repo##*/}"
+install_package () {
+  local repo=${1} type=${2:+opt} type=${type:-start}
+  local pkgdir="vim/pack/default/${type}/${repo##*/}"
 
   if [ ! -d "$pkgdir" ]; then
     printf "Installing %s\\n" "$repo"
@@ -25,21 +24,27 @@ update_package () {
   git -C "$pkgdir" --no-pager log --graph --decorate --oneline "master@{${time}}.."
 }
 
+find_packages () {
+  find vim/pack/{default,local}/{start,opt} -mindepth 1 -maxdepth 1 -type d "$@" | sort
+}
+
 update () {
-  find vim/pack/{default,local}/{start,opt} -mindepth 1 -maxdepth 1 -type d | sort | while read -r repo; do
-    update_package "$repo"
+  find_packages | while read -r pkgdir; do
+    update_package "$pkgdir"
   done
 
-  while read -r repo; do
-    install_if_missing "$repo"
+  while read -r repo type; do
+    install_package "$repo" "$type"
   done < "$manifest"
 }
 
 prune () {
-  find "$default_packpath" -mindepth 1 -maxdepth 1 -type d -exec git -C {} config --get remote.origin.url \; | while read -r repo; do
+  find_packages -path 'vim/pack/default/*' | while read -r pkgdir; do
+    repo=$(git -C "$pkgdir" config --get remote.origin.url)
+
     if ! grep -q -F "$repo" < "$manifest"; then
-      printf "Removing %s\\n" "$repo"
-      rm -r "${default_packpath:?}/${repo##*/}"
+      printf "Removing %s\\n" "$pkgdir"
+      rm -r "$pkgdir"
     fi
   done
 }
