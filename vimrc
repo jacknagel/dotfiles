@@ -140,8 +140,6 @@ nnoremap <Leader><Leader> <C-^>
 " make Ctrl-C check abbreviations and trigger InsertLeave
 inoremap <C-C> <Esc>
 
-nnoremap <Leader>l :set list!<CR>
-
 " add word under cursor to unversioned spellfile
 nnoremap zG 2zg
 
@@ -165,6 +163,7 @@ noremap gy "*y
 
 nnoremap [q :cprev<CR>
 nnoremap ]q :cnext<CR>
+nnoremap yol :setlocal invlist<CR>
 nnoremap yow :setlocal invwrap<CR>
 
 function! FugitiveStatusLineWrapper()
