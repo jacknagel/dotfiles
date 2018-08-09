@@ -5,40 +5,47 @@ cd "$(git rev-parse --show-toplevel)"
 
 time=$(date +"%Y-%m-%d %H:%M:%S %z")
 manifest=vim/pack/manifest
-packpath=vim/pack/default/start
+default_packpath=vim/pack/default/start
 
-install_or_update () {
+install_if_missing () {
   local repo=${1}
-  local pkgdir="${packpath}/${repo##*/}"
+  local pkgdir="${default_packpath}/${repo##*/}"
 
   if [ ! -d "$pkgdir" ]; then
     printf "Installing %s\\n" "$repo"
     git clone --depth 1 "$repo" "$pkgdir"
-  else
-    printf "Updating %s\\n" "$pkgdir"
-    git -C "$pkgdir" checkout -q master
-    git -C "$pkgdir" pull -q --no-rebase --ff-only
-    git -C "$pkgdir" --no-pager log --graph --decorate --oneline "master@{${time}}.."
   fi
 }
 
+update_package () {
+  local pkgdir=$1
+  printf "Updating %s\\n" "$pkgdir"
+  git -C "$pkgdir" checkout -q master
+  git -C "$pkgdir" pull -q --no-rebase --ff-only
+  git -C "$pkgdir" --no-pager log --graph --decorate --oneline "master@{${time}}.."
+}
+
 update () {
+  find vim/pack/{default,local}/{start,opt} -mindepth 1 -maxdepth 1 -type d | sort | while read -r repo; do
+    update_package "$repo"
+  done
+
   while read -r repo; do
-    install_or_update "$repo"
+    install_if_missing "$repo"
   done < "$manifest"
 }
 
 prune () {
-  find "$packpath" -mindepth 1 -maxdepth 1 -type d -exec git -C {} config --get remote.origin.url \; | while read -r repo; do
+  find "$default_packpath" -mindepth 1 -maxdepth 1 -type d -exec git -C {} config --get remote.origin.url \; | while read -r repo; do
     if ! grep -q -F "$repo" < "$manifest"; then
-      echo "Removing $repo"
-      rm -r "${packpath:?}/${repo##*/}"
+      printf "Removing %s\\n" "$repo"
+      rm -r "${default_packpath:?}/${repo##*/}"
     fi
   done
 }
 
 generate_help_tags () {
-  echo "Generating help tags"
+  printf "Generating help tags\\n"
   vim +helptags\ ALL +q
 }
 
