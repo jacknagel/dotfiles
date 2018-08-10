@@ -167,11 +167,11 @@ nnoremap yol :setlocal invlist<CR>
 nnoremap yow :setlocal invwrap<CR>
 
 function! FugitiveStatusLineWrapper()
-  if !exists('*fugitive#head')
+  if !exists('*FugitiveHead')
     return ''
   endif
 
-  let head = fugitive#head(7)
+  let head = FugitiveHead(7)
   return head ==# '' ? '' : '[' . head . ']'
 endfunction
 
