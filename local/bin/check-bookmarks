@@ -6,23 +6,23 @@ require "net/https"
 STDOUT.sync = !$stdout.tty?
 
 BOOKMARKS_PATH = File.expand_path("~/Library/Safari/Bookmarks.plist")
+TIMEOUT = 5
+HEADERS = {
+  'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15',
+  'Accept-Encoding' => 'br, gzip, deflate'
+}.freeze
 
 def check_url(url, method: Net::HTTP::Head, &block)
   uri = URI(url)
 
   opts = {
-    open_timeout: 3,
-    read_timeout: 3,
+    open_timeout: TIMEOUT,
+    read_timeout: TIMEOUT,
     use_ssl:      uri.scheme == "https",
-    verify_mode:  OpenSSL::SSL::VERIFY_PEER,
-  }
-
-  headers = {
-    'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Safari/605.1.15'
   }
 
   Net::HTTP.start(uri.host, uri.port, opts) do |http|
-    case resp = http.request(method.new(uri, headers))
+    case resp = http.request(method.new(uri, HEADERS))
     when Net::HTTPRedirection
       check_redirect(uri, resp, &block)
     when Net::HTTPNotFound, Net::HTTPMethodNotAllowed
@@ -43,11 +43,11 @@ end
 
 def check_redirect(uri, resp, &block)
   loc = resp.fetch("location")
-  yield "#{resp.code}: #{uri} -> #{loc}"
   new_uri = URI.join(uri, loc)
   if new_uri == uri
-    yield "ERROR: skipping self-redirect"
+    yield "ERROR: #{uri}\n Skipping self-redirect"
   else
+    yield "#{resp.code}: #{uri} -> #{loc}"
     check_url(new_uri, &block)
   end
 end
