@@ -1,2 +1,2 @@
 #!/bin/sh
-exec curl https://domains.google.com/checkip -w '\n'
+exec dig +short @resolver1.opendns.com myip.opendns.com
