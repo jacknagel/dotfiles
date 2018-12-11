@@ -100,15 +100,20 @@ _set_ps1_strings () {
 }
 _set_ps1_strings
 
+# shellcheck disable=SC2034
+{
+  GIT_PS1_DESCRIBE_STYLE=branch
+  GIT_PS1_SHOWCOLORHINTS=1
+  GIT_PS1_SHOWDIRTYSTATE=1
+  GIT_PS1_SHOWSTASHSTATE=1
+  GIT_PS1_SHOWUNTRACKEDFILES=1
+  GIT_PS1_SHOWUPSTREAM=auto
+  KUBE_PS1_PREFIX=" ("
+  KUBE_PS1_SYMBOL_ENABLE=false
+}
+
 if declare -F __git_ps1 >/dev/null; then
-  # shellcheck disable=SC2034
   _set_ps1 () {
-    local GIT_PS1_SHOWDIRTYSTATE=1
-    local GIT_PS1_SHOWSTASHSTATE=1
-    local GIT_PS1_SHOWCOLORHINTS=1
-    local GIT_PS1_SHOWUNTRACKEDFILES=1
-    local GIT_PS1_SHOWUPSTREAM=auto
-    local GIT_PS1_DESCRIBE_STYLE=branch
     __git_ps1 "$@"
   }
 else
@@ -118,7 +123,7 @@ fi
 _prompt_command () {
   local exit=$?
 
-  _set_ps1 "$_ps1_prefix" "$_ps1_suffix"
+  _set_ps1 "${_ps1_prefix}$(kube_ps1)" "$_ps1_suffix"
   PS2=" $_ps1_suffix"
 
   history -a
@@ -182,4 +187,8 @@ fi
 
 if command -v terraform >/dev/null 2>&1; then
   complete -C "$PKG_PREFIX"/bin/terraform terraform
+fi
+
+if [ -f "${PKG_PREFIX}/share/kube-ps1.sh" ]; then
+  . "${PKG_PREFIX}/share/kube-ps1.sh"
 fi
