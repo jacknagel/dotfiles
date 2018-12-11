@@ -11,6 +11,8 @@ brew "grep"
 brew "jacknagel/bespoke/vim", args: ["HEAD"]
 brew "jq"
 brew "kops"
+brew "kube-ps1"
+brew "kubectx"
 brew "kubernetes-cli"
 brew "kubernetes-helm"
 brew "less"
