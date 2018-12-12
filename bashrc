@@ -121,8 +121,6 @@ else
 fi
 
 _prompt_command () {
-  local exit=$?
-
   _set_ps1 "${_ps1_prefix}$(kube_ps1)" "$_ps1_suffix"
   PS2=" $_ps1_suffix"
 
@@ -131,8 +129,6 @@ _prompt_command () {
   case "$(history 1)" in
     *install*) hash -r ;;
   esac
-
-  return $exit
 }
 PROMPT_COMMAND=_prompt_command
 
