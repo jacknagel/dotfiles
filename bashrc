@@ -73,13 +73,13 @@ fi
 _set_ps1_strings () {
   local bold red yellow blue cyan reset title
 
-  bold=$(tput bold)
-  red=$(tput setaf 1)
-  yellow=$(tput setaf 3)
-  blue=$(tput setaf 4)
-  magenta=$(tput setaf 5)
-  cyan=$(tput setaf 6)
-  reset=$(tput sgr0)
+  bold="\[$(tput bold)\]"
+  red="\[$(tput setaf 1)\]"
+  yellow="\[$(tput setaf 3)\]"
+  blue="\[$(tput setaf 4)\]"
+  magenta="\[$(tput setaf 5)\]"
+  cyan="\[$(tput setaf 6)\]"
+  reset="\[$(tput sgr0)\]"
   title=""
 
   _ps1_prefix=""
