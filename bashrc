@@ -77,6 +77,7 @@ _set_ps1_strings () {
   red=$(tput setaf 1)
   yellow=$(tput setaf 3)
   blue=$(tput setaf 4)
+  magenta=$(tput setaf 5)
   cyan=$(tput setaf 6)
   reset=$(tput sgr0)
   title=""
@@ -97,6 +98,10 @@ _set_ps1_strings () {
 
   title="\[\033]0;${title} \w\007\]"
   _ps1_prefix="${title}${_ps1_prefix:+$_ps1_prefix }${blue}\W${reset}"
+
+  if [ -n "${AWS_VAULT:-$AWS_PROFILE}" ]; then
+    _ps1_prefix="${_ps1_prefix} (${magenta}${AWS_VAULT:-$AWS_PROFILE}${reset})"
+  fi
 }
 _set_ps1_strings
 
