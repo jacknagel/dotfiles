@@ -1,0 +1,36 @@
+#!/bin/sh
+set -eu
+
+fmt='
+               url: %{url_effective}
+            scheme: %{scheme}
+ ssl_verify_result: %{ssl_verify_result}
+      http_connect: %{http_connect}
+      num_connects: %{num_connects}
+     num_redirects: %{num_redirects}
+      redirect_url: %{redirect_url}
+      http_version: %{http_version}
+      content_type: %{content_type}
+     response_code: %{response_code}
+
+          local_ip: %{local_ip}
+        local_port: %{local_port}
+         remote_ip: %{remote_ip}
+       remote_port: %{remote_port}
+
+      size_request: %{size_request}b
+       size_upload: %{size_upload}b
+      speed_upload: %{speed_upload} b/s
+       size_header: %{size_header}b
+     size_download: %{size_download}b
+    speed_download: %{speed_download} b/s
+
+   time_namelookup: %{time_namelookup}s
+      time_connect: %{time_connect}s
+   time_appconnect: %{time_appconnect}s
+  time_pretransfer: %{time_pretransfer}s
+     time_redirect: %{time_redirect}s
+time_starttransfer: %{time_starttransfer}s
+        time_total: %{time_total}s
+'
+curl -w "$fmt" -o /dev/null -s "$@"
