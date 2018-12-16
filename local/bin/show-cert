@@ -1,0 +1,3 @@
+#!/bin/sh
+set -eu
+echo | openssl s_client -showcerts -connect "$1:443" -servername "$1" | openssl x509 -text
