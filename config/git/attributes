@@ -1,8 +1,7 @@
 *.rb          diff=ruby
-*.t[bglx]z    diff=tar
-*.tar.[bglx]z diff=tar
+*.t[bgx]z     diff=tar
+*.tar.[bgx]z  diff=tar
 *.tar.bz2     diff=tar
-*.tar.lzma    diff=tar
 *.tbz2        diff=tar
 Gemfile.lock  merge=bundle
 npm-shrinkwrap.json merge=npm-merge-driver
