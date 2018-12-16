@@ -1,0 +1,26 @@
+#!/bin/bash
+set -eu
+
+if [ ! -f "$1" ]; then
+  echo "$1: no such file" >&2
+  exit 1
+fi
+
+case "$1" in
+  *.tar)                                   tar xvf "$1" ;;
+  *.tar.[bgx]z|*.t[bgx]z|*.tar.bz2|*.tbz2) tar xvf "$1" ;;
+  *.[bgx]z|*.Z|*.bz2)                    gunzip -N "$1" ;;
+  *.tar.lzma|*.tlzma)              unlzma "$1" | tar xv ;;
+  *.zip|*.ZIP)                               unzip "$1" ;;
+  *.7z)                                       7z x "$1" ;;
+  *.dmg)                             hdiutil mount "$1" ;;
+  *.ipa)                                     unzip "$1" ;;
+  *.lzma)                                   unlzma "$1" ;;
+  *.pax)                                   pax -rf "$1" ;;
+  *.rar)                                   unrar e "$1" ;;
+  *.xar)                                   xar -xf "$1" ;;
+  *)
+    echo "$1: cannot extract" >&2
+    exit 1
+    ;;
+esac
