@@ -1,0 +1,11 @@
+#!/bin/bash
+set -u
+
+seconds=3600
+profile=${1:-default}
+
+(sleep "$seconds" && printf "\naws-vault session expired\n") &
+pid=$!
+disown
+aws-vault exec --session-ttl="${seconds}s" --assume-role-ttl="${seconds}s" "$profile"
+kill "$pid" 2>/dev/null
