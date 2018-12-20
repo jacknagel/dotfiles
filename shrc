@@ -1,33 +1,21 @@
 # vim:ft=sh
-# shellcheck shell=sh disable=SC2039
+# shellcheck shell=sh
 
-remove_path () {
-  local IFS=':'
-  local dir val
-  local var="$1"
-  for dir in $(eval printf '%s' "\"\$$var\""); do
-    [ "$dir" != "$2" ] && val="${val:+$val:}$dir"
+simplify_path () {
+  # shellcheck disable=SC2039
+  local IFS=: var=$1 dir val
+  for dir in $2; do
+    case ":$val:" in
+      *:"$dir":*) ;;
+      *) [ -d "$dir" ] && val=${val:+$val:}$dir ;;
+    esac
   done
   eval "$var=\$val"
 }
 
-prepend_path () {
-  local dir
-  local var="$1"
-  shift
-  for dir in "$@"; do
-    remove_path "$var" "$dir"
-    [ -d "$dir" ] && eval "${var}=\${dir}\${${var}:+:\$${var}}"
-  done
-}
-
 PKG_PREFIX=/usr/local
-
-prepend_path PATH /sbin /usr/sbin /bin /usr/bin
-prepend_path PATH "$PKG_PREFIX"/sbin "$PKG_PREFIX"/bin
-prepend_path PATH ~/.local/bin
-
-prepend_path INFOPATH /usr/share/info "$PKG_PREFIX"/share/info
+simplify_path PATH "$HOME/.local/bin:$PKG_PREFIX/bin:$PKG_PREFIX/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+simplify_path INFOPATH "$PKG_PREFIX/share/info:/usr/share/info:$INFOPATH"
 
 export PATH INFOPATH
 
