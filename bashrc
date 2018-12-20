@@ -1,6 +1,7 @@
-# shellcheck shell=bash disable=SC1090,SC1117
+# shellcheck shell=bash disable=SC1090
 
-export ENV="$HOME/.shrc"
+export ENV=~/.shrc
+# shellcheck source=shrc
 . "$ENV"
 [ -z "$PS1" ] && return
 
