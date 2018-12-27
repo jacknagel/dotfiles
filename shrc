@@ -21,6 +21,7 @@ export PATH INFOPATH
 
 [ ! -x /bin/stty ] || stty -ixon
 
+alias av="aws-vault"
 alias du1="du -h -d1"
 alias fkill="fuzzy-kill"
 alias fps="fuzzy-ps"
@@ -33,6 +34,7 @@ alias lstcp="sudo lsof -Pn -iTCP"
 alias lsudp="sudo lsof -Pn -iUDP"
 alias pb="git for-each-ref refs/heads --format='%(refname:short)' | fzy | xargs git checkout"
 alias rg="rg --line-number --no-heading --hidden"
+alias tf="terraform"
 alias tree="tree -ACFIa .git --dirsfirst"
 alias vi="vim"
 
