@@ -154,6 +154,7 @@ _load_completion () {
     npm) _source_completion <(npm completion) ;;
     docker) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion ;;
     docker-compose) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ;;
+    aws-vault) _source_completion <(aws-vault --completion-script-bash) ;;
   esac
 }
 
@@ -186,6 +187,10 @@ fi
 
 if [ -d "/Applications/Docker.app" ]; then
   complete -F _load_completion -o bashdefault -o default docker docker-compose
+fi
+
+if command -v aws-vault >/dev/null 2>&1; then
+  complete -F _load_completion -o bashdefault -o default aws-vault
 fi
 
 if command -v terraform >/dev/null 2>&1; then
