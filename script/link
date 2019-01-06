@@ -12,8 +12,6 @@ files='
   gemrc
   inputrc
   irbrc
-  less
-  lesskey
   local/bin
   psqlrc
   shrc

@@ -25,6 +25,11 @@ bootstrap_vim () {
   script/vim-packages
 }
 
+bootstrap_less () {
+  lesskey -- lesskey
+}
+
 bootstrap_git
 bootstrap_vim
+bootstrap_less
 script/link
