@@ -60,10 +60,8 @@ cd () {
   builtin cd "$@" >/dev/null
 }
 
-if [ "${BASH_VERSINFO[0]}${BASH_VERSINFO[1]}" -ge 41 ] && [ -f "${PKG_PREFIX}/share/bash-completion/bash_completion" ]; then
-  . "${PKG_PREFIX}/share/bash-completion/bash_completion"
-elif [ -f "${PKG_PREFIX}/etc/bash_completion" ]; then
-  . "${PKG_PREFIX}/etc/bash_completion"
+if [ -f "${PKG_PREFIX}/etc/profile.d/bash_completion.sh" ]; then
+  . "${PKG_PREFIX}/etc/profile.d/bash_completion.sh"
 else
   for file in "${PKG_PREFIX}"/etc/bash_completion.d/*; do
     [ -f "$file" ] && . "$file"
