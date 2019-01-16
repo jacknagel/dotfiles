@@ -61,6 +61,8 @@ cd () {
 }
 
 if [ -f "${PKG_PREFIX}/etc/profile.d/bash_completion.sh" ]; then
+  # shellcheck disable=SC2034
+  BASH_COMPLETION_COMPAT_DIR=${PKG_PREFIX}/etc/bash_completion.d
   . "${PKG_PREFIX}/etc/profile.d/bash_completion.sh"
 else
   for file in "${PKG_PREFIX}"/etc/bash_completion.d/*; do
