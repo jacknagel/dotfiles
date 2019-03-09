@@ -33,6 +33,7 @@ alias kdebug="kubectl run -i -t busybox --image=busybox --rm --restart=Never -- 
 alias lstcp="sudo lsof -Pn -iTCP"
 alias lsudp="sudo lsof -Pn -iUDP"
 alias pb="git for-each-ref refs/heads --format='%(refname:short)' | fzy | xargs git checkout"
+alias pemcp="find ~/.ssh -name '*.pem' | fzy | xargs cat | pbcopy"
 alias rg="rg --line-number --no-heading --hidden"
 alias tf="terraform"
 alias tree="tree -ACFIa .git --dirsfirst"
