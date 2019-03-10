@@ -114,9 +114,6 @@ _set_ps1_strings
   GIT_PS1_SHOWSTASHSTATE=1
   GIT_PS1_SHOWUNTRACKEDFILES=1
   GIT_PS1_SHOWUPSTREAM=auto
-  KUBE_PS1_CTX_COLOR=blue
-  KUBE_PS1_PREFIX=" ("
-  KUBE_PS1_SYMBOL_ENABLE=false
 }
 
 if declare -F __git_ps1 >/dev/null; then
@@ -128,7 +125,7 @@ else
 fi
 
 _prompt_command () {
-  _set_ps1 "${_ps1_prefix}$(kube_ps1)" "$_ps1_suffix"
+  _set_ps1 "$_ps1_prefix" "$_ps1_suffix"
   PS2=" $_ps1_suffix"
 
   history -a
@@ -195,8 +192,4 @@ fi
 
 if command -v terraform >/dev/null 2>&1; then
   complete -C "$PKG_PREFIX"/bin/terraform terraform tf
-fi
-
-if [ -f "${PKG_PREFIX}/share/kube-ps1.sh" ]; then
-  . "${PKG_PREFIX}/share/kube-ps1.sh"
 fi
