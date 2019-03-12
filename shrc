@@ -133,3 +133,11 @@ redis-cli () {
     jacknagel/redis-cli:latest \
     "$@"
 }
+
+kctx () {
+  kubectl config get-contexts -o name | fzy --query="${1}" | xargs kubectl config use-context
+}
+
+kns () {
+  kubectl get namespaces -o name | cut -d/ -f2 | fzy --query="${1}" | xargs kubectl config set-context --current --namespace
+}
