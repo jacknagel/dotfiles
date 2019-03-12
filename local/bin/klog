@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+kubectl get pods --no-headers --all-namespaces -o "custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name,CONTAINERS:.spec.containers[*].name" |
+  while read -r namespace pod containers; do
+    for container in ${containers//,/ }; do
+      printf "%s %s %s\n" "$namespace" "$pod" "$container"
+    done
+  done |
+  column -t |
+  fzy --query="$1" |
+  xargs kubectl logs -f -n
