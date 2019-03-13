@@ -15,6 +15,7 @@ brew "jacknagel/bespoke/vim", args: ["HEAD"]
 brew "jq"
 brew "kubernetes-cli"
 brew "kubernetes-helm"
+brew "kustomize"
 brew "less"
 brew "packer"
 brew "redis@3.2"
