@@ -81,3 +81,55 @@ case "$(uname)" in
     alias ls="ls -AFbh --color=auto"
     ;;
 esac
+
+packer () {
+  docker run -it --rm \
+    --log-driver none \
+    --name packer \
+    --mount "type=bind,src=$(pwd),dst=/work" \
+    --workdir /work \
+    -e AWS_ACCESS_KEY_ID \
+    -e AWS_SECRET_ACCESS_KEY \
+    -e AWS_SESSION_TOKEN \
+    hashicorp/packer:light \
+    "$@"
+}
+
+promtool () {
+  docker run -it --rm \
+    --log-driver none \
+    --name promtool \
+    --mount "type=bind,src=$(pwd),dst=/work,readonly" \
+    --workdir /work \
+    --entrypoint promtool \
+    prom/prometheus:latest \
+    "$@"
+}
+
+amtool () {
+  docker run -it --rm \
+    --log-driver none \
+    --name amtool \
+    --mount "type=bind,src=$(pwd),dst=/work,readonly" \
+    --workdir /work \
+    --entrypoint amtool \
+    prom/alertmanager:latest \
+    "$@"
+}
+
+pushgateway () {
+  docker run -it --rm \
+    --log-driver none \
+    --name pushgateway \
+    --publish 9091:9091 \
+    prom/pushgateway:latest \
+    "$@"
+}
+
+redis-cli () {
+  docker run -it --rm \
+    --log-driver none \
+    --name redis-cli \
+    jacknagel/redis-cli:latest \
+    "$@"
+}
