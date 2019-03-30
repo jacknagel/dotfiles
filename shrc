@@ -29,7 +29,6 @@ alias grep="grep -In --color=auto --exclude-dir=.git --exclude=tags"
 alias egrep="grep -E"
 alias fgrep="grep -F"
 alias helptags="vim +helptags\\ ALL +q"
-alias kdebug="kubectl run -i -t busybox --image=busybox:1.28 --rm --restart=Never -- sh"
 alias lstcp="sudo lsof -Pn -iTCP"
 alias lsudp="sudo lsof -Pn -iUDP"
 alias pb="git for-each-ref refs/heads --format='%(refname:short)' | fzy | xargs git checkout"
@@ -140,4 +139,8 @@ kctx () {
 
 kns () {
   kubectl get namespaces -o name | cut -d/ -f2 | fzy --query="${1}" | xargs kubectl config set-context --current --namespace
+}
+
+krun () {
+  kubectl run -it --rm "busybox_${USER}" --image=busybox:1.28 --restart=Never -- "${@:-sh}"
 }
