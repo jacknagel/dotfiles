@@ -148,5 +148,5 @@ kns () {
 }
 
 krun () {
-  kubectl run -it --rm "busybox_${USER}" --image=busybox:1.28 --restart=Never -- "${@:-sh}"
+  kubectl run -it --rm "ephemeral-busybox-${USER}" --image=busybox:1.28 --restart=Never -- "${@:-sh}"
 }
