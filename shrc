@@ -14,7 +14,7 @@ simplify_path () {
 }
 
 PKG_PREFIX=/usr/local
-simplify_path PATH "$HOME/.local/bin:$PKG_PREFIX/bin:$PKG_PREFIX/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+simplify_path PATH "$HOME/.krew/bin:$HOME/.local/bin:$PKG_PREFIX/bin:$PKG_PREFIX/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 simplify_path INFOPATH "$PKG_PREFIX/share/info:/usr/share/info:$INFOPATH"
 
 export PATH INFOPATH
