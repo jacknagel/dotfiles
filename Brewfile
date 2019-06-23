@@ -14,6 +14,7 @@ brew "git-lfs"
 brew "grep"
 brew "jacknagel/bespoke/vim", args: ["HEAD"]
 brew "jq"
+brew "kube-ps1"
 brew "kubernetes-cli"
 brew "kubernetes-helm"
 brew "kustomize"
