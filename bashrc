@@ -99,7 +99,10 @@ _set_ps1_strings () {
 
   title="\[\033]0;${title} \w\007\]"
   _ps1_prefix="${title}${_ps1_prefix:+$_ps1_prefix }${blue}\W${reset}"
-  _ps1_prefix="${_ps1_prefix}${AWS_VAULT:+ (${magenta}${AWS_VAULT}${reset})}"
+
+  if [ -n "${AWS_VAULT:-$AWS_PROFILE}" ]; then
+    _ps1_prefix="${_ps1_prefix} (${magenta}${AWS_VAULT:-$AWS_PROFILE}${reset})"
+  fi
 }
 _set_ps1_strings
 
