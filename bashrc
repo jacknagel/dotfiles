@@ -72,7 +72,7 @@ else
 fi
 
 _set_ps1_strings () {
-  local bold red yellow blue cyan reset title
+  local bold red yellow blue magenta cyan reset title
 
   bold="\[$(tput bold)\]"
   red="\[$(tput setaf 1)\]"
