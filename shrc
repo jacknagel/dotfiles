@@ -133,6 +133,16 @@ redis-cli () {
     "$@"
 }
 
+powershell () {
+  docker run -it --rm \
+    --log-driver none \
+    --name powershell \
+    --mount "type=bind,src=$(pwd),dst=/work,readonly" \
+    --workdir /work \
+    microsoft/powershell:latest \
+    "$@"
+}
+
 eksctx () {
   region=$(aws configure get region)
   cluster=${1:-dev}
