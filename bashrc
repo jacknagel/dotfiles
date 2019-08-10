@@ -152,6 +152,7 @@ _load_completion () {
   case "$1" in
     nvm) _source_completion ~/.nvm/bash_completion ;;
     npm) _source_completion <(npm completion) ;;
+    node) _source_completion <(node --completion-bash) ;;
     docker) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion ;;
     docker-compose) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ;;
     aws-vault) _source_completion <(aws-vault --completion-script-bash) ;;
@@ -182,7 +183,7 @@ if [ -f "$NVM_DIR/nvm.sh" ]; then
   }
 
   _setup_nvm_shims
-  complete -F _load_completion -o bashdefault -o default nvm npm
+  complete -F _load_completion -o bashdefault -o default nvm npm node
 fi
 
 if [ -d "/Applications/Docker.app" ]; then
