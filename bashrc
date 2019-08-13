@@ -200,4 +200,8 @@ fi
 
 if [ -f "${PKG_PREFIX}/share/kube-ps1.sh" ]; then
   . "${PKG_PREFIX}/share/kube-ps1.sh"
+else
+  kube_ps1 () {
+    return
+  }
 fi
