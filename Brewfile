@@ -10,6 +10,7 @@ brew "fzy"
 brew "gist"
 brew "git"
 brew "git-lfs"
+brew "go"
 brew "grep"
 brew "jacknagel/bespoke/vim", args: ["HEAD"]
 brew "jq"
