@@ -71,41 +71,6 @@ else
   unset file
 fi
 
-_set_ps1_strings () {
-  local bold red yellow blue magenta cyan reset title
-
-  bold="\[$(tput bold)\]"
-  red="\[$(tput setaf 1)\]"
-  yellow="\[$(tput setaf 3)\]"
-  blue="\[$(tput setaf 4)\]"
-  magenta="\[$(tput setaf 5)\]"
-  cyan="\[$(tput setaf 6)\]"
-  reset="\[$(tput sgr0)\]"
-  title=""
-
-  _ps1_prefix=""
-  _ps1_suffix=" ${yellow}»${reset} "
-
-  if [ "$EUID" -eq 0 ]; then
-    title="\u"
-    _ps1_prefix="${bold}${red}\u${reset}"
-    _ps1_suffix=" ${bold}${red}#${reset} "
-  fi
-
-  if [ -n "$SSH_TTY" ]; then
-    title="\u@\h"
-    _ps1_prefix="${_ps1_prefix:-${bold}${cyan}\u${reset}}${bold}${cyan}@\h${reset}"
-  fi
-
-  title="\[\033]0;${title} \w\007\]"
-  _ps1_prefix="${title}${_ps1_prefix:+$_ps1_prefix }${blue}\W${reset}"
-
-  if [ -n "${AWS_VAULT:-$AWS_PROFILE}" ]; then
-    _ps1_prefix="${_ps1_prefix} (${magenta}${AWS_VAULT:-$AWS_PROFILE}${reset})"
-  fi
-}
-_set_ps1_strings
-
 # shellcheck disable=SC2034
 {
   GIT_PS1_DESCRIBE_STYLE=branch
@@ -125,8 +90,9 @@ else
 fi
 
 _prompt_command () {
-  _set_ps1 "$_ps1_prefix" "$_ps1_suffix"
-  PS2=" $_ps1_suffix"
+  local title="\[\033]0;\w\007\]"
+  local template='_set_ps1 "{{ user | suffix " " }}{{ pwd }}{{ aws | parens | prefix " " }}{{ kubeconfig | parens | prefix " " }}" " {{ promptchar }} "'
+  eval "$(~/.local/bin/prompt-template "$template" 2>/dev/null)"
 
   history -a
 
