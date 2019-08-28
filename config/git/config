@@ -19,6 +19,7 @@
 	jg = jump grep
 	jm = jump merge
 	lg = log --graph --decorate --oneline
+	lg2 = log --graph --pretty='tformat:%C(auto)%H%d%+s%+b' --name-status
 	ls = ls-files -oc --exclude-standard
 	st = status --short --branch -uno
 	cem = commit --allow-empty-message -m ''
