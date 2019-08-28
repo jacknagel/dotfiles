@@ -14,6 +14,7 @@ brew "go"
 brew "grep"
 brew "jacknagel/bespoke/vim", args: ["HEAD"]
 brew "jq"
+brew "kubectx"
 brew "kubernetes-cli"
 brew "kubernetes-helm"
 brew "kustomize"
