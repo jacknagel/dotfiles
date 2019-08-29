@@ -150,11 +150,15 @@ eksctx () {
 }
 
 kctx () {
-  kubectl config get-contexts -o name | fzy --query="${1}" | xargs kubectl config use-context
+  kubectl config get-contexts -o name |
+    fzy --query="${1}" |
+    xargs kubectl config use-context >/dev/null
 }
 
 kns () {
-  kubectl get namespaces -o name | cut -d/ -f2 | fzy --query="${1}" | xargs kubectl config set-context --current --namespace
+  kubectl get namespaces -o "custom-columns=NAME:.metadata.name" --no-headers |
+    fzy --query="${1}" |
+    xargs kubectl config set-context --current --namespace >/dev/null
 }
 
 krun () {
