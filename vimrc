@@ -70,7 +70,6 @@ set statusline+=%(\ %.120f\ %)      " relative path to file
 set statusline+=%h%w%m%r%y          " help|preview|modified|readonly|filetype
 set statusline+=%{FugitiveStatusline()}
 set statusline+=%=                  " l-r separator
-set statusline+=%(%#ErrorMsg#%{ALEStatusLineWrapper()}%*\ %)
 set statusline+=%-10.(0x%B%)        " hex value of character under cursor
 set statusline+=%-15.(%l,%c%V%)\ %P " line#,col#-vcol# %
 
@@ -163,22 +162,6 @@ nnoremap [q :cprev<CR>
 nnoremap ]q :cnext<CR>
 nnoremap yol :setlocal invlist<CR>
 nnoremap yow :setlocal invwrap<CR>
-
-function! ALEStatusLineWrapper()
-  if !exists('*ale#statusline#Count')
-    return ''
-  endif
-
-  let l:count = ale#statusline#Count(bufnr('')).total
-
-  if l:count == 0
-    return ''
-  endif
-
-  let suffix = l:count == 1 ? '' : 's'
-
-  return ' ' . l:count . ' problem' . suffix . ' '
-endfunction
 
 function! s:restore_last_cursor_position()
   " If the last cursor position is on the first line or past the end of the
