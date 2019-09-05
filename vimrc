@@ -68,7 +68,7 @@ set winwidth=80
 set statusline=[%n]                 " buffer number
 set statusline+=%(\ %.120f\ %)      " relative path to file
 set statusline+=%h%w%m%r%y          " help|preview|modified|readonly|filetype
-set statusline+=%{FugitiveStatusLineWrapper()}
+set statusline+=%{FugitiveStatusline()}
 set statusline+=%=                  " l-r separator
 set statusline+=%(%#ErrorMsg#%{ALEStatusLineWrapper()}%*\ %)
 set statusline+=%-10.(0x%B%)        " hex value of character under cursor
@@ -163,15 +163,6 @@ nnoremap [q :cprev<CR>
 nnoremap ]q :cnext<CR>
 nnoremap yol :setlocal invlist<CR>
 nnoremap yow :setlocal invwrap<CR>
-
-function! FugitiveStatusLineWrapper()
-  if !exists('*FugitiveHead')
-    return ''
-  endif
-
-  let head = FugitiveHead(7)
-  return head ==# '' ? '' : '[' . head . ']'
-endfunction
 
 function! ALEStatusLineWrapper()
   if !exists('*ale#statusline#Count')
