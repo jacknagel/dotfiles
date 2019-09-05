@@ -1,3 +1,4 @@
+git@github.com:dense-analysis/ale
 git@github.com:fatih/vim-go
 git@github.com:godlygeek/tabular
 git@github.com:google/vim-jsonnet
@@ -19,4 +20,3 @@ git@github.com:tpope/vim-surround
 git@github.com:tpope/vim-unimpaired opt
 git@github.com:tyrannicaltoucan/vim-deep-space opt
 git@github.com:vim-ruby/vim-ruby
-git@github.com:w0rp/ale
