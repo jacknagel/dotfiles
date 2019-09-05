@@ -140,18 +140,12 @@ xnoremap & :&&<CR>
 " make Ctrl-C check abbreviations and trigger InsertLeave
 inoremap <C-C> <Esc>
 
-" add word under cursor to unversioned spellfile
-nnoremap zG 2zg
-
 " continuous indentation
 vnoremap > >gv
 vnoremap < <gv
 
 " clear search highlighting
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
-
-" format cucumber tables
-noremap <silent> g\| :Tabularize/\|/l1<CR>
 
 function! s:sort_opfunc(...)
   '[,']sort
