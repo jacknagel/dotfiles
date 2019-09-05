@@ -96,6 +96,9 @@ endif
 " plugin settings
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_pattern_options = {
+  \ '/node_modules/': { 'ale_enabled': 0 },
+  \}
 let g:jsx_ext_required = 1
 let g:markdown_fenced_languages = ['css', 'html', 'javascript', 'ruby']
 let g:no_default_tabular_maps = 1
@@ -182,7 +185,7 @@ endfunction
 augroup filetypes
   autocmd!
   autocmd BufNewFile,BufReadPost *.log{,.[0-9]*} setlocal readonly bufhidden=unload buftype=nowrite noundofile nowrap
-  autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly | silent! ALEDisable
+  autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly
   autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
   autocmd BufNewFile,BufReadPost .npmrc setlocal ft=dosini
   autocmd BufNewFile,BufReadPost bash-fc.* setlocal ft=sh
