@@ -135,9 +135,6 @@ inoremap <C-W> <C-G>u<C-W>
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
-" switch to previous file
-nnoremap <Leader><Leader> :echomsg 'Use Ctrl-^'<CR>
-
 " make Ctrl-C check abbreviations and trigger InsertLeave
 inoremap <C-C> <Esc>
 
