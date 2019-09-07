@@ -97,10 +97,9 @@
 	name = automatically merge npm lockfiles
 	driver = npx npm-merge-driver merge %A %O %B %P
 [pager]
-	; +F - don't quit if one screen
 	; +X - don't clear the screen on exit
 	; -S - don't wrap long lines
-	log = diff-highlight | less -+FX -S
+	log = diff-highlight | less -S -+X
 	show = diff-highlight | less -S
 	diff = diff-highlight | less -S
 [pull]
