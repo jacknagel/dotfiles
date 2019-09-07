@@ -1,6 +1,12 @@
 #!/bin/sh
 set -eu
 
+usage () {
+  cat >&2 <<EOF
+usage: remove-pkg [-f] package-id ...
+EOF
+}
+
 pkg_root () {
   pkgutil --pkg-info-plist "$1" | plutil -convert json - -o - | ruby -rjson -e '
     pkg = JSON.load(ARGF)
@@ -8,15 +14,55 @@ pkg_root () {
   '
 }
 
+remove_pkg () {
+  root=$(pkg_root "$1")
+
+  pkgutil --only-files --files "$1" |
+    while read -r file; do
+      path=$root/$file
+
+      [ -L "$path" ] || [ -e "$path" ] || continue
+
+      if [ -z "${force:-}" ]; then
+        echo "Would remove $path"
+      else
+        sudo rm -i "$path"
+      fi
+    done
+
+    if [ -z "${force:-}" ]; then
+      echo "Would forget $1"
+    else
+      sudo pkgutil --forget "$1"
+    fi
+}
+
+while getopts ":f" opt; do
+  case "$opt" in
+    f)
+      force=1
+      ;;
+    ?)
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+shift "$((OPTIND - 1))"
+
+if [ $# -eq 0 ]; then
+  usage
+  exit 1
+fi
+
+sudo -k
+
 for id; do
   if ! pkgutil --pkg-info "$id" >/dev/null 2>&1; then
-    echo "Package $id does not exist, skipping" >&2
+    echo "Package '$id' does not exist" >&2
     continue
   fi
 
-  root=$(pkg_root "$id")
-
-  sudo -k
-  sudo pkgutil --only-files --files "$id" | xargs -I{} rm -rf "$root/{}"
-  sudo pkgutil --forget "$id"
+  remove_pkg "$id"
 done
