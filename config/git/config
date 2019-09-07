@@ -4,7 +4,7 @@
 	afx = autofixup
 	ap = add --patch
 	au = add --update
-	br = branch
+	br = branch -vv
 	ca = commit --amend --reuse-message=HEAD
 	ci = commit
 	co = checkout
