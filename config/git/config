@@ -5,7 +5,7 @@
 	ap = add --patch
 	au = add --update
 	br = branch
-	ca = commit --amend
+	ca = commit --amend --reuse-message=HEAD
 	ci = commit
 	co = checkout
 	cp = cherry-pick
