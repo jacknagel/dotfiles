@@ -100,7 +100,23 @@ let g:ale_pattern_options = {
   \ '/node_modules/': { 'ale_enabled': 0 },
   \}
 let g:jsx_ext_required = 1
-let g:markdown_fenced_languages = ['css', 'html', 'javascript', 'ruby']
+let g:markdown_fenced_languages = [
+  \ 'bash=sh',
+  \ 'css',
+  \ 'go',
+  \ 'html',
+  \ 'java',
+  \ 'javascript',
+  \ 'js=javascript',
+  \ 'json',
+  \ 'python',
+  \ 'ruby',
+  \ 'shell=sh',
+  \ 'sql',
+  \ 'swift',
+  \ 'terraform',
+  \ 'yaml',
+  \]
 let g:no_default_tabular_maps = 1
 let g:terraform_fmt_on_save = 1
 let g:vim_indent_cont = 2
