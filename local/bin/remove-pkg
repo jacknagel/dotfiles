@@ -17,24 +17,28 @@ pkg_root () {
 remove_pkg () {
   root=$(pkg_root "$1")
 
-  pkgutil --only-files --files "$1" |
-    while read -r file; do
-      path=$root/$file
+  pkgutil --only-files --files "$1" | while read -r file; do
+    path=$root/$file
 
-      [ -L "$path" ] || [ -e "$path" ] || continue
-
-      if [ -z "${force:-}" ]; then
-        echo "Would remove $path"
-      else
-        sudo rm -i "$path"
-      fi
-    done
+    [ -L "$path" ] || [ -e "$path" ] || continue
 
     if [ -z "${force:-}" ]; then
-      echo "Would forget $1"
+      echo "Would remove $path"
     else
-      sudo pkgutil --forget "$1"
+      sudo rm -i "$path"
     fi
+  done
+
+  pkgutil --only-dirs --files "$1" | while read -r dir; do
+    path=$root/$dir
+    [ -d "$path" ] && echo "Skipping directory $path"
+  done
+
+  if [ -z "${force:-}" ]; then
+    echo "Would forget $1"
+  else
+    sudo pkgutil --forget "$1"
+  fi
 }
 
 while getopts ":f" opt; do
