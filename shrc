@@ -58,18 +58,17 @@ case "$(uname)" in
     alias flushdns="sudo -k killall -HUP mDNSResponder"
     alias resetlaunchpad="defaults write com.apple.dock ResetLaunchPad -bool true && killall Dock"
     alias resetls="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -v -apps u"
-    alias bu="brew update && brew upgrade && brew cleanup -s --prune=0"
+    alias bu="brew update && brew upgrade && brew cleanup -s -n --prune=0"
 
     mdopen () {
       mdfind "$@" | fzy | xargs -I{} open {}
     }
 
-    COPYFILE_DISABLE=1
-    export COPYFILE_DISABLE
-
-    HOMEBREW_NO_EMOJI=1
-    HOMEBREW_NO_ANALYTICS=1
-    export HOMEBREW_NO_EMOJI HOMEBREW_NO_ANALYTICS
+    export COPYFILE_DISABLE=1
+    export HOMEBREW_NO_ANALYTICS=1
+    export HOMEBREW_NO_AUTO_UPDATE=1
+    export HOMEBREW_NO_EMOJI=1
+    export HOMEBREW_NO_INSTALL_CLEANUP=1
     ;;
   Linux)
     alias ls="ls -AFbh --color=auto"
