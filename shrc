@@ -153,5 +153,7 @@ kns () {
 }
 
 krun () {
-  kubectl run -it --rm "ephemeral-busybox-${USER}" --image=busybox:1.28 --restart=Never -- "${@:-sh}"
+  kubectl run -it --rm --restart=Never --image=busybox:1.28 "ephemeral-busybox-${USER}" \
+    --overrides '{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/os": "linux", "kubernetes.io/arch": "amd64" } } }' \
+    -- "${@:-sh}"
 }
