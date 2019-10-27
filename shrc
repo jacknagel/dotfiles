@@ -153,7 +153,25 @@ kns () {
 }
 
 krun () {
-  kubectl run -it --rm --restart=Never --image=busybox:1.28 "ephemeral-busybox-${USER}" \
-    --overrides '{ "apiVersion": "v1", "spec": { "nodeSelector": { "kubernetes.io/os": "linux", "kubernetes.io/arch": "amd64" } } }' \
-    -- "${@:-sh}"
+  kubectl run -it --rm \
+    --restart=Never \
+    --image=busybox:1.28 \
+    --overrides '
+{
+  "apiVersion": "v1",
+  "metadata": {
+    "annotations": {
+      "fluentd.org/exclude": "true"
+    }
+  },
+  "spec": {
+    "nodeSelector": {
+      "kubernetes.io/os": "linux",
+      "kubernetes.io/arch": "amd64"
+    }
+  }
+}
+' \
+  "ephemeral-busybox-${USER}" \
+  -- "${@:-sh}"
 }
