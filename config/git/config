@@ -102,7 +102,7 @@
 	show = diff-highlight | less -S
 	diff = diff-highlight | less -S
 [pull]
-	rebase = preserve
+	rebase = merges
 [push]
 	default = simple
 [rebase]
