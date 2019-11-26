@@ -142,9 +142,6 @@ defaults write com.apple.dock expose-group-by-app -bool false
 ## Displays have separate Spaces
 defaults write com.apple.spaces spans-displays -bool false
 
-## Dashboard off
-defaults write com.apple.dashboard dashboard-enabled-state -int 1
-
 ## Hot corners
 defaults write com.apple.dock wvous-bl-corner   -int 10 # Put display to sleep
 defaults write com.apple.dock wvous-bl-modifier -int 0
