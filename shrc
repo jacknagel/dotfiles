@@ -134,6 +134,19 @@ powershell () {
     "$@"
 }
 
+skeema () {
+  docker run -it --rm \
+    --log-driver none \
+    --name skeema \
+    --mount "type=bind,src=$(pwd),dst=/work" \
+    --mount "type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock" \
+    --workdir /work \
+    --network host \
+    -e MYSQL_PWD \
+    skeema:latest \
+    "$@"
+}
+
 eksctx () {
   region=$(aws configure get region)
   cluster=${1:-dev}
