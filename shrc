@@ -107,15 +107,6 @@ amtool () {
     "$@"
 }
 
-pushgateway () {
-  docker run -it --rm \
-    --log-driver none \
-    --name pushgateway \
-    --publish 9091:9091 \
-    prom/pushgateway:latest \
-    "$@"
-}
-
 redis-cli () {
   docker run -it --rm \
     --log-driver none \
