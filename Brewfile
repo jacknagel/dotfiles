@@ -1,5 +1,4 @@
 tap "jacknagel/bespoke"
-brew "awscli"
 brew "bash"
 brew "bash-completion@2"
 brew "certigo"
