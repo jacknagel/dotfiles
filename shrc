@@ -75,7 +75,6 @@ esac
 packer () {
   docker run -it --rm \
     --log-driver none \
-    --name packer \
     --mount "type=bind,src=$(pwd),dst=/work" \
     --workdir /work \
     -e AWS_ACCESS_KEY_ID \
@@ -89,7 +88,6 @@ packer () {
 promtool () {
   docker run -it --rm \
     --log-driver none \
-    --name promtool \
     --mount "type=bind,src=$(pwd),dst=/work,readonly" \
     --workdir /work \
     --entrypoint promtool \
@@ -100,7 +98,6 @@ promtool () {
 amtool () {
   docker run -it --rm \
     --log-driver none \
-    --name amtool \
     --mount "type=bind,src=$(pwd),dst=/work,readonly" \
     --workdir /work \
     --entrypoint amtool \
@@ -111,7 +108,6 @@ amtool () {
 redis-cli () {
   docker run -it --rm \
     --log-driver none \
-    --name redis-cli \
     jacknagel/redis-cli:latest \
     "$@"
 }
@@ -119,7 +115,6 @@ redis-cli () {
 powershell () {
   docker run -it --rm \
     --log-driver none \
-    --name powershell \
     --mount "type=bind,src=$(pwd),dst=/work,readonly" \
     --workdir /work \
     microsoft/powershell:latest \
@@ -129,7 +124,6 @@ powershell () {
 skeema () {
   docker run -it --rm \
     --log-driver none \
-    --name skeema \
     --mount "type=bind,src=$(pwd),dst=/work" \
     --mount "type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock" \
     --workdir /work \
