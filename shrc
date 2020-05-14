@@ -22,6 +22,8 @@ alias du1="du -h -d1"
 alias grep="grep -In --color=auto --exclude-dir=.git --exclude=tags"
 alias egrep="grep -E"
 alias fgrep="grep -F"
+alias kctx=kubectx
+alias kns=kubens
 alias lstcp="sudo lsof -Pn -iTCP"
 alias lsudp="sudo lsof -Pn -iUDP"
 alias pb="git for-each-ref refs/heads --format='%(refname:short)' | fzy | xargs git checkout"
@@ -151,18 +153,6 @@ eksctx () {
   region=$(aws configure get region)
   cluster=${1:-dev}
   aws eks update-kubeconfig --name "$cluster" --alias "${region}/${cluster}"
-}
-
-kctx () {
-  kubectl config get-contexts -o name |
-    fzy --query="${1}" |
-    xargs kubectl config use-context >/dev/null
-}
-
-kns () {
-  kubectl get namespaces -o "custom-columns=NAME:.metadata.name" --no-headers |
-    fzy --query="${1}" |
-    xargs kubectl config set-context --current --namespace >/dev/null
 }
 
 krun () {
