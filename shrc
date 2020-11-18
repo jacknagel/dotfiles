@@ -158,7 +158,7 @@ eksctx () {
 krun () {
   kubectl run -it --rm \
     --restart=Never \
-    --image=busybox:1.28 \
+    --image=busybox \
     --overrides '
 {
   "apiVersion": "v1",
