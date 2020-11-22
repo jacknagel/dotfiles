@@ -22,6 +22,7 @@ alias du1="du -h -d1"
 alias grep="grep -In --color=auto --exclude-dir=.git --exclude=tags"
 alias egrep="grep -E"
 alias fgrep="grep -F"
+alias k=kubectl
 alias kctx=kubectx
 alias kns=kubens
 alias lstcp="sudo lsof -Pn -iTCP"
