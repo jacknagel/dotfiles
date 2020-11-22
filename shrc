@@ -148,12 +148,6 @@ skeema () {
     "$@"
 }
 
-eksctx () {
-  region=$(aws configure get region)
-  cluster=${1:-dev}
-  aws eks update-kubeconfig --name "$cluster" --alias "${region}/${cluster}"
-}
-
 krun () {
   kubectl run -it --rm \
     --restart=Never \
