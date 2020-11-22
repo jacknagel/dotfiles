@@ -5,6 +5,7 @@ files='
   bash_profile
   bashrc
   config/git
+  config/rg
   curlrc
   editorconfig
   editrc
@@ -14,7 +15,6 @@ files='
   irbrc
   local/bin
   psqlrc
-  ripgreprc
   shrc
   sqliterc
   valgrindrc

@@ -55,7 +55,7 @@ LSCOLORS=ExGxFxdxCxfxDxxbadacad
 LS_COLORS="di=1;34:ln=1;36:so=1;35:pi=33:ex=1;32:bd=35:cd=1;33:su=0;41:sg=30;43:tw=30;42:ow=30;43"
 export LSCOLORS LS_COLORS
 
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+export RIPGREP_CONFIG_PATH="$HOME/.config/rg/config"
 
 export KUBECTL_EXTERNAL_DIFF=kubectl-diff-helper
 
