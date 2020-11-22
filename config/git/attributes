@@ -3,6 +3,7 @@
 *.tar.[bgx]z  diff=tar
 *.tar.bz2     diff=tar
 *.tbz2        diff=tar
+*.zip         diff=zip
 Gemfile.lock  merge=bundle
 npm-shrinkwrap.json merge=npm-merge-driver
 package-lock.json merge=npm-merge-driver

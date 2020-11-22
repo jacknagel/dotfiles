@@ -62,6 +62,8 @@
 	textconv = sh -c 'exec sqlite3 "$@" .dump' -
 [diff "tar"]
 	textconv = tar -tvf
+[diff "zip"]
+	textconf = unzip -c -a
 [difftool]
 	prompt = false
 [fetch]
