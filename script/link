@@ -9,7 +9,6 @@ files='
   curlrc
   editorconfig
   editrc
-  eslintrc.json
   gemrc
   inputrc
   irbrc
@@ -17,7 +16,6 @@ files='
   psqlrc
   shrc
   sqliterc
-  valgrindrc
   vim
   vimrc
 '
