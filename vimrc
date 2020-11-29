@@ -176,6 +176,14 @@ nnoremap ]q :cnext<CR>
 nnoremap yol :setlocal invlist<CR>
 nnoremap yow :setlocal invwrap<CR>
 
+nnoremap <silent> cd
+  \ :if exists("b:git_dir")<Bar>
+  \   Glcd<Bar>
+  \ else<Bar>
+  \   lcd %:h<Bar>
+  \ endif<Bar>
+  \ <CR>
+
 function! s:restore_last_cursor_position()
   " If the last cursor position is on the first line or past the end of the
   " file, don't do anything.
