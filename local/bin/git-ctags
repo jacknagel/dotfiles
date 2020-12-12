@@ -3,8 +3,8 @@ set -eu
 
 lock=$(git rev-parse --git-dir)/tags.lock
 mkdir "$lock" 2>/dev/null || exit 0
-trap 'rmdir "$lock"; rm -f "$file"' EXIT INT TERM
-file=$(mktemp "${TMPDIR:-/tmp}/tags.XXXXXXXX")
+trap 'rmdir "$lock"' EXIT INT TERM
+file=$(mktemp)
 
 git ls-files -oc --exclude-standard | ctags --tag-relative -L- -f"$file"
 
