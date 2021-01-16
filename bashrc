@@ -64,15 +64,16 @@ cd () {
   builtin cd "$@" >/dev/null
 }
 
-if [ -f "${PKG_PREFIX}/etc/profile.d/bash_completion.sh" ]; then
-  # shellcheck disable=SC2034
-  BASH_COMPLETION_COMPAT_DIR=${PKG_PREFIX}/etc/bash_completion.d
-  . "${PKG_PREFIX}/etc/profile.d/bash_completion.sh"
-else
-  for file in "${PKG_PREFIX}"/etc/bash_completion.d/*; do
-    [ -f "$file" ] && . "$file"
-  done
-  unset file
+export XDG_DATA_DIRS="$NIX_PROFILE/share:$XDG_DATA_DIRS"
+
+if [ -r "$NIX_PROFILE/etc/profile.d/bash_completion.sh" ]; then
+  # shellcheck disable=2034
+  BASH_COMPLETION_COMPAT_DIR=$NIX_PROFILE/etc/bash_completion.d
+  . "$NIX_PROFILE/etc/profile.d/bash_completion.sh"
+fi
+
+if [ -r "$NIX_PROFILE/share/bash-completion/completions/git-prompt.sh" ]; then
+  . "$NIX_PROFILE/share/bash-completion/completions/git-prompt.sh"
 fi
 
 # shellcheck disable=SC2034
@@ -162,5 +163,5 @@ if command -v aws-vault >/dev/null 2>&1; then
 fi
 
 if command -v terraform >/dev/null 2>&1; then
-  complete -C "$PKG_PREFIX"/bin/terraform terraform tf
+  complete -C "$NIX_PROFILE/bin/terraform" terraform tf
 fi

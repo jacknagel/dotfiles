@@ -13,8 +13,8 @@ simplify_path () {
   eval "$var=\$val"
 }
 
-PKG_PREFIX=/usr/local
-simplify_path PATH "$HOME/.krew/bin:$HOME/.local/bin:$PKG_PREFIX/bin:$PKG_PREFIX/sbin:$PATH"
+NIX_PROFILE=${NIX_PROFILE:-$HOME/.nix-profile}
+simplify_path PATH "$HOME/.krew/bin:$HOME/.local/bin:$PATH"
 
 [ ! -x /bin/stty ] || stty -ixon
 

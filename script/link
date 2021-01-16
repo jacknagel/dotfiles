@@ -5,6 +5,7 @@ files='
   bash_profile
   bashrc
   config/git
+  config/nixpkgs
   config/rg
   curlrc
   editorconfig

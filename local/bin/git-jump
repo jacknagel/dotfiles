@@ -1,3 +1,3 @@
 #!/bin/sh
 set -eu
-exec "$(git --exec-path)/../../share/git-core/contrib/git-jump/git-jump" "$@"
+exec "$(git --exec-path)/../../share/git/contrib/git-jump/git-jump" "$@"
