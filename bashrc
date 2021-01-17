@@ -113,8 +113,6 @@ _source_completion () {
 
 _load_completion () {
   case "$1" in
-    nvm) _source_completion ~/.nvm/bash_completion ;;
-    npm) _source_completion <(npm completion) ;;
     node) _source_completion <(node --completion-bash) ;;
     docker) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion ;;
     docker-compose) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ;;
@@ -122,35 +120,12 @@ _load_completion () {
   esac
 }
 
-NVM_DIR=~/.nvm
-if [ -f "$NVM_DIR/nvm.sh" ]; then
-  if [ -d "$NVM_DIR/versions/node" ] && type -t mapfile >/dev/null; then
-    mapfile -t NODE_GLOBALS < <(find "$NVM_DIR/versions/node" -maxdepth 3 \( -type l -o -type f \) -wholename '*/bin/*' -exec basename -a {} + | sort -u)
-  fi
-
-  _nvm_shim () {
-    local cmd=$1
-    shift
-    unset -f "${NODE_GLOBALS[@]}"
-    declare -F nvm >/dev/null 2>&1 || [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-    "$cmd" "${@}"
-  }
-
-  _setup_nvm_shims () {
-    local cmd
-    for cmd in "${NODE_GLOBALS[@]}" nvm; do
-      if ! command -v "$cmd" >/dev/null 2>&1; then
-        eval "${cmd} () { _nvm_shim \"$cmd\" \"\$@\"; }"
-      fi
-    done
-  }
-
-  _setup_nvm_shims
-  complete -F _load_completion -o bashdefault -o default nvm npm node
-fi
-
 if [ -d "/Applications/Docker.app" ]; then
   complete -F _load_completion -o bashdefault -o default docker docker-compose
+fi
+
+if command -v node >/dev/null 2>&1; then
+  complete -F _load_completion -o bashdefault -o default node
 fi
 
 if command -v aws-vault >/dev/null 2>&1; then
