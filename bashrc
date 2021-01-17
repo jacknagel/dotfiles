@@ -91,7 +91,7 @@ fi
 
 _prompt_command () {
   local title="\[\033]0;\w\007\]"
-  local template='_set_ps1 "'"$title"'{{ user | suffix " " }}{{ aws | parens | suffix " " }}{{ kubeconfig | parens | suffix " " }}{{ pwd }}" " {{ promptchar }} "'
+  local template='_set_ps1 "'"$title"'{{ user | suffix " " }}{{ aws | parens | suffix " " }}{{ kubeconfig | parens | suffix " " }}{{ nixshell | parens | suffix " "}}{{ pwd }}" " {{ promptchar }} "'
   eval "$(~/.local/bin/prompt-template "$template" 2>/dev/null)"
 
   history -a
