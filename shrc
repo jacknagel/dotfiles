@@ -68,33 +68,6 @@ case "$(uname)" in
     ;;
 esac
 
-aws () {
-  docker run -it --rm \
-    --log-driver none \
-    --mount "type=bind,src=${HOME}/.aws,dst=/root/aws,readonly" \
-    --mount "type=bind,src=$(pwd),dst=/aws" \
-    -e AWS_ACCESS_KEY_ID \
-    -e AWS_SECRET_ACCESS_KEY \
-    -e AWS_SESSION_TOKEN \
-    -e AWS_DEFAULT_REGION \
-    -e AWS_PROFILE \
-    amazon/aws-cli:latest \
-    "$@"
-}
-
-packer () {
-  docker run -it --rm \
-    --log-driver none \
-    --mount "type=bind,src=$(pwd),dst=/work" \
-    --workdir /work \
-    -e AWS_ACCESS_KEY_ID \
-    -e AWS_SECRET_ACCESS_KEY \
-    -e AWS_SESSION_TOKEN \
-    -e AWS_DEFAULT_REGION \
-    hashicorp/packer:light \
-    "$@"
-}
-
 promtool () {
   docker run -it --rm \
     --log-driver none \
@@ -119,15 +92,6 @@ redis-cli () {
   docker run -it --rm \
     --log-driver none \
     jacknagel/redis-cli:latest \
-    "$@"
-}
-
-powershell () {
-  docker run -it --rm \
-    --log-driver none \
-    --mount "type=bind,src=$(pwd),dst=/work,readonly" \
-    --workdir /work \
-    microsoft/powershell:latest \
     "$@"
 }
 

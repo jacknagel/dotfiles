@@ -4,12 +4,14 @@ self: super:
   userPackages = super.userPackages or {} // {
     inherit (self)
       aws-vault
+      awscli2
       bash-completion
       bashInteractive_5
       certigo
       curlFull
       dive
       editorconfig-core-c
+      fd
       fzy
       gist
       git-lfs
@@ -21,6 +23,8 @@ self: super:
       kubectx
       kustomize
       less
+      nodejs-14_x
+      powershell
       ripgrep
       shellcheck
       terraform
