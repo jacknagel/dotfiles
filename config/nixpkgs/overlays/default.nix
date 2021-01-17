@@ -9,6 +9,7 @@ self: super:
       bashInteractive_5
       certigo
       curlFull
+      direnv
       dive
       editorconfig-core-c
       fd
