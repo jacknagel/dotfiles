@@ -163,5 +163,5 @@ if command -v aws-vault >/dev/null 2>&1; then
 fi
 
 if command -v terraform >/dev/null 2>&1; then
-  complete -C "$NIX_PROFILE/bin/terraform" terraform tf
+  complete -C terraform terraform tf
 fi
