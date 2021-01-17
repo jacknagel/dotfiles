@@ -40,6 +40,7 @@
 	verbose = true
 [core]
 	pager = less -S ; -S - don't wrap long lines
+	sshCommand = /usr/bin/ssh
 [credential]
 	helper = osxkeychain
 [diff]
