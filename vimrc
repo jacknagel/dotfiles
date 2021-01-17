@@ -87,8 +87,6 @@ endif
 if executable('rg')
   set grepprg=rg\ --vimgrep
   set grepformat^=%f:%l:%c:%m
-elseif executable('ggrep')
-  set grepprg=ggrep\ -rnHI\ --exclude-dir=.git\ --exclude=tags
 else
   set grepprg=grep\ -rnHI\ --exclude-dir=.git\ --exclude=tags
 endif
