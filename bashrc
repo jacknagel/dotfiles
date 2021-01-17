@@ -1,8 +1,5 @@
 # shellcheck shell=bash disable=SC1090
 
-export ENV=~/.shrc
-# shellcheck source=shrc
-. "$ENV"
 [ -z "$PS1" ] && return
 
 shopt -s cdspell
@@ -63,8 +60,6 @@ cd () {
   # shellcheck disable=2164
   builtin cd "$@" >/dev/null
 }
-
-export XDG_DATA_DIRS="$NIX_PROFILE/share:$XDG_DATA_DIRS"
 
 if [ -r "$NIX_PROFILE/etc/profile.d/bash_completion.sh" ]; then
   # shellcheck disable=2034

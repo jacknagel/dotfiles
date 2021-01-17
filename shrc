@@ -13,8 +13,9 @@ simplify_path () {
   eval "$var=\$val"
 }
 
-NIX_PROFILE=${NIX_PROFILE:-$HOME/.nix-profile}
 simplify_path PATH "$HOME/.krew/bin:$HOME/.local/bin:$PATH"
+simplify_path XDG_DATA_DIRS "$NIX_PROFILE/share:$XDG_DATA_DIRS"
+export XDG_DATA_DIRS
 
 [ ! -x /bin/stty ] || stty -ixon
 
