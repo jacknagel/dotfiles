@@ -35,6 +35,8 @@ self: super:
       youtube-dl
     ;
 
+    texlive = super.texlive.combined.scheme-medium;
+
     inherit (self)
       cacert
       nix;
