@@ -69,26 +69,6 @@ case "$(uname)" in
     ;;
 esac
 
-promtool () {
-  docker run -it --rm \
-    --log-driver none \
-    --mount "type=bind,src=$(pwd),dst=/work,readonly" \
-    --workdir /work \
-    --entrypoint promtool \
-    prom/prometheus:latest \
-    "$@"
-}
-
-amtool () {
-  docker run -it --rm \
-    --log-driver none \
-    --mount "type=bind,src=$(pwd),dst=/work,readonly" \
-    --workdir /work \
-    --entrypoint amtool \
-    prom/alertmanager:latest \
-    "$@"
-}
-
 redis-cli () {
   docker run -it --rm \
     --log-driver none \
