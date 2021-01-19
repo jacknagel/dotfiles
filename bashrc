@@ -1,5 +1,8 @@
 # shellcheck shell=bash disable=SC1090
 
+# shellcheck source=shrc
+[ -r "$HOME/.shrc" ] && . "$HOME/.shrc"
+
 [ -z "$PS1" ] && return
 
 shopt -s cdspell
