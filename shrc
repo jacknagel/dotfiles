@@ -13,6 +13,9 @@ simplify_path () {
   eval "$var=\$val"
 }
 
+NIX_PROFILE=${NIX_PROFILE:-$HOME/.nix-profile}
+[ -r "$NIX_PROFILE/etc/profile.d/nix.sh" ] && . "$NIX_PROFILE/etc/profile.d/nix.sh"
+
 simplify_path PATH "$HOME/.krew/bin:$HOME/.local/bin:$PATH"
 simplify_path XDG_DATA_DIRS "$NIX_PROFILE/share:$XDG_DATA_DIRS"
 export XDG_DATA_DIRS
