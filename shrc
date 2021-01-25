@@ -1,5 +1,5 @@
 # vim:ft=sh
-# shellcheck shell=sh
+# shellcheck shell=sh disable=SC1090,SC2039
 
 simplify_path () {
   # shellcheck disable=SC2039
