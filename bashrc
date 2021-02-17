@@ -59,6 +59,9 @@ export RIPGREP_CONFIG_PATH="$HOME/.config/rg/config"
 
 export KUBECTL_EXTERNAL_DIFF=kubectl-diff-helper
 
+export GO111MODULE=on
+export GOPRIVATE=github.com/jacknagel
+
 cd () {
   # shellcheck disable=2164
   builtin cd "$@" >/dev/null
