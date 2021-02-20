@@ -18,7 +18,7 @@ self: super:
       git-lfs
       gitFull
       gnugrep
-      go
+      go_1_16
       jq
       kubectl
       kubectx
