@@ -52,8 +52,8 @@ _inpath () {
   type "$1" >/dev/null 2>&1
 }
 
-case "$(uname)" in
-  Darwin)
+case "$OSTYPE" in
+  darwin*)
     _inpath sudoedit || alias sudoedit="sudo -e"
 
     alias ls="ls -AFGbh"
@@ -68,7 +68,7 @@ case "$(uname)" in
     export COPYFILE_DISABLE=1
     export BASH_SILENCE_DEPRECATION_WARNING=1
     ;;
-  Linux)
+  *)
     alias ls="ls -AFbh --color=auto"
     ;;
 esac
