@@ -25,7 +25,6 @@ self: super:
       kustomize
       less
       nodejs-14_x
-      powershell
       ripgrep
       shellcheck
       terraform
