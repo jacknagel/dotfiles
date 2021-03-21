@@ -101,10 +101,6 @@ _prompt_command () {
   eval "$(prompt-template "$template" 2>/dev/null)"
 
   history -a
-
-  case "$(history 1)" in
-    *install*) hash -r ;;
-  esac
 }
 PROMPT_COMMAND=_prompt_command
 
