@@ -27,7 +27,7 @@ self: super:
       nodejs-14_x
       ripgrep
       shellcheck
-      terraform
+      terraform_0_15
       tree
       vim
       watch
