@@ -5,8 +5,6 @@ git@github.com:godlygeek/tabular
 git@github.com:google/vim-jsonnet
 git@github.com:hashivim/vim-terraform
 git@github.com:keith/swift.vim
-git@github.com:lifepillar/vim-solarized8 opt
-git@github.com:mxw/vim-jsx
 git@github.com:pangloss/vim-javascript
 git@github.com:tpope/vim-apathy
 git@github.com:tpope/vim-commentary
