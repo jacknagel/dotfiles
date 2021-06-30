@@ -25,6 +25,7 @@ self: super:
       kustomize
       less
       nodejs-14_x
+      packer
       ripgrep
       shellcheck
       terraform_0_15
