@@ -28,6 +28,7 @@ self: super:
       packer
       ripgrep
       shellcheck
+      skopeo
       terraform_0_15
       tree
       vim
