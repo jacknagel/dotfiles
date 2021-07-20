@@ -19,6 +19,7 @@ self: super:
       gitFull
       gnugrep
       go_1_16
+      graphviz
       jq
       kubectl
       kubectx
