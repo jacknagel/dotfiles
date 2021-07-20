@@ -30,7 +30,7 @@ self: super:
       ripgrep
       shellcheck
       skopeo
-      terraform_1_0
+      terraform
       tree
       vim
       watch
