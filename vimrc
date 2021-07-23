@@ -128,15 +128,6 @@ let g:vim_json_syntax_conceal = 0
 " mappings
 let g:mapleader = ','
 
-map  <Left>  <Nop>
-map  <Right> <Nop>
-map  <Up>    <Nop>
-map  <Down>  <Nop>
-imap <Left>  <Nop>
-imap <Right> <Nop>
-imap <Up>    <Nop>
-imap <Down>  <Nop>
-
 " make Q work like gq instead of switching
 map Q gq
 
