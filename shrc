@@ -76,7 +76,7 @@ esac
 redis-cli () {
   docker run -it --rm \
     --log-driver none \
-    jacknagel/redis-cli:latest \
+    public.ecr.aws/jacknagel/redis-cli:latest \
     "$@"
 }
 
@@ -88,7 +88,7 @@ skeema () {
     --workdir /work \
     --network host \
     -e MYSQL_PWD \
-    jacknagel/skeema:latest \
+    public.ecr.aws/jacknagel/skeema:latest \
     "$@"
 }
 
