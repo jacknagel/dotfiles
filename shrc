@@ -95,7 +95,7 @@ skeema () {
 krun () {
   kubectl run -it --rm \
     --restart=Never \
-    --image=busybox \
+    --image=public.ecr.aws/jacknagel/debug:latest \
     --overrides '
 {
   "apiVersion": "v1",
@@ -112,6 +112,6 @@ krun () {
   }
 }
 ' \
-  "ephemeral-busybox-${USER}" \
+  "ephemeral-debug-${USER}" \
   -- "${@:-sh}"
 }
