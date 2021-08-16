@@ -123,6 +123,8 @@
 	fetchJobs = 0
 [transfer]
 	fsckObjects = true
+[url "ssh://git@github.com"]
+	insteadOf = https://github.com
 [user]
 	useConfigOnly = true
 [web]
