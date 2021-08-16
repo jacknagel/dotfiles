@@ -29,8 +29,6 @@
 [branch]
 	autoSetupMerge = always
 	autoSetupRebase = always
-[color]
-	ui = auto
 [color "grep"]
 	filename = magenta
 	linenumber = green
