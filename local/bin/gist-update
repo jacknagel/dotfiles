@@ -17,6 +17,7 @@ want () {
 mkdir -p "$gist_dir"
 [ -f "$HOME/.gist" ] || gist --login
 
-comm -23 <(have) <(want) | xargs -n1 -P8 -I{} rm -rf "$gist_dir/{}"
-comm -13 <(have) <(want) | xargs -n1 -P8 -I{} git clone -q "$host:{}.git"  "$gist_dir/{}"
-comm -12 <(have) <(want) | xargs -n1 -P8 -I{} git -C "$gist_dir/{}" pull -q
+nproc=$(nproc)
+comm -23 <(have) <(want) | xargs -n1 -P${nproc} -I{} rm -rf "$gist_dir/{}"
+comm -13 <(have) <(want) | xargs -n1 -P${nproc} -I{} git clone -q "$host:{}.git"  "$gist_dir/{}"
+comm -12 <(have) <(want) | xargs -n1 -P${nproc} -I{} git -C "$gist_dir/{}" pull -q
