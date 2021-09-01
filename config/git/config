@@ -81,10 +81,6 @@
 [init]
 	defaultBranch = main
 	; templatedir = ~/.config/git/template
-[instaweb]
-	httpd = webrick
-	local = true
-	port = 8080
 [interactive]
 	singleKey = true
 	diffFilter = diff-highlight
