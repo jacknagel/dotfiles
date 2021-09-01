@@ -30,6 +30,7 @@
 [branch]
 	autoSetupMerge = always
 	autoSetupRebase = always
+	sort = authordate
 [color "grep"]
 	filename = magenta
 	linenumber = green
@@ -45,7 +46,7 @@
 [diff]
 	renames = copies
 	tool = vimdiff
-	algorithm = patience
+	algorithm = histogram
 [diff "gpg"]
 	textconv = gpg -qd --no-tty
 [diff "gzip"]
@@ -68,14 +69,15 @@
 	prompt = false
 [fetch]
 	prune = true
+	pruneTags = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 [grep]
-	extendedRegexp = true
 	lineNumber = true
+	patternType = extended
 [help]
 	format = web
 [init]
@@ -85,9 +87,10 @@
 	singleKey = true
 	diffFilter = diff-highlight
 [log]
-	decorate = short
+	decorate = auto
 [merge]
 	conflictStyle = diff3
+	tool = vimdiff3
 [merge "bundle"]
 	name = bundle
 	driver = bundle
@@ -105,6 +108,7 @@
 [rebase]
 	autoSquash = true
 	autoStash = true
+	stat = true
 [remote]
 	pushDefault = origin
 [rerere]
@@ -114,6 +118,8 @@
 	showPatch = true
 [submodule]
 	fetchJobs = 0
+[tag]
+	sort = -version:refname
 [transfer]
 	fsckObjects = true
 [url "ssh://git@github.com"]
