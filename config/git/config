@@ -6,6 +6,7 @@
 	au = add --update
 	br = branch -vv
 	ca = commit --amend
+	cane = commit --amend --no-edit
 	ci = commit
 	co = checkout
 	cp = cherry-pick
