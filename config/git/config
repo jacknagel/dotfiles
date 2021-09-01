@@ -106,8 +106,6 @@
 	diff = diff-highlight | less -S
 [pull]
 	rebase = merges
-[push]
-	default = simple
 [rebase]
 	autoSquash = true
 	autoStash = true
