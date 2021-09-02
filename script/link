@@ -16,6 +16,7 @@ files='
   local/bin
   shrc
   sqliterc
+  terraformrc
   vim
   vimrc
 '
