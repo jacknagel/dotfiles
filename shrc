@@ -76,8 +76,8 @@ esac
 redis-cli () {
   docker run -it --rm \
     --log-driver none \
-    public.ecr.aws/jacknagel/redis-cli:latest \
-    "$@"
+    redis:alpine \
+    redis-cli "$@"
 }
 
 skeema () {
