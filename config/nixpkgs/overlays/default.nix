@@ -15,6 +15,7 @@ self: super:
       fd
       fzy
       gist
+      git-absorb
       git-lfs
       gitFull
       gnugrep
