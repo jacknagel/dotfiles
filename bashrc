@@ -45,7 +45,7 @@ export EDITOR VISUAL SUDO_EDITOR PAGER MANPAGER BROWSER
 # j.5 - center search results
 # q   - quiet, visual bell
 LESS="FRXj.5q"
-LESSHISTFILE="$HOME/.history/less"
+LESSHISTFILE=-
 export LESS LESSHISTFILE
 
 export NODE_REPL_HISTORY="$HOME/.history/node_repl"
