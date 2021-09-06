@@ -1,7 +1,9 @@
 #!/bin/sh
 set -eu
 
-git diff-index --relative --no-prefix -U0 --cached HEAD | awk '
+cd "$(git rev-parse --show-toplevel)"
+
+git diff-index --no-prefix -U0 --cached HEAD | awk '
   /^--- / { file = $2 }
   /^@@ / { line = -$2; exit }
   END { printf "-L%d,+1 -- %s\n", line, file }
