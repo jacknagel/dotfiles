@@ -21,11 +21,11 @@
 	jm = jump merge
 	lg = log --graph --decorate --oneline
 	ls = ls-files -oc --exclude-standard
-	st = status --short --branch -uno
 	rba = rebase --abort
 	rbc = rebase --continue
 	rbi = rebase --interactive
 	rbs = rebase --skip
+	st = status --short --branch -uno
 	thx = shortlog -ns
 [branch]
 	autoSetupMerge = always
