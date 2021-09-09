@@ -199,7 +199,6 @@ augroup filetypes
   autocmd BufNewFile,BufReadPost *.log{,.[0-9]*} setlocal readonly bufhidden=unload buftype=nowrite noundofile nowrap
   autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly
   autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
-  autocmd BufNewFile,BufReadPost .npmrc setlocal ft=dosini
 augroup END
 
 augroup vimrc
