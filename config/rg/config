@@ -1,3 +1,5 @@
 --hidden
 --line-number
 --no-heading
+--max-columns=100
+--max-columns-preview
