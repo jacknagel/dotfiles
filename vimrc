@@ -169,7 +169,7 @@ nnoremap yol :setlocal invlist<CR>
 nnoremap yow :setlocal invwrap<CR>
 
 nnoremap <silent> cd
-  \ :if exists("b:git_dir")<Bar>
+  \ :if !empty(FugitiveGitDir())<Bar>
   \   Glcd<Bar>
   \ else<Bar>
   \   lcd %:h<Bar>
