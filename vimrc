@@ -94,11 +94,9 @@ endif
 " plugin settings
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {
-  \ 'go': [],
-  \}
 let g:ale_pattern_options = {
   \ '/node_modules/': { 'ale_enabled': 0 },
+  \ '\.go$': { 'ale_enabled': 0 },
   \}
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_extra_types = 1
