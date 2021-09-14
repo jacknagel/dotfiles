@@ -6,6 +6,11 @@ mkdir "$lock" 2>/dev/null || exit 0
 trap 'rmdir "$lock"' EXIT INT TERM
 file=$(mktemp)
 
-git ls-files -oc --exclude-standard --recurse-submodules | ctags --tag-relative -L- -f"$file"
+
+if [ -f go.mod ]; then
+  git ls-files -oc --exclude-standard -- '*.go' | gotags --tag-relative -L- -f"$file"
+else
+  git ls-files -oc --exclude-standard | ctags --tag-relative -L- -f"$file"
+fi
 
 mv "$file" tags
