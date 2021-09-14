@@ -177,8 +177,7 @@ nnoremap <silent> cd
   \ <CR>
 
 function! s:restore_last_cursor_position()
-  " If the last cursor position is on the first line or past the end of the
-  " file, don't do anything.
+  " If the last position is unset or past the end of the file, do nothing.
   if line("'\"") == 0 || line("'\"") > line("$")
     return
   endif
