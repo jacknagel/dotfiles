@@ -1,3 +1,4 @@
+*.go          diff=golang
 *.rb          diff=ruby
 *.t[bgx]z     diff=tar
 *.tar.[bgx]z  diff=tar
@@ -5,6 +6,6 @@
 *.tbz2        diff=tar
 *.zip         diff=zip
 Gemfile.lock  merge=bundle
+go.sum merge=union
 npm-shrinkwrap.json merge=npm-merge-driver
 package-lock.json merge=npm-merge-driver
-go.sum merge=union
