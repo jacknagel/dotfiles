@@ -103,7 +103,6 @@ let g:ale_pattern_options = {
   \}
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_extra_types = 1
-let g:jsx_ext_required = 1
 let g:markdown_fenced_languages = [
   \ 'bash=sh',
   \ 'css',
@@ -124,7 +123,6 @@ let g:markdown_fenced_languages = [
 let g:no_default_tabular_maps = 1
 let g:terraform_fmt_on_save = 1
 let g:vim_indent_cont = 2
-let g:vim_json_syntax_conceal = 0
 
 " mappings
 let g:mapleader = ','
