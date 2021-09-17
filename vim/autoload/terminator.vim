@@ -8,7 +8,7 @@ function! terminator#focus_lost() abort
   let l:cmd = getcmdline()
   let l:pos = getcmdpos()
 
-  silent doautocmd FocusLost %
+  silent doautocmd <nomodeline> FocusLost %
 
   call setcmdpos(l:pos)
   return l:cmd
@@ -18,7 +18,7 @@ function! terminator#focus_gained() abort
   let l:cmd = getcmdline()
   let l:pos = getcmdpos()
 
-  silent doautocmd FocusGained %
+  silent doautocmd <nomodeline> FocusGained %
 
   call setcmdpos(l:pos)
   return l:cmd
