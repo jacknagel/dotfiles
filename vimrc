@@ -94,6 +94,9 @@ endif
 " plugin settings
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_linters = {
+  \ 'javascript': ['eslint']
+  \}
 let g:ale_pattern_options = {
   \ '/node_modules/': { 'ale_enabled': 0 },
   \ '\.go$': { 'ale_enabled': 0 },
