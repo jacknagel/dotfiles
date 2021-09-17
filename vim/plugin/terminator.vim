@@ -13,6 +13,11 @@ execute "set <F27>=\<Esc>[I"
 cnoremap <silent> <F26> <C-\>eterminator#focus_lost()<CR>
 cnoremap <silent> <F27> <C-\>eterminator#focus_gained()<CR>
 
+if has('terminal')
+  tnoremap <expr> <F26> terminator#focus_lost()
+  tnoremap <expr> <F27> terminator#focus_gained()
+endif
+
 nnoremap <silent> <F26> :silent doautocmd <nomodeline> FocusLost %<CR>
 nnoremap <silent> <F27> :silent doautocmd <nomodeline> FocusGained %<CR>
 onoremap <silent> <F26> <Esc>:silent doautocmd <nomodeline> FocusLost %<CR>
