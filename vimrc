@@ -194,6 +194,7 @@ endfunction
 
 augroup filetypes
   autocmd!
+  autocmd BufNewFile,BufReadPost */.kube/config setlocal ft=yaml
   autocmd BufNewFile,BufReadPost *.log{,.[0-9]*} setlocal readonly bufhidden=unload buftype=nowrite noundofile nowrap
   autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly
   autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
