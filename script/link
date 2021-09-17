@@ -7,6 +7,7 @@ files='
   config/git
   config/nixpkgs
   config/rg
+  config/yamllint
   curlrc
   editorconfig
   editrc

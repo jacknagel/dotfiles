@@ -35,6 +35,7 @@ self: super:
       tree
       vim
       watch
+      yamllint
       youtube-dl
     ;
 
