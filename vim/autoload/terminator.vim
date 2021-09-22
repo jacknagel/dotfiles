@@ -23,8 +23,3 @@ function! terminator#focus_gained() abort
   call setcmdpos(l:pos)
   return l:cmd
 endfunction
-
-function! terminator#paste(ret) abort
-  set paste
-  return a:ret
-endfunction
