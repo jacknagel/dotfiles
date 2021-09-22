@@ -125,7 +125,7 @@ let g:vim_indent_cont = 2
 " mappings
 let g:mapleader = ','
 
-" make Q work like gq instead of switching
+" make Q work like gq instead of switching to Ex mode
 map Q gq
 
 " make Y work like y$ instead of yy
