@@ -33,7 +33,7 @@ set nrformats-=octal
 set number
 set numberwidth=3
 set report=0
-set scrolloff=5
+set scrolloff=1
 set sessionoptions-=options
 set shiftround
 set shortmess=aFIoOtT
