@@ -190,43 +190,23 @@ function! s:restore_last_cursor_position()
   endif
 endfunction
 
-augroup filetypes
-  autocmd!
-  autocmd BufNewFile,BufReadPost */.kube/config setlocal ft=yaml
-  autocmd BufNewFile,BufReadPost *.log{,.[0-9]*} setlocal readonly bufhidden=unload buftype=nowrite noundofile nowrap
-  autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly
-  autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
-augroup END
-
 augroup vimrc
   autocmd!
-  autocmd BufWritePost */spell/*.add silent! mkspell! <afile>
-augroup END
-
-augroup lastposjump
-  autocmd!
+  autocmd BufNewFile,BufReadPost *.log{,.[0-9]*} setlocal readonly bufhidden=unload buftype=nowrite noundofile nowrap
+  autocmd BufNewFile,BufReadPost */.kube/config setlocal ft=yaml
+  autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly
+  autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
+  autocmd BufReadPost * call s:restore_last_cursor_position()
   autocmd BufReadPost *.log{,.[0-9]*} delmarks \"
   autocmd BufReadPost quickfix delmarks \"
-  autocmd BufReadPost * call s:restore_last_cursor_position()
-augroup END
-
-augroup undo
-  autocmd!
-  autocmd CursorHoldI * silent! call feedkeys("\<C-G>u", "nt")
+  autocmd BufWritePost */spell/*.add silent! mkspell! <afile>
   autocmd BufWritePre /tmp/*,$TMPDIR/*,/{private,var,private/var}/tmp/*,/{var,private/var}/folders/* setlocal noundofile
-augroup END
-
-augroup focus
-  autocmd!
-  autocmd FocusLost * silent! wall
-augroup END
-
-augroup swapmod
-  autocmd!
+  autocmd CursorHoldI * silent! call feedkeys("\<C-G>u", "nt")
   autocmd CursorHold,CursorHoldI,BufWritePost,BufReadPost,BufLeave *
     \ if !empty(filter(split(&directory, ","), "isdirectory(expand(v:val))")) |
     \   let &swapfile = &modified |
     \ endif
+  autocmd FocusLost * silent! wall
 augroup END
 
 silent! source ~/.vimrc.local
