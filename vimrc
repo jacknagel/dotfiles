@@ -43,8 +43,6 @@ set sidescrolloff=5
 set smarttab
 set spellfile=~/.vim/spell/en.utf-8.add,~/.vim/spell/en-local.utf-8.add
 set spelllang=en_us
-set splitbelow
-set splitright
 set switchbuf=useopen
 set tags+=./tags;
 set thesaurus+=~/.vim/spell/mthesaur.txt
