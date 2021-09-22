@@ -235,11 +235,4 @@ augroup windows
   autocmd VimResized * nested wincmd =
 augroup END
 
-augroup quickfix
-  autocmd!
-  autocmd QuickFixCmdPost [^l]* nested botright cwindow | wincmd p
-  autocmd QuickFixCmdPost l* nested botright lwindow
-  autocmd VimEnter * nested if filereadable(&errorfile) | botright cwindow | wincmd p | endif
-augroup END
-
 silent! source ~/.vimrc.local
