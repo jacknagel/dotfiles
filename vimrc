@@ -229,9 +229,4 @@ augroup swapmod
     \ endif
 augroup END
 
-augroup windows
-  autocmd!
-  autocmd VimResized * nested wincmd =
-augroup END
-
 silent! source ~/.vimrc.local
