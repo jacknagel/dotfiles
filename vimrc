@@ -231,7 +231,6 @@ augroup END
 
 augroup windows
   autocmd!
-  autocmd FilterWritePre * if &diff | set nonumber | endif
   autocmd VimEnter * nested if &lazyredraw | redrawstatus! | endif
   autocmd VimResized * nested wincmd =
   autocmd WinEnter * nested if &buftype != 'quickfix' | resize | set cursorline | endif
