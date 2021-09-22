@@ -8,7 +8,6 @@ set autoread
 set autowrite
 set backspace=indent,eol,start
 set backupdir^=~/.vim/_backup//
-set backupskip&
 set backupskip+=/private/tmp/*
 set belloff=all
 set cmdheight=2
