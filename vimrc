@@ -231,7 +231,6 @@ augroup END
 
 augroup windows
   autocmd!
-  autocmd VimEnter * nested if &lazyredraw | redrawstatus! | endif
   autocmd VimResized * nested wincmd =
 augroup END
 
