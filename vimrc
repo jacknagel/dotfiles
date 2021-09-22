@@ -150,8 +150,8 @@ xnoremap & :&&<CR>
 inoremap <C-C> <Esc>
 
 " continuous indentation
-vnoremap > >gv
-vnoremap < <gv
+xnoremap > >gv
+xnoremap < <gv
 
 " clear search highlighting
 nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
@@ -160,7 +160,7 @@ function! s:sort_opfunc(...)
   '[,']sort
 endfunction
 nnoremap <silent> gs :set operatorfunc=<SID>sort_opfunc<CR>g@
-vnoremap <silent> gs :sort<CR>
+xnoremap <silent> gs :sort<CR>
 
 noremap gy "*y
 
