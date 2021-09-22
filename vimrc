@@ -206,6 +206,7 @@ augroup vimrc
     \ if !empty(filter(split(&directory, ","), "isdirectory(expand(v:val))")) |
     \   let &swapfile = &modified |
     \ endif
+  autocmd FocusGained * silent! checktime
   autocmd FocusLost * silent! wall
 augroup END
 

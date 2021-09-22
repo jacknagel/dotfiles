@@ -26,8 +26,3 @@ vnoremap <silent> <F26> <Esc>:silent doautocmd <nomodeline> FocusLost %<CR>gv
 vnoremap <silent> <F27> <Esc>:silent doautocmd <nomodeline> FocusGained %<CR>gv
 inoremap <silent> <F26> <C-\><C-O>:silent doautocmd <nomodeline> FocusLost %<CR>
 inoremap <silent> <F27> <C-\><C-O>:silent doautocmd <nomodeline> FocusGained %<CR>
-
-augroup terminator
-  autocmd!
-  autocmd FocusGained * silent! checktime
-augroup END
