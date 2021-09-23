@@ -1,2 +1,1 @@
-setlocal autoindent
 setlocal noexpandtab

@@ -1,4 +1,3 @@
-setlocal autoindent
 if exists('+breakindent')
   setlocal breakindent
 endif
