@@ -70,6 +70,9 @@ set statusline+=%=                  " l-r separator
 set statusline+=%-10.(0x%B%)        " hex value of character under cursor
 set statusline+=%-15.(%l,%c%V%)\ %P " line#,col#-vcol# %
 
+set omnifunc=syntaxcomplete#Complete
+set completefunc=syntaxcomplete#Complete
+
 filetype plugin indent on
 syntax enable
 
