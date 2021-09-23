@@ -143,8 +143,9 @@ inoremap <C-W> <C-G>u<C-W>
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
-" make Ctrl-C check abbreviations and trigger InsertLeave
-inoremap <C-C> <Esc>
+" make Ctrl-C check abbreviations, trigger InsertLeave, and preserve cursor
+" position
+inoremap <C-C> <Esc>`^
 
 " continuous indentation
 xnoremap > >gv
