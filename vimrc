@@ -42,7 +42,7 @@ set sidescrolloff=5
 set smarttab
 set spellfile=~/.vim/spell/en.utf-8.add,~/.vim/spell/en-local.utf-8.add
 set spelllang=en_us
-set switchbuf=useopen
+set switchbuf=uselast
 set tags+=./tags;
 set thesaurus+=~/.vim/spell/mthesaur.txt
 set timeoutlen=1200
