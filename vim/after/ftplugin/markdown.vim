@@ -1,6 +1,4 @@
-if exists('+breakindent')
-  setlocal breakindent
-endif
+setlocal breakindent
 setlocal complete+=k,kspell
 setlocal expandtab
 setlocal linebreak
