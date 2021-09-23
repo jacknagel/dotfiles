@@ -1,2 +1,1 @@
 setlocal iskeyword+=-
-setlocal noexpandtab
