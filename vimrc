@@ -174,6 +174,8 @@ nnoremap <silent> cd
   \ endif<Bar>
   \ <CR>
 
+nnoremap <silent> <C-W>z :wincmd z<Bar>pclose<Bar>cclose<Bar>lclose<Bar>helpclose<CR>
+
 function! s:restore_last_cursor_position()
   " If the last position is unset or past the end of the file, do nothing.
   if line("'\"") == 0 || line("'\"") > line("$")
