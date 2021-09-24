@@ -180,7 +180,7 @@ nnoremap <silent> cd
 
 nnoremap <silent> <C-W>z :wincmd z<Bar>pclose<Bar>cclose<Bar>lclose<Bar>helpclose<CR>
 
-function! s:restore_last_cursor_position()
+function! s:JumpToLastCursorPosition()
   " If the last position is unset or past the end of the file, do nothing.
   if line("'\"") == 0 || line("'\"") > line("$")
     return
@@ -189,11 +189,13 @@ function! s:restore_last_cursor_position()
   " Jump to the last cursor position. If it is not in the bottom half of the
   " last window, then re-center the window on the line.
   if line("$") - line("'\"") > (line("w$") - line("w0")) / 2
-    execute "normal! g`\"zz"
+    return "g`\"zz"
   else
-    execute "normal! g`\""
+    return "g`\""
   endif
 endfunction
+
+nnoremap <expr> gl <SID>JumpToLastCursorPosition()
 
 augroup vimrc
   autocmd!
@@ -201,9 +203,6 @@ augroup vimrc
   autocmd BufNewFile,BufReadPost */.kube/config setlocal ft=yaml
   autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly
   autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
-  autocmd BufReadPost * call s:restore_last_cursor_position()
-  autocmd BufReadPost *.log{,.[0-9]*} delmarks \"
-  autocmd BufReadPost quickfix delmarks \"
   autocmd BufWritePost */spell/*.add silent! mkspell! <afile>
   autocmd BufWritePre /tmp/*,$TMPDIR/*,/{private,var,private/var}/tmp/*,/{var,private/var}/folders/* setlocal noundofile
   autocmd CursorHoldI * silent! call feedkeys("\<C-G>u", "nt")
