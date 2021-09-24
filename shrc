@@ -29,9 +29,6 @@ alias fgrep="grep -F"
 alias k=kubectl
 alias kctx=kubectx
 alias kns=kubens
-alias lstcp="sudo lsof -Pn -iTCP"
-alias lsudp="sudo lsof -Pn -iUDP"
-alias pb="git for-each-ref refs/heads --format='%(refname:short)' | fzy | xargs git checkout"
 alias pemcp="find ~/.ssh -name '*.pem' | fzy | xargs cat | pbcopy"
 alias tree="tree -ACFIa .git --dirsfirst"
 alias vi="vim"
