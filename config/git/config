@@ -1,7 +1,8 @@
 # vim:ft=gitconfig
 
 [alias]
-	afx = autofixup
+	ab = absorb
+	afx = !echo "Use git ab[sorb]"
 	ap = add --patch
 	au = add --update
 	br = branch -vv
