@@ -7,6 +7,7 @@
 	br = branch -vv
 	ca = commit --amend
 	cane = commit --amend --no-edit
+	cf = commit --fixup
 	ci = commit
 	co = checkout
 	cp = cherry-pick
@@ -15,16 +16,21 @@
 	di = diff
 	du = diff @{u}
 	ff = merge --ff-only
-	fx = commit --fixup
+	fx = !echo "Use git cf"
 	jd = jump diff
 	jg = jump grep
 	jm = jump merge
 	lg = log --graph --decorate --oneline
 	ls = ls-files -oc --exclude-standard
-	rba = rebase --abort
-	rbc = rebase --continue
-	rbi = rebase --interactive
-	rbs = rebase --skip
+	ra = rebase --abort
+	re = rebase --edit-todo
+	ri = rebase --interactive
+	rr = rebase --continue
+	rs = rebase --skip
+	rba = !echo "Use git ra"
+	rbc = !echo "Use git rr"
+	rbi = !echo "Use git ri"
+	rbs = !echo "Use git rs"
 	st = status --short --branch -uno
 	thx = shortlog -ns
 [branch]
