@@ -59,11 +59,6 @@ export KUBECTL_EXTERNAL_DIFF=kubectl-diff-helper
 export GO111MODULE=on
 export GOPRIVATE=github.com/jacknagel
 
-cd () {
-  # shellcheck disable=2164
-  builtin cd "$@" >/dev/null
-}
-
 if [ -r "$NIX_PROFILE/etc/profile.d/bash_completion.sh" ]; then
   # shellcheck disable=2034
   BASH_COMPLETION_COMPAT_DIR=$NIX_PROFILE/etc/bash_completion.d
