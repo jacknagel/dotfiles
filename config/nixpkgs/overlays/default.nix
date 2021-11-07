@@ -19,7 +19,7 @@ self: super:
       git-lfs
       gitFull
       gnugrep
-      go_1_16
+      go_1_17
       graphviz
       jq
       kubectl
