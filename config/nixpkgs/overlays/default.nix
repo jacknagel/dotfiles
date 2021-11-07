@@ -26,7 +26,7 @@ self: super:
       kubectx
       kustomize
       less
-      nodejs-14_x
+      nodejs-16_x
       packer
       ripgrep
       shellcheck
