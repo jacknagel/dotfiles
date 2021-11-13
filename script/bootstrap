@@ -21,7 +21,7 @@ bootstrap_git () {
 }
 
 bootstrap_vim () {
-  mkdir -p vim/{_backup,_swap,_undo}
+  mkdir -p vim/_undo
   script/vim-packages
 }
 

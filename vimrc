@@ -7,15 +7,12 @@ set autoindent
 set autoread
 set autowrite
 set backspace=indent,eol,start
-set backupdir^=~/.vim/_backup//
-set backupskip+=/private/tmp/*
 set belloff=all
 set cmdheight=2
 set complete-=i
 set completeopt=menuone,longest,preview
 set cursorline
 set dictionary+=/usr/share/dict/words
-set directory^=~/.vim/_swap//
 set display=lastline
 set fillchars=vert:│,fold:·
 set formatoptions+=1rj
