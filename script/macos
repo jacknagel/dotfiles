@@ -24,7 +24,7 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticDownl
 sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdate -bool true
 
 ## Install macOS updates
-sudo defaults write /Library/Preferences/com.apple.commerce AutoUpdateRestartRequired -bool true
+sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate AutomaticallyInstallMacOSUpdates -bool true
 
 ## Install system data files and security updates
 sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate ConfigDataInstall -bool true
@@ -50,7 +50,7 @@ defaults write com.apple.dock orientation -string left
 ## Minimize windows using
 defaults write com.apple.dock mineffect -string scale
 
-## Prefer tabs when opening documents
+## Prefer tabs when opening documents in fullscreen
 defaults write -g AppleWindowTabbingMode -string fullscreen
 
 ## Double click a window's title bar to zoom
@@ -106,6 +106,7 @@ defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 
 ## Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
+defaults write com.apple.finder _FXSortFoldersFirstOnDesktop -bool true
 
 ## When performing a search, search the current folder
 defaults write com.apple.finder FXDefaultSearchScope -string SCcf
@@ -137,7 +138,7 @@ defaults write com.apple.dock mru-spaces -bool true
 defaults write -g AppleSpacesSwitchOnActivate -bool true
 
 # Group windows by application
-defaults write com.apple.dock expose-group-by-app -bool false
+defaults write com.apple.dock expose-group-apps -bool false
 
 ## Displays have separate Spaces
 defaults write com.apple.spaces spans-displays -bool false
@@ -156,6 +157,18 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 
 ## Enable debug menu
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+## Enable Develop menu
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+
+## Disable opening "safe" downloads automatically
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
+
+## Show full URL in omnibox
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+
+## Disable "Safari Suggestions" in search
+defaults write com.apple.Safari UniversalSearchEnabled -bool false
 
 # TweetBot
 
