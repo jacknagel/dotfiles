@@ -153,6 +153,15 @@ defaults write com.apple.dock wvous-tl-modifier -int 0
 defaults write com.apple.dock wvous-tr-corner   -int 2 # Mission Control
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
+## Disable autocorrect, auto-capitalization, and double-space period substitution
+defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write -g NSAutomaticCapitalizationEnabled -bool false
+defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# Use smart quotes and dashes
+defaults write -g NSAutomaticDashSubstitutionEnabled -bool true
+defaults write -g NSAutomaticQuoteSubstitutionEnabled -bool true
+
 # Safari
 
 ## Enable debug menu
