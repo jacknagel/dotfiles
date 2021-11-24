@@ -29,7 +29,7 @@ alias fgrep="grep -F"
 alias k=kubectl
 alias kctx=kubectx
 alias kns=kubens
-alias pemcp="find ~/.ssh -name '*.pem' | fzy | pbcopy"
+alias pemcp="find ~/.ssh -name '*.pem' | fzy | xargs cat | pbcopy"
 alias tree="tree -ACFIa .git --dirsfirst"
 alias vi="vim"
 
