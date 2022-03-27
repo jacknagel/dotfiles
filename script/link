@@ -5,6 +5,7 @@ files='
   bash_profile
   bashrc
   config/git
+  config/lesskey
   config/nixpkgs
   config/rg
   config/yamllint

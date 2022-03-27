@@ -20,6 +20,9 @@ simplify_path PATH "$HOME/.local/bin:$HOME/go/bin:$HOME/.krew/bin:$PATH"
 simplify_path XDG_DATA_DIRS "$NIX_PROFILE/share:$XDG_DATA_DIRS"
 export XDG_DATA_DIRS
 
+XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CONFIG_HOME
+
 [ ! -x /bin/stty ] || stty -ixon
 
 alias du1="du -h -d1"
