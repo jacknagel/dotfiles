@@ -12,6 +12,7 @@ git@github.com:tpope/vim-eunuch
 git@github.com:tpope/vim-fugitive
 git@github.com:tpope/vim-git
 git@github.com:tpope/vim-repeat
+git@github.com:tpope/vim-sleuth
 git@github.com:tpope/vim-surround
 git@github.com:tpope/vim-unimpaired opt
 git@github.com:tyrannicaltoucan/vim-deep-space opt
