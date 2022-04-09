@@ -19,10 +19,10 @@ unset MAILCHECK
 
 HISTSIZE=10000
 HISTFILESIZE=100000
-HISTFILE="$HOME/.history/bash"
+HISTFILE="$XDG_DATA_HOME/bash/history"
 HISTCONTROL=ignoreboth:erasedups
 HISTIGNORE=" *:%[0-9]:&:[bf]g:cd:cd ..:cd [-~]:clear:exit:ls:pwd"
-[ -d "$HOME/.history" ] || mkdir "$HOME/.history"
+[ -d "${HISTFILE%/*}" ] || mkdir -p "${HISTFILE%/*}"
 
 LANG="en_US.UTF-8"
 LC_CTYPE="en_US.UTF-8"
@@ -46,13 +46,13 @@ LESS="FRXj.5q"
 LESSHISTFILE=-
 export LESS LESSHISTFILE
 
-export NODE_REPL_HISTORY="$HOME/.history/node_repl"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node/repl_history"
 
 LSCOLORS=ExGxFxdxCxfxDxxbadacad
 LS_COLORS="di=1;34:ln=1;36:so=1;35:pi=33:ex=1;32:bd=35:cd=1;33:su=0;41:sg=30;43:tw=30;42:ow=30;43"
 export LSCOLORS LS_COLORS
 
-export RIPGREP_CONFIG_PATH="$HOME/.config/rg/config"
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/rg/config"
 
 export KUBECTL_EXTERNAL_DIFF=kubectl-diff-helper
 
