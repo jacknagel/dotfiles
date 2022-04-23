@@ -19,9 +19,7 @@ install_package () {
 update_package () {
   local pkgdir=$1
   printf "Updating %s\\n" "$pkgdir"
-  branch=main
-  git -C "$pkgdir" show-ref -q --verify refs/heads/main || branch=master
-  git -C "$pkgdir" checkout -q "$branch"
+  git -C "$pkgdir" checkout -q "$(git -C "$pkgdir" symbolic-ref --short refs/remotes/origin/HEAD | sed 's|origin/||')"
   git -C "$pkgdir" pull -q --no-rebase --ff-only
   git -C "$pkgdir" --no-pager log --graph --decorate --oneline "@{${time}}.."
 }
