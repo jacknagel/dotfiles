@@ -31,6 +31,7 @@ self: super:
       ripgrep
       shellcheck
       skopeo
+      ssm-session-manager-plugin
       terraform
       tree
       vim
