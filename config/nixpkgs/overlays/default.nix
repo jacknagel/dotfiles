@@ -30,6 +30,7 @@ self: super:
       packer
       ripgrep
       shellcheck
+      shfmt
       skopeo
       ssm-session-manager-plugin
       terraform
