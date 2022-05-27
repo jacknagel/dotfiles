@@ -8,6 +8,7 @@ self: super:
       bash-completion
       bashInteractive_5
       certigo
+      complete-alias
       curlFull
       direnv
       dive
