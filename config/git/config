@@ -95,7 +95,7 @@
 [log]
 	decorate = auto
 [merge]
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 	tool = vimdiff3
 [merge "bundle"]
 	name = bundle
