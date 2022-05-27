@@ -1,4 +1,4 @@
 #!/bin/sh
 set -eu
-docker image ls "--format={{.Repository}}:{{.Tag}}" | xargs -n1 "-P$(nproc)" docker image pull
-docker image prune --filter until=24h --force
+docker image ls "--format={{.Repository}}:{{.Tag}}" --filter dangling=false | xargs -n1 "-P$(nproc)" docker image pull
+docker image prune --filter dangling=true
