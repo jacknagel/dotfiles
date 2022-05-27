@@ -101,9 +101,5 @@ kns () {
 }
 
 krun () {
-  kubectl run -it --rm \
-    --restart=Never \
-    --image=public.ecr.aws/jacknagel/debug:latest \
-    "ephemeral-debug-${USER}" \
-  -- "${@:-bash}"
+  kubectl run -it --rm --restart=Never --image=public.ecr.aws/jacknagel/debug:latest "$(generate-name)" -- "${@:-bash}"
 }
