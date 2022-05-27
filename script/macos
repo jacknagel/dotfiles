@@ -36,6 +36,11 @@ sudo defaults write /Library/Preferences/com.apple.SoftwareUpdate CriticalUpdate
 # shellcheck disable=2088
 defaults write com.apple.archiveutility dearchive-move-after -string '~/.Trash'
 
+# Windows
+
+## Control-Command-Click anywhere to drag window
+defaults write -g NSWindowShouldDragOnGesture -bool true
+
 # Dock
 
 ## Size
@@ -53,7 +58,7 @@ defaults write com.apple.dock mineffect -string scale
 ## Prefer tabs when opening documents in fullscreen
 defaults write -g AppleWindowTabbingMode -string fullscreen
 
-## Double click a window's title bar to zoom
+## Double-click a window's title bar to zoom
 defaults write -g AppleActionOnDoubleClick -string Maximize
 
 ## Minimize windows into application icon
