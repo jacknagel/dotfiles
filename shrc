@@ -98,22 +98,6 @@ krun () {
   kubectl run -it --rm \
     --restart=Never \
     --image=public.ecr.aws/jacknagel/debug:latest \
-    --overrides '
-{
-  "apiVersion": "v1",
-  "metadata": {
-    "annotations": {
-      "fluentd.org/exclude": "true"
-    }
-  },
-  "spec": {
-    "nodeSelector": {
-      "kubernetes.io/os": "linux",
-      "kubernetes.io/arch": "amd64"
-    }
-  }
-}
-' \
-  "ephemeral-debug-${USER}" \
+    "ephemeral-debug-${USER}" \
   -- "${@:-bash}"
 }
