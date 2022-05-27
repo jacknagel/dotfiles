@@ -32,7 +32,6 @@ alias grep="grep -In --color=auto --exclude-dir=.git --exclude=tags"
 alias egrep="grep -E"
 alias fgrep="grep -F"
 alias k=kubectl
-alias pemcp="find ~/.ssh -name '*.pem' | fzy | xargs cat | pbcopy"
 alias t=terraform
 alias tree="tree -ACFIa .git --dirsfirst"
 alias vi="vim"
@@ -95,4 +94,8 @@ skeema () {
 
 krun () {
   kubectl run -it --rm --restart=Never --image=public.ecr.aws/jacknagel/debug:latest "$(generate-name)" -- "${@:-bash}"
+}
+
+pemcp () {
+  find ~/.ssh -name '*.pem' | fzy --query="$*" | xargs cat | pbcopy
 }
