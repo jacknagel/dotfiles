@@ -129,3 +129,7 @@ fi
 if command -v terraform >/dev/null 2>&1; then
   complete -C terraform terraform tf
 fi
+
+if declare -F __start_kubectl; then
+  complete -F __start_kubectl k
+fi
