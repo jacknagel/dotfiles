@@ -1,0 +1,13 @@
+#/!/bin/sh
+set -eu
+
+cmd=kube${0##*k}
+val=
+
+if [ $# -eq 1 ] && "$cmd" | grep -q -F --line-regexp "$1"; then
+  val=$1
+else
+  val=$("$cmd" | fzy --query="$*")
+fi
+
+exec "$cmd" "$val"

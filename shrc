@@ -92,14 +92,6 @@ skeema () {
     "$@"
 }
 
-kctx () {
-  kubectx | fzy --query="$*"
-}
-
-kns () {
-  kubens | fzy --query="$*"
-}
-
 krun () {
   kubectl run -it --rm --restart=Never --image=public.ecr.aws/jacknagel/debug:latest "$(generate-name)" -- "${@:-bash}"
 }
