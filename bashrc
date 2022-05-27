@@ -131,7 +131,7 @@ if command -v aws-vault >/dev/null 2>&1; then
 fi
 
 if command -v terraform >/dev/null 2>&1; then
-  complete -C terraform terraform tf
+  complete -C terraform terraform
 fi
 
 complete -F _complete_alias "${!BASH_ALIASES[@]}"

@@ -33,6 +33,7 @@ alias egrep="grep -E"
 alias fgrep="grep -F"
 alias k=kubectl
 alias pemcp="find ~/.ssh -name '*.pem' | fzy | xargs cat | pbcopy"
+alias t=terraform
 alias tree="tree -ACFIa .git --dirsfirst"
 alias vi="vim"
 
