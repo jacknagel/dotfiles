@@ -32,8 +32,6 @@ alias grep="grep -In --color=auto --exclude-dir=.git --exclude=tags"
 alias egrep="grep -E"
 alias fgrep="grep -F"
 alias k=kubectl
-alias kctx=kubectx
-alias kns=kubens
 alias pemcp="find ~/.ssh -name '*.pem' | fzy | xargs cat | pbcopy"
 alias tree="tree -ACFIa .git --dirsfirst"
 alias vi="vim"
@@ -92,6 +90,14 @@ skeema () {
     -e MYSQL_PWD \
     public.ecr.aws/jacknagel/skeema:latest \
     "$@"
+}
+
+kctx () {
+  kubectx | fzy --query="$*"
+}
+
+kns () {
+  kubens | fzy --query="$*"
 }
 
 krun () {
