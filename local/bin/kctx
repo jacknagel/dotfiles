@@ -10,8 +10,7 @@ if [ $# -eq 1 ]; then
   elif "$cmd" | grep -q -F --line-regexp -e "$1"; then
     val=$1
   fi
-else
-  val=$("$cmd" | fzy --query="$*")
 fi
 
+[ -n "$val" ] || val=$("$cmd" | fzy --query="$*")
 exec "$cmd" "$val"
