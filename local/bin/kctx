@@ -1,11 +1,15 @@
-#/!/bin/sh
+#!/bin/sh
 set -eu
 
 cmd=kube${0##*k}
 val=
 
-if [ $# -eq 1 ] && "$cmd" | grep -q -F --line-regexp "$1"; then
-  val=$1
+if [ $# -eq 1 ]; then
+  if [ "$1" = "-" ]; then
+    val=-
+  elif "$cmd" | grep -q -F --line-regexp "$1"; then
+    val=$1
+  fi
 else
   val=$("$cmd" | fzy --query="$*")
 fi
