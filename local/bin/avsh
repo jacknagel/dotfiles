@@ -6,7 +6,7 @@ profile=
 
 if [ $# -eq 0 ] && [ -n "${AWS_PROFILE-}" ]; then
   profile=$AWS_PROFILE
-elif [ $# -eq 1 ] && aws-vault list --profiles | grep -q -F --line-regexp "$1"; then
+elif [ $# -eq 1 ] && aws-vault list --profiles | grep -q -F --line-regexp -e "$1"; then
   profile=$1
 else
   profile=$(aws-vault list --profiles | fzy --query="$*")

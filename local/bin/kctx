@@ -7,7 +7,7 @@ val=
 if [ $# -eq 1 ]; then
   if [ "$1" = "-" ]; then
     val=-
-  elif "$cmd" | grep -q -F --line-regexp "$1"; then
+  elif "$cmd" | grep -q -F --line-regexp -e "$1"; then
     val=$1
   fi
 else
