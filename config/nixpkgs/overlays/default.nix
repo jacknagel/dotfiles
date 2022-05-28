@@ -14,6 +14,7 @@ self: super:
       dive
       editorconfig-core-c
       fd
+      findutils
       fzy
       gist
       git-absorb
