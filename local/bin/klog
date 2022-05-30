@@ -1,0 +1,34 @@
+#!/bin/sh
+set -eu
+
+usage () {
+  cat >&2 <<EOF
+usage: klog [-p] [<query>]
+EOF
+}
+
+while getopts ":p" opt; do
+  case "$opt" in
+    p)
+      previous=-p
+      ;;
+    ?)
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+shift "$((OPTIND - 1))"
+
+kubectl get pods --no-headers --all-namespaces -o "custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name,CONTAINERS:.spec.containers[*].name" |
+  while read -r namespace pod containers; do
+    IFS=,
+    for container in $containers; do
+      printf "%s %s %s\n" "$namespace" "$pod" "$container"
+    done
+    unset IFS
+  done |
+  column -t |
+  fzy --query="${1:-}" |
+  xargs kubectl logs -f ${previous:-} -n
