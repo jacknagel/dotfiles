@@ -112,7 +112,7 @@ _source_completion () {
 _load_completion () {
   case "$1" in
     node) _source_completion <(node --completion-bash) ;;
-    docker) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion ;;
+    docker) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker ;;
     docker-compose) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ;;
     aws-vault) _source_completion <(aws-vault --completion-script-bash) ;;
   esac
