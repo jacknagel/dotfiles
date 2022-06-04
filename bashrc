@@ -114,7 +114,6 @@ _load_completion () {
     node) _source_completion <(node --completion-bash) ;;
     docker) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker ;;
     docker-compose) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ;;
-    aws-vault) _source_completion <(aws-vault --completion-script-bash) ;;
   esac
 }
 
@@ -124,10 +123,6 @@ fi
 
 if command -v node >/dev/null 2>&1; then
   complete -F _load_completion -o bashdefault -o default node
-fi
-
-if command -v aws-vault >/dev/null 2>&1; then
-  complete -F _load_completion -o bashdefault -o default aws-vault
 fi
 
 if command -v terraform >/dev/null 2>&1; then
