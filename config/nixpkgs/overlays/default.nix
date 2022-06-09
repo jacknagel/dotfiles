@@ -16,6 +16,7 @@ self: super:
       fd
       findutils
       fzy
+      gettext
       gist
       git-absorb
       git-lfs
