@@ -56,7 +56,6 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/rg/config"
 
 export KUBECTL_EXTERNAL_DIFF=kubectl-diff-helper
 
-export GO111MODULE=on
 export GOPRIVATE=github.com/jacknagel
 
 if [ -r "$NIX_PROFILE/etc/profile.d/bash_completion.sh" ]; then
