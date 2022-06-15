@@ -1,7 +1,6 @@
 #!/bin/sh
 set -eu
 
-seconds=3600
 profile=
 
 if [ $# -eq 0 ] && [ -n "${AWS_PROFILE-}" ]; then
@@ -12,6 +11,4 @@ else
   profile=$(aws-vault list --profiles | fzy --query="$*")
 fi
 
-sleep "$seconds" && printf "\naws-vault session expired\n" &
-aws-vault exec --duration="${seconds}s" "$profile"
-kill -- -$$ 2>/dev/null
+exec aws-vault exec "$profile"
