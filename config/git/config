@@ -2,7 +2,6 @@
 
 [alias]
 	ab = absorb
-	afx = !echo "Use git ab[sorb]"
 	ap = add --patch
 	au = add --update
 	br = branch -vv
@@ -17,7 +16,6 @@
 	di = diff
 	du = diff @{u}
 	ff = merge --ff-only
-	fx = !echo "Use git cf"
 	jd = jump diff
 	jg = jump grep
 	jm = jump merge
@@ -28,10 +26,6 @@
 	ri = rebase --interactive
 	rr = rebase --continue
 	rs = rebase --skip
-	rba = !echo "Use git ra"
-	rbc = !echo "Use git rr"
-	rbi = !echo "Use git ri"
-	rbs = !echo "Use git rs"
 	st = status --short --branch -uno
 	thx = shortlog -ns
 [branch]
