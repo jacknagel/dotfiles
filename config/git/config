@@ -21,7 +21,7 @@
 	jd = jump diff
 	jg = jump grep
 	jm = jump merge
-	lg = log --graph --decorate --oneline
+	lg = log --graph --format=oneline-with-date
 	ls = ls-files -oc --exclude-standard
 	ra = rebase --abort
 	re = rebase --edit-todo
@@ -109,6 +109,8 @@
 	log = diff-highlight | less -S -+X
 	show = diff-highlight | less -S
 	diff = diff-highlight | less -S
+[pretty]
+	oneline-with-date = %C(auto)%h%d %s %C(cyan)%C(dim)(%ch)
 [pull]
 	rebase = merges
 [rebase]
