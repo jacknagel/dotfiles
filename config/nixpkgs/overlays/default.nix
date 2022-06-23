@@ -44,10 +44,6 @@ self: super:
     ;
 
     texlive = super.texlive.combined.scheme-medium;
-
-    inherit (self)
-      cacert
-      nix;
   } // super.lib.optionalAttrs (super.stdenv.isx86_64 || !super.stdenv.isDarwin) {
     inherit (self)
       awscli2;
