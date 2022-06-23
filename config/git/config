@@ -5,6 +5,7 @@
 	ap = add --patch
 	au = add --update
 	br = branch -vv
+	ba = branch -avv
 	ca = commit --amend
 	cane = commit --amend --no-edit
 	cf = commit --fixup
