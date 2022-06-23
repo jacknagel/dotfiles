@@ -4,7 +4,6 @@ self: super:
   userPackages = super.userPackages or {} // {
     inherit (self)
       aws-vault
-      awscli2
       bash-completion
       bashInteractive_5
       certigo
@@ -49,7 +48,10 @@ self: super:
     inherit (self)
       cacert
       nix;
-
+  } // super.lib.optionalAttrs (super.stdenv.isx86_64 || !super.stdenv.isDarwin) {
+    inherit (self)
+      awscli2;
+  } // {
     nix-rebuild = super.writeScriptBin "nix-rebuild" ''
       #!${super.stdenv.shell}
       if ! command -v nix-env &>/dev/null; then
