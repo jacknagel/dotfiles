@@ -38,11 +38,12 @@ BROWSER="open"
 export EDITOR VISUAL SUDO_EDITOR PAGER MANPAGER BROWSER
 
 # F   - exit if content fits on one screen
+# M   - show line numbers in prompt
 # R   - output ANSI colors
 # X   - don't clear screen on exit
 # j.5 - center search results
 # q   - quiet, visual bell
-LESS="FRXj.5q"
+LESS="FMRXj.5q"
 LESSHISTFILE=-
 export LESS LESSHISTFILE
 
