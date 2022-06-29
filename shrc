@@ -96,3 +96,7 @@ p () {
   dir=$(find -H  "$HOME/code" "$HOME/git" -maxdepth 4 -name .git -type d,f -printf '%h\n' | fzy --query="$*")
   [ -n "$dir" ] && cd "$dir"
 }
+
+mg () {
+  rg --color=always "$@" | less -S
+}
