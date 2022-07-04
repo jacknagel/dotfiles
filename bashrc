@@ -111,7 +111,7 @@ _source_completion () {
 _load_completion () {
   case "$1" in
     node) _source_completion <(node --completion-bash) ;;
-    docker) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker ;;
+    docker) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion ;;
     docker-compose) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ;;
   esac
 }
