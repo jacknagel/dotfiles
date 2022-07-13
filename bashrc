@@ -67,6 +67,8 @@ fi
 
 if [ -r "$NIX_PROFILE/share/bash-completion/completions/git-prompt.sh" ]; then
   . "$NIX_PROFILE/share/bash-completion/completions/git-prompt.sh"
+elif [ -r /etc/bash-completion.d/git-prompt ]; then
+  . /etc/bash-completion.d/git-prompt
 fi
 
 # shellcheck disable=SC2034
