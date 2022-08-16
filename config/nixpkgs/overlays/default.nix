@@ -4,6 +4,7 @@ self: super:
   userPackages = super.userPackages or {} // {
     inherit (self)
       aws-vault
+      awscli2
       bash-completion
       bashInteractive_5
       certigo
@@ -44,9 +45,6 @@ self: super:
     ;
 
     texlive = super.texlive.combined.scheme-medium;
-  } // super.lib.optionalAttrs (super.stdenv.isx86_64 || !super.stdenv.isDarwin) {
-    inherit (self)
-      awscli2;
   } // {
     nix-rebuild = super.writeScriptBin "nix-rebuild" ''
       #!${super.stdenv.shell}
