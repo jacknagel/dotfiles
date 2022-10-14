@@ -6,7 +6,7 @@ self: super:
       aws-vault
       awscli2
       bash-completion
-      bashInteractive_5
+      bashInteractive
       certigo
       complete-alias
       curlFull
