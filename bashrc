@@ -127,6 +127,6 @@ if command -v terraform >/dev/null 2>&1; then
 fi
 
 if [ -r "$NIX_PROFILE/bin/complete_alias" ]; then
-  . "$NIX_PROFILE/bin/complete_alias"
-  complete -F _complete_alias "${!BASH_ALIASES[@]}"
+  . "$NIX_PROFILE/bin/complete_alias" 2>/dev/null
+  complete -F _complete_alias "${!BASH_ALIASES[@]}" 2>/dev/null
 fi
