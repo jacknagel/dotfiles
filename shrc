@@ -93,8 +93,9 @@ pemcp () {
 }
 
 p () {
-  dir=$(find -H  "$HOME/code" "$HOME/git" -maxdepth 6 -name .git -type d,f -printf '%h\n' | fzy --query="$*")
-  [ -n "$dir" ] && cd "$dir"
+  local d
+  d=$(find -H "$HOME/code" -maxdepth 6 -name .git -type d,f -printf '%h\n' | fzy --query="$*")
+  [ -n "$d" ] && cd "$d"
 }
 
 mg () {
