@@ -1,6 +1,7 @@
 scriptencoding utf-8
 
 packadd! matchit
+runtime! ftplugin/man.vim
 
 set nocompatible
 set autoindent
@@ -13,7 +14,7 @@ set complete-=i
 set completeopt=menuone,longest,preview
 set cursorline
 set dictionary+=/usr/share/dict/words
-set display=lastline
+set display=truncate
 set fillchars=vert:│,fold:·
 set formatoptions+=1rj
 set history=200
@@ -48,6 +49,7 @@ set ttimeout
 set ttimeoutlen=50
 set undodir^=~/.vim/_undo
 set undofile
+set viewoptions-=options
 set viminfo+=n~/.vim/viminfo
 set viminfo^=!
 set virtualedit+=block
@@ -103,6 +105,7 @@ let g:ale_pattern_options = {
   \}
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_extra_types = 1
+let g:is_posix = 1
 let g:markdown_fenced_languages = [
   \ 'bash=sh',
   \ 'css',
