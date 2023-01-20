@@ -105,6 +105,9 @@ let g:ale_pattern_options = {
   \}
 let g:go_fmt_command = 'goimports'
 let g:go_highlight_extra_types = 1
+let g:html_indent_inctags = 'dd,dt,p'
+let g:html_indent_script1 = 'inc'
+let g:html_indent_style1  = 'inc'
 let g:is_posix = 1
 let g:markdown_fenced_languages = [
   \ 'bash=sh',
