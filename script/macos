@@ -184,10 +184,5 @@ defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
 ## Disable "Safari Suggestions" in search
 defaults write com.apple.Safari UniversalSearchEnabled -bool false
 
-# TweetBot
-
-## Bypass "t.co" links
-defaults write com.tapbots.Tweetbot3Mac OpenURLsDirectly -bool true
-
 # Reboot, allow cancellation
 osascript -e 'tell app "loginwindow" to «event aevtrrst»'
