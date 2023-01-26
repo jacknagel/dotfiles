@@ -111,6 +111,7 @@ _load_completion () {
     node) _source_completion <(node --completion-bash) ;;
     docker) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion ;;
     docker-compose) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ;;
+    op) _source_completion <(op completion bash) ;;
   esac
 }
 
@@ -124,6 +125,10 @@ fi
 
 if command -v terraform >/dev/null 2>&1; then
   complete -C terraform terraform
+fi
+
+if command -v op >/dev/null 2>&1; then
+  complete -F _load_completion -o bashdefault -o default op
 fi
 
 if [ -r "$NIX_PROFILE/bin/complete_alias" ]; then
