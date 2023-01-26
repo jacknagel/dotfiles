@@ -3,7 +3,6 @@ self: super:
 {
   userPackages = super.userPackages or {} // {
     inherit (self)
-      _1password
       aws-vault
       awscli2
       bash-completion
