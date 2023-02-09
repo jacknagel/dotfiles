@@ -64,7 +64,7 @@ set winwidth=80
 set statusline=[%n]                 " buffer number
 set statusline+=%(\ %.120f\ %)      " relative path to file
 set statusline+=%h%w%m%r%y          " help|preview|modified|readonly|filetype
-set statusline+=%{FugitiveStatusline()}
+if exists('*FugitiveStatusline') | set statusline+=%{FugitiveStatusline()} | endif
 set statusline+=%=                  " l-r separator
 set statusline+=%-10.(0x%B%)        " hex value of character under cursor
 set statusline+=%-15.(%l,%c%V%)\ %P " line#,col#-vcol# %
@@ -177,7 +177,7 @@ nnoremap yol :setlocal invlist<CR>
 nnoremap yow :setlocal invwrap<CR>
 
 nnoremap <silent> cd
-  \ :if !empty(FugitiveGitDir())<Bar>
+  \ :if exists('*FugitiveGitDir') && !empty(FugitiveGitDir())<Bar>
   \   Glcd<Bar>
   \ else<Bar>
   \   lcd %:h<Bar>
