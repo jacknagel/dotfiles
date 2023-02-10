@@ -88,10 +88,6 @@ krun () {
   kubectl run -it --rm --restart=Never --image=public.ecr.aws/jacknagel/debug:latest "$(generate-name)" -- "${@:-bash}"
 }
 
-pemcp () {
-  find ~/.ssh -name '*.pem' | fzy --query="$*" | xargs cat | pbcopy
-}
-
 p () {
   local d
   d=$(find -H "$HOME/code" -maxdepth 6 -name .git -type d,f -printf '%h\n' | fzy --query="$*")
