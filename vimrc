@@ -220,4 +220,6 @@ augroup vimrc
   autocmd FocusLost * silent! wall
 augroup END
 
-silent! source ~/.vimrc.local
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
