@@ -103,7 +103,6 @@ let g:ale_pattern_options = {
   \ '/node_modules/': { 'ale_enabled': 0 },
   \ '\.go$': { 'ale_enabled': 0 },
   \}
-let g:go_fmt_command = 'goimports'
 let g:go_highlight_extra_types = 1
 let g:html_indent_inctags = 'dd,dt,p'
 let g:html_indent_script1 = 'inc'
