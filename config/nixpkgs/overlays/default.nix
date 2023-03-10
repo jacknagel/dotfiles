@@ -14,6 +14,7 @@ self: super:
       dive
       editorconfig-core-c
       fd
+      ffmpeg
       findutils
       fzy
       gettext
@@ -29,6 +30,7 @@ self: super:
       kubectx
       kustomize
       less
+      mkvtoolnix
       nodejs-18_x
       packer
       ripgrep
