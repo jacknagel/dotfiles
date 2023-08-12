@@ -25,6 +25,12 @@ bootstrap_vim () {
   script/vim-packages
 }
 
+bootstrap_cache() {
+  mkdir -p ~/.cache
+  xattr -w com.apple.metadata:com_apple_backup_excludeItem com.apple.backupd ~/.cache
+}
+
+bootstrap_cache
 bootstrap_git
 bootstrap_vim
 script/link
