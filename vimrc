@@ -169,6 +169,7 @@ nnoremap <silent> gs :set operatorfunc=<SID>sort_opfunc<CR>g@
 xnoremap <silent> gs :sort<CR>
 
 noremap gy "*y
+noremap gY "*y$
 
 nnoremap [q :cprev<CR>
 nnoremap ]q :cnext<CR>
