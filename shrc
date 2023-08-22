@@ -68,6 +68,7 @@ esac
 
 redis-cli () {
   docker run -it --rm \
+    --pull=missing \
     --log-driver none \
     redis:alpine \
     redis-cli "$@"
@@ -75,6 +76,7 @@ redis-cli () {
 
 skeema () {
   docker run -it --rm \
+    --pull=missing \
     --log-driver none \
     --mount "type=bind,src=$(pwd),dst=/work" \
     --mount "type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock" \
