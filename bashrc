@@ -69,6 +69,11 @@ if [ -r "$NIX_PROFILE/share/bash-completion/completions/git-prompt.sh" ]; then
   . "$NIX_PROFILE/share/bash-completion/completions/git-prompt.sh"
 elif [ -r /etc/bash_completion.d/git-prompt ]; then
   . /etc/bash_completion.d/git-prompt
+else
+  git_prompt_path=$(xcode-select -print-path 2>/dev/null)/usr/share/git-core/git-prompt.sh
+  if [ -r "$git_prompt_path" ]; then
+    . "$git_prompt_path"
+  fi
 fi
 
 # shellcheck disable=SC2034
