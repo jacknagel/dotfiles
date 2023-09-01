@@ -33,6 +33,7 @@ self: super:
       mkvtoolnix
       nodejs-18_x
       packer
+      par2cmdline
       ripgrep
       shellcheck
       shfmt
