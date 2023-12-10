@@ -27,7 +27,12 @@ bootstrap_vim () {
 
 bootstrap_cache() {
   mkdir -p ~/.cache
-  xattr -w com.apple.metadata:com_apple_backup_excludeItem com.apple.backupd ~/.cache
+
+  case "$OSTYPE" in
+    darwin*)
+      xattr -w com.apple.metadata:com_apple_backup_excludeItem com.apple.backupd ~/.cache
+      ;;
+  esac
 }
 
 bootstrap_cache
