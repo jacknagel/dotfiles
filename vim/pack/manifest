@@ -1,6 +1,7 @@
 git@github.com:LnL7/vim-nix
 git@github.com:dense-analysis/ale
 git@github.com:fatih/vim-go
+git@github.com:github/copilot.vim opt
 git@github.com:godlygeek/tabular
 git@github.com:google/vim-jsonnet
 git@github.com:hashivim/vim-terraform
