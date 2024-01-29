@@ -30,7 +30,7 @@ self: super:
       kustomize
       less
       mkvtoolnix
-      nodejs-18_x
+      nodejs_20
       packer
       par2cmdline
       ripgrep
@@ -43,6 +43,7 @@ self: super:
       vim
       watch
       yamllint
+      yarn
       youtube-dl
     ;
 
