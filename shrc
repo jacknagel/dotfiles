@@ -36,6 +36,7 @@ alias tree="tree -ACFIa .git --dirsfirst"
 alias vi="vim"
 alias rfc3339="date -u '+%Y-%m-%dT%H:%M:%SZ'"
 alias nobackup="xattr -w com.apple.metadata:com_apple_backup_excludeItem com.apple.backupd"
+alias fetch="curl --remote-name-all --remote-header-name"
 
 sudo () {
   case "$1" in
