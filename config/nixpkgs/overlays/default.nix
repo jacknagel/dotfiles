@@ -31,6 +31,7 @@ self: super:
       kustomize
       less
       mkvtoolnix
+      mysql-client
       nodejs_20
       packer
       par2cmdline
