@@ -7,5 +7,5 @@
 *.zip         diff=zip
 Gemfile.lock  merge=bundle
 go.sum merge=union
-npm-shrinkwrap.json merge=npm-merge-driver
-package-lock.json merge=npm-merge-driver
+# npm-shrinkwrap.json merge=npm-merge-driver
+# package-lock.json merge=npm-merge-driver
