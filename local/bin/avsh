@@ -11,6 +11,4 @@ else
   profile=$(aws-vault list --profiles | fzy --query="$*")
 fi
 
-pw=$(op item get "aws-vault Keychain" --fields label=password)
-security unlock-keychain -p "$pw" aws-vault.keychain-db
 exec aws-vault exec "$profile"
