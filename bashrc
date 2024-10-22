@@ -38,7 +38,6 @@ BROWSER="open"
 export EDITOR VISUAL SUDO_EDITOR PAGER MANPAGER BROWSER
 
 CDPATH=$HOME/code
-export CDPATH
 
 # F   - exit if content fits on one screen
 # M   - show line numbers in prompt
