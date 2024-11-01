@@ -10,6 +10,7 @@ self: super:
       bashInteractive
       certigo
       complete-alias
+      curlFull
       direnv
       dive
       editorconfig-core-c
@@ -32,7 +33,7 @@ self: super:
       less
       mkvtoolnix
       mysql-client
-      nodejs_20
+      nodejs_22
       packer
       par2cmdline
       ripgrep
