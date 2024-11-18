@@ -47,7 +47,6 @@ self: super:
       watch
       yamllint
       yarn
-      youtube-dl
     ;
 
     texlive = super.texlive.combined.scheme-medium;
