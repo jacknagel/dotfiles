@@ -27,6 +27,7 @@ set noequalalways
 set nojoinspaces
 set nolangremap
 set nrformats-=octal
+set nrformats+=unsigned
 set number
 set numberwidth=3
 set report=0
