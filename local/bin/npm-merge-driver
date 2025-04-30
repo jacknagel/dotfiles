@@ -1,0 +1,18 @@
+#!/bin/sh
+
+set -eu
+
+current=$1
+ancestor=$2
+other=$3
+file=$4
+
+git merge-file -p "$current" "$ancestor" "$other" >"$file"
+(cd "$(dirname "$file")" && npm install --package-lock-only --prefer-offline --no-audit --progress=false)
+
+if [ $? -ne 0 ]; then
+  echo >&2 "Failed to merge $file. Resolve conflicts in package.json, then run npm install --package-lock-only"
+  exit 1
+fi
+
+cp "$file" "$current"

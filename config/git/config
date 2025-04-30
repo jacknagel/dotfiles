@@ -97,7 +97,7 @@
 	driver = bundle
 [merge "npm-merge-driver"]
 	name = automatically merge npm lockfiles
-	driver = npm install --package-lock-only
+	driver = npm-merge-driver %A %O %B %P
 [pager]
 	; +X - clear the screen on exit
 	; -S - don't wrap long lines
