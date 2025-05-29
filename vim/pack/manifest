@@ -6,6 +6,7 @@ git@github.com:godlygeek/tabular
 git@github.com:google/vim-jsonnet
 git@github.com:hashivim/vim-terraform
 git@github.com:leafgarland/typescript-vim
+git@github.com:shumphrey/fugitive-gitlab.vim
 git@github.com:tpope/vim-apathy
 git@github.com:tpope/vim-commentary
 git@github.com:tpope/vim-endwise

@@ -169,6 +169,9 @@ endfunction
 nnoremap <silent> gs :set operatorfunc=<SID>sort_opfunc<CR>g@
 xnoremap <silent> gs :sort<CR>
 
+nnoremap <silent> gb :GBrowse<CR>
+xnoremap <silent> gb :GBrowse<CR>
+
 noremap gy "*y
 noremap gY "*y$
 
