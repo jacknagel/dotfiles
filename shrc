@@ -87,17 +87,6 @@ skeema () {
     "$@"
 }
 
-keytool () {
-  docker run -it --rm \
-    --pull=missing \
-    --log-driver=none \
-    --mount "type=bind,src=$(pwd),dst=/work" \
-    --workdir /work \
-    amazoncorretto:17-alpine \
-    keytool \
-    "$@"
-}
-
 krun () {
   kubectl run -it --rm --restart=Never --image=public.ecr.aws/jacknagel/debug:latest "$(generate-name)" -- "${@:-bash}"
 }
