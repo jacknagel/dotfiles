@@ -114,7 +114,6 @@ let g:markdown_fenced_languages = [
   \ 'css',
   \ 'go',
   \ 'html',
-  \ 'java',
   \ 'javascript',
   \ 'js=javascript',
   \ 'json',
