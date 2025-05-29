@@ -44,22 +44,16 @@ defaults write -g NSWindowShouldDragOnGesture -bool true
 # Dock
 
 ## Size
-defaults write com.apple.dock tilesize -int 32
+defaults write com.apple.dock tilesize -int 48
 
 ## Magnification
 defaults write com.apple.dock magnification -bool false
 
 ## Position on screen
-defaults write com.apple.dock orientation -string left
+defaults write com.apple.dock orientation -string bottom
 
 ## Minimize windows using
 defaults write com.apple.dock mineffect -string scale
-
-## Prefer tabs when opening documents in fullscreen
-defaults write -g AppleWindowTabbingMode -string fullscreen
-
-## Double-click a window's title bar to zoom
-defaults write -g AppleActionOnDoubleClick -string Maximize
 
 ## Minimize windows into application icon
 defaults write com.apple.dock minimize-to-application -bool false
@@ -89,7 +83,6 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 ## New Finder windows show home folder
 defaults write com.apple.finder NewWindowTarget -string PfHm
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
 ## Open folders in tabs intead of windows
 defaults write com.apple.finder FinderSpawnTab -bool true
@@ -168,9 +161,6 @@ defaults write -g NSAutomaticDashSubstitutionEnabled -bool true
 defaults write -g NSAutomaticQuoteSubstitutionEnabled -bool true
 
 # Safari
-
-## Enable debug menu
-defaults write -app Safari IncludeInternalDebugMenu -bool true
 
 ## Enable Develop menu
 defaults write -app Safari IncludeDevelopMenu -bool true
