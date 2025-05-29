@@ -50,9 +50,6 @@ self: super:
     ;
 
     texlive = super.texlive.combined.scheme-medium;
-  } // super.lib.optionalAttrs (super.stdenv.isx86_64 || !super.stdenv.isDarwin) {
-    inherit (self)
-    curlFull;
   } // {
     nix-rebuild = super.writeScriptBin "nix-rebuild" ''
       #!${super.stdenv.shell}
