@@ -103,34 +103,17 @@ _prompt_command () {
 }
 PROMPT_COMMAND=_prompt_command
 
-_source_completion () {
-  local aliases
-  aliases=$(alias)
-  unalias -a
-  . "$1" >/dev/null 2>&1 || return 1
-  eval "$aliases"
+_load_completion () {
+  case "$1" in
+    docker) . <(docker completion bash) ;;
+    op) . <(op completion bash) ;;
+  esac
+
   return 124
 }
 
-_load_completion () {
-  case "$1" in
-    node) _source_completion <(node --completion-bash) ;;
-    docker) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker.bash-completion ;;
-    docker-compose) _source_completion /Applications/Docker.app/Contents/Resources/etc/docker-compose.bash-completion ;;
-    op) _source_completion <(op completion bash) ;;
-  esac
-}
-
-if [ -d "/Applications/Docker.app" ]; then
+if command -v docker >/dev/null 2>&1; then
   complete -F _load_completion -o bashdefault -o default docker docker-compose
-fi
-
-if command -v node >/dev/null 2>&1; then
-  complete -F _load_completion -o bashdefault -o default node
-fi
-
-if command -v terraform >/dev/null 2>&1; then
-  complete -C terraform terraform
 fi
 
 if command -v op >/dev/null 2>&1; then
