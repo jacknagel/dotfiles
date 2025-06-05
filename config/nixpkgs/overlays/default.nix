@@ -24,7 +24,7 @@ self: super:
       git-lfs
       gitFull
       gnugrep
-      go_1_23
+      go_1_24
       graphviz
       jq
       kubectl
