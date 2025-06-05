@@ -209,9 +209,7 @@ nnoremap <expr> gl <SID>JumpToLastCursorPosition()
 augroup vimrc
   autocmd!
   autocmd BufNewFile,BufReadPost *.log{,.[0-9]*} setlocal readonly bufhidden=unload buftype=nowrite noundofile nowrap
-  autocmd BufNewFile,BufReadPost */.kube/config setlocal ft=yaml
   autocmd BufNewFile,BufReadPost */node_modules/* setlocal readonly
-  autocmd BufNewFile,BufReadPost .npmignore setlocal ft=conf
   autocmd BufWritePost */spell/*.add silent! mkspell! <afile>
   autocmd BufWritePre /tmp/*,$TMPDIR/*,/{private,var,private/var}/tmp/*,/{var,private/var}/folders/* setlocal noundofile
   autocmd CursorHoldI * silent! call feedkeys("\<C-G>u", "nt")
