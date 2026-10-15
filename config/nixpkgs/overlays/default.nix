@@ -19,21 +19,24 @@ self: super:
       findutils
       fzy
       gettext
+      gh
       gist
       git-absorb
       git-lfs
+      github-copilot-cli
       gitFull
       gnugrep
-      go_1_24
+      go_1_27
       graphviz
       jq
       kubectl
       kubectx
+      kubernetes-helm
       kustomize
       less
       mkvtoolnix
       mysql-client
-      nodejs_22
+      nodejs_24
       packer
       par2cmdline
       ripgrep
