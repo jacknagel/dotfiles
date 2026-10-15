@@ -92,9 +92,9 @@ krun () {
 }
 
 p () {
-  local d
-  d=$(find -H "$HOME/code" -maxdepth 6 -name .git -type d,f -printf '%h\n' | fzy --query="$*")
-  [ -n "$d" ] && cd "$d"
+  local d r="$HOME/code/"
+  d=$(find -H "$r" -maxdepth 6 -name .git -type d,f -printf '%h\n' | sed "s|$r||" | fzy --query="$*")
+  [ -n "$d" ] && cd "$r$d"
 }
 
 mg () {
