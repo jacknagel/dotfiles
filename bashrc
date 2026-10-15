@@ -74,6 +74,7 @@ else
   if [ -r "$git_prompt_path" ]; then
     . "$git_prompt_path"
   fi
+  . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 fi
 
 # shellcheck disable=SC2034
