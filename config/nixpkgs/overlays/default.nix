@@ -25,8 +25,10 @@ self: super:
       git-lfs
       github-copilot-cli
       gitFull
+      glab
       gnugrep
       go_1_27
+      gomplate
       graphviz
       jq
       kubectl
