@@ -92,8 +92,14 @@ krun () {
 }
 
 p () {
-  local d r="$HOME/code/"
-  d=$(find -H "$r" -maxdepth 6 -name .git -type d,f -printf '%h\n' | sed "s|$r||" | fzy --query="$*")
+  local d all matches r="$HOME/code/"
+  all=$(find -H "$r" -maxdepth 6 -name .git -type d,f -printf '%h\n' | sed "s|$r||")
+  matches=$(printf '%s\n' "$all" | fzy --show-matches="$*")
+  if [ -n "$matches" ] && [ "$(printf '%s\n' "$matches" | wc -l)" -eq 1 ]; then
+    d=$matches
+  else
+    d=$(printf '%s\n' "$all" | fzy --query="$*")
+  fi
   [ -n "$d" ] && cd "$r$d"
 }
 
