@@ -12,3 +12,7 @@ Sessionx.vim
 [._]sw[a-p]
 [._]*.un~
 tags
+
+.claude/*.local.json
+.claude/**/*.log
+CLAUDE.local.md
