@@ -97,10 +97,16 @@ else
 fi
 
 _prompt_command () {
+  local status=$?
+  # If the previous output didn't end in a newline, mark it and move to a fresh line
+  printf '\e[7m%%\e[0m%*s\r' "$((COLUMNS - 1))" ''
+
   local template='_set_ps1 "{{ title "\\w" }}{{ user | suffix " " }}{{ aws | parens | suffix " " }}{{ kubeconfig | parens | suffix " " }}{{ nixshell | parens | suffix " "}}{{ pwd }}" " {{ promptchar }} " " {{ parens "%s" }}"'
   eval "$(prompt-template "$template" 2>/dev/null)"
 
   history -a
+
+  return "$status"
 }
 PROMPT_COMMAND=_prompt_command
 
