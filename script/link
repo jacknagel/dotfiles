@@ -4,6 +4,7 @@ set -eu
 files='
   bash_profile
   bashrc
+  claude/settings.json
   config/git
   config/lesskey
   config/nixpkgs

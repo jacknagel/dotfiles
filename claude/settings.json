@@ -1,0 +1,29 @@
+{
+  "env": {
+    "CLAUDE_CODE_DISABLE_ARTIFACT": "1"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "model": "claude-sonnet-5.5",
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline-command.sh"
+  },
+  "promptSuggestionEnabled": false,
+  "autoUpdatesChannel": "stable",
+  "minimumVersion": "2.1.292",
+  "tui": "default",
+  "theme": "auto",
+  "preferredNotifChannel": "iterm2",
+  "switchModelsOnFlag": true,
+  "awaySummaryEnabled": false,
+  "prefersReducedMotion": true,
+  "spinnerVerbs": {
+    "mode": "replace",
+    "verbs": [
+      "Working"
+    ]
+  }
+}
